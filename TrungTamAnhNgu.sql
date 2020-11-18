@@ -283,7 +283,7 @@ GO
 ---------------------------------------------------------------------------------------------------------
 --hàm kiểm tra đăng nhập
 --input: TaiKhoan, MatKhau
---output: 5(sai tài khoản hoặc mật khẩu), 1:Admin , 2:nhân viên, 3:Giáo viên, 4:học viên
+--output: 5 sai tài khoản hoặc mật khẩu, 1:Admin , 2:nhân viên, 3:Giáo viên, 4:học viên
 CREATE FUNCTION KienTraDangNhap(@TaiKhoan VARCHAR(32), @MatKhau VARCHAR(32))
 RETURNS INT
 AS
