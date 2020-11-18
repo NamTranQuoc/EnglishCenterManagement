@@ -95,28 +95,7 @@ GO
 ----------------------------------------------------------------------------------------------------------------------
 --hàm lấy ra ngày lớn nhất của lịch học
 --input: 0: admin, nhân viên(tất cả thời khóa biểu), các số còn lại là thời khóa biểu ứng với account
-CREATE FUNCTION NgayLonNhatCuaLichHoc (@Ma INT)
-RETURNS DATE
-AS
-BEGIN
-	DECLARE @date DATE
-	IF (@Ma = 0)
-	BEGIN
-		SELECT @date = MAX(NgayHoc) 
-		FROM dbo.LichHoc
-	END
-    ELSE
-	BEGIN
-		SELECT @date = MAX(NgayHoc)
-		FROM dbo.LichHoc INNER JOIN dbo.DangKy
-		ON DangKy.MaLop = LichHoc.MaLop
-		WHERE MaGiaoVien = @Ma
-		OR MaHocVien = @Ma
-	END
-	SET @date = DATEADD(DAY, 7 - DATEPART(dw, @date), @date) 
-	RETURN @date
-END
-GO
+
 
 ----------------------------------------------------------------------------------------------------------------------
 --hàm mã hóa MD5 (đâu vào là password nhập vào, đầu ra là password đã mã hóa)
@@ -230,7 +209,8 @@ AS
 BEGIN
 	DECLARE @max INT
 	SET @max = CASE @NameTable
-		WHEN 'User' THEN (SELECT MAX(TaiKhoan) FROM dbo.Account)--giáo viên, học viên, nhân viên
+		WHEN 'GiaoVien' THEN (SELECT MAX(TaiKhoan) FROM dbo.Account)
+		WHEN 'HocVien' THEN (SELECT MAX(TaiKhoan) FROM dbo.Account)
 		WHEN 'KhoaHoc' THEN (SELECT MAX(MaKhoaHoc) FROM dbo.KhoaHoc)
 		WHEN 'LopHoc' THEN (SELECT MAX(MaLop) FROM dbo.LopHoc)
 		WHEN 'PhongHoc' THEN (SELECT MAX(IDPhong) FROM dbo.PhongHoc)
@@ -259,11 +239,10 @@ GO
 CREATE FUNCTION LichDayTheoGiangVien (@MaGiangVien INT)
 RETURNS TABLE
 AS
-	RETURN SELECT LichHoc.MaLop, Buoi, TenPhong, NgayHoc, CaHoc
-		   FROM dbo.LopHoc, dbo.LichHoc, dbo.PhongHoc
-		   WHERE LichHoc.MaLop = LopHoc.MaLop
-		   AND MaGiaoVien = @MaGiangVien
-		   AND IDPhong = Phong
+	RETURN SELECT MaLop, Buoi, Phong, NgayHoc
+		   FROM dbo.GiaoVien INNER JOIN dbo.LichHoc
+		   ON LichHoc.MaGiaoVien = GiaoVien.MaGiaoVien
+		   WHERE GiaoVien.MaGiaoVien = @MaGiangVien
 GO
 
 ----------------------------------------------------------------------------------------------------------------
@@ -272,13 +251,11 @@ GO
 CREATE FUNCTION LichHocTheoHocVien(@MaHocVien INT)
 RETURNS TABLE
 AS
-	RETURN SELECT LichHoc.MaLop, LichHoc.Buoi, TenPhong, LichHoc.NgayHoc, CaHoc
-		   FROM HocVien, DangKy, LichHoc, LopHoc, dbo.PhongHoc
+	RETURN SELECT LichHoc.MaLop,LichHoc.Buoi,LichHoc.Phong,LichHoc.NgayHoc
+		   FROM HocVien,DangKy,LichHoc
 		   WHERE DangKy.MaHocVien = @MaHocVien
 		   AND DangKy.MaLop = LichHoc.MaLop
 		   AND DangKy.MaHocVien = HocVien.MaHocVien
-		   AND LopHoc.MaLop = LichHoc.MaLop
-		   AND IDPhong = Phong
 GO
 ---------------------------------------------------------------------------------------------------------
 --hàm kiểm tra đăng nhập
@@ -516,19 +493,6 @@ BEGIN
 	SET MatKhau = @pass
 	WHERE IDTaiKhoan = @id
 END
-GO
-
-----------------------------------------------------------------------------------------------------------------------------------------------
---View
-----------------------------------------------------------------------------------------------------------------------------------------------
---lịch của tất cả khóa học
-CREATE VIEW Lich_
-AS
-	SELECT LichHoc.MaLop, Buoi, TenPhong, NgayHoc, HoTen, CaHoc
-	FROM dbo.LichHoc, dbo.LopHoc, dbo.PhongHoc, dbo.GiaoVien
-	WHERE LopHoc.MaLop = LichHoc.MaLop
-	AND Phong = IDPhong
-	AND GiaoVien.MaGiaoVien = LichHoc.MaGiaoVien
 GO
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
