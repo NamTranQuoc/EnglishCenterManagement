@@ -51,6 +51,7 @@
     <Compile Include="BS_Layer\Classes.cs" />
     <Compile Include="BS_Layer\Expenses.cs" />
     <Compile Include="BS_Layer\Guest.cs" />
+    <Compile Include="BS_Layer\Login_Signup.cs" />
     <Compile Include="BS_Layer\MakeUpClass.cs" />
     <Compile Include="BS_Layer\Non_TeacherStaff.cs" />
     <Compile Include="BS_Layer\Reports.cs" />

@@ -30,10 +30,10 @@ namespace ProjectHQTCSDL.View.Dashboard
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pUserControl = new System.Windows.Forms.Panel();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -47,6 +47,21 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(225, 756);
             this.panel1.TabIndex = 3;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BackgroundImage = global::ProjectHQTCSDL.Properties.Resources.login;
+            this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(20, 674);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(181, 41);
+            this.btnLogout.TabIndex = 3;
+            this.btnLogout.Text = "Login";
+            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // panel2
             // 
@@ -75,20 +90,6 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.pUserControl.Size = new System.Drawing.Size(1233, 674);
             this.pUserControl.TabIndex = 5;
             // 
-            // btnLogout
-            // 
-            this.btnLogout.BackgroundImage = global::ProjectHQTCSDL.Properties.Resources.login;
-            this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(20, 674);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(181, 41);
-            this.btnLogout.TabIndex = 3;
-            this.btnLogout.Text = "Login";
-            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLogout.UseVisualStyleBackColor = true;
-            // 
             // fGuestDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -98,8 +99,9 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pUserControl);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fGuestDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Guest";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

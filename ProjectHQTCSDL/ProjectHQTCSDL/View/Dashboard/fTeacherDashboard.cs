@@ -13,6 +13,7 @@ namespace ProjectHQTCSDL.View.Dashboard
 {
     public partial class fTeacherDashboard : Form
     {
+        public int IDUser;
         public fTeacherDashboard()
         {
             InitializeComponent();

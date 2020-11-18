@@ -420,6 +420,7 @@ namespace ProjectHQTCSDL.View.Login
             this.ForeColor = System.Drawing.Color.White;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "fSignUp";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SignUp";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

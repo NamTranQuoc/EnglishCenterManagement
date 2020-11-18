@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectHQTCSDL.BS_Layer;
+using ProjectHQTCSDL.View.Login;
 
 namespace ProjectHQTCSDL.View.Dashboard
 {
@@ -16,6 +17,12 @@ namespace ProjectHQTCSDL.View.Dashboard
         public fGuestDashboard()
         {
             InitializeComponent();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            fLogin log = new fLogin();
+            log.ShowDialog();
         }
     }
 }
