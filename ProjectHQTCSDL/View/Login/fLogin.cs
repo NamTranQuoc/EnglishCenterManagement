@@ -1,0 +1,63 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using ProjectHQTCSDL.BS_Layer;
+using ProjectHQTCSDL.View.Dashboard;
+
+namespace ProjectHQTCSDL.View.Login
+{
+    public partial class fLogin : Form
+    {
+        Login_Signup log;
+        public fLogin()
+        {
+            InitializeComponent();
+            log = new Login_Signup();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            int TypeUser = log.CheckLogin(txtUserName.Text, txtPassword.Text);
+            switch (TypeUser)
+            {
+                case 1:
+                    fAdminDashboard f1 = new fAdminDashboard();
+                    f1.ShowDialog();
+                    break;
+                case 2:
+                    fEmployeeDashboard f2 = new fEmployeeDashboard();
+                    f2.ShowDialog();
+                    break;
+                case 3:
+                    fTeacherDashboard f3 = new fTeacherDashboard();
+                    f3.IDUser = log.GetID(txtUserName.Text);
+                    f3.ShowDialog();
+                    break;
+                case 4:
+                    fStudentDashboard f4 = new fStudentDashboard();
+                    f4.IDUser = log.GetID(txtUserName.Text);
+                    f4.ShowDialog();
+                    break;
+                default:
+                    this.lbIncorrect.Show();
+                    break;
+            }    
+        }
+
+        private void fLogin_Load(object sender, EventArgs e)
+        {
+            this.lbIncorrect.Hide();
+        }
+
+        private void txtUserName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.lbIncorrect.Hide();
+        }
+    }
+}
