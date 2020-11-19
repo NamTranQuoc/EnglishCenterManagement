@@ -139,30 +139,6 @@
     <Compile Include="Usercontrol\YourInformation_UserControl.Designer.cs">
       <DependentUpon>YourInformation_UserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AddItem\fAddClass.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\AddItem\fAddClass.Designer.cs">
-      <DependentUpon>fAddClass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\AddItem\fAddCourse.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\AddItem\fAddCourse.Designer.cs">
-      <DependentUpon>fAddCourse.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\AddItem\fAddStudent.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\AddItem\fAddStudent.Designer.cs">
-      <DependentUpon>fAddStudent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\AddItem\fAddTeacher.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\AddItem\fAddTeacher.Designer.cs">
-      <DependentUpon>fAddTeacher.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Dashboard\fAdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,18 +168,6 @@
     </Compile>
     <Compile Include="View\Dashboard\fTeacherDashboard.Designer.cs">
       <DependentUpon>fTeacherDashboard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\EditItem\fEditClass.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\EditItem\fEditClass.Designer.cs">
-      <DependentUpon>fEditClass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\EditItem\fEditCourse.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\EditItem\fEditCourse.Designer.cs">
-      <DependentUpon>fEditCourse.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -268,18 +232,6 @@
     <EmbeddedResource Include="Usercontrol\YourInformation_UserControl.resx">
       <DependentUpon>YourInformation_UserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AddItem\fAddClass.resx">
-      <DependentUpon>fAddClass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\AddItem\fAddCourse.resx">
-      <DependentUpon>fAddCourse.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\AddItem\fAddStudent.resx">
-      <DependentUpon>fAddStudent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\AddItem\fAddTeacher.resx">
-      <DependentUpon>fAddTeacher.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Dashboard\fAdminDashboard.resx">
       <DependentUpon>fAdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -294,12 +246,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Dashboard\fTeacherDashboard.resx">
       <DependentUpon>fTeacherDashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\EditItem\fEditClass.resx">
-      <DependentUpon>fEditClass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\EditItem\fEditCourse.resx">
-      <DependentUpon>fEditCourse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Login\fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
