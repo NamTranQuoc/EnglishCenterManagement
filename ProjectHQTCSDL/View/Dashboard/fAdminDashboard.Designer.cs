@@ -200,6 +200,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnSchedule.Text = "Schedule";
             this.btnSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSchedule.UseVisualStyleBackColor = true;
+            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
             // 
             // fAdminDashboard
             // 

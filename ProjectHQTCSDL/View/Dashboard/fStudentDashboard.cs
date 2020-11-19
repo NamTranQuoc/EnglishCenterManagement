@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectHQTCSDL.BS_Layer;
+using ProjectHQTCSDL.Usercontrol;
 
 namespace ProjectHQTCSDL.View.Dashboard
 {
@@ -17,6 +18,13 @@ namespace ProjectHQTCSDL.View.Dashboard
         public fStudentDashboard()
         {
             InitializeComponent();
+        }
+
+        private void btnSchedule_Click(object sender, EventArgs e)
+        {
+            Schedule_UserControl sche = new Schedule_UserControl();
+            sche.IDUser = IDUser;
+            this.pUserControl.Controls.Add(sche);
         }
     }
 }
