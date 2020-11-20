@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BS_Layer\Account.cs" />
     <Compile Include="BS_Layer\Attendance.cs" />
     <Compile Include="BS_Layer\Classes.cs" />
     <Compile Include="BS_Layer\Expenses.cs" />
@@ -301,6 +300,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cource.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -33,7 +33,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAccount = new System.Windows.Forms.Button();
+            this.btnCource = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.btnClass = new System.Windows.Forms.Button();
             this.btnStudent = new System.Windows.Forms.Button();
@@ -75,7 +75,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(39)))));
-            this.panel1.Controls.Add(this.btnAccount);
+            this.panel1.Controls.Add(this.btnCource);
             this.panel1.Controls.Add(this.btnReport);
             this.panel1.Controls.Add(this.btnClass);
             this.panel1.Controls.Add(this.btnStudent);
@@ -89,19 +89,20 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.panel1.Size = new System.Drawing.Size(225, 756);
             this.panel1.TabIndex = 9;
             // 
-            // btnAccount
+            // btnCource
             // 
-            this.btnAccount.BackgroundImage = global::ProjectHQTCSDL.Properties.Resources.account;
-            this.btnAccount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccount.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccount.Location = new System.Drawing.Point(20, 580);
-            this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(181, 41);
-            this.btnAccount.TabIndex = 9;
-            this.btnAccount.Text = "Accounts";
-            this.btnAccount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAccount.UseVisualStyleBackColor = true;
+            this.btnCource.BackgroundImage = global::ProjectHQTCSDL.Properties.Resources.cource;
+            this.btnCource.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCource.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCource.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCource.Location = new System.Drawing.Point(20, 580);
+            this.btnCource.Name = "btnCource";
+            this.btnCource.Size = new System.Drawing.Size(181, 41);
+            this.btnCource.TabIndex = 9;
+            this.btnCource.Text = "Cources";
+            this.btnCource.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCource.UseVisualStyleBackColor = true;
+            this.btnCource.Click += new System.EventHandler(this.btnCource_Click);
             // 
             // btnReport
             // 
@@ -215,6 +216,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.Name = "fAdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
+            this.Load += new System.EventHandler(this.fAdminDashboard_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -228,7 +230,7 @@ namespace ProjectHQTCSDL.View.Dashboard
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnAccount;
+        private System.Windows.Forms.Button btnCource;
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Button btnClass;
         private System.Windows.Forms.Button btnStudent;

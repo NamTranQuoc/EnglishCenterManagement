@@ -73,9 +73,9 @@ namespace ProjectHQTCSDL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap account {
+        internal static System.Drawing.Bitmap attendance {
             get {
-                object obj = ResourceManager.GetObject("account", resourceCulture);
+                object obj = ResourceManager.GetObject("attendance", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace ProjectHQTCSDL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap attendance {
+        internal static System.Drawing.Bitmap cource {
             get {
-                object obj = ResourceManager.GetObject("attendance", resourceCulture);
+                object obj = ResourceManager.GetObject("cource", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

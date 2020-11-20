@@ -48,17 +48,11 @@ D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.St
 D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Cources_UserControl.resources
 D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Teachers_UserControl.resources
 D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.YourInformation_UserControl.resources
-D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.AddItem.fAddClass.resources
-D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.AddItem.fAddCourse.resources
-D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.AddItem.fAddStudent.resources
-D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.AddItem.fAddTeacher.resources
 D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Dashboard.fAdminDashboard.resources
 D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Dashboard.fEmployeeDashboard.resources
 D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Dashboard.fGuestDashboard.resources
 D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Dashboard.fStudentDashboard.resources
 D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Dashboard.fTeacherDashboard.resources
-D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.EditItem.fEditClass.resources
-D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.EditItem.fEditCourse.resources
 D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Login.fLogin.resources
 D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Login.fSignUp.resources
 D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.csproj.GenerateResource.cache

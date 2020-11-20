@@ -34,7 +34,6 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAccount = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.btnClass = new System.Windows.Forms.Button();
             this.btnStudent = new System.Windows.Forms.Button();
@@ -76,7 +75,6 @@ namespace ProjectHQTCSDL.View.Dashboard
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(39)))));
-            this.panel1.Controls.Add(this.btnAccount);
             this.panel1.Controls.Add(this.btnReport);
             this.panel1.Controls.Add(this.btnClass);
             this.panel1.Controls.Add(this.btnStudent);
@@ -89,20 +87,6 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(225, 756);
             this.panel1.TabIndex = 6;
-            // 
-            // btnAccount
-            // 
-            this.btnAccount.BackgroundImage = global::ProjectHQTCSDL.Properties.Resources.account;
-            this.btnAccount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccount.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccount.Location = new System.Drawing.Point(20, 500);
-            this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(181, 41);
-            this.btnAccount.TabIndex = 9;
-            this.btnAccount.Text = "Accounts";
-            this.btnAccount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAccount.UseVisualStyleBackColor = true;
             // 
             // btnReport
             // 
@@ -180,7 +164,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnInformation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnInformation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInformation.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInformation.Location = new System.Drawing.Point(20, 580);
+            this.btnInformation.Location = new System.Drawing.Point(20, 500);
             this.btnInformation.Name = "btnInformation";
             this.btnInformation.Size = new System.Drawing.Size(181, 41);
             this.btnInformation.TabIndex = 1;
@@ -235,7 +219,6 @@ namespace ProjectHQTCSDL.View.Dashboard
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnInformation;
         private System.Windows.Forms.Button btnSchedule;
-        private System.Windows.Forms.Button btnAccount;
         private System.Windows.Forms.Button btnReport;
     }
 }
