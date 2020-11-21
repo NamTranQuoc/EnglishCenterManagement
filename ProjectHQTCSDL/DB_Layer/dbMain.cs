@@ -19,7 +19,7 @@ namespace ProjectHQTCSDL.DB_Layer
             private set => instance = value;
         }
         private dbMain() { }
-        public DataTable ExcuteQuery(string query, object[] parameter = null)
+        public DataTable ExcuteQuery(string query)
         {
             DataTable data = new DataTable();
 
@@ -29,20 +29,6 @@ namespace ProjectHQTCSDL.DB_Layer
 
                 SqlCommand command = new SqlCommand(query, connection);
 
-                if (parameter != null)
-                {
-                    string[] ListPara = query.Split(' ');// cắt chuỗi theo khoảng trắng
-                    int i = 0;
-                    foreach (string item in ListPara)
-                    {
-                        if (item.Contains('@'))
-                        {
-                            command.Parameters.AddWithValue(item, parameter[i]);
-                            i++;
-                        }
-                    }
-                }
-
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
 
                 adapter.Fill(data);
@@ -51,7 +37,7 @@ namespace ProjectHQTCSDL.DB_Layer
             }
             return data;
         }
-        public int ExcuteNonQuery(string query, object[] parameter = null)
+        public int ExcuteNonQuery(string query, ref string error)
         {
             int data = 0;
 
@@ -60,28 +46,22 @@ namespace ProjectHQTCSDL.DB_Layer
                 connection.Open();
 
                 SqlCommand command = new SqlCommand(query, connection);
-
-                if (parameter != null)
+                try
                 {
-                    string[] ListPara = query.Split(' ');// cắt chuỗi theo khoảng trắng
-                    int i = 0;
-                    foreach (string item in ListPara)
-                    {
-                        if (item.Contains('@'))
-                        {
-                            command.Parameters.AddWithValue(item, parameter[i]);
-                            i++;
-                        }
-                    }
+                    data = command.ExecuteNonQuery();
                 }
-
-                data = command.ExecuteNonQuery();
-
-                connection.Close();
+                catch (SqlException e)
+                {
+                    error = e.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
             return data;
         }
-        public object ExcuteScalar(string query, object[] parameter = null)
+        public object ExcuteScalar(string query)
         {
             object data = 0;
 
@@ -90,20 +70,6 @@ namespace ProjectHQTCSDL.DB_Layer
                 connection.Open();
 
                 SqlCommand command = new SqlCommand(query, connection);
-
-                if (parameter != null)
-                {
-                    string[] ListPara = query.Split(' ');// cắt chuỗi theo khoảng trắng
-                    int i = 0;
-                    foreach (string item in ListPara)
-                    {
-                        if (item.Contains('@'))
-                        {
-                            command.Parameters.AddWithValue(item, parameter[i]);
-                            i++;
-                        }
-                    }
-                }
 
                 data = command.ExecuteScalar();
 

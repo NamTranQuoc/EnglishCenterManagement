@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="BS_Layer\Attendance.cs" />
     <Compile Include="BS_Layer\Classes.cs" />
+    <Compile Include="BS_Layer\EnrollInClass.cs" />
     <Compile Include="BS_Layer\Expenses.cs" />
     <Compile Include="BS_Layer\Guest.cs" />
     <Compile Include="BS_Layer\Login_Signup.cs" />
@@ -77,6 +78,12 @@
     </Compile>
     <Compile Include="Usercontrol\Classes_UserControl.Designer.cs">
       <DependentUpon>Classes_UserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usercontrol\EnrollInClass_UserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Usercontrol\EnrollInClass_UserControl.Designer.cs">
+      <DependentUpon>EnrollInClass_UserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Usercontrol\Expenses_UserControl.cs">
       <SubType>UserControl</SubType>
@@ -200,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Usercontrol\Classes_UserControl.resx">
       <DependentUpon>Classes_UserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usercontrol\EnrollInClass_UserControl.resx">
+      <DependentUpon>EnrollInClass_UserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usercontrol\Expenses_UserControl.resx">
       <DependentUpon>Expenses_UserControl.cs</DependentUpon>

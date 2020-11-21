@@ -121,6 +121,7 @@ namespace ProjectHQTCSDL.View.Login
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label10
             // 
@@ -174,6 +175,7 @@ namespace ProjectHQTCSDL.View.Login
             this.llbForgetPassword.TabIndex = 5;
             this.llbForgetPassword.TabStop = true;
             this.llbForgetPassword.Text = "Forget Password?";
+            this.llbForgetPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbForgetPassword_LinkClicked);
             // 
             // llbRegisterForStudent
             // 
@@ -185,6 +187,7 @@ namespace ProjectHQTCSDL.View.Login
             this.llbRegisterForStudent.TabIndex = 6;
             this.llbRegisterForStudent.TabStop = true;
             this.llbRegisterForStudent.Text = "Register for student";
+            this.llbRegisterForStudent.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbRegisterForStudent_LinkClicked);
             // 
             // lbIncorrect
             // 

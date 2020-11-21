@@ -62,3 +62,4 @@ D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.pdb
 D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\bin\Debug\ProjectHQTCSDL.exe.config
 D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\bin\Debug\ProjectHQTCSDL.exe
 D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\bin\Debug\ProjectHQTCSDL.pdb
+D:\HQTCSDL\ProjectHQTCSDL\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.EnrollInClass_UserControl.resources
