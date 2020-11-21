@@ -30,7 +30,8 @@ namespace ProjectHQTCSDL.View.Login
             {
                 if (stu.CheckUserName(txtUserName.Text))
                 {
-                    if (stu.InsertStudent(txtUserName.Text, txtPassword.Text, txtName.Text, txtPhoneNumber.Text, txtAddress.Text, txtEmail.Text, dtpBirthday.Value))
+                    string error = "";
+                    if (stu.InsertStudent(txtUserName.Text, txtPassword.Text, txtName.Text, txtPhoneNumber.Text, txtAddress.Text, txtEmail.Text, dtpBirthday.Value, ref error))
                     {
                         MessageBox.Show("Account successfully created", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         UserName = txtUserName.Text;
@@ -39,7 +40,7 @@ namespace ProjectHQTCSDL.View.Login
                     }
                     else
                     {
-                        MessageBox.Show("Account creation failed", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Account creation failed.\n" + error , "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else

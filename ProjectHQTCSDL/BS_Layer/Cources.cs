@@ -28,25 +28,25 @@ namespace ProjectHQTCSDL.BS_Layer
             return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.KhoaHoc WHERE TrangThai = 0 AND  TenKhoaHoc LIKE '%" + likeName + "%'");
         }
 
-        public bool UpdateCource (int iD, string name, int tuition)
+        public bool UpdateCource (int iD, string name, int tuition, ref string error)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("UPDATE dbo.KhoaHoc SET TenKhoaHoc=N'" + name + "', HocPhi=" + tuition + " WHERE MaKhoaHoc= " + iD + "");
+            int test = dbMain.Instance.ExcuteNonQuery("UPDATE dbo.KhoaHoc SET TenKhoaHoc=N'" + name + "', HocPhi=" + tuition + " WHERE MaKhoaHoc= " + iD + "", ref error);
             if (test > 0)
                 return true;
             return false;
         }
 
-        public bool UpdateStatus (int iD, int status)
+        public bool UpdateStatus (int iD, int status, ref string error)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("UPDATE dbo.KhoaHoc SET TrangThai = " + status + " WHERE MaKhoaHoc= " + iD + "");
+            int test = dbMain.Instance.ExcuteNonQuery("UPDATE dbo.KhoaHoc SET TrangThai = " + status + " WHERE MaKhoaHoc= " + iD + "", ref error);
             if (test > 0)
                 return true;
             return false;
         }
 
-        public bool InsertCource (int iD, string name, int no, int tuition)
+        public bool InsertCource (int iD, string name, int no, int tuition, ref string error)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("INSERT dbo.KhoaHoc (MaKhoaHoc, TenKhoaHoc, SoBuoi, HocPhi) VALUES  (" + iD + ", N'" + name + "', " + no + ", " + tuition + ")");
+            int test = dbMain.Instance.ExcuteNonQuery("INSERT dbo.KhoaHoc (MaKhoaHoc, TenKhoaHoc, SoBuoi, HocPhi) VALUES  (" + iD + ", N'" + name + "', " + no + ", " + tuition + ")", ref error);
             if (test > 0)
                 return true;
             return false;

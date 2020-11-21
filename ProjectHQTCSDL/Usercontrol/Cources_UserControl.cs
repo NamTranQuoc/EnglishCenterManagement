@@ -63,7 +63,8 @@ namespace ProjectHQTCSDL.Usercontrol
                 bool tTuition = int.TryParse(txtTuitionFee.Text, out tuition);
                 if (tNo != false && tTuition != false)
                 {
-                    bool t = cou.UpdateCource(int.Parse(txtID.Text), txtName.Text, tuition);
+                    string error = "";
+                    bool t = cou.UpdateCource(int.Parse(txtID.Text), txtName.Text, tuition, ref error);
                     if (t == true)
                     {
                         if (rbtAll.Checked == true)
@@ -75,7 +76,7 @@ namespace ProjectHQTCSDL.Usercontrol
                         MessageBox.Show("Update successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);                        
                     }
                     else
-                        MessageBox.Show("Error", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                     MessageBox.Show("Please enter a number for Number of session and Tuition fee", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -88,10 +89,11 @@ namespace ProjectHQTCSDL.Usercontrol
         private void btnHideOrAvailable_Click(object sender, EventArgs e)
         {
             bool t;
+            string error = "";
             if (btnHideOrAvailable.Text == "Hide")
-                t = cou.UpdateStatus(int.Parse(txtID.Text), 0);
+                t = cou.UpdateStatus(int.Parse(txtID.Text), 0, ref error);
             else
-                t = cou.UpdateStatus(int.Parse(txtID.Text), 1);
+                t = cou.UpdateStatus(int.Parse(txtID.Text), 1, ref error);
             if (t == true)
             {
                 if (rbtAll.Checked == true)
@@ -102,6 +104,8 @@ namespace ProjectHQTCSDL.Usercontrol
                     this.dgvListCources.DataSource = cou.GetListCources(2);
                 MessageBox.Show("Update successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            else
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -113,7 +117,8 @@ namespace ProjectHQTCSDL.Usercontrol
                 bool tTuition = int.TryParse(txtTuitionFeeNew.Text, out tuition);
                 if (tNo != false && tTuition != false)
                 {
-                    bool t = cou.InsertCource(int.Parse(txtIDNew.Text), txtNameNew.Text, no, tuition);
+                    string error = "";
+                    bool t = cou.InsertCource(int.Parse(txtIDNew.Text), txtNameNew.Text, no, tuition, ref error);
                     if (t == true)
                     {
                         if (rbtAll.Checked == true)
