@@ -81,6 +81,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.dgvListCources.Name = "dgvListCources";
             this.dgvListCources.ReadOnly = true;
             this.dgvListCources.RowHeadersVisible = false;
+            this.dgvListCources.RowHeadersWidth = 51;
             this.dgvListCources.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListCources.Size = new System.Drawing.Size(804, 636);
             this.dgvListCources.TabIndex = 0;
@@ -90,6 +91,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             this.colID.DataPropertyName = "MaKhoaHoc";
             this.colID.HeaderText = "Cource\'s ID";
+            this.colID.MinimumWidth = 6;
             this.colID.Name = "colID";
             this.colID.ReadOnly = true;
             this.colID.Width = 120;
@@ -98,6 +100,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             this.colName.DataPropertyName = "TenKhoaHoc";
             this.colName.HeaderText = "Name";
+            this.colName.MinimumWidth = 6;
             this.colName.Name = "colName";
             this.colName.ReadOnly = true;
             this.colName.Width = 280;
@@ -106,6 +109,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             this.colNoOfSessions.DataPropertyName = "SoBuoi";
             this.colNoOfSessions.HeaderText = "Number of sessions";
+            this.colNoOfSessions.MinimumWidth = 6;
             this.colNoOfSessions.Name = "colNoOfSessions";
             this.colNoOfSessions.ReadOnly = true;
             this.colNoOfSessions.Width = 200;
@@ -114,6 +118,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             this.colTuitionFee.DataPropertyName = "HocPhi";
             this.colTuitionFee.HeaderText = "Tuition fee";
+            this.colTuitionFee.MinimumWidth = 6;
             this.colTuitionFee.Name = "colTuitionFee";
             this.colTuitionFee.ReadOnly = true;
             this.colTuitionFee.Width = 200;
@@ -140,10 +145,10 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabEdit.Controls.Add(this.label3);
             this.tabEdit.Controls.Add(this.label2);
             this.tabEdit.Controls.Add(this.label1);
-            this.tabEdit.Location = new System.Drawing.Point(4, 29);
+            this.tabEdit.Location = new System.Drawing.Point(4, 31);
             this.tabEdit.Name = "tabEdit";
             this.tabEdit.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEdit.Size = new System.Drawing.Size(413, 635);
+            this.tabEdit.Size = new System.Drawing.Size(413, 633);
             this.tabEdit.TabIndex = 0;
             this.tabEdit.Text = "Edit";
             this.tabEdit.UseVisualStyleBackColor = true;
@@ -171,28 +176,28 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtID.Location = new System.Drawing.Point(166, 77);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(219, 26);
+            this.txtID.Size = new System.Drawing.Size(219, 30);
             this.txtID.TabIndex = 7;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(166, 177);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(219, 26);
+            this.txtName.Size = new System.Drawing.Size(219, 30);
             this.txtName.TabIndex = 6;
             // 
             // txtTuitionFee
             // 
             this.txtTuitionFee.Location = new System.Drawing.Point(166, 377);
             this.txtTuitionFee.Name = "txtTuitionFee";
-            this.txtTuitionFee.Size = new System.Drawing.Size(219, 26);
+            this.txtTuitionFee.Size = new System.Drawing.Size(219, 30);
             this.txtTuitionFee.TabIndex = 5;
             // 
             // txtNo
             // 
             this.txtNo.Location = new System.Drawing.Point(166, 277);
             this.txtNo.Name = "txtNo";
-            this.txtNo.Size = new System.Drawing.Size(219, 26);
+            this.txtNo.Size = new System.Drawing.Size(219, 30);
             this.txtNo.TabIndex = 4;
             // 
             // label4
@@ -200,7 +205,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(74, 380);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 20);
+            this.label4.Size = new System.Drawing.Size(107, 22);
             this.label4.TabIndex = 3;
             this.label4.Text = "Tuition fee:";
             // 
@@ -209,7 +214,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(10, 280);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 20);
+            this.label3.Size = new System.Drawing.Size(184, 22);
             this.label3.TabIndex = 2;
             this.label3.Text = "Number of sessions:";
             // 
@@ -218,7 +223,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(103, 180);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 20);
+            this.label2.Size = new System.Drawing.Size(71, 22);
             this.label2.TabIndex = 1;
             this.label2.Text = "Name:";
             // 
@@ -227,7 +232,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(72, 80);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 20);
+            this.label1.Size = new System.Drawing.Size(107, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cource\'ID:";
             // 
@@ -242,10 +247,10 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabAdd.Controls.Add(this.label6);
             this.tabAdd.Controls.Add(this.label7);
             this.tabAdd.Controls.Add(this.label8);
-            this.tabAdd.Location = new System.Drawing.Point(4, 29);
+            this.tabAdd.Location = new System.Drawing.Point(4, 31);
             this.tabAdd.Name = "tabAdd";
             this.tabAdd.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAdd.Size = new System.Drawing.Size(413, 635);
+            this.tabAdd.Size = new System.Drawing.Size(413, 633);
             this.tabAdd.TabIndex = 1;
             this.tabAdd.Text = "Add";
             this.tabAdd.UseVisualStyleBackColor = true;
@@ -264,28 +269,28 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtIDNew.Location = new System.Drawing.Point(166, 77);
             this.txtIDNew.Name = "txtIDNew";
             this.txtIDNew.ReadOnly = true;
-            this.txtIDNew.Size = new System.Drawing.Size(219, 26);
+            this.txtIDNew.Size = new System.Drawing.Size(219, 30);
             this.txtIDNew.TabIndex = 17;
             // 
             // txtNameNew
             // 
             this.txtNameNew.Location = new System.Drawing.Point(166, 177);
             this.txtNameNew.Name = "txtNameNew";
-            this.txtNameNew.Size = new System.Drawing.Size(219, 26);
+            this.txtNameNew.Size = new System.Drawing.Size(219, 30);
             this.txtNameNew.TabIndex = 16;
             // 
             // txtTuitionFeeNew
             // 
             this.txtTuitionFeeNew.Location = new System.Drawing.Point(166, 377);
             this.txtTuitionFeeNew.Name = "txtTuitionFeeNew";
-            this.txtTuitionFeeNew.Size = new System.Drawing.Size(219, 26);
+            this.txtTuitionFeeNew.Size = new System.Drawing.Size(219, 30);
             this.txtTuitionFeeNew.TabIndex = 15;
             // 
             // txtNoNew
             // 
             this.txtNoNew.Location = new System.Drawing.Point(166, 277);
             this.txtNoNew.Name = "txtNoNew";
-            this.txtNoNew.Size = new System.Drawing.Size(219, 26);
+            this.txtNoNew.Size = new System.Drawing.Size(219, 30);
             this.txtNoNew.TabIndex = 14;
             // 
             // label5
@@ -293,7 +298,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(74, 380);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 20);
+            this.label5.Size = new System.Drawing.Size(107, 22);
             this.label5.TabIndex = 13;
             this.label5.Text = "Tuition fee:";
             // 
@@ -302,7 +307,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(10, 280);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(150, 20);
+            this.label6.Size = new System.Drawing.Size(184, 22);
             this.label6.TabIndex = 12;
             this.label6.Text = "Number of sessions:";
             // 
@@ -311,7 +316,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(103, 180);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 20);
+            this.label7.Size = new System.Drawing.Size(71, 22);
             this.label7.TabIndex = 11;
             this.label7.Text = "Name:";
             // 
@@ -320,7 +325,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(72, 80);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 20);
+            this.label8.Size = new System.Drawing.Size(107, 22);
             this.label8.TabIndex = 10;
             this.label8.Text = "Cource\'ID:";
             // 
@@ -328,7 +333,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             this.txtSearch.Location = new System.Drawing.Point(69, 3);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(354, 26);
+            this.txtSearch.Size = new System.Drawing.Size(354, 30);
             this.txtSearch.TabIndex = 2;
             // 
             // rbtAll
@@ -336,7 +341,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.rbtAll.AutoSize = true;
             this.rbtAll.Location = new System.Drawing.Point(594, 4);
             this.rbtAll.Name = "rbtAll";
-            this.rbtAll.Size = new System.Drawing.Size(44, 24);
+            this.rbtAll.Size = new System.Drawing.Size(52, 26);
             this.rbtAll.TabIndex = 4;
             this.rbtAll.Text = "All";
             this.rbtAll.UseVisualStyleBackColor = true;
@@ -347,7 +352,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.rbtHide.AutoSize = true;
             this.rbtHide.Location = new System.Drawing.Point(644, 4);
             this.rbtHide.Name = "rbtHide";
-            this.rbtHide.Size = new System.Drawing.Size(60, 24);
+            this.rbtHide.Size = new System.Drawing.Size(72, 26);
             this.rbtHide.TabIndex = 5;
             this.rbtHide.Text = "Hide";
             this.rbtHide.UseVisualStyleBackColor = true;
@@ -359,7 +364,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.rbtAvailable.Checked = true;
             this.rbtAvailable.Location = new System.Drawing.Point(710, 4);
             this.rbtAvailable.Name = "rbtAvailable";
-            this.rbtAvailable.Size = new System.Drawing.Size(97, 24);
+            this.rbtAvailable.Size = new System.Drawing.Size(119, 26);
             this.rbtAvailable.TabIndex = 6;
             this.rbtAvailable.TabStop = true;
             this.rbtAvailable.Text = "Available";
@@ -371,13 +376,13 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(3, 6);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 20);
+            this.label9.Size = new System.Drawing.Size(74, 22);
             this.label9.TabIndex = 7;
             this.label9.Text = "Search";
             // 
             // Cources_UserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label9);
             this.Controls.Add(this.rbtAvailable);

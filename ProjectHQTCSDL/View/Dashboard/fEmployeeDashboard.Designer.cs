@@ -115,6 +115,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnClass.Text = "Classes";
             this.btnClass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClass.UseVisualStyleBackColor = true;
+            this.btnClass.Click += new System.EventHandler(this.btnClass_Click);
             // 
             // btnStudent
             // 
@@ -129,6 +130,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnStudent.Text = "Students";
             this.btnStudent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnStudent.UseVisualStyleBackColor = true;
+            this.btnStudent.Click += new System.EventHandler(this.btnStudent_Click);
             // 
             // btnTeacher
             // 
@@ -143,6 +145,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnTeacher.Text = "Teachers";
             this.btnTeacher.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTeacher.UseVisualStyleBackColor = true;
+            this.btnTeacher.Click += new System.EventHandler(this.btnTeacher_Click);
             // 
             // btnLogout
             // 
@@ -200,6 +203,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.Name = "fEmployeeDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee";
+            this.Load += new System.EventHandler(this.fEmployeeDashboard_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
