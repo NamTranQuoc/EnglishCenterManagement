@@ -18,5 +18,43 @@ namespace ProjectHQTCSDL.BS_Layer
                 return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.KhoaHoc WHERE TrangThai = 1");
             return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.KhoaHoc WHERE TrangThai = 0");
         }
+
+        public DataTable GetListLikeCource (int type, string likeName)
+        {
+            if (type == 0)
+                return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.KhoaHoc WHERE TenKhoaHoc LIKE '%" + likeName + "%'");
+            if (type == 1)
+                return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.KhoaHoc WHERE TrangThai = 1 AND  TenKhoaHoc LIKE '%" + likeName + "%'");
+            return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.KhoaHoc WHERE TrangThai = 0 AND  TenKhoaHoc LIKE '%" + likeName + "%'");
+        }
+
+        public bool UpdateCource (int iD, string name, int tuition)
+        {
+            int test = dbMain.Instance.ExcuteNonQuery("UPDATE dbo.KhoaHoc SET TenKhoaHoc=N'" + name + "', HocPhi=" + tuition + " WHERE MaKhoaHoc= " + iD + "");
+            if (test > 0)
+                return true;
+            return false;
+        }
+
+        public bool UpdateStatus (int iD, int status)
+        {
+            int test = dbMain.Instance.ExcuteNonQuery("UPDATE dbo.KhoaHoc SET TrangThai = " + status + " WHERE MaKhoaHoc= " + iD + "");
+            if (test > 0)
+                return true;
+            return false;
+        }
+
+        public bool InsertCource (int iD, string name, int no, int tuition)
+        {
+            int test = dbMain.Instance.ExcuteNonQuery("INSERT dbo.KhoaHoc (MaKhoaHoc, TenKhoaHoc, SoBuoi, HocPhi) VALUES  (" + iD + ", N'" + name + "', " + no + ", " + tuition + ")");
+            if (test > 0)
+                return true;
+            return false;
+        }
+
+        public int CreateID()
+        {
+            return (int)dbMain.Instance.ExcuteScalar("SELECT dbo.TaoMaTuDong('KhoaHoc')");
+        }
     }
 }
