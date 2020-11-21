@@ -101,7 +101,7 @@ namespace ProjectHQTCSDL.View.Login
             this.panel3.Location = new System.Drawing.Point(98, 205);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(276, 25);
-            this.panel3.TabIndex = 44;
+            this.panel3.TabIndex = 1;
             // 
             // label6
             // 
@@ -116,6 +116,7 @@ namespace ProjectHQTCSDL.View.Login
             // 
             this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(39)))));
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPassword.ForeColor = System.Drawing.Color.White;
             this.txtPassword.Location = new System.Drawing.Point(0, 0);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(276, 19);
@@ -129,9 +130,10 @@ namespace ProjectHQTCSDL.View.Login
             this.btnSignUp.Location = new System.Drawing.Point(531, 446);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(131, 50);
-            this.btnSignUp.TabIndex = 45;
+            this.btnSignUp.TabIndex = 8;
             this.btnSignUp.Text = "Sign up";
             this.btnSignUp.UseVisualStyleBackColor = false;
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // label11
             // 
@@ -150,9 +152,10 @@ namespace ProjectHQTCSDL.View.Login
             this.btnCancel.Location = new System.Drawing.Point(676, 446);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(131, 50);
-            this.btnCancel.TabIndex = 46;
+            this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // panel7
             // 
@@ -162,7 +165,7 @@ namespace ProjectHQTCSDL.View.Login
             this.panel7.Location = new System.Drawing.Point(98, 115);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(276, 25);
-            this.panel7.TabIndex = 48;
+            this.panel7.TabIndex = 0;
             // 
             // label10
             // 
@@ -177,6 +180,7 @@ namespace ProjectHQTCSDL.View.Login
             // 
             this.txtUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(39)))));
             this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUserName.ForeColor = System.Drawing.Color.White;
             this.txtUserName.Location = new System.Drawing.Point(0, 0);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(276, 19);
@@ -200,7 +204,7 @@ namespace ProjectHQTCSDL.View.Login
             this.panel1.Location = new System.Drawing.Point(96, 295);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(276, 25);
-            this.panel1.TabIndex = 50;
+            this.panel1.TabIndex = 2;
             // 
             // label4
             // 
@@ -215,6 +219,7 @@ namespace ProjectHQTCSDL.View.Login
             // 
             this.txtPasswordAgain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(39)))));
             this.txtPasswordAgain.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPasswordAgain.ForeColor = System.Drawing.Color.White;
             this.txtPasswordAgain.Location = new System.Drawing.Point(0, 0);
             this.txtPasswordAgain.Name = "txtPasswordAgain";
             this.txtPasswordAgain.Size = new System.Drawing.Size(276, 19);
@@ -239,7 +244,7 @@ namespace ProjectHQTCSDL.View.Login
             this.panel2.Location = new System.Drawing.Point(98, 385);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(276, 25);
-            this.panel2.TabIndex = 52;
+            this.panel2.TabIndex = 3;
             // 
             // label7
             // 
@@ -254,6 +259,7 @@ namespace ProjectHQTCSDL.View.Login
             // 
             this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(39)))));
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtName.ForeColor = System.Drawing.Color.White;
             this.txtName.Location = new System.Drawing.Point(0, 0);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(276, 19);
@@ -277,7 +283,7 @@ namespace ProjectHQTCSDL.View.Login
             this.panel4.Location = new System.Drawing.Point(531, 115);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(276, 25);
-            this.panel4.TabIndex = 54;
+            this.panel4.TabIndex = 4;
             // 
             // label9
             // 
@@ -292,6 +298,7 @@ namespace ProjectHQTCSDL.View.Login
             // 
             this.txtPhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(39)))));
             this.txtPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPhoneNumber.ForeColor = System.Drawing.Color.White;
             this.txtPhoneNumber.Location = new System.Drawing.Point(0, 0);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(276, 19);
@@ -315,7 +322,7 @@ namespace ProjectHQTCSDL.View.Login
             this.panel5.Location = new System.Drawing.Point(531, 205);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(276, 25);
-            this.panel5.TabIndex = 56;
+            this.panel5.TabIndex = 5;
             // 
             // label13
             // 
@@ -330,6 +337,7 @@ namespace ProjectHQTCSDL.View.Login
             // 
             this.txtAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(39)))));
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAddress.ForeColor = System.Drawing.Color.White;
             this.txtAddress.Location = new System.Drawing.Point(0, 0);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(276, 19);
@@ -363,7 +371,7 @@ namespace ProjectHQTCSDL.View.Login
             this.panel8.Location = new System.Drawing.Point(531, 295);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(276, 25);
-            this.panel8.TabIndex = 60;
+            this.panel8.TabIndex = 6;
             // 
             // label17
             // 
@@ -378,6 +386,7 @@ namespace ProjectHQTCSDL.View.Login
             // 
             this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(39)))));
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmail.ForeColor = System.Drawing.Color.White;
             this.txtEmail.Location = new System.Drawing.Point(0, 0);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(276, 19);
@@ -389,7 +398,7 @@ namespace ProjectHQTCSDL.View.Login
             this.dtpBirthday.Location = new System.Drawing.Point(531, 371);
             this.dtpBirthday.Name = "dtpBirthday";
             this.dtpBirthday.Size = new System.Drawing.Size(276, 26);
-            this.dtpBirthday.TabIndex = 61;
+            this.dtpBirthday.TabIndex = 7;
             // 
             // fSignUp
             // 
