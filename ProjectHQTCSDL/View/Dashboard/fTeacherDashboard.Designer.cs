@@ -60,7 +60,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnLogout.BackgroundImage = global::ProjectHQTCSDL.Properties.Resources.Logout;
             this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.Location = new System.Drawing.Point(20, 674);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(181, 41);
@@ -74,7 +74,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnAttendance.BackgroundImage = global::ProjectHQTCSDL.Properties.Resources.attendance;
             this.btnAttendance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAttendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAttendance.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAttendance.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAttendance.Location = new System.Drawing.Point(20, 220);
             this.btnAttendance.Name = "btnAttendance";
             this.btnAttendance.Size = new System.Drawing.Size(181, 41);
@@ -88,7 +88,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnInformation.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnInformation.BackgroundImage")));
             this.btnInformation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnInformation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInformation.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInformation.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInformation.Location = new System.Drawing.Point(20, 320);
             this.btnInformation.Name = "btnInformation";
             this.btnInformation.Size = new System.Drawing.Size(181, 41);
@@ -102,7 +102,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnSchedule.BackgroundImage = global::ProjectHQTCSDL.Properties.Resources.schedule;
             this.btnSchedule.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSchedule.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSchedule.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSchedule.Location = new System.Drawing.Point(20, 120);
             this.btnSchedule.Name = "btnSchedule";
             this.btnSchedule.Size = new System.Drawing.Size(181, 41);

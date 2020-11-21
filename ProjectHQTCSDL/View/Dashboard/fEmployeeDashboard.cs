@@ -14,16 +14,18 @@ namespace ProjectHQTCSDL.View.Dashboard
 {
     public partial class fEmployeeDashboard : Form
     {
+        Schedule_UserControl sche;
         public fEmployeeDashboard()
         {
             InitializeComponent();
+            sche = new Schedule_UserControl();
+            sche.IDUser = 0;
+            this.pUserControl.Controls.Add(sche);
         }
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
-            Schedule_UserControl sche = new Schedule_UserControl();
-            sche.IDUser = 0;
-            this.pUserControl.Controls.Add(sche);
+            sche.Show();
         }
     }
 }
