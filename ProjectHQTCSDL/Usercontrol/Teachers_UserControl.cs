@@ -33,7 +33,6 @@ namespace ProjectHQTCSDL.Usercontrol
             txtPhone.Text = row.Cells[2].Value.ToString();
             txtAddress.Text = row.Cells[3].Value.ToString();
             txtSalary.Text = row.Cells[4].Value.ToString();
-            nmrSessions.Value = Convert.ToDecimal(row.Cells[5].Value);
         }
     }
 }

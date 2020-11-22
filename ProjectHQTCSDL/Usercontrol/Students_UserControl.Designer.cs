@@ -44,7 +44,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabAdd = new System.Windows.Forms.TabPage();
             this.txtIDNew = new System.Windows.Forms.TextBox();
             this.tabEdit = new System.Windows.Forms.TabPage();
-            this.txtDOB = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -58,6 +57,13 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label1 = new System.Windows.Forms.Label();
             this.dgvListStudents = new System.Windows.Forms.DataGridView();
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.dtpDOB = new System.Windows.Forms.DateTimePicker();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabAdd.SuspendLayout();
             this.tabEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListStudents)).BeginInit();
@@ -193,7 +199,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // tabEdit
             // 
-            this.tabEdit.Controls.Add(this.txtDOB);
+            this.tabEdit.Controls.Add(this.dtpDOB);
             this.tabEdit.Controls.Add(this.label11);
             this.tabEdit.Controls.Add(this.txtEmail);
             this.tabEdit.Controls.Add(this.label10);
@@ -214,13 +220,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabEdit.TabIndex = 0;
             this.tabEdit.Text = "Edit";
             this.tabEdit.UseVisualStyleBackColor = true;
-            // 
-            // txtDOB
-            // 
-            this.txtDOB.Location = new System.Drawing.Point(180, 343);
-            this.txtDOB.Name = "txtDOB";
-            this.txtDOB.Size = new System.Drawing.Size(200, 26);
-            this.txtDOB.TabIndex = 25;
             // 
             // label11
             // 
@@ -317,6 +316,13 @@ namespace ProjectHQTCSDL.Usercontrol
             this.dgvListStudents.AllowUserToAddRows = false;
             this.dgvListStudents.AllowUserToDeleteRows = false;
             this.dgvListStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListStudents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Email,
+            this.Column5});
             this.dgvListStudents.Location = new System.Drawing.Point(3, 35);
             this.dgvListStudents.Name = "dgvListStudents";
             this.dgvListStudents.ReadOnly = true;
@@ -336,6 +342,61 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(421, 668);
             this.tabControl.TabIndex = 9;
+            // 
+            // dtpDOB
+            // 
+            this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDOB.Location = new System.Drawing.Point(180, 341);
+            this.dtpDOB.Name = "dtpDOB";
+            this.dtpDOB.Size = new System.Drawing.Size(200, 26);
+            this.dtpDOB.TabIndex = 25;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MaHocVien";
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 40;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "HoTen";
+            this.Column2.HeaderText = "Name";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 200;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "SDT";
+            this.Column3.HeaderText = "Phone number";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 140;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "DiaChi";
+            this.Column4.HeaderText = "Address";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 200;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Width = 120;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "NgaySinh";
+            this.Column5.HeaderText = "DOB";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Students_UserControl
             // 
@@ -378,7 +439,6 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.TabPage tabAdd;
         private System.Windows.Forms.TextBox txtIDNew;
         private System.Windows.Forms.TabPage tabEdit;
-        private System.Windows.Forms.TextBox txtDOB;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label10;
@@ -392,5 +452,12 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvListStudents;
         private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.DateTimePicker dtpDOB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

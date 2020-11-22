@@ -36,7 +36,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.rbtAll = new System.Windows.Forms.RadioButton();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,8 +43,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.rbtAvailable = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.tabAdd = new System.Windows.Forms.TabPage();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -59,21 +56,19 @@ namespace ProjectHQTCSDL.Usercontrol
             this.btnHideOrAvailable = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.tabEdit = new System.Windows.Forms.TabPage();
-            this.nmrSessions = new System.Windows.Forms.NumericUpDown();
+            this.txtSalary = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSalary = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.tabAdd.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListTeachers)).BeginInit();
             this.tabEdit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmrSessions)).BeginInit();
             this.tabControl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,15 +130,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label9.TabIndex = 21;
             this.label9.Text = "Search";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(89, 426);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(70, 20);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "Sessions:";
-            // 
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(184, 203);
@@ -201,7 +187,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // tabAdd
             // 
-            this.tabAdd.Controls.Add(this.numericUpDown2);
+            this.tabAdd.Controls.Add(this.textBox5);
             this.tabAdd.Controls.Add(this.label5);
             this.tabAdd.Controls.Add(this.textBox1);
             this.tabAdd.Controls.Add(this.textBox2);
@@ -219,22 +205,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabAdd.TabIndex = 1;
             this.tabAdd.Text = "Add";
             this.tabAdd.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(179, 369);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown2.TabIndex = 33;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(84, 371);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 20);
-            this.label5.TabIndex = 32;
-            this.label5.Text = "Sessions:";
             // 
             // textBox1
             // 
@@ -320,8 +290,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column4,
-            this.Column5});
+            this.Column4});
             this.dgvListTeachers.Location = new System.Drawing.Point(3, 35);
             this.dgvListTeachers.Name = "dgvListTeachers";
             this.dgvListTeachers.ReadOnly = true;
@@ -354,8 +323,6 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             this.tabEdit.Controls.Add(this.txtSalary);
             this.tabEdit.Controls.Add(this.label12);
-            this.tabEdit.Controls.Add(this.nmrSessions);
-            this.tabEdit.Controls.Add(this.label10);
             this.tabEdit.Controls.Add(this.txtID);
             this.tabEdit.Controls.Add(this.txtName);
             this.tabEdit.Controls.Add(this.txtAddress);
@@ -374,12 +341,21 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabEdit.Text = "Edit";
             this.tabEdit.UseVisualStyleBackColor = true;
             // 
-            // nmrSessions
+            // txtSalary
             // 
-            this.nmrSessions.Location = new System.Drawing.Point(184, 424);
-            this.nmrSessions.Name = "nmrSessions";
-            this.nmrSessions.Size = new System.Drawing.Size(120, 26);
-            this.nmrSessions.TabIndex = 23;
+            this.txtSalary.Location = new System.Drawing.Point(184, 351);
+            this.txtSalary.Name = "txtSalary";
+            this.txtSalary.Size = new System.Drawing.Size(200, 26);
+            this.txtSalary.TabIndex = 25;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(85, 354);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(56, 20);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "Salary:";
             // 
             // tabControl
             // 
@@ -397,6 +373,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.colID.HeaderText = "ID";
             this.colID.Name = "colID";
             this.colID.ReadOnly = true;
+            this.colID.Width = 60;
             // 
             // Column1
             // 
@@ -404,6 +381,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.Column1.HeaderText = "Full name";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Width = 210;
             // 
             // Column2
             // 
@@ -411,6 +389,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.Column2.HeaderText = "Phone Number";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Width = 160;
             // 
             // Column3
             // 
@@ -418,6 +397,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.Column3.HeaderText = "Address";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            this.Column3.Width = 210;
             // 
             // Column4
             // 
@@ -425,29 +405,23 @@ namespace ProjectHQTCSDL.Usercontrol
             this.Column4.HeaderText = "Salary";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            this.Column4.Width = 160;
             // 
-            // Column5
+            // textBox5
             // 
-            this.Column5.DataPropertyName = "SoBuoiDaDay";
-            this.Column5.HeaderText = "Sessions";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
+            this.textBox5.Location = new System.Drawing.Point(179, 384);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(200, 26);
+            this.textBox5.TabIndex = 33;
             // 
-            // txtSalary
+            // label5
             // 
-            this.txtSalary.Location = new System.Drawing.Point(184, 351);
-            this.txtSalary.Name = "txtSalary";
-            this.txtSalary.Size = new System.Drawing.Size(200, 26);
-            this.txtSalary.TabIndex = 25;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(85, 354);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(56, 20);
-            this.label12.TabIndex = 24;
-            this.label12.Text = "Salary:";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(80, 387);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 20);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Salary:";
             // 
             // Teachers_UserControl
             // 
@@ -467,11 +441,9 @@ namespace ProjectHQTCSDL.Usercontrol
             this.Load += new System.EventHandler(this.Teachers_UserControl_Load);
             this.tabAdd.ResumeLayout(false);
             this.tabAdd.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListTeachers)).EndInit();
             this.tabEdit.ResumeLayout(false);
             this.tabEdit.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmrSessions)).EndInit();
             this.tabControl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -486,7 +458,6 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.RadioButton rbtAll;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -494,8 +465,6 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.RadioButton rbtAvailable;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabAdd;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
@@ -509,15 +478,15 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.Button btnHideOrAvailable;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TabPage tabEdit;
-        private System.Windows.Forms.NumericUpDown nmrSessions;
         private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TextBox txtSalary;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.TextBox txtSalary;
-        private System.Windows.Forms.Label label12;
     }
 }

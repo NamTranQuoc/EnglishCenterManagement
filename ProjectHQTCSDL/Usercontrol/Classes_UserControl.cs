@@ -45,7 +45,8 @@ namespace ProjectHQTCSDL.Usercontrol
             txtID.Text = row.Cells[0].Value.ToString();
             nmrStudents.Value = Convert.ToDecimal(row.Cells[1].Value);
             nmrShift.Value = Convert.ToDecimal(row.Cells[2].Value);
-            cmbCourseID.Text = row.Cells[3].Value.ToString();
+            txtCource.Text = row.Cells[4].Value.ToString();
+            cmbDayOfWeek.Text = row.Cells[3].Value.ToString();
         }
     }
 }

@@ -33,7 +33,7 @@ namespace ProjectHQTCSDL.Usercontrol
             txtPhone.Text = row.Cells[2].Value.ToString();
             txtAddress.Text = row.Cells[3].Value.ToString();
             txtEmail.Text = row.Cells[4].Value.ToString();
-            txtDOB.Text = row.Cells[5].Value.ToString();
+            dtpDOB.Value = (DateTime)row.Cells[5].Value;
         }
     }
 }
