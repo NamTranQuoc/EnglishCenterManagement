@@ -34,24 +34,15 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.colTuitionFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabEdit = new System.Windows.Forms.TabPage();
+            this.cmbCourseID = new System.Windows.Forms.ComboBox();
+            this.nmrStudents = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnHideOrAvailable = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabAdd = new System.Windows.Forms.TabPage();
-            this.rbtOdd = new System.Windows.Forms.RadioButton();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.rbtEven = new System.Windows.Forms.RadioButton();
-            this.label9 = new System.Windows.Forms.Label();
-            this.colNoOfSessions = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvListClasses = new System.Windows.Forms.DataGridView();
-            this.nmrStudents = new System.Windows.Forms.NumericUpDown();
-            this.cmbCourseID = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
@@ -60,15 +51,24 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.rbtOdd = new System.Windows.Forms.RadioButton();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.rbtEven = new System.Windows.Forms.RadioButton();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dgvListClasses = new System.Windows.Forms.DataGridView();
             this.rbtAll = new System.Windows.Forms.RadioButton();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.nmrShift)).BeginInit();
             this.tabEdit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrStudents)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabAdd.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListClasses)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmrStudents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListClasses)).BeginInit();
             this.SuspendLayout();
             // 
             // nmrShift
@@ -113,15 +113,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
-            // colTuitionFee
-            // 
-            this.colTuitionFee.DataPropertyName = "HocPhi";
-            this.colTuitionFee.HeaderText = "Tuition fee";
-            this.colTuitionFee.MinimumWidth = 6;
-            this.colTuitionFee.Name = "colTuitionFee";
-            this.colTuitionFee.ReadOnly = true;
-            this.colTuitionFee.Width = 200;
-            // 
             // tabEdit
             // 
             this.tabEdit.Controls.Add(this.cmbCourseID);
@@ -141,6 +132,21 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabEdit.TabIndex = 0;
             this.tabEdit.Text = "Edit";
             this.tabEdit.UseVisualStyleBackColor = true;
+            // 
+            // cmbCourseID
+            // 
+            this.cmbCourseID.FormattingEnabled = true;
+            this.cmbCourseID.Location = new System.Drawing.Point(188, 284);
+            this.cmbCourseID.Name = "cmbCourseID";
+            this.cmbCourseID.Size = new System.Drawing.Size(197, 28);
+            this.cmbCourseID.TabIndex = 25;
+            // 
+            // nmrStudents
+            // 
+            this.nmrStudents.Location = new System.Drawing.Point(188, 131);
+            this.nmrStudents.Name = "nmrStudents";
+            this.nmrStudents.Size = new System.Drawing.Size(120, 26);
+            this.nmrStudents.TabIndex = 24;
             // 
             // label2
             // 
@@ -206,106 +212,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabAdd.TabIndex = 1;
             this.tabAdd.Text = "Add";
             this.tabAdd.UseVisualStyleBackColor = true;
-            // 
-            // rbtOdd
-            // 
-            this.rbtOdd.AutoSize = true;
-            this.rbtOdd.Location = new System.Drawing.Point(736, 5);
-            this.rbtOdd.Name = "rbtOdd";
-            this.rbtOdd.Size = new System.Drawing.Size(61, 24);
-            this.rbtOdd.TabIndex = 27;
-            this.rbtOdd.Text = "3-5-7";
-            this.rbtOdd.UseVisualStyleBackColor = true;
-            this.rbtOdd.CheckedChanged += new System.EventHandler(this.rbtOdd_CheckedChanged);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(83, 2);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(354, 26);
-            this.txtSearch.TabIndex = 24;
-            // 
-            // rbtEven
-            // 
-            this.rbtEven.AutoSize = true;
-            this.rbtEven.Location = new System.Drawing.Point(659, 4);
-            this.rbtEven.Name = "rbtEven";
-            this.rbtEven.Size = new System.Drawing.Size(61, 24);
-            this.rbtEven.TabIndex = 26;
-            this.rbtEven.Text = "2-4-6";
-            this.rbtEven.UseVisualStyleBackColor = true;
-            this.rbtEven.CheckedChanged += new System.EventHandler(this.rbtEven_CheckedChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 7);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 20);
-            this.label9.TabIndex = 28;
-            this.label9.Text = "Search";
-            // 
-            // colNoOfSessions
-            // 
-            this.colNoOfSessions.DataPropertyName = "SoBuoi";
-            this.colNoOfSessions.HeaderText = "Number of sessions";
-            this.colNoOfSessions.MinimumWidth = 6;
-            this.colNoOfSessions.Name = "colNoOfSessions";
-            this.colNoOfSessions.ReadOnly = true;
-            this.colNoOfSessions.Width = 200;
-            // 
-            // colID
-            // 
-            this.colID.DataPropertyName = "MaKhoaHoc";
-            this.colID.HeaderText = "Cource\'s ID";
-            this.colID.MinimumWidth = 6;
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            this.colID.Width = 120;
-            // 
-            // colName
-            // 
-            this.colName.DataPropertyName = "TenKhoaHoc";
-            this.colName.HeaderText = "Name";
-            this.colName.MinimumWidth = 6;
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            this.colName.Width = 280;
-            // 
-            // dgvListClasses
-            // 
-            this.dgvListClasses.AllowUserToAddRows = false;
-            this.dgvListClasses.AllowUserToDeleteRows = false;
-            this.dgvListClasses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListClasses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colID,
-            this.colName,
-            this.colNoOfSessions,
-            this.colTuitionFee});
-            this.dgvListClasses.Location = new System.Drawing.Point(3, 36);
-            this.dgvListClasses.Name = "dgvListClasses";
-            this.dgvListClasses.ReadOnly = true;
-            this.dgvListClasses.RowHeadersVisible = false;
-            this.dgvListClasses.RowHeadersWidth = 51;
-            this.dgvListClasses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListClasses.Size = new System.Drawing.Size(804, 636);
-            this.dgvListClasses.TabIndex = 22;
-            this.dgvListClasses.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListClasses_RowEnter);
-            // 
-            // nmrStudents
-            // 
-            this.nmrStudents.Location = new System.Drawing.Point(188, 131);
-            this.nmrStudents.Name = "nmrStudents";
-            this.nmrStudents.Size = new System.Drawing.Size(120, 26);
-            this.nmrStudents.TabIndex = 24;
-            // 
-            // cmbCourseID
-            // 
-            this.cmbCourseID.FormattingEnabled = true;
-            this.cmbCourseID.Location = new System.Drawing.Point(188, 284);
-            this.cmbCourseID.Name = "cmbCourseID";
-            this.cmbCourseID.Size = new System.Drawing.Size(197, 28);
-            this.cmbCourseID.TabIndex = 25;
             // 
             // comboBox1
             // 
@@ -373,6 +279,64 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label8.TabIndex = 26;
             this.label8.Text = "Class\'s ID:";
             // 
+            // rbtOdd
+            // 
+            this.rbtOdd.AutoSize = true;
+            this.rbtOdd.Location = new System.Drawing.Point(736, 5);
+            this.rbtOdd.Name = "rbtOdd";
+            this.rbtOdd.Size = new System.Drawing.Size(61, 24);
+            this.rbtOdd.TabIndex = 27;
+            this.rbtOdd.Text = "3-5-7";
+            this.rbtOdd.UseVisualStyleBackColor = true;
+            this.rbtOdd.CheckedChanged += new System.EventHandler(this.rbtOdd_CheckedChanged);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(83, 2);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(354, 26);
+            this.txtSearch.TabIndex = 24;
+            // 
+            // rbtEven
+            // 
+            this.rbtEven.AutoSize = true;
+            this.rbtEven.Location = new System.Drawing.Point(659, 4);
+            this.rbtEven.Name = "rbtEven";
+            this.rbtEven.Size = new System.Drawing.Size(61, 24);
+            this.rbtEven.TabIndex = 26;
+            this.rbtEven.Text = "2-4-6";
+            this.rbtEven.UseVisualStyleBackColor = true;
+            this.rbtEven.CheckedChanged += new System.EventHandler(this.rbtEven_CheckedChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 20);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Search";
+            // 
+            // dgvListClasses
+            // 
+            this.dgvListClasses.AllowUserToAddRows = false;
+            this.dgvListClasses.AllowUserToDeleteRows = false;
+            this.dgvListClasses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListClasses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
+            this.dgvListClasses.Location = new System.Drawing.Point(3, 36);
+            this.dgvListClasses.Name = "dgvListClasses";
+            this.dgvListClasses.ReadOnly = true;
+            this.dgvListClasses.RowHeadersVisible = false;
+            this.dgvListClasses.RowHeadersWidth = 51;
+            this.dgvListClasses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListClasses.Size = new System.Drawing.Size(804, 636);
+            this.dgvListClasses.TabIndex = 22;
+            this.dgvListClasses.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListClasses_RowEnter);
+            // 
             // rbtAll
             // 
             this.rbtAll.AutoSize = true;
@@ -385,6 +349,34 @@ namespace ProjectHQTCSDL.Usercontrol
             this.rbtAll.Text = "All";
             this.rbtAll.UseVisualStyleBackColor = true;
             this.rbtAll.CheckedChanged += new System.EventHandler(this.rbtAll_CheckedChanged);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MaLop";
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "SoHocVienDuKien";
+            this.Column2.HeaderText = "Expected Students";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "CaHoc";
+            this.Column3.HeaderText = "Shift";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "ThuocKhoaHoc";
+            this.Column4.HeaderText = "Course\'s ID";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Classes_UserControl
             // 
@@ -405,13 +397,13 @@ namespace ProjectHQTCSDL.Usercontrol
             ((System.ComponentModel.ISupportInitialize)(this.nmrShift)).EndInit();
             this.tabEdit.ResumeLayout(false);
             this.tabEdit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrStudents)).EndInit();
             this.tabControl.ResumeLayout(false);
             this.tabAdd.ResumeLayout(false);
             this.tabAdd.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListClasses)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmrStudents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListClasses)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -423,7 +415,6 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTuitionFee;
         private System.Windows.Forms.TabPage tabEdit;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -435,9 +426,6 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.RadioButton rbtEven;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNoOfSessions;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridView dgvListClasses;
         private System.Windows.Forms.ComboBox cmbCourseID;
         private System.Windows.Forms.NumericUpDown nmrStudents;
@@ -450,5 +438,9 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RadioButton rbtAll;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

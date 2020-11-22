@@ -56,10 +56,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.colTuitionFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNoOfSessions = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvListStudents = new System.Windows.Forms.DataGridView();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabAdd.SuspendLayout();
@@ -221,7 +217,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // txtDOB
             // 
-            this.txtDOB.Location = new System.Drawing.Point(188, 343);
+            this.txtDOB.Location = new System.Drawing.Point(180, 343);
             this.txtDOB.Name = "txtDOB";
             this.txtDOB.Size = new System.Drawing.Size(200, 26);
             this.txtDOB.TabIndex = 25;
@@ -229,7 +225,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(120, 346);
+            this.label11.Location = new System.Drawing.Point(112, 346);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(46, 20);
             this.label11.TabIndex = 24;
@@ -237,7 +233,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(188, 285);
+            this.txtEmail.Location = new System.Drawing.Point(180, 285);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 26);
             this.txtEmail.TabIndex = 23;
@@ -245,7 +241,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(116, 288);
+            this.label10.Location = new System.Drawing.Point(108, 288);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(50, 20);
             this.label10.TabIndex = 22;
@@ -253,7 +249,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(188, 58);
+            this.txtID.Location = new System.Drawing.Point(180, 58);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(200, 26);
@@ -261,21 +257,21 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(188, 113);
+            this.txtName.Location = new System.Drawing.Point(180, 113);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 26);
             this.txtName.TabIndex = 20;
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(188, 228);
+            this.txtAddress.Location = new System.Drawing.Point(180, 228);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(200, 26);
             this.txtAddress.TabIndex = 19;
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(188, 169);
+            this.txtPhone.Location = new System.Drawing.Point(180, 169);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(200, 26);
             this.txtPhone.TabIndex = 18;
@@ -283,7 +279,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(89, 231);
+            this.label4.Location = new System.Drawing.Point(87, 231);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 20);
             this.label4.TabIndex = 17;
@@ -292,7 +288,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 172);
+            this.label3.Location = new System.Drawing.Point(36, 172);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 20);
             this.label3.TabIndex = 16;
@@ -301,7 +297,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(106, 116);
+            this.label2.Location = new System.Drawing.Point(98, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 20);
             this.label2.TabIndex = 15;
@@ -310,58 +306,17 @@ namespace ProjectHQTCSDL.Usercontrol
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 61);
+            this.label1.Location = new System.Drawing.Point(58, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 20);
             this.label1.TabIndex = 14;
             this.label1.Text = "Student\'s ID:";
-            // 
-            // colTuitionFee
-            // 
-            this.colTuitionFee.DataPropertyName = "HocPhi";
-            this.colTuitionFee.HeaderText = "Tuition fee";
-            this.colTuitionFee.MinimumWidth = 6;
-            this.colTuitionFee.Name = "colTuitionFee";
-            this.colTuitionFee.ReadOnly = true;
-            this.colTuitionFee.Width = 200;
-            // 
-            // colNoOfSessions
-            // 
-            this.colNoOfSessions.DataPropertyName = "SoBuoi";
-            this.colNoOfSessions.HeaderText = "Number of sessions";
-            this.colNoOfSessions.MinimumWidth = 6;
-            this.colNoOfSessions.Name = "colNoOfSessions";
-            this.colNoOfSessions.ReadOnly = true;
-            this.colNoOfSessions.Width = 200;
-            // 
-            // colName
-            // 
-            this.colName.DataPropertyName = "TenKhoaHoc";
-            this.colName.HeaderText = "Name";
-            this.colName.MinimumWidth = 6;
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            this.colName.Width = 280;
-            // 
-            // colID
-            // 
-            this.colID.DataPropertyName = "MaKhoaHoc";
-            this.colID.HeaderText = "Cource\'s ID";
-            this.colID.MinimumWidth = 6;
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            this.colID.Width = 120;
             // 
             // dgvListStudents
             // 
             this.dgvListStudents.AllowUserToAddRows = false;
             this.dgvListStudents.AllowUserToDeleteRows = false;
             this.dgvListStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListStudents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colID,
-            this.colName,
-            this.colNoOfSessions,
-            this.colTuitionFee});
             this.dgvListStudents.Location = new System.Drawing.Point(3, 35);
             this.dgvListStudents.Name = "dgvListStudents";
             this.dgvListStudents.ReadOnly = true;
@@ -435,10 +390,6 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTuitionFee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNoOfSessions;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridView dgvListStudents;
         private System.Windows.Forms.TabControl tabControl;
     }
