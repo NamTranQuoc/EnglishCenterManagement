@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,10 @@ namespace ProjectHQTCSDL.BS_Layer
 {
     public class Students
     {
+        public DataTable GetListStudents()
+        {
+            return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.HocVien");
+        }
         public bool InsertStudent (string userName, string pass, string name, string phoneNumber, string address, string email, DateTime birthday, ref string error)
         {
             if (userName != null && userName != "")
