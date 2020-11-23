@@ -22,7 +22,7 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public int CreateID()
         {
-            return (int)dbMain.Instance.ExcuteScalar("SELECT dbo.TaoMaTuDong('HocVien')");
+            return (int)dbMain.Instance.ExcuteScalar("SELECT dbo.TaoMaTuDong('User')");
         }
 
         public bool InsertStudent (string userName, string pass, string name, string phoneNumber, string address, string email, DateTime birthday, ref string error)
