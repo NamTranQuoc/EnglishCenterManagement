@@ -27,6 +27,11 @@ namespace ProjectHQTCSDL.Usercontrol
 
         private void Schedule_UserControl_Load(object sender, EventArgs e)
         {
+            this.LoadccbView();
+        }
+
+        public void LoadccbView()
+        {
             this.cbbWeek.DataSource = sche.GetListDateOfWeek(IDUser);
         }
 

@@ -51,6 +51,8 @@ namespace ProjectHQTCSDL.View.Dashboard
         {
             cou.Hide();
             stu.Hide();
+            if (cou.f == true)
+                sche.LoadccbView();
             sche.Show();
             tea.Hide();
             cla.Hide();
@@ -59,6 +61,7 @@ namespace ProjectHQTCSDL.View.Dashboard
         private void btnCource_Click(object sender, EventArgs e)
         {
             sche.Hide();
+            cou.f = false;//biến cờ để kiểm việc thay đổi của khóa học, nếu có thay đổi thì load lại lịch
             cou.Show();
             stu.Hide();
             tea.Hide();
