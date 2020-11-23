@@ -28,9 +28,9 @@ namespace ProjectHQTCSDL.BS_Layer
             return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.KhoaHoc WHERE TrangThai = 0 AND  TenKhoaHoc LIKE '%" + likeName + "%'");
         }
 
-        public bool UpdateCource (int iD, string name, int tuition, ref string error)
+        public bool UpdateCource (int iD, string name, int tuition, int no, ref string error)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("UPDATE dbo.KhoaHoc SET TenKhoaHoc=N'" + name + "', HocPhi=" + tuition + " WHERE MaKhoaHoc= " + iD + "", ref error);
+            int test = dbMain.Instance.ExcuteNonQuery("UPDATE dbo.KhoaHoc SET TenKhoaHoc=N'" + name + "', HocPhi=" + tuition + ", SoBuoi=" +  no+ " WHERE MaKhoaHoc= " + iD + "", ref error);
             if (test > 0)
                 return true;
             return false;

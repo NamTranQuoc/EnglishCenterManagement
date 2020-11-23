@@ -14,10 +14,12 @@ namespace ProjectHQTCSDL.Usercontrol
     public partial class Cources_UserControl : UserControl
     {
         Cources cou;
+        public bool f;
         public Cources_UserControl()
         {
             InitializeComponent();
             cou = new Cources();
+            f = false;
         }
 
         private void Cources_UserControl_Load(object sender, EventArgs e)
@@ -64,7 +66,7 @@ namespace ProjectHQTCSDL.Usercontrol
                 if (tNo != false && tTuition != false)
                 {
                     string error = "";
-                    bool t = cou.UpdateCource(int.Parse(txtID.Text), txtName.Text, tuition, ref error);
+                    bool t = cou.UpdateCource(int.Parse(txtID.Text), txtName.Text, tuition, no, ref error);
                     if (t == true)
                     {
                         if (rbtAll.Checked == true)
@@ -73,7 +75,8 @@ namespace ProjectHQTCSDL.Usercontrol
                             this.dgvListCources.DataSource = cou.GetListCources(1);
                         else
                             this.dgvListCources.DataSource = cou.GetListCources(2);
-                        MessageBox.Show("Update successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);                        
+                        MessageBox.Show("Update successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        f = true; // set biến cờ để load lại lịch nếu có thay đổi
                     }
                     else
                         MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);

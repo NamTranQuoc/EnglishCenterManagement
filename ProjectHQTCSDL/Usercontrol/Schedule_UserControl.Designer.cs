@@ -167,7 +167,6 @@ namespace ProjectHQTCSDL.Usercontrol
         #endregion
 
         private System.Windows.Forms.Label Week;
-        private System.Windows.Forms.ComboBox cbbWeek;
         private System.Windows.Forms.DataGridView dgvSchedule;
         private System.Windows.Forms.DataGridViewTextBoxColumn colShift;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMonday;
@@ -177,5 +176,6 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.DataGridViewTextBoxColumn colFriday;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSaturday;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSunday;
+        public System.Windows.Forms.ComboBox cbbWeek;
     }
 }
