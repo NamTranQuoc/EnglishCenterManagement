@@ -29,25 +29,25 @@ namespace ProjectHQTCSDL.Usercontrol
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnHideOrAvailable = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tabAdd = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDOBNew = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtEmailNew = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtIDNew = new System.Windows.Forms.TextBox();
+            this.txtNameNew = new System.Windows.Forms.TextBox();
+            this.txtAddressNew = new System.Windows.Forms.TextBox();
+            this.txtPhoneNew = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.tabEdit = new System.Windows.Forms.TabPage();
+            this.dtpDOB = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -67,30 +67,23 @@ namespace ProjectHQTCSDL.Usercontrol
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.dtpDOB = new System.Windows.Forms.DateTimePicker();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.tabAdd.SuspendLayout();
             this.tabEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListStudents)).BeginInit();
             this.tabControl.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnHideOrAvailable
-            // 
-            this.btnHideOrAvailable.Location = new System.Drawing.Point(235, 538);
-            this.btnHideOrAvailable.Name = "btnHideOrAvailable";
-            this.btnHideOrAvailable.Size = new System.Drawing.Size(150, 42);
-            this.btnHideOrAvailable.TabIndex = 9;
-            this.btnHideOrAvailable.Text = "Hide";
-            this.btnHideOrAvailable.UseVisualStyleBackColor = true;
-            // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(27, 538);
+            this.btnSave.Location = new System.Drawing.Point(137, 524);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(150, 42);
             this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtSearch
             // 
@@ -98,6 +91,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(354, 26);
             this.txtSearch.TabIndex = 10;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // label9
             // 
@@ -116,17 +110,20 @@ namespace ProjectHQTCSDL.Usercontrol
             this.btnAdd.TabIndex = 18;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // tabAdd
             // 
-            this.tabAdd.Controls.Add(this.textBox1);
+            this.tabAdd.Controls.Add(this.txtUsername);
+            this.tabAdd.Controls.Add(this.label14);
+            this.tabAdd.Controls.Add(this.txtDOBNew);
             this.tabAdd.Controls.Add(this.label5);
-            this.tabAdd.Controls.Add(this.textBox2);
+            this.tabAdd.Controls.Add(this.txtEmailNew);
             this.tabAdd.Controls.Add(this.label6);
-            this.tabAdd.Controls.Add(this.textBox3);
-            this.tabAdd.Controls.Add(this.textBox4);
-            this.tabAdd.Controls.Add(this.textBox5);
-            this.tabAdd.Controls.Add(this.textBox6);
+            this.tabAdd.Controls.Add(this.txtIDNew);
+            this.tabAdd.Controls.Add(this.txtNameNew);
+            this.tabAdd.Controls.Add(this.txtAddressNew);
+            this.tabAdd.Controls.Add(this.txtPhoneNew);
             this.tabAdd.Controls.Add(this.label7);
             this.tabAdd.Controls.Add(this.label8);
             this.tabAdd.Controls.Add(this.label12);
@@ -140,71 +137,71 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabAdd.Text = "Add";
             this.tabAdd.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtDOBNew
             // 
-            this.textBox1.Location = new System.Drawing.Point(178, 351);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 26);
-            this.textBox1.TabIndex = 37;
+            this.txtDOBNew.Location = new System.Drawing.Point(174, 384);
+            this.txtDOBNew.Name = "txtDOBNew";
+            this.txtDOBNew.Size = new System.Drawing.Size(200, 26);
+            this.txtDOBNew.TabIndex = 37;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(110, 354);
+            this.label5.Location = new System.Drawing.Point(106, 387);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 20);
             this.label5.TabIndex = 36;
             this.label5.Text = "DOB:";
             // 
-            // textBox2
+            // txtEmailNew
             // 
-            this.textBox2.Location = new System.Drawing.Point(178, 293);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 26);
-            this.textBox2.TabIndex = 35;
+            this.txtEmailNew.Location = new System.Drawing.Point(174, 326);
+            this.txtEmailNew.Name = "txtEmailNew";
+            this.txtEmailNew.Size = new System.Drawing.Size(200, 26);
+            this.txtEmailNew.TabIndex = 35;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(106, 296);
+            this.label6.Location = new System.Drawing.Point(102, 329);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 20);
             this.label6.TabIndex = 34;
             this.label6.Text = "Email:";
             // 
-            // textBox3
+            // txtIDNew
             // 
-            this.textBox3.Location = new System.Drawing.Point(178, 66);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(200, 26);
-            this.textBox3.TabIndex = 33;
+            this.txtIDNew.Location = new System.Drawing.Point(174, 38);
+            this.txtIDNew.Name = "txtIDNew";
+            this.txtIDNew.ReadOnly = true;
+            this.txtIDNew.Size = new System.Drawing.Size(200, 26);
+            this.txtIDNew.TabIndex = 33;
             // 
-            // textBox4
+            // txtNameNew
             // 
-            this.textBox4.Location = new System.Drawing.Point(178, 121);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 26);
-            this.textBox4.TabIndex = 32;
+            this.txtNameNew.Location = new System.Drawing.Point(174, 154);
+            this.txtNameNew.Name = "txtNameNew";
+            this.txtNameNew.Size = new System.Drawing.Size(200, 26);
+            this.txtNameNew.TabIndex = 32;
             // 
-            // textBox5
+            // txtAddressNew
             // 
-            this.textBox5.Location = new System.Drawing.Point(178, 236);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(200, 26);
-            this.textBox5.TabIndex = 31;
+            this.txtAddressNew.Location = new System.Drawing.Point(174, 269);
+            this.txtAddressNew.Name = "txtAddressNew";
+            this.txtAddressNew.Size = new System.Drawing.Size(200, 26);
+            this.txtAddressNew.TabIndex = 31;
             // 
-            // textBox6
+            // txtPhoneNew
             // 
-            this.textBox6.Location = new System.Drawing.Point(178, 177);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(200, 26);
-            this.textBox6.TabIndex = 30;
+            this.txtPhoneNew.Location = new System.Drawing.Point(174, 210);
+            this.txtPhoneNew.Name = "txtPhoneNew";
+            this.txtPhoneNew.Size = new System.Drawing.Size(200, 26);
+            this.txtPhoneNew.TabIndex = 30;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(85, 239);
+            this.label7.Location = new System.Drawing.Point(81, 272);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 20);
             this.label7.TabIndex = 29;
@@ -213,7 +210,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(34, 180);
+            this.label8.Location = new System.Drawing.Point(30, 213);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(122, 20);
             this.label8.TabIndex = 28;
@@ -222,7 +219,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(96, 124);
+            this.label12.Location = new System.Drawing.Point(92, 157);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(57, 20);
             this.label12.TabIndex = 27;
@@ -231,7 +228,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(56, 66);
+            this.label13.Location = new System.Drawing.Point(52, 38);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(97, 20);
             this.label13.TabIndex = 26;
@@ -251,7 +248,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabEdit.Controls.Add(this.label3);
             this.tabEdit.Controls.Add(this.label2);
             this.tabEdit.Controls.Add(this.label1);
-            this.tabEdit.Controls.Add(this.btnHideOrAvailable);
             this.tabEdit.Controls.Add(this.btnSave);
             this.tabEdit.Location = new System.Drawing.Point(4, 29);
             this.tabEdit.Name = "tabEdit";
@@ -260,6 +256,14 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabEdit.TabIndex = 0;
             this.tabEdit.Text = "Edit";
             this.tabEdit.UseVisualStyleBackColor = true;
+            // 
+            // dtpDOB
+            // 
+            this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDOB.Location = new System.Drawing.Point(180, 341);
+            this.dtpDOB.Name = "dtpDOB";
+            this.dtpDOB.Size = new System.Drawing.Size(200, 26);
+            this.dtpDOB.TabIndex = 25;
             // 
             // label11
             // 
@@ -430,13 +434,21 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabControl.Size = new System.Drawing.Size(421, 668);
             this.tabControl.TabIndex = 9;
             // 
-            // dtpDOB
+            // txtUsername
             // 
-            this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDOB.Location = new System.Drawing.Point(180, 341);
-            this.dtpDOB.Name = "dtpDOB";
-            this.dtpDOB.Size = new System.Drawing.Size(200, 26);
-            this.dtpDOB.TabIndex = 25;
+            this.txtUsername.Location = new System.Drawing.Point(174, 95);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(200, 26);
+            this.txtUsername.TabIndex = 39;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(62, 98);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(87, 20);
+            this.label14.TabIndex = 38;
+            this.label14.Text = "Username:";
             // 
             // Students_UserControl
             // 
@@ -463,7 +475,6 @@ namespace ProjectHQTCSDL.Usercontrol
         }
 
         #endregion
-        private System.Windows.Forms.Button btnHideOrAvailable;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label9;
@@ -483,14 +494,14 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvListStudents;
         private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDOBNew;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtEmailNew;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtIDNew;
+        private System.Windows.Forms.TextBox txtNameNew;
+        private System.Windows.Forms.TextBox txtAddressNew;
+        private System.Windows.Forms.TextBox txtPhoneNew;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label12;
@@ -502,5 +513,7 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DateTimePicker dtpDOB;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Label label14;
     }
 }
