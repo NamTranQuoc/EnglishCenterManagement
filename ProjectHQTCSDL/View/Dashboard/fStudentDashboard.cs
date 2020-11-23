@@ -25,6 +25,13 @@ namespace ProjectHQTCSDL.View.Dashboard
             Schedule_UserControl sche = new Schedule_UserControl();
             sche.IDUser = IDUser;
             this.pUserControl.Controls.Add(sche);
+
+        }
+        private void btnInformation_Click(object sender, EventArgs e)
+        {
+            YourInformation_UserControl info = new YourInformation_UserControl();
+            info.IDUser = IDUser;
+            this.pUserControl.Controls.Add(info);
         }
     }
 }
