@@ -35,6 +35,8 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label3 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tabEdit = new System.Windows.Forms.TabPage();
+            this.cbbDayOfWeek = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.cmbCourseID = new System.Windows.Forms.ComboBox();
             this.nmrStudents = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,10 +45,12 @@ namespace ProjectHQTCSDL.Usercontrol
             this.btnSave = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabAdd = new System.Windows.Forms.TabPage();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cmbDOWNew = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cmbCourseIDNew = new System.Windows.Forms.ComboBox();
+            this.nmrStudentsNew = new System.Windows.Forms.NumericUpDown();
+            this.nmrShiftNew = new System.Windows.Forms.NumericUpDown();
+            this.txtIDNew = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -62,17 +66,13 @@ namespace ProjectHQTCSDL.Usercontrol
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rbtAll = new System.Windows.Forms.RadioButton();
-            this.cbbDayOfWeek = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nmrShift)).BeginInit();
             this.tabEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmrStudents)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabAdd.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrStudentsNew)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrShiftNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListClasses)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,6 +117,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.btnAdd.TabIndex = 18;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // tabEdit
             // 
@@ -139,6 +140,26 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabEdit.TabIndex = 0;
             this.tabEdit.Text = "Edit";
             this.tabEdit.UseVisualStyleBackColor = true;
+            // 
+            // cbbDayOfWeek
+            // 
+            this.cbbDayOfWeek.FormattingEnabled = true;
+            this.cbbDayOfWeek.Items.AddRange(new object[] {
+            "2-4-6",
+            "3-5-7"});
+            this.cbbDayOfWeek.Location = new System.Drawing.Point(188, 367);
+            this.cbbDayOfWeek.Name = "cbbDayOfWeek";
+            this.cbbDayOfWeek.Size = new System.Drawing.Size(197, 28);
+            this.cbbDayOfWeek.TabIndex = 27;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(52, 370);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(107, 20);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Day of week:";
             // 
             // cmbCourseID
             // 
@@ -190,6 +211,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // tabControl
             // 
@@ -203,12 +225,12 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // tabAdd
             // 
-            this.tabAdd.Controls.Add(this.comboBox2);
+            this.tabAdd.Controls.Add(this.cmbDOWNew);
             this.tabAdd.Controls.Add(this.label11);
-            this.tabAdd.Controls.Add(this.comboBox1);
-            this.tabAdd.Controls.Add(this.numericUpDown1);
-            this.tabAdd.Controls.Add(this.numericUpDown2);
-            this.tabAdd.Controls.Add(this.textBox1);
+            this.tabAdd.Controls.Add(this.cmbCourseIDNew);
+            this.tabAdd.Controls.Add(this.nmrStudentsNew);
+            this.tabAdd.Controls.Add(this.nmrShiftNew);
+            this.tabAdd.Controls.Add(this.txtIDNew);
             this.tabAdd.Controls.Add(this.label5);
             this.tabAdd.Controls.Add(this.label6);
             this.tabAdd.Controls.Add(this.label7);
@@ -222,35 +244,55 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabAdd.Text = "Add";
             this.tabAdd.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cmbDOWNew
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(190, 292);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(197, 28);
-            this.comboBox1.TabIndex = 33;
+            this.cmbDOWNew.FormattingEnabled = true;
+            this.cmbDOWNew.Items.AddRange(new object[] {
+            "2-4-6",
+            "3-5-7"});
+            this.cmbDOWNew.Location = new System.Drawing.Point(190, 372);
+            this.cmbDOWNew.Name = "cmbDOWNew";
+            this.cmbDOWNew.Size = new System.Drawing.Size(197, 28);
+            this.cmbDOWNew.TabIndex = 35;
             // 
-            // numericUpDown1
+            // label11
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(190, 139);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown1.TabIndex = 32;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(54, 375);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(107, 20);
+            this.label11.TabIndex = 34;
+            this.label11.Text = "Day of week:";
             // 
-            // numericUpDown2
+            // cmbCourseIDNew
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(190, 217);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown2.TabIndex = 31;
+            this.cmbCourseIDNew.FormattingEnabled = true;
+            this.cmbCourseIDNew.Location = new System.Drawing.Point(190, 292);
+            this.cmbCourseIDNew.Name = "cmbCourseIDNew";
+            this.cmbCourseIDNew.Size = new System.Drawing.Size(197, 28);
+            this.cmbCourseIDNew.TabIndex = 33;
             // 
-            // textBox1
+            // nmrStudentsNew
             // 
-            this.textBox1.Location = new System.Drawing.Point(190, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(200, 26);
-            this.textBox1.TabIndex = 30;
+            this.nmrStudentsNew.Location = new System.Drawing.Point(190, 139);
+            this.nmrStudentsNew.Name = "nmrStudentsNew";
+            this.nmrStudentsNew.Size = new System.Drawing.Size(120, 26);
+            this.nmrStudentsNew.TabIndex = 32;
+            // 
+            // nmrShiftNew
+            // 
+            this.nmrShiftNew.Location = new System.Drawing.Point(190, 217);
+            this.nmrShiftNew.Name = "nmrShiftNew";
+            this.nmrShiftNew.Size = new System.Drawing.Size(120, 26);
+            this.nmrShiftNew.TabIndex = 31;
+            // 
+            // txtIDNew
+            // 
+            this.txtIDNew.Location = new System.Drawing.Point(190, 66);
+            this.txtIDNew.Name = "txtIDNew";
+            this.txtIDNew.ReadOnly = true;
+            this.txtIDNew.Size = new System.Drawing.Size(200, 26);
+            this.txtIDNew.TabIndex = 30;
             // 
             // label5
             // 
@@ -305,6 +347,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(354, 26);
             this.txtSearch.TabIndex = 24;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // rbtEven
             // 
@@ -351,6 +394,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             this.Column1.DataPropertyName = "MaLop";
             this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Width = 60;
@@ -359,6 +403,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             this.Column2.DataPropertyName = "SoHocVienDuKien";
             this.Column2.HeaderText = "Expected Students";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.Width = 180;
@@ -367,6 +412,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             this.Column3.DataPropertyName = "CaHoc";
             this.Column3.HeaderText = "Shift";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Width = 160;
@@ -375,6 +421,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             this.Column4.DataPropertyName = "ThuocKhoaHoc";
             this.Column4.HeaderText = "Course\'s ID";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.Width = 210;
@@ -383,6 +430,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             this.Column5.DataPropertyName = "NgayHocTrongTuan";
             this.Column5.HeaderText = "Day of week";
+            this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.Width = 190;
@@ -399,46 +447,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.rbtAll.Text = "All";
             this.rbtAll.UseVisualStyleBackColor = true;
             this.rbtAll.CheckedChanged += new System.EventHandler(this.rbtAll_CheckedChanged);
-            // 
-            // cbbDayOfWeek
-            // 
-            this.cbbDayOfWeek.FormattingEnabled = true;
-            this.cbbDayOfWeek.Items.AddRange(new object[] {
-            "2-4-6",
-            "3-5-7"});
-            this.cbbDayOfWeek.Location = new System.Drawing.Point(188, 367);
-            this.cbbDayOfWeek.Name = "cbbDayOfWeek";
-            this.cbbDayOfWeek.Size = new System.Drawing.Size(197, 28);
-            this.cbbDayOfWeek.TabIndex = 27;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(52, 370);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(107, 20);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "Day of week:";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "2-4-6",
-            "3-5-7"});
-            this.comboBox2.Location = new System.Drawing.Point(190, 372);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(197, 28);
-            this.comboBox2.TabIndex = 35;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(54, 375);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(107, 20);
-            this.label11.TabIndex = 34;
-            this.label11.Text = "Day of week:";
             // 
             // Classes_UserControl
             // 
@@ -463,8 +471,8 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabControl.ResumeLayout(false);
             this.tabAdd.ResumeLayout(false);
             this.tabAdd.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrStudentsNew)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrShiftNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListClasses)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -491,10 +499,10 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.DataGridView dgvListClasses;
         private System.Windows.Forms.ComboBox cmbCourseID;
         private System.Windows.Forms.NumericUpDown nmrStudents;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cmbCourseIDNew;
+        private System.Windows.Forms.NumericUpDown nmrStudentsNew;
+        private System.Windows.Forms.NumericUpDown nmrShiftNew;
+        private System.Windows.Forms.TextBox txtIDNew;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -507,7 +515,7 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.ComboBox cbbDayOfWeek;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbDOWNew;
         private System.Windows.Forms.Label label11;
     }
 }

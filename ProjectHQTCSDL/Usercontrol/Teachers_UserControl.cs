@@ -23,6 +23,7 @@ namespace ProjectHQTCSDL.Usercontrol
         private void Teachers_UserControl_Load(object sender, EventArgs e)
         {
             this.dgvListTeachers.DataSource = teacher.GetListTeachers();
+            this.txtIDNew.Text = teacher.CreateID().ToString();
         }
 
         private void dgvListTeachers_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -33,6 +34,75 @@ namespace ProjectHQTCSDL.Usercontrol
             txtPhone.Text = row.Cells[2].Value.ToString();
             txtAddress.Text = row.Cells[3].Value.ToString();
             txtSalary.Text = row.Cells[4].Value.ToString();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (txtName.Text != null && txtName.Text != "" && txtPhone.Text != null && txtPhone.Text != "" && txtAddress.Text != null && txtAddress.Text != "" && txtSalary.Text != null && txtSalary.Text != "")
+            {
+                int salary;
+                bool tsalary = int.TryParse(txtSalary.Text, out salary);
+                int phone;
+                bool tphone = int.TryParse(txtPhoneNew.Text, out phone);
+                if (tsalary != false && tsalary != false)
+                {
+                    string error = "";
+                    bool t = teacher.UpdateTeacher(int.Parse(txtID.Text), txtName.Text, txtPhone.Text, txtAddress.Text, salary, ref error);
+                    if (t == true)
+                    {
+                        this.dgvListTeachers.DataSource = teacher.GetListTeachers();
+                        MessageBox.Show("Update successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                    MessageBox.Show("Please enter a number for Salary and Phone Number", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                MessageBox.Show("Please fill out all information", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (txtName.Text != null && txtName.Text != "" && txtPhone.Text != null && txtPhone.Text != "" && txtAddress.Text != null && txtAddress.Text != "" && txtSalary.Text != null && txtSalary.Text != "")
+            {
+                int salary;
+                bool tsalary = int.TryParse(txtSalary.Text, out salary);
+                int phone;
+                bool tphone = int.TryParse(txtPhoneNew.Text, out phone);
+                string pass = "000000";
+                if (tphone != false && tsalary != false)
+                {
+                    string error = "";
+                    bool t = teacher.InsertTeacher(txtUsername.Text, pass, txtNameNew.Text, txtPhoneNew.Text, txtAddressNew.Text, salary, ref error);
+                    if (t == true)
+                    {
+                        this.dgvListTeachers.DataSource = teacher.GetListTeachers();
+                        txtIDNew.Text = teacher.CreateID().ToString();
+                        txtNameNew.ResetText();
+                        txtUsername.ResetText();
+                        txtPhoneNew.ResetText();
+                        txtNameNew.ResetText();
+                        txtAddressNew.ResetText();
+                        txtSalaryNew.ResetText();
+                        MessageBox.Show("Insert successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show("Error", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                    MessageBox.Show("Please enter a number for Phone Number and Salary", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                MessageBox.Show("Please fill out all information", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            this.dgvListTeachers.DataSource = teacher.GetListLikeTeacher(txtSearch.Text);
         }
     }
 }

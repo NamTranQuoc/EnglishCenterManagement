@@ -14,6 +14,17 @@ namespace ProjectHQTCSDL.BS_Layer
         {
             return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.HocVien");
         }
+
+        public DataTable GetListLikeStudent(string likeName)
+        {
+            return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.HocVien WHERE HoTen LIKE '%" + likeName + "%'");
+        }
+
+        public int CreateID()
+        {
+            return (int)dbMain.Instance.ExcuteScalar("SELECT dbo.TaoMaTuDong('User')");
+        }
+
         public bool InsertStudent (string userName, string pass, string name, string phoneNumber, string address, string email, DateTime birthday, ref string error)
         {
             if (userName != null && userName != "")
@@ -33,6 +44,14 @@ namespace ProjectHQTCSDL.BS_Layer
             if (t > 0)
                 return false;
             return true;
+        }
+
+        public bool UpdateStudent(int id, string name, string phoneNumber, string address, string email, DateTime birthday, ref string error)
+        {
+            int test = dbMain.Instance.ExcuteNonQuery("UPDATE dbo.HocVien SET HoTen=N'" + name + "', SDT=" + phoneNumber + ",DiaChi=N'" + address + "',Email='" + email + "',NgaySinh='" + birthday.ToString("yyyy-MM-dd") + "' WHERE MaHocVien= " + id + "", ref error);
+            if (test > 0)
+                return true;
+            return false;
         }
     }
 }
