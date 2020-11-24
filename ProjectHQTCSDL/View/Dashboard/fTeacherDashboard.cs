@@ -17,6 +17,7 @@ namespace ProjectHQTCSDL.View.Dashboard
         public int IDUser;
         Schedule_UserControl sche;
         Attendance_UserControl att;
+        YourInformation_UserControl infor;
         public fTeacherDashboard()
         {
             InitializeComponent();
@@ -47,6 +48,18 @@ namespace ProjectHQTCSDL.View.Dashboard
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnInformation_Click(object sender, EventArgs e)
+        {
+            sche.Hide();
+            att.Hide();
+
+            infor = new YourInformation_UserControl();
+            infor.IDTaiKhoan = IDUser;
+            infor.state = false;
+
+            this.pUserControl.Controls.Add(infor);
         }
     }
 }

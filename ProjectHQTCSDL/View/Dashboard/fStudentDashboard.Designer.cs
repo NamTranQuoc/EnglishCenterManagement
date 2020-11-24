@@ -124,6 +124,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnInformation.Text = "Information";
             this.btnInformation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInformation.UseVisualStyleBackColor = true;
+            this.btnInformation.Click += new System.EventHandler(this.btnInformation_Click);
             // 
             // btnSchedule
             // 
@@ -144,7 +145,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1443, 758);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.pUserControl);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
