@@ -131,5 +131,83 @@ namespace ProjectHQTCSDL.BS_Layer
 
             return scheView;
         }
+
+        public DataTable GetSchedule(string iDClass, DateTime day, string session, bool allDay = false)
+        {
+            DataTable sche = new DataTable();
+            if (allDay == false && session == "All" && iDClass == "All")
+                sche = dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.Lich_ WHERE NgayHoc >= '" + DateTime.Today.ToString("yyyy-MM-dd") + "'");
+            else if (allDay == false && iDClass == "All")
+                sche = dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.Lich_ WHERE NgayHoc >= '" + DateTime.Today.ToString("yyyy-MM-dd") + "' AND Buoi = " + session);
+            else if (allDay == false && session == "All")
+                sche = dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.Lich_ WHERE NgayHoc >= '" + DateTime.Today.ToString("yyyy-MM-dd") + "' AND MaLop = " + iDClass);
+            else if (iDClass == "All" && session == "All")
+                sche = dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.Lich_ WHERE NgayHoc >= '" + DateTime.Today.ToString("yyyy-MM-dd") + "' AND NgayHoc = '" + day.ToString("yyyy-MM-dd") + "'");
+            else if (allDay == false)
+                sche = dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.Lich_ WHERE NgayHoc >= '" + DateTime.Today.ToString("yyyy-MM-dd") + "' AND MaLop = " + iDClass + " AND Buoi = " + session);
+            else if (iDClass == "All")
+                sche = dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.Lich_ WHERE NgayHoc >= '" + DateTime.Today.ToString("yyyy-MM-dd") + "' AND NgayHoc = '" + day.ToString("yyyy-MM-dd") + "' AND Buoi = " + session);
+            else if (session == "All")
+                sche = dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.Lich_ WHERE NgayHoc >= '" + DateTime.Today.ToString("yyyy-MM-dd") + "' AND NgayHoc = '" + day.ToString("yyyy-MM-dd") + "' AND MaLop = " + iDClass);
+            else
+                sche = dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.Lich_ WHERE NgayHoc >= '" + DateTime.Today.ToString("yyyy-MM-dd") + "' AND NgayHoc = '" + day.ToString("yyyy-MM-dd") + "' AND MaLop = " + iDClass + " AND Buoi = " + session);
+            if (sche != null)
+            {
+                sche.Columns.Add("Select", typeof(bool));
+                for (int i = 0; i < sche.Rows.Count; i++)
+                {
+                    sche.Rows[i]["Select"] = false;
+                }    
+            }
+            else
+            {
+                sche.Columns.Add("MaLop");
+                sche.Columns.Add("Buoi");
+                sche.Columns.Add("TenPhong");
+                sche.Columns.Add("NgayHoc");
+                sche.Columns.Add("HoTen");
+                sche.Columns.Add("CaHoc");
+                sche.Columns.Add("Select");
+            }    
+            return sche;
+        }
+
+        public DataTable GetListClass()
+        {
+            DataTable listClass = new DataTable();
+            listClass = dbMain.Instance.ExcuteQuery("SELECT CONVERT(VARCHAR(10), MaLop) AS MaLop FROM dbo.LopHoc");       
+            listClass.Rows.Add("All");
+            return listClass;
+        }
+
+        public DataTable GetListSession(string iDClass)
+        {
+            DataTable listClass = new DataTable();
+            if (iDClass == "All")
+            {
+                listClass = new DataTable();
+                listClass.Columns.Add("Buoi");
+                int s = (int)dbMain.Instance.ExcuteScalar("SELECT MAX(Buoi) FROM dbo.Lich_");
+                for (int i = 1; i <= s; i++)
+                {
+                    listClass.Rows.Add(i.ToString());
+                }
+                listClass.Rows.Add("All");
+            }
+            else
+            {
+                listClass = new DataTable();
+                listClass = dbMain.Instance.ExcuteQuery("SELECT CONVERT(VARCHAR(10), Buoi) AS Buoi FROM dbo.Lich_ WHERE MaLop = " + iDClass);
+                listClass.Rows.Add("All");
+            }
+            return listClass;
+        }
+
+        public string DeleteSchedule(int iDClass, int session)
+        {
+            string err = null;
+            dbMain.Instance.ExcuteNonQuery("DELETE dbo.LichHoc WHERE MaLop = " + iDClass + " AND Buoi = " + session, ref err);
+            return err;
+        }
     }
 }

@@ -16,17 +16,37 @@ namespace ProjectHQTCSDL.View.Dashboard
     {
         public int IDUser;
         Schedule_UserControl sche;
+        Attendance_UserControl att;
         public fTeacherDashboard()
         {
             InitializeComponent();
-            sche = new Schedule_UserControl();
-            sche.IDUser = IDUser;
-            pUserControl.Controls.Add(sche);
         }
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
             sche.Show();
+            att.Hide();
+        }
+
+        private void btnAttendance_Click(object sender, EventArgs e)
+        {
+            sche.Hide();
+            att.Show();
+        }
+
+        private void fTeacherDashboard_Load(object sender, EventArgs e)
+        {
+            sche = new Schedule_UserControl();
+            sche.IDUser = IDUser;
+            pUserControl.Controls.Add(sche);
+            att = new Attendance_UserControl();
+            att.IDTeacher = IDUser;
+            pUserControl.Controls.Add(att);
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

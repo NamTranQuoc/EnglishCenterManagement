@@ -39,7 +39,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnStudent = new System.Windows.Forms.Button();
             this.btnTeacher = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnEmployee = new System.Windows.Forms.Button();
+            this.btnDelSchedule = new System.Windows.Forms.Button();
             this.btnSchedule = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -81,7 +81,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.panel1.Controls.Add(this.btnStudent);
             this.panel1.Controls.Add(this.btnTeacher);
             this.panel1.Controls.Add(this.btnLogout);
-            this.panel1.Controls.Add(this.btnEmployee);
+            this.panel1.Controls.Add(this.btnDelSchedule);
             this.panel1.Controls.Add(this.btnSchedule);
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(1, 1);
@@ -176,20 +176,22 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnLogout.Text = "Logout";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // btnEmployee
+            // btnDelSchedule
             // 
-            this.btnEmployee.BackgroundImage = global::ProjectHQTCSDL.Properties.Resources.employee;
-            this.btnEmployee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmployee.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmployee.Location = new System.Drawing.Point(20, 340);
-            this.btnEmployee.Name = "btnEmployee";
-            this.btnEmployee.Size = new System.Drawing.Size(181, 41);
-            this.btnEmployee.TabIndex = 1;
-            this.btnEmployee.Text = "Employee";
-            this.btnEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEmployee.UseVisualStyleBackColor = true;
+            this.btnDelSchedule.BackgroundImage = global::ProjectHQTCSDL.Properties.Resources.employee;
+            this.btnDelSchedule.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnDelSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelSchedule.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelSchedule.Location = new System.Drawing.Point(20, 340);
+            this.btnDelSchedule.Name = "btnDelSchedule";
+            this.btnDelSchedule.Size = new System.Drawing.Size(181, 41);
+            this.btnDelSchedule.TabIndex = 1;
+            this.btnDelSchedule.Text = "Delete schedule";
+            this.btnDelSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelSchedule.UseVisualStyleBackColor = true;
+            this.btnDelSchedule.Click += new System.EventHandler(this.btnDelSchedule_Click);
             // 
             // btnSchedule
             // 
@@ -239,7 +241,7 @@ namespace ProjectHQTCSDL.View.Dashboard
         private System.Windows.Forms.Button btnStudent;
         private System.Windows.Forms.Button btnTeacher;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Button btnEmployee;
+        private System.Windows.Forms.Button btnDelSchedule;
         private System.Windows.Forms.Button btnSchedule;
     }
 }

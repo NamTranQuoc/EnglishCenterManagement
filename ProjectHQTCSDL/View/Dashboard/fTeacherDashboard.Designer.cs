@@ -68,6 +68,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnLogout.Text = "Logout";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnAttendance
             // 
@@ -82,6 +83,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnAttendance.Text = "Attendance";
             this.btnAttendance.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttendance.UseVisualStyleBackColor = true;
+            this.btnAttendance.Click += new System.EventHandler(this.btnAttendance_Click);
             // 
             // btnInformation
             // 
@@ -152,6 +154,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.Name = "fTeacherDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Teacher";
+            this.Load += new System.EventHandler(this.fTeacherDashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

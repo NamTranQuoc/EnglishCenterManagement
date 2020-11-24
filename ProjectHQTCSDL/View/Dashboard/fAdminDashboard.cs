@@ -19,6 +19,7 @@ namespace ProjectHQTCSDL.View.Dashboard
         Students_UserControl stu;
         Teachers_UserControl tea;
         Classes_UserControl cla;
+        DeleteSchedule_UserControl del;
         public fAdminDashboard()
         {
             InitializeComponent();
@@ -45,17 +46,22 @@ namespace ProjectHQTCSDL.View.Dashboard
             cla = new Classes_UserControl();
             this.pUserControl.Controls.Add(cla);
             this.Hide();
+
+            del = new DeleteSchedule_UserControl();
+            this.pUserControl.Controls.Add(del);
+            this.Hide();
         }
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
             cou.Hide();
             stu.Hide();
-            if (cou.f == true)
+            if (cou.f == true || del.f == true)
                 sche.LoadccbView();
             sche.Show();
             tea.Hide();
             cla.Hide();
+            del.Hide();
         }
 
         private void btnCource_Click(object sender, EventArgs e)
@@ -66,6 +72,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             stu.Hide();
             tea.Hide();
             cla.Hide();
+            del.Hide();
         }
 
         private void btnStudent_Click(object sender, EventArgs e)
@@ -75,6 +82,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             cou.Hide();
             tea.Hide();
             cla.Hide();
+            del.Hide();
         }
 
         private void btnTeacher_Click(object sender, EventArgs e)
@@ -84,6 +92,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             cou.Hide();
             tea.Show();
             cla.Hide();
+            del.Hide();
         }
 
         private void btnClass_Click(object sender, EventArgs e)
@@ -93,6 +102,23 @@ namespace ProjectHQTCSDL.View.Dashboard
             cou.Hide();
             tea.Hide();
             cla.Show();
+            del.Hide();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDelSchedule_Click(object sender, EventArgs e)
+        {
+            sche.Hide();            
+            cou.Hide();
+            stu.Hide();
+            tea.Hide();
+            cla.Hide();
+            del.f = false;
+            del.Show();
         }
     }
 }

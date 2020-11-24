@@ -28,5 +28,10 @@ namespace ProjectHQTCSDL.View.Dashboard
         {
             sche.Show();
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
