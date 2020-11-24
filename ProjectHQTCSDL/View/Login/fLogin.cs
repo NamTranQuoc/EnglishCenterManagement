@@ -44,7 +44,7 @@ namespace ProjectHQTCSDL.View.Login
                     break;
                 case 4:
                     fStudentDashboard f4 = new fStudentDashboard();
-                    f4.IDUser = log.GetID(txtUserName.Text);
+                    f4.IDUser = log.GetID(txtUserName.Text.Trim());
                     f4.ShowDialog();
                     this.Close();
                     break;

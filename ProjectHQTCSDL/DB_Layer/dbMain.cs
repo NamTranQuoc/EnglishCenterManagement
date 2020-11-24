@@ -77,5 +77,18 @@ namespace ProjectHQTCSDL.DB_Layer
             }
             return data;
         }
+
+        public SqlDataReader ExcuteReader(string strSql, CommandType ct)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            SqlCommand comm = connection.CreateCommand();
+            if (connection.State == ConnectionState.Open)
+                connection.Close();
+            connection.Open();
+            comm.CommandText = strSql;
+            comm.CommandType = ct;
+            return comm.ExecuteReader();
+        }
     }
 }
