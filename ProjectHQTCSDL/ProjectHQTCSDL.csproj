@@ -79,6 +79,12 @@
     <Compile Include="Usercontrol\Classes_UserControl.Designer.cs">
       <DependentUpon>Classes_UserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usercontrol\DeleteSchedule_UserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Usercontrol\DeleteSchedule_UserControl.Designer.cs">
+      <DependentUpon>DeleteSchedule_UserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usercontrol\EnrollInClass_UserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -207,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Usercontrol\Classes_UserControl.resx">
       <DependentUpon>Classes_UserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usercontrol\DeleteSchedule_UserControl.resx">
+      <DependentUpon>DeleteSchedule_UserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usercontrol\EnrollInClass_UserControl.resx">
       <DependentUpon>EnrollInClass_UserControl.cs</DependentUpon>

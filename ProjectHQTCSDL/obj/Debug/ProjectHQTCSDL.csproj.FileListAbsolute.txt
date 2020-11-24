@@ -58,3 +58,4 @@ D:\HQTCSDL\HQTCSDL_QuocNam\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\ob
 D:\HQTCSDL\HQTCSDL_QuocNam\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.csproj.CoreCompileInputs.cache
 D:\HQTCSDL\HQTCSDL_QuocNam\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.exe
 D:\HQTCSDL\HQTCSDL_QuocNam\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.pdb
+D:\HQTCSDL\HQTCSDL_QuocNam\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.DeleteSchedule_UserControl.resources
