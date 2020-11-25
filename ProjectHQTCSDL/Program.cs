@@ -17,7 +17,7 @@ namespace ProjectHQTCSDL
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fStudentDashboard());
+            Application.Run(new fGuestDashboard());
         }
     }
 }

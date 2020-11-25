@@ -171,6 +171,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MakeUpClass_UserControl";
             this.Size = new System.Drawing.Size(1233, 674);
+            this.Load += new System.EventHandler(this.MakeUpClass_UserControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMUC)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

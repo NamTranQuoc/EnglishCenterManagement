@@ -25,7 +25,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             MUC_UC = new MakeUpClass_UserControl();
 
             sche.IDUser = IDUser;
-            MUC_UC.maHocVien = IDUser;
+       //     MUC_UC.maHocVien = IDUser;
 
             this.pUserControl.Controls.Add(sche);
             this.pUserControl.Controls.Add(MUC_UC);
@@ -51,6 +51,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             {
                 ctrl.Visible = false;
             }
+            this.MUC_UC.maHocVien = IDUser;
 
             this.MUC_UC.Visible = true;
             this.MUC_UC.BringToFront();

@@ -15,7 +15,7 @@ namespace ProjectHQTCSDL.Usercontrol
     public partial class MakeUpClass_UserControl : UserControl
     {
         // Lấy maHocVien là tài khoản đăng nhập
-        public int maHocVien=15;
+        public int maHocVien;
         private int maLopHocBu = 0;
 
         DataTable dtHocBu = null;
@@ -24,11 +24,8 @@ namespace ProjectHQTCSDL.Usercontrol
         public MakeUpClass_UserControl()
         {
             InitializeComponent();
-            cboBuoiHoc.Text = "1";
-            LoadCboLopHoc();
-            LoadSoBuoi();
-            Load_Data();
         }
+
         public void LoadCboLopHoc()
         {
             cboLopHoc.Items.Clear();
@@ -168,6 +165,14 @@ namespace ProjectHQTCSDL.Usercontrol
 
         private void cboBuoiHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Load_Data();
+        }
+
+        private void MakeUpClass_UserControl_Load(object sender, EventArgs e)
+        {
+            cboBuoiHoc.Text = "1";
+            LoadCboLopHoc();
+            LoadSoBuoi();
             Load_Data();
         }
     }
