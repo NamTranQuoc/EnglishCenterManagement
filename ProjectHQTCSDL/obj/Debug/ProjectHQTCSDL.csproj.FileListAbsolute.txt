@@ -15,7 +15,6 @@ D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Teachers_UserControl.resources
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.YourInformation_UserControl.resources
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Dashboard.fAdminDashboard.resources
-D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Dashboard.fEmployeeDashboard.resources
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Dashboard.fGuestDashboard.resources
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Dashboard.fStudentDashboard.resources
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Dashboard.fTeacherDashboard.resources

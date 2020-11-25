@@ -23,6 +23,8 @@ namespace ProjectHQTCSDL.Usercontrol
         {
             this.dgvListClasses.DataSource = cla.GetListClasses(0);
             this.txtIDNew.Text = cla.CreateID().ToString();
+            this.cmbCourseIDNew.DataSource = cla.GetListCource();
+            this.cmbCourseIDNew.DisplayMember = "MaKhoaHoc";
         }
 
         private void rbtAll_CheckedChanged(object sender, EventArgs e)
@@ -47,15 +49,15 @@ namespace ProjectHQTCSDL.Usercontrol
             nmrStudents.Value = Convert.ToDecimal(row.Cells[1].Value);
             nmrShift.Value = Convert.ToDecimal(row.Cells[2].Value);
             cbbDayOfWeek.Text = row.Cells[3].Value.ToString();
-            cmbCourseID.Text = row.Cells[4].Value.ToString();
+            txtCourceID.Text = cla.GetNameCource(row.Cells[4].Value.ToString());
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (nmrStudents.Value > 20 && nmrShift.Value>0 && cmbCourseID.Text != null && cmbCourseID.Text != "" && cmbDOWNew.Text != "" && cmbDOWNew.Text != null)
+            if (nmrStudents.Value > 20)
             {
                 string error = "";
-                bool t = cla.UpdateClasses(int.Parse(txtID.Text), Convert.ToInt32(nmrStudents.Value), Convert.ToInt32(nmrShift.Value), cmbDOWNew.Text, Convert.ToInt32(cmbCourseID.Text), ref error);
+                bool t = cla.UpdateClasses(int.Parse(txtID.Text), Convert.ToInt32(nmrStudents.Value), ref error);
                 if (t == true)
                 {
                     if (rbtAll.Checked == true)
@@ -75,10 +77,10 @@ namespace ProjectHQTCSDL.Usercontrol
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (nmrStudents.Value > 20 && nmrShift.Value > 0 && cmbCourseID.Text != null && cmbCourseID.Text != "" && cmbDOWNew.Text != "" && cmbDOWNew.Text != null)
+            if (nmrStudentsNew.Value > 20 && nmrShiftNew.Value > 0 && cmbCourseIDNew.Text != null && cmbCourseIDNew.Text != "" && cmbDOWNew.Text != "" && cmbDOWNew.Text != null)
             {
                 string error = "";
-                bool t = cla.InsertClass(int.Parse(txtID.Text), Convert.ToInt32(nmrStudents.Value), Convert.ToInt32(nmrShift.Value), cmbDOWNew.Text, Convert.ToInt32(cmbCourseID.Text), ref error);
+                bool t = cla.InsertClass(int.Parse(txtIDNew.Text), Convert.ToInt32(nmrStudentsNew.Value), Convert.ToInt32(nmrShiftNew.Value), cmbDOWNew.Text, Convert.ToInt32(cmbCourseIDNew.Text), ref error);
                 if (t == true)
                 {
                     if (rbtAll.Checked == true)

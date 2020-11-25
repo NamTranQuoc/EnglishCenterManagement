@@ -37,7 +37,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabEdit = new System.Windows.Forms.TabPage();
             this.cbbDayOfWeek = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.cmbCourseID = new System.Windows.Forms.ComboBox();
             this.nmrStudents = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -66,6 +65,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rbtAll = new System.Windows.Forms.RadioButton();
+            this.txtCourceID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nmrShift)).BeginInit();
             this.tabEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmrStudents)).BeginInit();
@@ -80,7 +80,8 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             this.nmrShift.Location = new System.Drawing.Point(188, 209);
             this.nmrShift.Name = "nmrShift";
-            this.nmrShift.Size = new System.Drawing.Size(120, 26);
+            this.nmrShift.ReadOnly = true;
+            this.nmrShift.Size = new System.Drawing.Size(197, 26);
             this.nmrShift.TabIndex = 23;
             // 
             // txtID
@@ -121,9 +122,9 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // tabEdit
             // 
+            this.tabEdit.Controls.Add(this.txtCourceID);
             this.tabEdit.Controls.Add(this.cbbDayOfWeek);
             this.tabEdit.Controls.Add(this.label10);
-            this.tabEdit.Controls.Add(this.cmbCourseID);
             this.tabEdit.Controls.Add(this.nmrStudents);
             this.tabEdit.Controls.Add(this.nmrShift);
             this.tabEdit.Controls.Add(this.txtID);
@@ -143,6 +144,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // cbbDayOfWeek
             // 
+            this.cbbDayOfWeek.Enabled = false;
             this.cbbDayOfWeek.FormattingEnabled = true;
             this.cbbDayOfWeek.Items.AddRange(new object[] {
             "2-4-6",
@@ -161,19 +163,11 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label10.TabIndex = 26;
             this.label10.Text = "Day of week:";
             // 
-            // cmbCourseID
-            // 
-            this.cmbCourseID.FormattingEnabled = true;
-            this.cmbCourseID.Location = new System.Drawing.Point(188, 284);
-            this.cmbCourseID.Name = "cmbCourseID";
-            this.cmbCourseID.Size = new System.Drawing.Size(197, 28);
-            this.cmbCourseID.TabIndex = 25;
-            // 
             // nmrStudents
             // 
             this.nmrStudents.Location = new System.Drawing.Point(188, 131);
             this.nmrStudents.Name = "nmrStudents";
-            this.nmrStudents.Size = new System.Drawing.Size(120, 26);
+            this.nmrStudents.Size = new System.Drawing.Size(197, 26);
             this.nmrStudents.TabIndex = 24;
             // 
             // label2
@@ -448,6 +442,14 @@ namespace ProjectHQTCSDL.Usercontrol
             this.rbtAll.UseVisualStyleBackColor = true;
             this.rbtAll.CheckedChanged += new System.EventHandler(this.rbtAll_CheckedChanged);
             // 
+            // txtCourceID
+            // 
+            this.txtCourceID.Location = new System.Drawing.Point(188, 284);
+            this.txtCourceID.Name = "txtCourceID";
+            this.txtCourceID.ReadOnly = true;
+            this.txtCourceID.Size = new System.Drawing.Size(197, 26);
+            this.txtCourceID.TabIndex = 28;
+            // 
             // Classes_UserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -497,7 +499,6 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.RadioButton rbtEven;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dgvListClasses;
-        private System.Windows.Forms.ComboBox cmbCourseID;
         private System.Windows.Forms.NumericUpDown nmrStudents;
         private System.Windows.Forms.ComboBox cmbCourseIDNew;
         private System.Windows.Forms.NumericUpDown nmrStudentsNew;
@@ -517,5 +518,6 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbDOWNew;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtCourceID;
     }
 }

@@ -32,17 +32,16 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.rbtHide = new System.Windows.Forms.RadioButton();
-            this.rbtAll = new System.Windows.Forms.RadioButton();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.rbtAvailable = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.tabAdd = new System.Windows.Forms.TabPage();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.txtSalaryNew = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtIDNew = new System.Windows.Forms.TextBox();
@@ -60,14 +59,11 @@ namespace ProjectHQTCSDL.Usercontrol
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnHideOrAvailable = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.tabEdit = new System.Windows.Forms.TabPage();
-            this.txtSalary = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.txtSalary = new System.Windows.Forms.TextBox();
             this.tabAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListTeachers)).BeginInit();
             this.tabEdit.SuspendLayout();
@@ -96,26 +92,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 26);
             this.txtName.TabIndex = 20;
-            // 
-            // rbtHide
-            // 
-            this.rbtHide.AutoSize = true;
-            this.rbtHide.Location = new System.Drawing.Point(610, 3);
-            this.rbtHide.Name = "rbtHide";
-            this.rbtHide.Size = new System.Drawing.Size(60, 24);
-            this.rbtHide.TabIndex = 19;
-            this.rbtHide.Text = "Hide";
-            this.rbtHide.UseVisualStyleBackColor = true;
-            // 
-            // rbtAll
-            // 
-            this.rbtAll.AutoSize = true;
-            this.rbtAll.Location = new System.Drawing.Point(552, 3);
-            this.rbtAll.Name = "rbtAll";
-            this.rbtAll.Size = new System.Drawing.Size(44, 24);
-            this.rbtAll.TabIndex = 18;
-            this.rbtAll.Text = "All";
-            this.rbtAll.UseVisualStyleBackColor = true;
             // 
             // txtAddress
             // 
@@ -167,18 +143,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label1.TabIndex = 14;
             this.label1.Text = "Teacher\'s ID:";
             // 
-            // rbtAvailable
-            // 
-            this.rbtAvailable.AutoSize = true;
-            this.rbtAvailable.Checked = true;
-            this.rbtAvailable.Location = new System.Drawing.Point(688, 3);
-            this.rbtAvailable.Name = "rbtAvailable";
-            this.rbtAvailable.Size = new System.Drawing.Size(97, 24);
-            this.rbtAvailable.TabIndex = 20;
-            this.rbtAvailable.TabStop = true;
-            this.rbtAvailable.Text = "Available";
-            this.rbtAvailable.UseVisualStyleBackColor = true;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -210,6 +174,22 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabAdd.TabIndex = 1;
             this.tabAdd.Text = "Add";
             this.tabAdd.UseVisualStyleBackColor = true;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(179, 105);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(200, 26);
+            this.txtUsername.TabIndex = 35;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(61, 108);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(87, 20);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Username:";
             // 
             // txtSalaryNew
             // 
@@ -363,18 +343,9 @@ namespace ProjectHQTCSDL.Usercontrol
             this.Column4.ReadOnly = true;
             this.Column4.Width = 160;
             // 
-            // btnHideOrAvailable
-            // 
-            this.btnHideOrAvailable.Location = new System.Drawing.Point(235, 538);
-            this.btnHideOrAvailable.Name = "btnHideOrAvailable";
-            this.btnHideOrAvailable.Size = new System.Drawing.Size(150, 42);
-            this.btnHideOrAvailable.TabIndex = 9;
-            this.btnHideOrAvailable.Text = "Hide";
-            this.btnHideOrAvailable.UseVisualStyleBackColor = true;
-            // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(27, 538);
+            this.btnSave.Location = new System.Drawing.Point(126, 504);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(150, 42);
             this.btnSave.TabIndex = 8;
@@ -394,7 +365,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabEdit.Controls.Add(this.label3);
             this.tabEdit.Controls.Add(this.label2);
             this.tabEdit.Controls.Add(this.label1);
-            this.tabEdit.Controls.Add(this.btnHideOrAvailable);
             this.tabEdit.Controls.Add(this.btnSave);
             this.tabEdit.Location = new System.Drawing.Point(4, 29);
             this.tabEdit.Name = "tabEdit";
@@ -403,13 +373,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabEdit.TabIndex = 0;
             this.tabEdit.Text = "Edit";
             this.tabEdit.UseVisualStyleBackColor = true;
-            // 
-            // txtSalary
-            // 
-            this.txtSalary.Location = new System.Drawing.Point(184, 351);
-            this.txtSalary.Name = "txtSalary";
-            this.txtSalary.Size = new System.Drawing.Size(200, 26);
-            this.txtSalary.TabIndex = 25;
             // 
             // label12
             // 
@@ -430,31 +393,19 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabControl.Size = new System.Drawing.Size(421, 668);
             this.tabControl.TabIndex = 16;
             // 
-            // txtUsername
+            // txtSalary
             // 
-            this.txtUsername.Location = new System.Drawing.Point(179, 105);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(200, 26);
-            this.txtUsername.TabIndex = 35;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(61, 108);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(87, 20);
-            this.label10.TabIndex = 34;
-            this.label10.Text = "Username:";
+            this.txtSalary.Location = new System.Drawing.Point(184, 351);
+            this.txtSalary.Name = "txtSalary";
+            this.txtSalary.Size = new System.Drawing.Size(200, 26);
+            this.txtSalary.TabIndex = 25;
             // 
             // Teachers_UserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.rbtHide);
-            this.Controls.Add(this.rbtAll);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.rbtAvailable);
             this.Controls.Add(this.dgvListTeachers);
             this.Controls.Add(this.tabControl);
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -477,15 +428,12 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.RadioButton rbtHide;
-        private System.Windows.Forms.RadioButton rbtAll;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton rbtAvailable;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabAdd;
         private System.Windows.Forms.TextBox txtIDNew;
@@ -498,11 +446,9 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvListTeachers;
-        private System.Windows.Forms.Button btnHideOrAvailable;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TabPage tabEdit;
         private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TextBox txtSalary;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -513,5 +459,6 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtSalary;
     }
 }

@@ -31,11 +31,6 @@ namespace ProjectHQTCSDL.View.Login
                     f1.ShowDialog();
                     this.Close();
                     break;
-                case 2:
-                    fEmployeeDashboard f2 = new fEmployeeDashboard();
-                    f2.ShowDialog();
-                    this.Close();
-                    break;
                 case 3:
                     fTeacherDashboard f3 = new fTeacherDashboard();
                     f3.IDUser = log.GetID(txtUserName.Text);

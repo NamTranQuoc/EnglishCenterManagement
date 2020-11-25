@@ -28,9 +28,9 @@ namespace ProjectHQTCSDL.BS_Layer
             return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.LopHoc WHERE NgayHocTrongTuan = '3-5-7' AND  ThuocKhoaHoc LIKE '%" + likeName + "%'");
         }
 
-        public bool UpdateClasses(int iD, int number, int shift,string DOW, int course, ref string error)
+        public bool UpdateClasses(int iD, int number, ref string error)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("UPDATE dbo.LopHoc SET SoHocVienDuKien=" + number + ", CaHoc=" + shift + ", NgayHocTrongTuan=" + DOW + ", ThuocKhoaHoc=" + course + " WHERE MaLop= " + iD + "", ref error);
+            int test = dbMain.Instance.ExcuteNonQuery("UPDATE dbo.LopHoc SET SoHocVienDuKien=" + number + " WHERE MaLop= " + iD, ref error);
             if (test > 0)
                 return true;
             return false;
@@ -38,7 +38,7 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public bool InsertClass(int iD, int number, int shift, string DOW, int course, ref string error)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("INSERT dbo.LopHoc (MaLop ,SoHocVienDuKien,CaHoc,NgayHocTrongTuan,ThuocKhoaHoc) VALUES  (" + iD + ", " + number + ", " + shift + ", '" + DOW + "')", ref error);
+            int test = dbMain.Instance.ExcuteNonQuery("INSERT dbo.LopHoc VALUES  (" + iD + ", " + number + ", " + shift + ", '" + DOW + "', " + course + ")", ref error);
             if (test > 0)
                 return true;
             return false;
@@ -47,6 +47,16 @@ namespace ProjectHQTCSDL.BS_Layer
         public int CreateID()
         {
             return (int)dbMain.Instance.ExcuteScalar("SELECT dbo.TaoMaTuDong('LopHoc')");
+        }
+
+        public string GetNameCource(string ID)
+        {
+            return (string)dbMain.Instance.ExcuteScalar("SELECT TenKhoaHoc FROM dbo.KhoaHoc WHERE MaKhoaHoc = " + ID);
+        }
+
+        public DataTable GetListCource()
+        {
+            return dbMain.Instance.ExcuteQuery("SELECT MaKhoaHoc FROM dbo.KhoaHoc");
         }
     }
 }

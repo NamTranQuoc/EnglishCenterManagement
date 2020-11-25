@@ -33,6 +33,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExpenses = new System.Windows.Forms.Button();
             this.btnCource = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.btnClass = new System.Windows.Forms.Button();
@@ -75,6 +76,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(39)))));
+            this.panel1.Controls.Add(this.btnExpenses);
             this.panel1.Controls.Add(this.btnCource);
             this.panel1.Controls.Add(this.btnReport);
             this.panel1.Controls.Add(this.btnClass);
@@ -89,13 +91,27 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.panel1.Size = new System.Drawing.Size(225, 756);
             this.panel1.TabIndex = 9;
             // 
+            // btnExpenses
+            // 
+            this.btnExpenses.BackgroundImage = global::ProjectHQTCSDL.Properties.Resources.expenses;
+            this.btnExpenses.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnExpenses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExpenses.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExpenses.Location = new System.Drawing.Point(20, 589);
+            this.btnExpenses.Name = "btnExpenses";
+            this.btnExpenses.Size = new System.Drawing.Size(181, 41);
+            this.btnExpenses.TabIndex = 10;
+            this.btnExpenses.Text = "Expenses";
+            this.btnExpenses.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExpenses.UseVisualStyleBackColor = true;
+            // 
             // btnCource
             // 
             this.btnCource.BackgroundImage = global::ProjectHQTCSDL.Properties.Resources.cource;
             this.btnCource.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnCource.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCource.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCource.Location = new System.Drawing.Point(20, 580);
+            this.btnCource.Location = new System.Drawing.Point(20, 520);
             this.btnCource.Name = "btnCource";
             this.btnCource.Size = new System.Drawing.Size(181, 41);
             this.btnCource.TabIndex = 9;
@@ -110,7 +126,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReport.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReport.Location = new System.Drawing.Point(20, 500);
+            this.btnReport.Location = new System.Drawing.Point(20, 450);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(181, 41);
             this.btnReport.TabIndex = 8;
@@ -124,7 +140,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnClass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClass.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClass.Location = new System.Drawing.Point(20, 420);
+            this.btnClass.Location = new System.Drawing.Point(20, 380);
             this.btnClass.Name = "btnClass";
             this.btnClass.Size = new System.Drawing.Size(181, 41);
             this.btnClass.TabIndex = 6;
@@ -139,7 +155,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnStudent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStudent.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStudent.Location = new System.Drawing.Point(20, 260);
+            this.btnStudent.Location = new System.Drawing.Point(20, 240);
             this.btnStudent.Name = "btnStudent";
             this.btnStudent.Size = new System.Drawing.Size(181, 41);
             this.btnStudent.TabIndex = 5;
@@ -154,7 +170,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnTeacher.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnTeacher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTeacher.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTeacher.Location = new System.Drawing.Point(20, 180);
+            this.btnTeacher.Location = new System.Drawing.Point(20, 170);
             this.btnTeacher.Name = "btnTeacher";
             this.btnTeacher.Size = new System.Drawing.Size(181, 41);
             this.btnTeacher.TabIndex = 4;
@@ -184,7 +200,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnDelSchedule.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnDelSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelSchedule.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelSchedule.Location = new System.Drawing.Point(20, 340);
+            this.btnDelSchedule.Location = new System.Drawing.Point(20, 310);
             this.btnDelSchedule.Name = "btnDelSchedule";
             this.btnDelSchedule.Size = new System.Drawing.Size(181, 41);
             this.btnDelSchedule.TabIndex = 1;
@@ -243,5 +259,6 @@ namespace ProjectHQTCSDL.View.Dashboard
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnDelSchedule;
         private System.Windows.Forms.Button btnSchedule;
+        private System.Windows.Forms.Button btnExpenses;
     }
 }

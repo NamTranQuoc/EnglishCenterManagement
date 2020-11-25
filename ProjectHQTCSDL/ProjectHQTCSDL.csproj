@@ -53,7 +53,6 @@
     <Compile Include="BS_Layer\Guest.cs" />
     <Compile Include="BS_Layer\Login_Signup.cs" />
     <Compile Include="BS_Layer\MakeUpClass.cs" />
-    <Compile Include="BS_Layer\Non_TeacherStaff.cs" />
     <Compile Include="BS_Layer\Reports.cs" />
     <Compile Include="BS_Layer\Schedule.cs" />
     <Compile Include="BS_Layer\Students.cs" />
@@ -157,12 +156,6 @@
     <Compile Include="View\Dashboard\fAdminDashboard.Designer.cs">
       <DependentUpon>fAdminDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Dashboard\fEmployeeDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Dashboard\fEmployeeDashboard.Designer.cs">
-      <DependentUpon>fEmployeeDashboard.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Dashboard\fGuestDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,9 +246,6 @@
     <EmbeddedResource Include="View\Dashboard\fAdminDashboard.resx">
       <DependentUpon>fAdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Dashboard\fEmployeeDashboard.resx">
-      <DependentUpon>fEmployeeDashboard.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Dashboard\fGuestDashboard.resx">
       <DependentUpon>fGuestDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -322,6 +312,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cource.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\expenses.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
