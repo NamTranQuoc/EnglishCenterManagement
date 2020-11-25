@@ -1,7 +1,3 @@
-D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\ProjectHQTCSDL.exe.config
-D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\ProjectHQTCSDL.exe
-D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\ProjectHQTCSDL.pdb
-D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.csprojAssemblyReference.cache
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Properties.Resources.resources
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Account_UserControl.resources
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Attendance_UserControl.resources
@@ -27,5 +23,8 @@ D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Login.fSignUp.resources
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.csproj.GenerateResource.cache
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.csproj.CoreCompileInputs.cache
+D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\ProjectHQTCSDL.exe.config
+D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\ProjectHQTCSDL.exe
+D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\ProjectHQTCSDL.pdb
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.exe
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.pdb

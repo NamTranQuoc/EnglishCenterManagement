@@ -48,7 +48,7 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public bool UpdateStudent(int id, string name, string phoneNumber, string address, string email, DateTime birthday, ref string error)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("UPDATE dbo.HocVien SET HoTen=N'" + name + "', SDT=" + phoneNumber + ",DiaChi=N'" + address + "',Email='" + email + "',NgaySinh='" + birthday.ToString("yyyy-MM-dd") + "' WHERE MaHocVien= " + id + "", ref error);
+            int test = dbMain.Instance.ExcuteNonQuery("UPDATE dbo.HocVien SET HoTen=N'" + name + "', SDT= '" + phoneNumber + "' , DiaChi=N'" + address + "',Email= '" + email + "' , NgaySinh='" + birthday.ToString("yyyy-MM-dd") + "' WHERE MaHocVien= " + id + "", ref error);
             if (test > 0)
                 return true;
             return false;
