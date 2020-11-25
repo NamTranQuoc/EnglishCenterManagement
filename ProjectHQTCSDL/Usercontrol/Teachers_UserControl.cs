@@ -66,10 +66,10 @@ namespace ProjectHQTCSDL.Usercontrol
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtName.Text != null && txtName.Text != "" && txtPhone.Text != null && txtPhone.Text != "" && txtAddress.Text != null && txtAddress.Text != "" && txtSalary.Text != null && txtSalary.Text != "")
+            if (txtNameNew.Text != null && txtNameNew.Text != "" && txtPhoneNew.Text != null && txtPhoneNew.Text != "" && txtAddressNew.Text != null && txtAddressNew.Text != "" && txtSalaryNew.Text != null && txtSalaryNew.Text != "")
             {
                 int salary;
-                bool tsalary = int.TryParse(txtSalary.Text, out salary);
+                bool tsalary = int.TryParse(txtSalaryNew.Text, out salary);
                 int phone;
                 bool tphone = int.TryParse(txtPhoneNew.Text, out phone);
                 string pass = "000000";
@@ -90,7 +90,7 @@ namespace ProjectHQTCSDL.Usercontrol
                         MessageBox.Show("Insert successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
-                        MessageBox.Show("Error", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Usename Existed", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                     MessageBox.Show("Please enter a number for Phone Number and Salary", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
