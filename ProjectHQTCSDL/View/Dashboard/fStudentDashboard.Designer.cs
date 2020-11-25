@@ -110,6 +110,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnAttendance.Text = "Make-up Class";
             this.btnAttendance.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttendance.UseVisualStyleBackColor = true;
+            this.btnAttendance.Click += new System.EventHandler(this.btnAttendance_Click);
             // 
             // btnInformation
             // 
