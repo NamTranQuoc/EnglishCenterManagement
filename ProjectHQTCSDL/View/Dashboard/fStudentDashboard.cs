@@ -18,44 +18,52 @@ namespace ProjectHQTCSDL.View.Dashboard
         Schedule_UserControl sche;
         MakeUpClass_UserControl MUC_UC;
         YourInformation_UserControl infor;
+        EnrollInClass_UserControl enr;
 
         public fStudentDashboard()
+        {  
+            InitializeComponent();           
+        }
+
+        private void fStudentDashboard_Load(object sender, EventArgs e)
         {
-            InitializeComponent();
             sche = new Schedule_UserControl();
             MUC_UC = new MakeUpClass_UserControl();
+            this.enr = new EnrollInClass_UserControl();
+            infor = new YourInformation_UserControl();
 
-            sche.IDUser = IDUser;
-       //     MUC_UC.maHocVien = IDUser;
+            this.sche.IDUser = IDUser;
+            this.infor.IDTaiKhoan = IDUser;
+            this.infor.state = true;
+            this.enr.iDStudent = this.IDUser;
+            this.MUC_UC.maHocVien = this.IDUser;
 
             this.pUserControl.Controls.Add(sche);
             this.pUserControl.Controls.Add(MUC_UC);
+            this.pUserControl.Controls.Add(infor);
+            this.pUserControl.Controls.Add(enr);
 
-            this.sche.Visible = false;
-            this.MUC_UC.Visible = false;
+            enr.Hide();
+            MUC_UC.Hide();
+            infor.Hide();
         }
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
-            foreach (Control ctrl in this.pUserControl.Controls)
-            {
-                ctrl.Visible = false;
-            }
-
-            this.sche.Visible = true;
-            this.sche.BringToFront();
+            enr.Hide();
+            if (enr.f == true)
+                sche.LoadccbView();
+            sche.Show();
+            infor.Hide();
+            MUC_UC.Hide();
         }
 
-        private void btnAttendance_Click(object sender, EventArgs e)
+        private void btnMakeUpClass_Click(object sender, EventArgs e)
         {
-            foreach (Control ctrl in this.pUserControl.Controls)
-            {
-                ctrl.Visible = false;
-            }
-            this.MUC_UC.maHocVien = IDUser;
-
-            this.MUC_UC.Visible = true;
-            this.MUC_UC.BringToFront();
+            enr.Hide();
+            sche.Hide();
+            infor.Hide();
+            MUC_UC.Show();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -65,13 +73,19 @@ namespace ProjectHQTCSDL.View.Dashboard
 
         private void btnInformation_Click(object sender, EventArgs e)
         {
+            enr.Hide();
             sche.Hide();
+            infor.Show();
+            MUC_UC.Hide();
+        }
 
-            infor = new YourInformation_UserControl();
-            infor.IDTaiKhoan = IDUser;
-            infor.state = true;
-
-            this.pUserControl.Controls.Add(infor);
+        private void btnEnroll_Click(object sender, EventArgs e)
+        {
+            enr.f = false;
+            enr.Show();
+            sche.Hide();
+            infor.Hide();
+            MUC_UC.Hide();
         }
     }
 }

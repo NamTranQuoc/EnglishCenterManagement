@@ -34,8 +34,9 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnEnroll = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnAttendance = new System.Windows.Forms.Button();
+            this.btnMakeUpClass = new System.Windows.Forms.Button();
             this.btnInformation = new System.Windows.Forms.Button();
             this.btnSchedule = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
@@ -72,8 +73,9 @@ namespace ProjectHQTCSDL.View.Dashboard
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(39)))));
+            this.panel1.Controls.Add(this.btnEnroll);
             this.panel1.Controls.Add(this.btnLogout);
-            this.panel1.Controls.Add(this.btnAttendance);
+            this.panel1.Controls.Add(this.btnMakeUpClass);
             this.panel1.Controls.Add(this.btnInformation);
             this.panel1.Controls.Add(this.btnSchedule);
             this.panel1.ForeColor = System.Drawing.Color.White;
@@ -81,6 +83,21 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(225, 756);
             this.panel1.TabIndex = 3;
+            // 
+            // btnEnroll
+            // 
+            this.btnEnroll.BackgroundImage = global::ProjectHQTCSDL.Properties.Resources.enroll;
+            this.btnEnroll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnEnroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnroll.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnroll.Location = new System.Drawing.Point(20, 326);
+            this.btnEnroll.Name = "btnEnroll";
+            this.btnEnroll.Size = new System.Drawing.Size(181, 41);
+            this.btnEnroll.TabIndex = 4;
+            this.btnEnroll.Text = "Enroll";
+            this.btnEnroll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEnroll.UseVisualStyleBackColor = true;
+            this.btnEnroll.Click += new System.EventHandler(this.btnEnroll_Click);
             // 
             // btnLogout
             // 
@@ -97,20 +114,20 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // btnAttendance
+            // btnMakeUpClass
             // 
-            this.btnAttendance.BackgroundImage = global::ProjectHQTCSDL.Properties.Resources.make_up;
-            this.btnAttendance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnAttendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAttendance.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttendance.Location = new System.Drawing.Point(20, 220);
-            this.btnAttendance.Name = "btnAttendance";
-            this.btnAttendance.Size = new System.Drawing.Size(181, 41);
-            this.btnAttendance.TabIndex = 2;
-            this.btnAttendance.Text = "Make-up Class";
-            this.btnAttendance.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAttendance.UseVisualStyleBackColor = true;
-            this.btnAttendance.Click += new System.EventHandler(this.btnAttendance_Click);
+            this.btnMakeUpClass.BackgroundImage = global::ProjectHQTCSDL.Properties.Resources.make_up;
+            this.btnMakeUpClass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnMakeUpClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMakeUpClass.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMakeUpClass.Location = new System.Drawing.Point(20, 220);
+            this.btnMakeUpClass.Name = "btnMakeUpClass";
+            this.btnMakeUpClass.Size = new System.Drawing.Size(181, 41);
+            this.btnMakeUpClass.TabIndex = 2;
+            this.btnMakeUpClass.Text = "Make-up Class";
+            this.btnMakeUpClass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMakeUpClass.UseVisualStyleBackColor = true;
+            this.btnMakeUpClass.Click += new System.EventHandler(this.btnMakeUpClass_Click);
             // 
             // btnInformation
             // 
@@ -118,7 +135,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnInformation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnInformation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInformation.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInformation.Location = new System.Drawing.Point(20, 320);
+            this.btnInformation.Location = new System.Drawing.Point(20, 423);
             this.btnInformation.Name = "btnInformation";
             this.btnInformation.Size = new System.Drawing.Size(181, 41);
             this.btnInformation.TabIndex = 1;
@@ -155,6 +172,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.Name = "fStudentDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student";
+            this.Load += new System.EventHandler(this.fStudentDashboard_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -169,8 +187,9 @@ namespace ProjectHQTCSDL.View.Dashboard
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Button btnAttendance;
+        private System.Windows.Forms.Button btnMakeUpClass;
         private System.Windows.Forms.Button btnInformation;
         private System.Windows.Forms.Button btnSchedule;
+        private System.Windows.Forms.Button btnEnroll;
     }
 }

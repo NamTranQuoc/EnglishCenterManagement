@@ -93,9 +93,9 @@ namespace ProjectHQTCSDL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap employee {
+        internal static System.Drawing.Bitmap enroll {
             get {
-                object obj = ResourceManager.GetObject("employee", resourceCulture);
+                object obj = ResourceManager.GetObject("enroll", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

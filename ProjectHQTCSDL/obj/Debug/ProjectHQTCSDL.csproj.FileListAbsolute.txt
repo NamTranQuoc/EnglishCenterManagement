@@ -27,3 +27,4 @@ D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\bin
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\ProjectHQTCSDL.pdb
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.exe
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.pdb
+D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.csprojAssemblyReference.cache
