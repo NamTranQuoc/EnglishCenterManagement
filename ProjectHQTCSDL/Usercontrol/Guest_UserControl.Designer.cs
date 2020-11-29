@@ -29,240 +29,89 @@ namespace ProjectHQTCSDL.Usercontrol
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnStudents = new System.Windows.Forms.Button();
-            this.btnAttendence = new System.Windows.Forms.Button();
-            this.btnTeachingStaff = new System.Windows.Forms.Button();
-            this.btnUsers = new System.Windows.Forms.Button();
-            this.btnReport = new System.Windows.Forms.Button();
-            this.btnSections = new System.Windows.Forms.Button();
-            this.btnSubjects = new System.Windows.Forms.Button();
-            this.btnClassesStudents = new System.Windows.Forms.Button();
-            this.btnNonTeachingStaff = new System.Windows.Forms.Button();
-            this.btnExpress = new System.Windows.Forms.Button();
-            this.btnSession = new System.Windows.Forms.Button();
-            this.btnAccounts = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.dgvGuest = new System.Windows.Forms.DataGridView();
+            this.MaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoHocVienDuKien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CaHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayHocTrongTuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTieuDe = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGuest)).BeginInit();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // dgvGuest
             // 
-            this.flowLayoutPanel1.Controls.Add(this.btnUsers);
-            this.flowLayoutPanel1.Controls.Add(this.btnTeachingStaff);
-            this.flowLayoutPanel1.Controls.Add(this.btnStudents);
-            this.flowLayoutPanel1.Controls.Add(this.btnAttendence);
-            this.flowLayoutPanel1.Controls.Add(this.btnSections);
-            this.flowLayoutPanel1.Controls.Add(this.btnClassesStudents);
-            this.flowLayoutPanel1.Controls.Add(this.btnSubjects);
-            this.flowLayoutPanel1.Controls.Add(this.btnReport);
-            this.flowLayoutPanel1.Controls.Add(this.btnSession);
-            this.flowLayoutPanel1.Controls.Add(this.btnAccounts);
-            this.flowLayoutPanel1.Controls.Add(this.btnExpress);
-            this.flowLayoutPanel1.Controls.Add(this.btnNonTeachingStaff);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(95, 96);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1025, 470);
-            this.flowLayoutPanel1.TabIndex = 0;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            this.dgvGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGuest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaLop,
+            this.SoHocVienDuKien,
+            this.CaHoc,
+            this.NgayHocTrongTuan});
+            this.dgvGuest.Location = new System.Drawing.Point(202, 138);
+            this.dgvGuest.Name = "dgvGuest";
+            this.dgvGuest.Size = new System.Drawing.Size(808, 418);
+            this.dgvGuest.TabIndex = 0;
             // 
-            // btnStudents
+            // MaLop
             // 
-            this.btnStudents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btnStudents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStudents.ForeColor = System.Drawing.Color.White;
-            this.btnStudents.Location = new System.Drawing.Point(515, 3);
-            this.btnStudents.Name = "btnStudents";
-            this.btnStudents.Size = new System.Drawing.Size(250, 150);
-            this.btnStudents.TabIndex = 3;
-            this.btnStudents.Text = "Students";
-            this.btnStudents.UseVisualStyleBackColor = false;
-            this.btnStudents.Click += new System.EventHandler(this.button3_Click);
+            this.MaLop.DataPropertyName = "MaLop";
+            this.MaLop.HeaderText = "Mã Lớp";
+            this.MaLop.Name = "MaLop";
             // 
-            // btnAttendence
+            // SoHocVienDuKien
             // 
-            this.btnAttendence.BackColor = System.Drawing.Color.Green;
-            this.btnAttendence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAttendence.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttendence.ForeColor = System.Drawing.Color.White;
-            this.btnAttendence.Location = new System.Drawing.Point(771, 3);
-            this.btnAttendence.Name = "btnAttendence";
-            this.btnAttendence.Size = new System.Drawing.Size(250, 150);
-            this.btnAttendence.TabIndex = 3;
-            this.btnAttendence.Text = "Attendence";
-            this.btnAttendence.UseVisualStyleBackColor = false;
-            this.btnAttendence.Click += new System.EventHandler(this.button4_Click);
+            this.SoHocVienDuKien.DataPropertyName = "SoHocVienDuKien";
+            this.SoHocVienDuKien.HeaderText = "Số Học Viên Dự Kiến";
+            this.SoHocVienDuKien.Name = "SoHocVienDuKien";
+            this.SoHocVienDuKien.Width = 180;
             // 
-            // btnTeachingStaff
+            // CaHoc
             // 
-            this.btnTeachingStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnTeachingStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTeachingStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTeachingStaff.ForeColor = System.Drawing.Color.White;
-            this.btnTeachingStaff.Location = new System.Drawing.Point(259, 3);
-            this.btnTeachingStaff.Name = "btnTeachingStaff";
-            this.btnTeachingStaff.Size = new System.Drawing.Size(250, 150);
-            this.btnTeachingStaff.TabIndex = 3;
-            this.btnTeachingStaff.Text = "Teaching Staff";
-            this.btnTeachingStaff.UseVisualStyleBackColor = false;
-            this.btnTeachingStaff.Click += new System.EventHandler(this.button2_Click);
+            this.CaHoc.DataPropertyName = "CaHoc";
+            this.CaHoc.HeaderText = "Ca Học";
+            this.CaHoc.Name = "CaHoc";
             // 
-            // btnUsers
+            // NgayHocTrongTuan
             // 
-            this.btnUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsers.ForeColor = System.Drawing.Color.White;
-            this.btnUsers.Location = new System.Drawing.Point(3, 3);
-            this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Size = new System.Drawing.Size(250, 150);
-            this.btnUsers.TabIndex = 3;
-            this.btnUsers.Text = "Users";
-            this.btnUsers.UseVisualStyleBackColor = false;
-            this.btnUsers.Click += new System.EventHandler(this.button1_Click);
+            this.NgayHocTrongTuan.DataPropertyName = "NgayHocTrongTuan";
+            this.NgayHocTrongTuan.HeaderText = "Ngày Học Trong Tuần";
+            this.NgayHocTrongTuan.Name = "NgayHocTrongTuan";
+            this.NgayHocTrongTuan.Width = 180;
             // 
-            // btnReport
+            // lblTieuDe
             // 
-            this.btnReport.BackColor = System.Drawing.Color.Purple;
-            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReport.ForeColor = System.Drawing.Color.White;
-            this.btnReport.Location = new System.Drawing.Point(771, 159);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(250, 150);
-            this.btnReport.TabIndex = 3;
-            this.btnReport.Text = "Report";
-            this.btnReport.UseVisualStyleBackColor = false;
-            this.btnReport.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // btnSections
-            // 
-            this.btnSections.BackColor = System.Drawing.Color.Coral;
-            this.btnSections.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSections.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSections.ForeColor = System.Drawing.Color.White;
-            this.btnSections.Location = new System.Drawing.Point(3, 159);
-            this.btnSections.Name = "btnSections";
-            this.btnSections.Size = new System.Drawing.Size(250, 150);
-            this.btnSections.TabIndex = 3;
-            this.btnSections.Text = "Sections";
-            this.btnSections.UseVisualStyleBackColor = false;
-            this.btnSections.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // btnSubjects
-            // 
-            this.btnSubjects.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnSubjects.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubjects.ForeColor = System.Drawing.Color.White;
-            this.btnSubjects.Location = new System.Drawing.Point(515, 159);
-            this.btnSubjects.Name = "btnSubjects";
-            this.btnSubjects.Size = new System.Drawing.Size(250, 150);
-            this.btnSubjects.TabIndex = 3;
-            this.btnSubjects.Text = "Subjects";
-            this.btnSubjects.UseVisualStyleBackColor = false;
-            this.btnSubjects.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // btnClassesStudents
-            // 
-            this.btnClassesStudents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnClassesStudents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClassesStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClassesStudents.ForeColor = System.Drawing.Color.White;
-            this.btnClassesStudents.Location = new System.Drawing.Point(259, 159);
-            this.btnClassesStudents.Name = "btnClassesStudents";
-            this.btnClassesStudents.Size = new System.Drawing.Size(250, 150);
-            this.btnClassesStudents.TabIndex = 3;
-            this.btnClassesStudents.Text = "Classes/Subjects";
-            this.btnClassesStudents.UseVisualStyleBackColor = false;
-            this.btnClassesStudents.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // btnNonTeachingStaff
-            // 
-            this.btnNonTeachingStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnNonTeachingStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNonTeachingStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNonTeachingStaff.ForeColor = System.Drawing.Color.White;
-            this.btnNonTeachingStaff.Location = new System.Drawing.Point(771, 315);
-            this.btnNonTeachingStaff.Name = "btnNonTeachingStaff";
-            this.btnNonTeachingStaff.Size = new System.Drawing.Size(250, 150);
-            this.btnNonTeachingStaff.TabIndex = 3;
-            this.btnNonTeachingStaff.Text = "Non-Teaching Staff";
-            this.btnNonTeachingStaff.UseVisualStyleBackColor = false;
-            this.btnNonTeachingStaff.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // btnExpress
-            // 
-            this.btnExpress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnExpress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExpress.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExpress.ForeColor = System.Drawing.Color.White;
-            this.btnExpress.Location = new System.Drawing.Point(515, 315);
-            this.btnExpress.Name = "btnExpress";
-            this.btnExpress.Size = new System.Drawing.Size(250, 150);
-            this.btnExpress.TabIndex = 3;
-            this.btnExpress.Text = "Express";
-            this.btnExpress.UseVisualStyleBackColor = false;
-            this.btnExpress.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // btnSession
-            // 
-            this.btnSession.BackColor = System.Drawing.Color.Olive;
-            this.btnSession.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSession.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSession.ForeColor = System.Drawing.Color.White;
-            this.btnSession.Location = new System.Drawing.Point(3, 315);
-            this.btnSession.Name = "btnSession";
-            this.btnSession.Size = new System.Drawing.Size(250, 150);
-            this.btnSession.TabIndex = 3;
-            this.btnSession.Text = "Session";
-            this.btnSession.UseVisualStyleBackColor = false;
-            this.btnSession.Click += new System.EventHandler(this.button11_Click);
-            // 
-            // btnAccounts
-            // 
-            this.btnAccounts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnAccounts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccounts.ForeColor = System.Drawing.Color.White;
-            this.btnAccounts.Location = new System.Drawing.Point(259, 315);
-            this.btnAccounts.Name = "btnAccounts";
-            this.btnAccounts.Size = new System.Drawing.Size(250, 150);
-            this.btnAccounts.TabIndex = 3;
-            this.btnAccounts.Text = "Accounts";
-            this.btnAccounts.UseVisualStyleBackColor = false;
-            this.btnAccounts.Click += new System.EventHandler(this.button12_Click);
+            this.lblTieuDe.AutoSize = true;
+            this.lblTieuDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTieuDe.Location = new System.Drawing.Point(466, 41);
+            this.lblTieuDe.Name = "lblTieuDe";
+            this.lblTieuDe.Size = new System.Drawing.Size(257, 33);
+            this.lblTieuDe.TabIndex = 1;
+            this.lblTieuDe.Text = "CLASSES TOEIC";
             // 
             // Guest_UserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.lblTieuDe);
+            this.Controls.Add(this.dgvGuest);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Guest_UserControl";
             this.Size = new System.Drawing.Size(1233, 674);
             this.Load += new System.EventHandler(this.Guest_UserControl_Load);
-            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGuest)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button btnUsers;
-        private System.Windows.Forms.Button btnTeachingStaff;
-        private System.Windows.Forms.Button btnStudents;
-        private System.Windows.Forms.Button btnAttendence;
-        private System.Windows.Forms.Button btnSections;
-        private System.Windows.Forms.Button btnClassesStudents;
-        private System.Windows.Forms.Button btnSubjects;
-        private System.Windows.Forms.Button btnReport;
-        private System.Windows.Forms.Button btnSession;
-        private System.Windows.Forms.Button btnAccounts;
-        private System.Windows.Forms.Button btnExpress;
-        private System.Windows.Forms.Button btnNonTeachingStaff;
+        private System.Windows.Forms.DataGridView dgvGuest;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaLop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoHocVienDuKien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CaHoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayHocTrongTuan;
+        private System.Windows.Forms.Label lblTieuDe;
     }
 }

@@ -29,5 +29,34 @@ namespace ProjectHQTCSDL.View.Dashboard
             fLogin log = new fLogin();
             log.ShowDialog();
         }
+
+        private void btnCourse_Click(object sender, EventArgs e)
+        {
+            GUC.loai = "TOEIC";
+            GUC.Load_Data();
+        }
+
+        private void btnIelts_Click(object sender, EventArgs e)
+        {
+            GUC.loai = "IELTS";
+            GUC.Load_Data();
+        }
+
+        private void btnCommunication_Click(object sender, EventArgs e)
+        {
+            GUC.loai = "COMMUNICATION";
+            GUC.Load_Data();
+        }
+
+        private void btnBasic_Click(object sender, EventArgs e)
+        {
+            GUC.loai = "BASIC";
+            GUC.Load_Data();
+        }
+
+        private void fGuestDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

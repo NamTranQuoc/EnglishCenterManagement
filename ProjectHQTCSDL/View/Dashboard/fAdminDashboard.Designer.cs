@@ -117,6 +117,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnReport.Text = "Reports";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // btnClass
             // 

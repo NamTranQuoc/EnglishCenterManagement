@@ -2,89 +2,69 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjectHQTCSDL.BS_Layer;
 
 namespace ProjectHQTCSDL.Usercontrol
 {
     public partial class Guest_UserControl : UserControl
     {
+        public string loai = "";
+        DataTable dtLopHoc = null;
+        Guest dbGuest = new Guest();
+
         public Guest_UserControl()
         {
             InitializeComponent();
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            lblTieuDe.Visible = false;
+            dgvGuest.Visible = false;
         }
 
         private void Guest_UserControl_Load(object sender, EventArgs e)
         {
-
+ //           Load_Data();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void Load_Data()
         {
+            lblTieuDe.Visible = true;
+            dgvGuest.Visible = true;
+            try
+            {
+                dtLopHoc = new DataTable();
+                dtLopHoc.Clear();
+                switch (loai)
+                {
+                    case "TOEIC":
+                        lblTieuDe.Text = "CLASSES TOEIC";
+                        dtLopHoc = dbGuest.LayLopToeic();
+                        break;
+                    case "IELTS":
+                        lblTieuDe.Text = "CLASSES IELTS";
+                        dtLopHoc = dbGuest.LayLopIelts();
+                        break;
+                    case "COMMUNICATION":
+                        lblTieuDe.Text = "CLASSES COMMUNICATION";
+                        dtLopHoc = dbGuest.LayLopCommunication();
+                        break;
+                    default:
+                        lblTieuDe.Text = "CLASSES BASIC";
+                        dtLopHoc = dbGuest.LayLopBasic();
+                        break;
+                }
 
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-
+              //  dtLopHoc = dbGuest.LayLopToeic();
+                dgvGuest.DataSource = dtLopHoc;
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không lấy được nội dung trong bảng Học bù!");
+            }
         }
     }
 }
