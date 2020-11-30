@@ -104,6 +104,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnExpenses.Text = "Expenses";
             this.btnExpenses.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExpenses.UseVisualStyleBackColor = true;
+            this.btnExpenses.Click += new System.EventHandler(this.btnExpenses_Click);
             // 
             // btnCource
             // 
@@ -133,6 +134,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnReport.Text = "Reports";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // btnClass
             // 
