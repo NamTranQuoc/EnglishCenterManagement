@@ -368,6 +368,7 @@
     <None Include="Resources\expenses.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\home.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
