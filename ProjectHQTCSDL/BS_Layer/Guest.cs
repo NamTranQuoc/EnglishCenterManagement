@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,5 +10,14 @@ namespace ProjectHQTCSDL.BS_Layer
 {
     public class Guest
     {
+        public DataTable GetListNameCource()
+        {
+            return dbMain.Instance.ExcuteQuery("SELECT TenKhoaHoc, MaKhoaHoc FROM dbo.KhoaHoc"); 
+        }
+
+        public DataTable GetListClassOfCource(int id)
+        {
+            return dbMain.Instance.ExcuteQuery("EXEC dbo.LopTheoKhoaHoc " + id);
+        }
     }
 }

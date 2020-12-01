@@ -29,80 +29,97 @@ namespace ProjectHQTCSDL.Usercontrol
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.userControl1 = new System.Windows.Forms.UserControl();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.btnStudentsInClass = new System.Windows.Forms.Button();
+            this.btnTeacherOfTheCourse = new System.Windows.Forms.Button();
+            this.btnClassOfCourse = new System.Windows.Forms.Button();
+            this.btnRevenueCenter = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rpv = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // btnStudentsInClass
             // 
-            this.flowLayoutPanel1.Controls.Add(this.button1);
-            this.flowLayoutPanel1.Controls.Add(this.button2);
-            this.flowLayoutPanel1.Controls.Add(this.button3);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(287, 73);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(619, 106);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.btnStudentsInClass.Location = new System.Drawing.Point(185, 27);
+            this.btnStudentsInClass.Name = "btnStudentsInClass";
+            this.btnStudentsInClass.Size = new System.Drawing.Size(204, 38);
+            this.btnStudentsInClass.TabIndex = 1;
+            this.btnStudentsInClass.Text = "Students In Class";
+            this.btnStudentsInClass.UseVisualStyleBackColor = true;
+            this.btnStudentsInClass.Click += new System.EventHandler(this.btnStudentsInClass_Click);
             // 
-            // button1
+            // btnTeacherOfTheCourse
             // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 100);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Student Reports";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnTeacherOfTheCourse.Location = new System.Drawing.Point(391, 27);
+            this.btnTeacherOfTheCourse.Name = "btnTeacherOfTheCourse";
+            this.btnTeacherOfTheCourse.Size = new System.Drawing.Size(204, 38);
+            this.btnTeacherOfTheCourse.TabIndex = 1;
+            this.btnTeacherOfTheCourse.Text = "Teacher Of The Course";
+            this.btnTeacherOfTheCourse.UseVisualStyleBackColor = true;
+            this.btnTeacherOfTheCourse.Click += new System.EventHandler(this.btnTeacherOfTheCourse_Click);
             // 
-            // button2
+            // btnClassOfCourse
             // 
-            this.button2.Location = new System.Drawing.Point(209, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(200, 100);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Employee Reports";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnClassOfCourse.Location = new System.Drawing.Point(597, 27);
+            this.btnClassOfCourse.Name = "btnClassOfCourse";
+            this.btnClassOfCourse.Size = new System.Drawing.Size(204, 38);
+            this.btnClassOfCourse.TabIndex = 1;
+            this.btnClassOfCourse.Text = "Class Of Course";
+            this.btnClassOfCourse.UseVisualStyleBackColor = true;
+            this.btnClassOfCourse.Click += new System.EventHandler(this.btnClassOfCourse_Click);
             // 
-            // button3
+            // btnRevenueCenter
             // 
-            this.button3.Location = new System.Drawing.Point(415, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(200, 100);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "Teacher Reports";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnRevenueCenter.Location = new System.Drawing.Point(803, 27);
+            this.btnRevenueCenter.Name = "btnRevenueCenter";
+            this.btnRevenueCenter.Size = new System.Drawing.Size(204, 38);
+            this.btnRevenueCenter.TabIndex = 1;
+            this.btnRevenueCenter.Text = "Revenue Center";
+            this.btnRevenueCenter.UseVisualStyleBackColor = true;
+            this.btnRevenueCenter.Click += new System.EventHandler(this.btnRevenueCenter_Click);
             // 
-            // userControl1
+            // panel1
             // 
-            this.userControl1.BackColor = System.Drawing.Color.White;
-            this.userControl1.Location = new System.Drawing.Point(0, 342);
-            this.userControl1.Name = "userControl1";
-            this.userControl1.Size = new System.Drawing.Size(1233, 332);
-            this.userControl1.TabIndex = 1;
+            this.panel1.Controls.Add(this.btnRevenueCenter);
+            this.panel1.Controls.Add(this.btnStudentsInClass);
+            this.panel1.Controls.Add(this.btnClassOfCourse);
+            this.panel1.Controls.Add(this.btnTeacherOfTheCourse);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1233, 86);
+            this.panel1.TabIndex = 2;
+            // 
+            // rpv
+            // 
+            this.rpv.Location = new System.Drawing.Point(235, 92);
+            this.rpv.Name = "rpv";
+            this.rpv.ServerReport.BearerToken = null;
+            this.rpv.Size = new System.Drawing.Size(663, 579);
+            this.rpv.TabIndex = 3;
             // 
             // Reports_UserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.userControl1);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.rpv);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Reports_UserControl";
             this.Size = new System.Drawing.Size(1233, 674);
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.UserControl userControl1;
+        private System.Windows.Forms.Button btnStudentsInClass;
+        private System.Windows.Forms.Button btnTeacherOfTheCourse;
+        private System.Windows.Forms.Button btnClassOfCourse;
+        private System.Windows.Forms.Button btnRevenueCenter;
+        private System.Windows.Forms.Panel panel1;
+        private Microsoft.Reporting.WinForms.ReportViewer rpv;
     }
 }
