@@ -10,9 +10,10 @@ namespace ProjectHQTCSDL.BS_Layer
 {
     public class Attendance
     {
-        public string GetSession (string iDClass)
+        public string GetSession(string iDClass)
         {
-            return ((int)dbMain.Instance.ExcuteScalar("SELECT Buoi FROM dbo.LichHoc WHERE NgayHoc = '" + DateTime.Today.ToString("yyyy-MM-dd") + "' AND MaLop = " + iDClass)).ToString();
+            string query = "Exec GetSession @date = '" + DateTime.Today.ToString("yyyy-MM-dd") + "' , @idclass = '" + iDClass + "'";
+            return ((int)dbMain.Instance.ExcuteScalar(query)).ToString();
         }
         public DataTable GetClassList (string idClass, string session)
         {

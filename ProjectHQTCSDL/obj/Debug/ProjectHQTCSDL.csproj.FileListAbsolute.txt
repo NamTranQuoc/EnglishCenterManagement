@@ -28,3 +28,33 @@ D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\bin
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.exe
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.pdb
 D:\HQTCSDL\ProjectHQTCSDL\NamTranQuoc\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.csprojAssemblyReference.cache
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\ProjectHQTCSDL.exe.config
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\ProjectHQTCSDL.exe
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\ProjectHQTCSDL.pdb
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.csprojAssemblyReference.cache
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Properties.Resources.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Account_UserControl.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Attendance_UserControl.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Classes_UserControl.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.DeleteSchedule_UserControl.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.EnrollInClass_UserControl.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Expenses_UserControl.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Guest_UserControl.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.MakeUpClass_UserControl.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Non_TeacherStaff_UserControl.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Reports_UserControl.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Schedule_UserControl.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Students_UserControl.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Cources_UserControl.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Teachers_UserControl.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.YourInformation_UserControl.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Dashboard.fAdminDashboard.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Dashboard.fGuestDashboard.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Dashboard.fStudentDashboard.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Dashboard.fTeacherDashboard.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Login.fLogin.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Login.fSignUp.resources
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.csproj.GenerateResource.cache
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.csproj.CoreCompileInputs.cache
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.exe
+E:\HKI-2020\Hệ quản trị CSDL\EnglishCenterManagement\EnglishCenterManagement\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.pdb
