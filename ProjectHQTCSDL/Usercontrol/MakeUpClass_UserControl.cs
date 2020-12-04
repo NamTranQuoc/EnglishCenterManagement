@@ -28,19 +28,27 @@ namespace ProjectHQTCSDL.Usercontrol
 
         public void LoadCboLopHoc()
         {
-            cboLopHoc.Items.Clear();
-            List<int> dsLopHoc = dbMUC.LayLopHocHV(maHocVien);
-            for (int i = 0; i < dsLopHoc.Count; i++)
-                cboLopHoc.Items.Add(dsLopHoc[i]);
-            cboLopHoc.Text = dsLopHoc[0].ToString();
+            try
+            {
+                cboLopHoc.Items.Clear();
+                List<int> dsLopHoc = dbMUC.LayLopHocHV(maHocVien);
+                for (int i = 0; i < dsLopHoc.Count; i++)
+                    cboLopHoc.Items.Add(dsLopHoc[i]);
+                cboLopHoc.Text = dsLopHoc[0].ToString();
+            }
+            catch { }
         }
 
         public void LoadSoBuoi()
         {
-            cboBuoiHoc.Items.Clear();
-            int soBuoi = dbMUC.SoBuoiHoc(Convert.ToInt32(cboLopHoc.Text));
-            for (int i = 1; i < soBuoi + 1; i++)
-                cboBuoiHoc.Items.Add(i);
+            try
+            {
+                cboBuoiHoc.Items.Clear();
+                int soBuoi = dbMUC.SoBuoiHoc(Convert.ToInt32(cboLopHoc.Text));
+                for (int i = 1; i < soBuoi + 1; i++)
+                    cboBuoiHoc.Items.Add(i);
+            }
+            catch { }
         }
 
         public void HienThiHocBuNeuCo()
@@ -60,22 +68,25 @@ namespace ProjectHQTCSDL.Usercontrol
 
         public void Load_Data()
         {
-            try
+            if (cboLopHoc.Text != "")
             {
-                dtHocBu = new DataTable();
-                dtHocBu.Clear();
-                int theoKhoaHoc = dbMUC.LayKhoaLH(Convert.ToInt32(cboLopHoc.Text));
-                dtHocBu = dbMUC.LayHocBu(theoKhoaHoc, Convert.ToInt32(cboLopHoc.Text.Trim()), Convert.ToInt32(cboBuoiHoc.Text.Trim()));
-                dgvMUC.DataSource = dtHocBu;
-                btnLuu.Enabled = false;
-                btnHuyBo.Enabled = false;
-                HienThiHocBuNeuCo();
-           //     dgvMUC.AutoResizeColumns();
-           //     dgvMUC.Rows[0].Cells[5].Value = true;
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Không lấy được nội dung trong bảng Học bù!");
+                try
+                {
+                    dtHocBu = new DataTable();
+                    dtHocBu.Clear();
+                    int theoKhoaHoc = dbMUC.LayKhoaLH(Convert.ToInt32(cboLopHoc.Text));
+                    dtHocBu = dbMUC.LayHocBu(theoKhoaHoc, Convert.ToInt32(cboLopHoc.Text.Trim()), Convert.ToInt32(cboBuoiHoc.Text.Trim()));
+                    dgvMUC.DataSource = dtHocBu;
+                    btnLuu.Enabled = false;
+                    btnHuyBo.Enabled = false;
+                    HienThiHocBuNeuCo();
+                    //     dgvMUC.AutoResizeColumns();
+                    //     dgvMUC.Rows[0].Cells[5].Value = true;
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Không lấy được nội dung trong bảng Học bù!");
+                }
             }
         }
 

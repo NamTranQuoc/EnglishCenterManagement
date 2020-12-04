@@ -12,25 +12,17 @@ namespace ProjectHQTCSDL.BS_Layer
     {
         public DataTable GetListClasses(int type)//0 = lấy All, 1 = 2-4-6, 2 = 3-5-7
         {
-            if (type == 0)
-                return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.LopHoc");
-            if (type == 1)
-                return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.LopHoc WHERE NgayHocTrongTuan = '2-4-6'");
-            return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.LopHoc WHERE NgayHocTrongTuan = '3-5-7'");
+            return dbMain.Instance.ExcuteQuery("EXEC GetListClasses " + type);
         }
 
         public DataTable GetListLikeClasses(int type, string likeName)
         {
-            if (type == 0)
-                return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.LopHoc WHERE ThuocKhoaHoc LIKE '%" + likeName + "%'");
-            if (type == 1)
-                return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.LopHoc WHERE NgayHocTrongTuan = '2-4-6' AND  ThuocKhoaHoc LIKE '%" + likeName + "%'");
-            return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.LopHoc WHERE NgayHocTrongTuan = '3-5-7' AND  ThuocKhoaHoc LIKE '%" + likeName + "%'");
+            return dbMain.Instance.ExcuteQuery("EXEC GetListLikeClasses " + type + ", '" + likeName + "'");
         }
 
         public bool UpdateClasses(int iD, int number, ref string error)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("UPDATE dbo.LopHoc SET SoHocVienDuKien=" + number + " WHERE MaLop= " + iD, ref error);
+            int test = dbMain.Instance.ExcuteNonQuery("EXEC UpdateClasses " + iD + ", " + number, ref error);
             if (test > 0)
                 return true;
             return false;
@@ -38,7 +30,7 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public bool InsertClass(int iD, int number, int shift, string DOW, int course, ref string error)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("INSERT dbo.LopHoc VALUES  (" + iD + ", " + number + ", " + shift + ", '" + DOW + "', " + course + ")", ref error);
+            int test = dbMain.Instance.ExcuteNonQuery("EXEC InsertClass " + iD + ", " + number + ", " + shift + ", '" + DOW + "', " + course, ref error);
             if (test > 0)
                 return true;
             return false;
@@ -51,12 +43,12 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public string GetNameCource(string ID)
         {
-            return (string)dbMain.Instance.ExcuteScalar("SELECT TenKhoaHoc FROM dbo.KhoaHoc WHERE MaKhoaHoc = " + ID);
+            return (string)dbMain.Instance.ExcuteScalar("EXEC GetNameCource_ " + ID);
         }
 
         public DataTable GetListCource()
         {
-            return dbMain.Instance.ExcuteQuery("SELECT MaKhoaHoc FROM dbo.KhoaHoc");
+            return dbMain.Instance.ExcuteQuery("EXEC GetListCource");
         }
     }
 }

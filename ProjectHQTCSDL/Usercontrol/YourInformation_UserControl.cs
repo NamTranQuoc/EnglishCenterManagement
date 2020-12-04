@@ -79,8 +79,6 @@ namespace ProjectHQTCSDL.Usercontrol
             {
                 MessageBox.Show(e.Message, "Warning Load Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
-
         }
 
         private void GetInfoGiaoVien()

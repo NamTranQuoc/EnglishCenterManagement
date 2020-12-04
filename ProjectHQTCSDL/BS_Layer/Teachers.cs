@@ -30,7 +30,7 @@ namespace ProjectHQTCSDL.BS_Layer
             if (userName != null && userName != "")
             {
                 int iD = (int)dbMain.Instance.ExcuteScalar("SELECT dbo.TaoMaTuDong('User')");
-                int test1 = dbMain.Instance.ExcuteNonQuery("INSERT dbo.Account VALUES  ( " + iD + ", '" + userName + "', '" + pass + "', 4)", ref error);
+                int test1 = dbMain.Instance.ExcuteNonQuery("INSERT dbo.Account VALUES  ( " + iD + ", '" + userName + "', '" + pass + "', 3)", ref error);
                 int test2 = dbMain.Instance.ExcuteNonQuery("INSERT dbo.GiaoVien VALUES  ( " + iD + ", N'" + name + "', '" + phoneNumber + "', N'" + address + "', " + salary + ")", ref error);
                 if (test1 > 0 && test2 > 0)
                     return true;

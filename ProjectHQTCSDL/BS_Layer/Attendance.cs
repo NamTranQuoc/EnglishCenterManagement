@@ -12,7 +12,7 @@ namespace ProjectHQTCSDL.BS_Layer
     {
         public string GetSession (string iDClass)
         {
-            return ((int)dbMain.Instance.ExcuteScalar("SELECT Buoi FROM dbo.LichHoc WHERE NgayHoc = '" + DateTime.Today.ToString("yyyy-MM-dd") + "' AND MaLop = " + iDClass)).ToString();
+            return ((int)dbMain.Instance.ExcuteScalar("EXEC GetSession " + iDClass)).ToString();
         }
         public DataTable GetClassList (string idClass, string session)
         {
@@ -30,13 +30,12 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public string GetNameCource (string iDClass)
         {
-            int iDCource = (int) dbMain.Instance.ExcuteScalar("SELECT dbo.LayMaKhoahoc(" + iDClass + ")");
-            return (string)dbMain.Instance.ExcuteScalar("SELECT TenKhoaHoc FROM KhoaHoc WHERE MaKhoaHoc = " + iDCource);
+            return (string)dbMain.Instance.ExcuteScalar("EXEC GetNameCource " + iDClass);
         }
 
         public string GetIDClass (int iDTeacher, string shift)
         {
-            object id = dbMain.Instance.ExcuteScalar("SELECT LichHoc.MaLop FROM dbo.LichHoc, dbo.LopHoc WHERE NgayHoc = '" + DateTime.Today.ToString("yyyy-MM-dd") + "' AND MaGiaoVien = " + iDTeacher + " AND LichHoc.MaLop = LopHoc.MaLop AND CaHoc = " + shift);
+            object id = dbMain.Instance.ExcuteScalar("EXEC GetIDClass " + iDTeacher + ", " + shift);
             if (id != null)
                 return ((int)id).ToString();
             else
@@ -45,7 +44,7 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public bool CheckAbsent(string iDClass, string session, int iDStudent)
         {
-            int i = (int)dbMain.Instance.ExcuteScalar("SELECT COUNT(*) FROM dbo.Vang WHERE MaLop = " + iDClass + " AND Buoi = " + session + " AND MaHocVien = " + iDStudent);
+            int i = (int)dbMain.Instance.ExcuteScalar("EXEC CheckAbsent " + iDClass + ", " + session + ", " + iDStudent);
             if (i == 0)
                 return false; //không tồn tại lịch vắng
             return true;
@@ -54,7 +53,7 @@ namespace ProjectHQTCSDL.BS_Layer
         public string InsertAbsent (List<int> iDStudent, string iDClass, string session)
         {
             string err = null;
-            dbMain.Instance.ExcuteNonQuery("DELETE dbo.Vang WHERE MaLop = " + iDClass + " AND Buoi = " + session, ref err);
+            dbMain.Instance.ExcuteNonQuery("EXEC InsertAbsent " + iDClass + ", " + session, ref err);
             for (int i = 0; i < iDStudent.Count; i++)
             {
                 dbMain.Instance.ExcuteNonQuery("EXECUTE ThemBuoiVang " + iDStudent[i] + ", " + iDClass + ", " + session, ref err);

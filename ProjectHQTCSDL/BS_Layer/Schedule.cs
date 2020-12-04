@@ -14,8 +14,10 @@ namespace ProjectHQTCSDL.BS_Layer
         public List<string> GetListDateOfWeek(int IDUser) // 0 là nhân viên, admin --- các số còn cái là giáo viên và học viên
         {
             List<string> weeks = new List<string>();
+            DateTime date;
 
-            DateTime date = (DateTime)dbMain.Instance.ExcuteScalar("SELECT dbo.NgayLonNhatCuaLichHoc(" + IDUser + ")");
+
+            date = (DateTime)dbMain.Instance.ExcuteScalar("SELECT dbo.NgayLonNhatCuaLichHoc(" + IDUser + ")");           
             while (date > DateTime.Today)
             {
                 string d = date.AddDays(-5).ToString("dd/MM/yyyy") + " - " + date.AddDays(1).ToString("dd/MM/yyyy");

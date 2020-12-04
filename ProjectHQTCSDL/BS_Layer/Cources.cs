@@ -12,25 +12,17 @@ namespace ProjectHQTCSDL.BS_Layer
     {
         public DataTable GetListCources (int type)//0 = lấy All, 1 = Lấy có sẳn, 2 = lấy đã ẩn
         {
-            if (type == 0)
-                return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.KhoaHoc");
-            if (type == 1)
-                return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.KhoaHoc WHERE TrangThai = 1");
-            return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.KhoaHoc WHERE TrangThai = 0");
+            return dbMain.Instance.ExcuteQuery("EXEC GetListCources " + type);
         }
 
         public DataTable GetListLikeCource (int type, string likeName)
         {
-            if (type == 0)
-                return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.KhoaHoc WHERE TenKhoaHoc LIKE '%" + likeName + "%'");
-            if (type == 1)
-                return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.KhoaHoc WHERE TrangThai = 1 AND  TenKhoaHoc LIKE '%" + likeName + "%'");
-            return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.KhoaHoc WHERE TrangThai = 0 AND  TenKhoaHoc LIKE '%" + likeName + "%'");
+            return dbMain.Instance.ExcuteQuery("EXEC GetListLikeCource " + type + ", '" + likeName + "'");
         }
 
         public bool UpdateCource (int iD, string name, int tuition, int no, ref string error)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("UPDATE dbo.KhoaHoc SET TenKhoaHoc=N'" + name + "', HocPhi=" + tuition + ", SoBuoi=" +  no+ " WHERE MaKhoaHoc= " + iD + "", ref error);
+            int test = dbMain.Instance.ExcuteNonQuery("EXEC UpdateCource " + iD + ", N'" + name + "', " + tuition + ", " + no, ref error);
             if (test > 0)
                 return true;
             return false;
@@ -38,7 +30,7 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public bool UpdateStatus (int iD, int status, ref string error)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("UPDATE dbo.KhoaHoc SET TrangThai = " + status + " WHERE MaKhoaHoc= " + iD + "", ref error);
+            int test = dbMain.Instance.ExcuteNonQuery("EXEC UpdateStatusCource " + iD + ", " + status, ref error);
             if (test > 0)
                 return true;
             return false;
@@ -46,7 +38,7 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public bool InsertCource (int iD, string name, int no, int tuition, ref string error)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("INSERT dbo.KhoaHoc (MaKhoaHoc, TenKhoaHoc, SoBuoi, HocPhi) VALUES  (" + iD + ", N'" + name + "', " + no + ", " + tuition + ")", ref error);
+            int test = dbMain.Instance.ExcuteNonQuery("EXEC InsertCource " + iD + ", N'" + name + "', " + no + ", " + tuition, ref error);
             if (test > 0)
                 return true;
             return false;

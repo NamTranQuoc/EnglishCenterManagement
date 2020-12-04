@@ -97,7 +97,7 @@ namespace ProjectHQTCSDL.Usercontrol
                     MessageBox.Show("Insert successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
-                    MessageBox.Show("Error", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
                 MessageBox.Show("Please fill out all information", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);

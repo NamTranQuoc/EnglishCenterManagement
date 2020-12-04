@@ -27,6 +27,8 @@ namespace ProjectHQTCSDL.View.Dashboard
         {
             fLogin log = new fLogin();
             log.ShowDialog();
+            this.flpCource.Controls.Clear();
+            this.LoadData();
         }
 
         private void fGuestDashboard_Load(object sender, EventArgs e)
@@ -36,6 +38,11 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.ucGuest.Hide();
 
             guest = new Guest();
+            this.LoadData();
+        }
+
+        public void LoadData()
+        {
             lCource = guest.GetListNameCource();
             for (int i = 0; i < lCource.Rows.Count; i++)
             {
@@ -49,7 +56,7 @@ namespace ProjectHQTCSDL.View.Dashboard
                 btn.BackColor = Color.LightBlue;
                 btn.ForeColor = Color.DarkRed;
                 flpCource.Controls.Add(btn);
-            }    
+            }
         }
 
         private void btn_Click(object sender, EventArgs e)
