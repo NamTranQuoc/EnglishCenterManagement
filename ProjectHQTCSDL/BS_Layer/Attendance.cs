@@ -10,7 +10,7 @@ namespace ProjectHQTCSDL.BS_Layer
 {
     public class Attendance
     {
-        public string GetSession (string iDClass)
+        public string GetSession(string iDClass)
         {
             return ((int)dbMain.Instance.ExcuteScalar("EXEC GetSession " + iDClass)).ToString();
         }

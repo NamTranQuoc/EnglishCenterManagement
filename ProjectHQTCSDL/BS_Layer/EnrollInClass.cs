@@ -13,22 +13,8 @@ namespace ProjectHQTCSDL.BS_Layer
         public DataTable GetListClass(int iDStudent, string shift, string DOW, int iDCource)
         {
             DataTable dt = new DataTable();
-            if (shift == "All" && DOW == "All" && iDCource == 0)
-                dt = dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.DanhSachLopDangKy");
-            else if (shift == "All" && DOW == "All")
-                dt = dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.DanhSachLopDangKy WHERE ThuocKhoaHoc = " + iDCource);
-            else if (shift == "All" && iDCource == 0)
-                dt = dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.DanhSachLopDangKy WHERE NgayHocTrongTuan = '" + DOW + "'");
-            else if (DOW == "All" && iDCource == 0)
-                dt = dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.DanhSachLopDangKy WHERE CaHoc = " + shift);
-            else if (shift == "All")
-                dt = dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.DanhSachLopDangKy WHERE NgayHocTrongTuan = '" + DOW + "' AND ThuocKhoaHoc = " + iDCource);
-            else if (DOW == "All")
-                dt = dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.DanhSachLopDangKy WHERE CaHoc = " + shift + " AND ThuocKhoaHoc = " + iDCource);
-            else if (iDCource == 0)
-                dt = dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.DanhSachLopDangKy WHERE CaHoc = " + shift + " AND NgayHocTrongTuan = '" + DOW + "'");
-            else
-                dt = dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.DanhSachLopDangKy WHERE CaHoc = " + shift + " AND NgayHocTrongTuan = '" + DOW + "' AND ThuocKhoaHoc = " + iDCource);
+            string query = "Exec GetListClass @id = " + iDStudent + " , @shift = '" + shift + "', @DOW = '" + DOW + "' , @idCou = " + iDCource ;
+            dt = dbMain.Instance.ExcuteQuery(query.ToString());
             if (dt.Columns.Count == 0)
             {
                 dt.Columns.Add("MaLop");
@@ -52,7 +38,8 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public bool GetEnrolled(string iDStudent, string iDClass)
         {
-            if ((int)dbMain.Instance.ExcuteScalar("SELECT COUNT(*) FROM dbo.DangKy WHERE MaHocVien = " + iDStudent + " AND MaLop = " + iDClass) > 0)
+            string query = "EXEC dbo.GetEnrolled @id = " + iDStudent + ", @idCou = " + iDClass;
+            if ((int)dbMain.Instance.ExcuteScalar(query) > 0)
                 return true;
             else
                 return false;
@@ -60,7 +47,7 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public DataTable GetListCourceName()
         {
-            DataTable dt = dbMain.Instance.ExcuteQuery("SELECT MaKhoaHoc, TenKhoaHoc FROM dbo.KhoaHoc ");
+            DataTable dt = dbMain.Instance.ExcuteQuery("EXEC GetListCourceName");
             dt.Rows.Add(0, "All");
             return dt;
         }
