@@ -12,7 +12,7 @@ namespace ProjectHQTCSDL.BS_Layer
     {
         public DataTable GetListNameCource()
         {
-            return dbMain.Instance.ExcuteQuery("SELECT TenKhoaHoc, MaKhoaHoc FROM dbo.KhoaHoc"); 
+            return dbMain.Instance.ExcuteQuery("EXEC GetListNameCource"); 
         }
 
         public DataTable GetListClassOfCource(int id)

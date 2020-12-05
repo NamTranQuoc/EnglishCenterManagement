@@ -28,7 +28,7 @@ namespace ProjectHQTCSDL.BS_Layer
             dt.Columns.Add("Select", typeof(bool));
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                if ((int)dbMain.Instance.ExcuteScalar("SELECT COUNT(*) FROM dbo.DangKy WHERE MaHocVien = " + iDStudent + " AND MaLop = " + dt.Rows[i]["MaLop"]) > 0)
+                if ((int)dbMain.Instance.ExcuteScalar("EXEC CheckEnroll " +  iDStudent+ ", " + dt.Rows[i]["MaLop"]) > 0)
                     dt.Rows[i]["Select"] = true;
                 else
                     dt.Rows[i]["Select"] = false;
@@ -56,14 +56,14 @@ namespace ProjectHQTCSDL.BS_Layer
         {
             if (expected <= registered)
                 return false;
-            if ((int)dbMain.Instance.ExcuteScalar("SELECT COUNT(*) FROM (SELECT MaLop FROM dbo.LichHoc WHERE MaLop = 11 GROUP BY MaLop HAVING MIN(NgayHoc) >= GETDATE()) AS Q") > 0)
+            if ((int)dbMain.Instance.ExcuteScalar("EXEC CheckClassEnable " + iDClass) > 0)
                 return false;
             return true;
         }
 
         public bool DeleteEnroll(int iDClass, int iDStudent, ref string error)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("DELETE dbo.DangKy WHERE MaHocVien = " + iDStudent + " AND MaLop = " + iDClass, ref error);
+            int test = dbMain.Instance.ExcuteNonQuery("EXEC DeleteEnroll " + iDStudent + ", " + iDClass, ref error);
             if (test > 0)
                 return true;
             return false;
@@ -71,7 +71,7 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public bool InsertEnroll(int iDClass, int iDStudent, ref string error)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("INSERT dbo.DangKy VALUES  ( " + iDStudent + ", " + iDClass + ", 0)", ref error);
+            int test = dbMain.Instance.ExcuteNonQuery("EXEC InsertEnroll " + iDStudent + ", " + iDClass, ref error);
             if (test > 0)
                 return true;
             return false;
