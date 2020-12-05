@@ -19,7 +19,7 @@ namespace ProjectHQTCSDL.BS_Layer
         public List<int> LayLopHocHV(int maHocVien)
         {
             List<int> dsLopHoc = new List<int>();
-            string sqlString = "Select MaLop From DangKy Where MaHocVien=" + maHocVien;
+            string sqlString = "EXEC LayLopHocHV " + maHocVien;
             SqlDataReader reader = dbMain.Instance.ExcuteReader(sqlString, CommandType.Text);
             while (reader.Read())
                 dsLopHoc.Add(reader.GetInt32(0));
