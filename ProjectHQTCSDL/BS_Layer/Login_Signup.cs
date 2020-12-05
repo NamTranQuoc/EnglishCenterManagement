@@ -15,7 +15,7 @@ namespace ProjectHQTCSDL.BS_Layer
         }
         public int GetID(string user)
         {
-            return (int)dbMain.Instance.ExcuteScalar("SELECT IDTaiKhoan FROM dbo.Account WHERE TaiKhoan = '" + user + "'");
+            return (int)dbMain.Instance.ExcuteScalar("EXEC LayID '" + user + "'");
         }
     }
 }
