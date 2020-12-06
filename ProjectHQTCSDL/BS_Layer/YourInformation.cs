@@ -13,13 +13,13 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public DataTable GetHocVien(int MaHocVien)
         {
-            return dbMain.Instance.ExcuteQuery("Select * from HocVien where MaHocVien = " + MaHocVien);
+            return dbMain.Instance.ExcuteQuery("EXEC dbo.GetHocVien " + MaHocVien);
         }
 
 
         public DataTable GetGiaoVien(int MaGiaoVien)
         {
-            return dbMain.Instance.ExcuteQuery("Select * from GiaoVien where MaGiaoVien = " + MaGiaoVien);
+            return dbMain.Instance.ExcuteQuery("EXEC dbo.GetGiaoVien " + MaGiaoVien);
         }
     }
 }
