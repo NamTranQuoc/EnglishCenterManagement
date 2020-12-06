@@ -93,19 +93,23 @@ namespace ProjectHQTCSDL.Usercontrol
 
         private void dgvMUC_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            int columnIndex = 5;
-            if (e.ColumnIndex == columnIndex)
+            try
             {
-                bool isChecked = Convert.ToBoolean(dgvMUC.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
-                if (isChecked)
+                int columnIndex = 5;
+                if (e.ColumnIndex == columnIndex)
                 {
-                    foreach (DataGridViewRow row in dgvMUC.Rows)
+                    bool isChecked = Convert.ToBoolean(dgvMUC.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                    if (isChecked)
                     {
-                        if (row.Index != e.RowIndex)
-                            row.Cells[columnIndex].Value = false;
+                        foreach (DataGridViewRow row in dgvMUC.Rows)
+                        {
+                            if (row.Index != e.RowIndex)
+                                row.Cells[columnIndex].Value = false;
+                        }
                     }
                 }
             }
+            catch { }
         }
 
         private void dgvMUC_CurrentCellDirtyStateChanged(object sender, EventArgs e)

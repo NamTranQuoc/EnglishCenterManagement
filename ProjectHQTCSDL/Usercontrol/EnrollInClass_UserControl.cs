@@ -57,7 +57,7 @@ namespace ProjectHQTCSDL.Usercontrol
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (enr.CheckClassEnable(int.Parse(dgvListClass.Rows[rowListCource].Cells[1].Value.ToString()), int.Parse(dgvListClass.Rows[rowListCource].Cells[2].Value.ToString()), int.Parse(dgvListClass.Rows[rowListCource].Cells[0].Value.ToString())))
+            if (enr.CheckClassEnable(int.Parse(dgvListClass.Rows[rowListClass].Cells[1].Value.ToString()), int.Parse(dgvListClass.Rows[rowListClass].Cells[2].Value.ToString()), int.Parse(dgvListClass.Rows[rowListClass].Cells[0].Value.ToString())))
             {
                 string error = "";
                 if (btnSave.Text == "Unenroll")

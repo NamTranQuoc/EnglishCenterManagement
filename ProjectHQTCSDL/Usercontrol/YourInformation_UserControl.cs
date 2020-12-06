@@ -42,6 +42,7 @@ namespace ProjectHQTCSDL.Usercontrol
                 txtDiaChi.Enabled = false;
                 txtEmail.Enabled = false;
                 dtpNgaySinh.Enabled = false;
+                txtPass.Enabled = false;
             }
             else
             {
@@ -55,6 +56,7 @@ namespace ProjectHQTCSDL.Usercontrol
                 txtSdtGV.Enabled = false;
                 txtDiaChiGV.Enabled = false;
                 txtLuongGV.Enabled = false;
+                txtPassGV.Enabled = false;
             }
 
             btnCapNhat.Enabled = true;
@@ -68,7 +70,7 @@ namespace ProjectHQTCSDL.Usercontrol
             try
             {
                 table = infor.GetHocVien(IDTaiKhoan);
-
+                txtPass.Text = "000000";
                 txtHoTen.Text = table.Rows[0]["HoTen"].ToString();
                 txtSDT.Text = table.Rows[0]["SDT"].ToString();
                 txtDiaChi.Text = table.Rows[0]["DiaChi"].ToString();
@@ -86,7 +88,7 @@ namespace ProjectHQTCSDL.Usercontrol
             try
             {
                 table = infor.GetGiaoVien(IDTaiKhoan);
-
+                txtPassGV.Text = "000000";
                 txtHoTenGV.Text = table.Rows[0]["HoTen"].ToString();
                 txtSdtGV.Text = table.Rows[0]["SDT"].ToString();
                 txtDiaChiGV.Text = table.Rows[0]["DiaChi"].ToString();
@@ -108,6 +110,7 @@ namespace ProjectHQTCSDL.Usercontrol
                 txtDiaChi.Enabled = true;
                 txtEmail.Enabled = true;
                 dtpNgaySinh.Enabled = true;
+                txtPass.Enabled = true;
             }
             else
             {
@@ -115,6 +118,7 @@ namespace ProjectHQTCSDL.Usercontrol
                 txtSdtGV.Enabled = true;
                 txtDiaChiGV.Enabled = true;
                 txtLuongGV.Enabled = true;
+                txtPassGV.Enabled = true;
             }
 
             btnCapNhat.Enabled = false;
@@ -134,7 +138,8 @@ namespace ProjectHQTCSDL.Usercontrol
                 txtDiaChi.Enabled = false;
                 txtEmail.Enabled = false;
                 dtpNgaySinh.Enabled = false;
-
+                txtPass.Enabled = false;
+                txtPass.UseSystemPasswordChar = true;
                 GetInfoHocVien();
             }
             else
@@ -143,6 +148,8 @@ namespace ProjectHQTCSDL.Usercontrol
                 txtSdtGV.Enabled = false;
                 txtDiaChiGV.Enabled = false;
                 txtLuongGV.Enabled = false;
+                txtPassGV.Enabled = false;
+                txtPassGV.UseSystemPasswordChar = true;
 
                 GetInfoGiaoVien();
             }
@@ -192,7 +199,7 @@ namespace ProjectHQTCSDL.Usercontrol
                 string email = txtEmail.Text.Trim();
                 DateTime birthdate = dtpNgaySinh.Value;
 
-                result = stu.UpdateStudent(id, name, phone, diachi, email, birthdate, ref error);
+                result = stu.UpdateStudent(id, name, phone, diachi, email, birthdate, txtPass.Text.Trim(), ref error);
 
                 if (result)
                 {
@@ -209,6 +216,8 @@ namespace ProjectHQTCSDL.Usercontrol
                 txtDiaChi.Enabled = false;
                 txtEmail.Enabled = false;
                 dtpNgaySinh.Enabled = false;
+                txtPass.Enabled = false;
+                txtPass.UseSystemPasswordChar = true;
 
                 GetInfoHocVien();
             }
@@ -222,7 +231,7 @@ namespace ProjectHQTCSDL.Usercontrol
 
                 int luong = Convert.ToInt32(txtLuongGV.Text.Trim());
 
-                result = teacher.UpdateTeacher(id, name, phone, diachi, luong, ref error);
+                result = teacher.UpdateTeacher(id, name, phone, diachi, luong, txtPassGV.Text.Trim(), ref error);
 
                 if (result)
                 {
@@ -237,10 +246,30 @@ namespace ProjectHQTCSDL.Usercontrol
                 txtSdtGV.Enabled = false;
                 txtDiaChiGV.Enabled = false;
                 txtLuongGV.Enabled = false;
+                txtPassGV.Enabled = false;
+                txtPassGV.UseSystemPasswordChar = true;
 
                 GetInfoGiaoVien();
             }
             
+        }
+
+        private void txtPass_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPass.UseSystemPasswordChar)
+            {
+                txtPass.ResetText();
+                txtPass.UseSystemPasswordChar = false;
+            }    
+        }
+
+        private void txtPassGV_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPassGV.UseSystemPasswordChar)
+            {
+                txtPassGV.ResetText();
+                txtPassGV.UseSystemPasswordChar = false;
+            }
         }
     }
 }

@@ -10,6 +10,12 @@ namespace ProjectHQTCSDL.BS_Layer
 {
     public class Teachers
     {
+        private static Teachers instance = null;
+        public static Teachers Instance
+        {
+            get { if (instance == null) instance = new Teachers(); return Teachers.instance; }
+            private set => instance = value;
+        }
         public DataTable GetListTeachers()
         {
             return dbMain.Instance.ExcuteQuery("EXEC dbo.GetListTeachers");
@@ -17,6 +23,8 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public DataTable GetListLikeTeacher(string likeName)
         {
+            if (likeName == null || likeName == "")
+                return GetListTeachers();
             return dbMain.Instance.ExcuteQuery("EXEC dbo.GetListLikeTeacher " + likeName);
         }
 
@@ -31,7 +39,7 @@ namespace ProjectHQTCSDL.BS_Layer
             {
                 int iD = (int)dbMain.Instance.ExcuteScalar("SELECT dbo.TaoMaTuDong('User')");
 
-                string query = "EXEC dbo.InsertTeacher " + iD + ", " + userName + ", " + pass + ", " + name + ", " + phoneNumber + ", " + address + ", "+ salary;
+                string query = "EXEC dbo.InsertTeacher " + iD + ", '" + userName + "', '" + pass + "', N'" + name + "', '" + phoneNumber + "', N'" + address + "', "+ salary;
 
                 int test = dbMain.Instance.ExcuteNonQuery(query, ref error);
                 if (test > 0)
@@ -54,9 +62,9 @@ namespace ProjectHQTCSDL.BS_Layer
             return true;
         }
 
-        public bool UpdateTeacher(int id, string name, string phoneNumber, string address, int salary, ref string error)
+        public bool UpdateTeacher(int id, string name, string phoneNumber, string address, int salary, string pass, ref string error)
         {
-            string query = "EXEC dbo.UpdateTeacher " + id + ", " + name + ", " + phoneNumber + ", " + address + ", " + salary;
+            string query = "EXEC dbo.UpdateTeacher " + id + ", N'" + name + "', '" + phoneNumber + "', N'" + address + "', " + salary + ", '" + pass + "'";
             int test = dbMain.Instance.ExcuteNonQuery(query, ref error);
             if (test > 0)
                 return true;

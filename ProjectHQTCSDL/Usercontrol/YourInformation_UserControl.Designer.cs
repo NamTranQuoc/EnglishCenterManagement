@@ -53,6 +53,10 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtLuongGV = new System.Windows.Forms.TextBox();
             this.txtSdtGV = new System.Windows.Forms.TextBox();
             this.txtDiaChiGV = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtPass = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtPassGV = new System.Windows.Forms.TextBox();
             this.pnlHocVien.SuspendLayout();
             this.pnlGiaoVien.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +66,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.btnHuy.Location = new System.Drawing.Point(719, 592);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(123, 42);
-            this.btnHuy.TabIndex = 2;
+            this.btnHuy.TabIndex = 7;
             this.btnHuy.Text = "Hủy bỏ";
             this.btnHuy.UseVisualStyleBackColor = true;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
@@ -72,7 +76,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.btnLuu.Location = new System.Drawing.Point(552, 592);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(123, 42);
-            this.btnLuu.TabIndex = 1;
+            this.btnLuu.TabIndex = 6;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
@@ -82,7 +86,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.btnCapNhat.Location = new System.Drawing.Point(379, 592);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(123, 42);
-            this.btnCapNhat.TabIndex = 0;
+            this.btnCapNhat.TabIndex = 5;
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.UseVisualStyleBackColor = true;
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
@@ -104,35 +108,35 @@ namespace ProjectHQTCSDL.Usercontrol
             this.dtpNgaySinh.Location = new System.Drawing.Point(174, 304);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(248, 26);
-            this.dtpNgaySinh.TabIndex = 7;
+            this.dtpNgaySinh.TabIndex = 4;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(174, 236);
+            this.txtEmail.Location = new System.Drawing.Point(174, 199);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(248, 26);
-            this.txtEmail.TabIndex = 6;
+            this.txtEmail.TabIndex = 3;
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(174, 168);
+            this.txtDiaChi.Location = new System.Drawing.Point(174, 138);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(248, 26);
-            this.txtDiaChi.TabIndex = 5;
+            this.txtDiaChi.TabIndex = 2;
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(174, 92);
+            this.txtSDT.Location = new System.Drawing.Point(174, 77);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(248, 26);
-            this.txtSDT.TabIndex = 4;
+            this.txtSDT.TabIndex = 1;
             // 
             // txtHoTen
             // 
             this.txtHoTen.Location = new System.Drawing.Point(174, 21);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(248, 26);
-            this.txtHoTen.TabIndex = 3;
+            this.txtHoTen.TabIndex = 0;
             // 
             // label5
             // 
@@ -146,7 +150,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 239);
+            this.label4.Location = new System.Drawing.Point(30, 202);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 20);
             this.label4.TabIndex = 9;
@@ -155,7 +159,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(30, 174);
+            this.label3.Location = new System.Drawing.Point(30, 144);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 20);
             this.label3.TabIndex = 6;
@@ -164,7 +168,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 92);
+            this.label2.Location = new System.Drawing.Point(30, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 20);
             this.label2.TabIndex = 10;
@@ -181,6 +185,8 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // pnlHocVien
             // 
+            this.pnlHocVien.Controls.Add(this.label11);
+            this.pnlHocVien.Controls.Add(this.txtPass);
             this.pnlHocVien.Controls.Add(this.label1);
             this.pnlHocVien.Controls.Add(this.label2);
             this.pnlHocVien.Controls.Add(this.label3);
@@ -198,6 +204,8 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // pnlGiaoVien
             // 
+            this.pnlGiaoVien.Controls.Add(this.label12);
+            this.pnlGiaoVien.Controls.Add(this.txtPassGV);
             this.pnlGiaoVien.Controls.Add(this.label7);
             this.pnlGiaoVien.Controls.Add(this.label8);
             this.pnlGiaoVien.Controls.Add(this.label9);
@@ -223,7 +231,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(30, 103);
+            this.label8.Location = new System.Drawing.Point(30, 86);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(108, 20);
             this.label8.TabIndex = 10;
@@ -232,7 +240,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(30, 199);
+            this.label9.Location = new System.Drawing.Point(30, 167);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 20);
             this.label9.TabIndex = 6;
@@ -263,17 +271,55 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // txtSdtGV
             // 
-            this.txtSdtGV.Location = new System.Drawing.Point(199, 103);
+            this.txtSdtGV.Location = new System.Drawing.Point(199, 86);
             this.txtSdtGV.Name = "txtSdtGV";
             this.txtSdtGV.Size = new System.Drawing.Size(223, 26);
             this.txtSdtGV.TabIndex = 9;
             // 
             // txtDiaChiGV
             // 
-            this.txtDiaChiGV.Location = new System.Drawing.Point(199, 193);
+            this.txtDiaChiGV.Location = new System.Drawing.Point(199, 161);
             this.txtDiaChiGV.Name = "txtDiaChiGV";
             this.txtDiaChiGV.Size = new System.Drawing.Size(223, 26);
             this.txtDiaChiGV.TabIndex = 10;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(30, 254);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(87, 20);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "Password :";
+            // 
+            // txtPass
+            // 
+            this.txtPass.Location = new System.Drawing.Point(174, 251);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.Size = new System.Drawing.Size(248, 26);
+            this.txtPass.TabIndex = 11;
+            this.txtPass.Text = "000000";
+            this.txtPass.UseSystemPasswordChar = true;
+            this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(30, 224);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(83, 20);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "Password:";
+            // 
+            // txtPassGV
+            // 
+            this.txtPassGV.Location = new System.Drawing.Point(199, 218);
+            this.txtPassGV.Name = "txtPassGV";
+            this.txtPassGV.Size = new System.Drawing.Size(223, 26);
+            this.txtPassGV.TabIndex = 13;
+            this.txtPassGV.Text = "000000";
+            this.txtPassGV.UseSystemPasswordChar = true;
+            this.txtPassGV.TextChanged += new System.EventHandler(this.txtPassGV_TextChanged);
             // 
             // YourInformation_UserControl
             // 
@@ -324,5 +370,9 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.TextBox txtLuongGV;
         private System.Windows.Forms.TextBox txtSdtGV;
         private System.Windows.Forms.TextBox txtDiaChiGV;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtPass;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtPassGV;
     }
 }

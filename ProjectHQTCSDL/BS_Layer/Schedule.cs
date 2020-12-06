@@ -39,7 +39,7 @@ namespace ProjectHQTCSDL.BS_Layer
             dateEnd = DateTime.ParseExact(dates[1], "dd/MM/yyyy", null);
             DataTable sche = new DataTable();
 
-            string query = "EXEC dbo.GetScheduleOfWeek " + IDUser.ToString() + ", " + dateStart.ToString("yyyy-MM-dd") + ", " + dateEnd.ToString("yyyy-MM-dd");
+            string query = "EXEC dbo.GetScheduleOfWeek " + IDUser.ToString() + ", '" + dateStart.ToString("yyyy-MM-dd") + "', '" + dateEnd.ToString("yyyy-MM-dd") + "'";
             sche = dbMain.Instance.ExcuteQuery(query);
 
             //if (IDUser != 0)
@@ -145,7 +145,7 @@ namespace ProjectHQTCSDL.BS_Layer
             DataTable sche = new DataTable();
 
             string all = Convert.ToString(allDay);
-            string query = "EXEC dbo.GetSchedule " + iDClass + ", " + day.ToString("yyyy-MM-dd") + ", " + session + ", " + all;
+            string query = "EXEC dbo.GetSchedule '" + iDClass + "', '" + day.ToString("yyyy-MM-dd") + "', '" + session + "', " + all;
             sche = dbMain.Instance.ExcuteQuery(query);
 
             //if (allDay == false && session == "All" && iDClass == "All")
@@ -202,7 +202,7 @@ namespace ProjectHQTCSDL.BS_Layer
             {
                 listClass = new DataTable();
                 listClass.Columns.Add("Buoi");
-                int s = (int)dbMain.Instance.ExcuteScalar("EXEC dbo.GetListSession " + iDClass);
+                int s = (int)dbMain.Instance.ExcuteScalar("EXEC dbo.GetListSession '" + iDClass + "'");
                 for (int i = 1; i <= s; i++)
                 {
                     listClass.Rows.Add(i.ToString());
@@ -212,7 +212,7 @@ namespace ProjectHQTCSDL.BS_Layer
             else
             {
                 listClass = new DataTable();
-                listClass = dbMain.Instance.ExcuteQuery("EXEC dbo.GetListSession " + iDClass);
+                listClass = dbMain.Instance.ExcuteQuery("EXEC dbo.GetListSession '" + iDClass + "'");
                 listClass.Rows.Add("All");
             }
             return listClass;

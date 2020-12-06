@@ -47,7 +47,7 @@ namespace ProjectHQTCSDL.Usercontrol
                 if (tphone != false)
                 {
                     string error = "";
-                    bool t = student.UpdateStudent(int.Parse(txtID.Text), txtName.Text, txtPhone.Text, txtAddress.Text, txtEmail.Text, birthday, ref error);
+                    bool t = student.UpdateStudent(int.Parse(txtID.Text), txtName.Text, txtPhone.Text, txtAddress.Text, txtEmail.Text, birthday, "0", ref error);
                     if (t == true)
                     {
                         this.dgvListStudents.DataSource = student.GetListStudents();
@@ -66,9 +66,9 @@ namespace ProjectHQTCSDL.Usercontrol
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtName.Text != null && txtName.Text != "" && txtPhone.Text != null && txtPhone.Text != "" && txtAddress.Text != null && txtAddress.Text != "" && txtEmail.Text != null && txtEmail.Text != "")
+            if (txtNameNew.Text != null && txtNameNew.Text != "" && txtPhoneNew.Text != null && txtPhoneNew.Text != "" && txtAddressNew.Text != null && txtAddressNew.Text != "" && txtEmailNew.Text != null && txtEmailNew.Text != "")
             {
-                DateTime birthday = (DateTime)dtpDOB.Value;
+                DateTime birthday = (DateTime)dtpDOBNew.Value;
                 string pass = "000000";
                 int phone;
                 bool tphone = int.TryParse(txtPhoneNew.Text, out phone);
@@ -85,11 +85,11 @@ namespace ProjectHQTCSDL.Usercontrol
                         txtPhoneNew.ResetText();
                         txtAddressNew.ResetText();
                         txtEmailNew.ResetText();
-                        txtDOBNew.ResetText();
+                        dtpDOBNew.ResetText();
                         MessageBox.Show("Insert successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
-                        MessageBox.Show("Usename Existed", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                     MessageBox.Show("Please enter a number for Phone Number", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -102,6 +102,20 @@ namespace ProjectHQTCSDL.Usercontrol
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             this.dgvListStudents.DataSource = student.GetListLikeStudent(txtSearch.Text);
+        }
+
+        private void btnResetPass_Click(object sender, EventArgs e)
+        {
+            DateTime birthday = (DateTime)dtpDOB.Value;
+            string error = "";
+            bool t = student.UpdateStudent(int.Parse(txtID.Text), txtName.Text, txtPhone.Text, txtAddress.Text, txtEmail.Text, birthday, "000000", ref error);
+            if (t == true)
+            {
+                this.dgvListStudents.DataSource = student.GetListStudents();
+                MessageBox.Show("Reset password success\nPassword: 000000", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

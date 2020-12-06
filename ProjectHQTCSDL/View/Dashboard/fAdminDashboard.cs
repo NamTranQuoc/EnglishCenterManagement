@@ -91,6 +91,7 @@ namespace ProjectHQTCSDL.View.Dashboard
 
         private void btnStudent_Click(object sender, EventArgs e)
         {
+            stu.txtIDNew.Text = Students.Instance.CreateID().ToString();
             exp.Hide();
             sche.Hide();
             stu.Show();
@@ -103,6 +104,7 @@ namespace ProjectHQTCSDL.View.Dashboard
 
         private void btnTeacher_Click(object sender, EventArgs e)
         {
+            tea.txtIDNew.Text = Teachers.Instance.CreateID().ToString();
             exp.Hide();
             sche.Hide();
             stu.Hide();

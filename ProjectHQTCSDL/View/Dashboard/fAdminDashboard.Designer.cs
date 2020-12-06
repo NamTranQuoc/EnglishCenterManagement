@@ -62,6 +62,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1233, 81);
             this.panel2.TabIndex = 10;
+            this.panel2.TabStop = true;
             // 
             // label1
             // 
@@ -90,6 +91,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(225, 756);
             this.panel1.TabIndex = 9;
+            this.panel1.TabStop = true;
             // 
             // btnExpenses
             // 

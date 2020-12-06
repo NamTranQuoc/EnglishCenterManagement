@@ -54,9 +54,11 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public bool CheckClassEnable(int expected, int registered, int iDClass)
         {
+            //kiểm tra học sinh dự kiến
             if (expected <= registered)
                 return false;
-            if ((int)dbMain.Instance.ExcuteScalar("EXEC CheckClassEnable " + iDClass) > 0)
+            //kiển tra thời gian nếu khóa học đã bắt đâu trước khi đăng kí thì CheckClassEnable trả về 0
+            if ((int)dbMain.Instance.ExcuteScalar("EXEC CheckClassEnable " + iDClass) == 0)
                 return false;
             return true;
         }

@@ -46,6 +46,23 @@ namespace ProjectHQTCSDL.Usercontrol
             ((System.ComponentModel.ISupportInitialize)(this.dgvMUC)).BeginInit();
             this.SuspendLayout();
             // 
+            // dgvMUC
+            // 
+            this.dgvMUC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMUC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaGiaoVien,
+            this.MaLop,
+            this.Buoi,
+            this.Phong,
+            this.NgayHoc,
+            this.Chon});
+            this.dgvMUC.Location = new System.Drawing.Point(236, 221);
+            this.dgvMUC.Name = "dgvMUC";
+            this.dgvMUC.Size = new System.Drawing.Size(778, 323);
+            this.dgvMUC.TabIndex = 5;
+            this.dgvMUC.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMUC_CellValueChanged);
+            this.dgvMUC.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvMUC_CurrentCellDirtyStateChanged);
+            // 
             // MaGiaoVien
             // 
             this.MaGiaoVien.DataPropertyName = "MaGiaoVien";
@@ -127,9 +144,9 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // btnHuyBo
             // 
-            this.btnHuyBo.Location = new System.Drawing.Point(985, 399);
+            this.btnHuyBo.Location = new System.Drawing.Point(902, 591);
             this.btnHuyBo.Name = "btnHuyBo";
-            this.btnHuyBo.Size = new System.Drawing.Size(75, 27);
+            this.btnHuyBo.Size = new System.Drawing.Size(112, 38);
             this.btnHuyBo.TabIndex = 6;
             this.btnHuyBo.Text = "Hủy bỏ";
             this.btnHuyBo.UseVisualStyleBackColor = true;
@@ -137,9 +154,9 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(985, 274);
+            this.btnLuu.Location = new System.Drawing.Point(728, 591);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(75, 27);
+            this.btnLuu.Size = new System.Drawing.Size(112, 38);
             this.btnLuu.TabIndex = 7;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
@@ -175,23 +192,7 @@ namespace ProjectHQTCSDL.Usercontrol
             ((System.ComponentModel.ISupportInitialize)(this.dgvMUC)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-            // 
-            // dgvMUC
-            // 
-            this.dgvMUC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMUC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaGiaoVien,
-            this.MaLop,
-            this.Buoi,
-            this.Phong,
-            this.NgayHoc,
-            this.Chon});
-            this.dgvMUC.Location = new System.Drawing.Point(96, 237);
-            this.dgvMUC.Name = "dgvMUC";
-            this.dgvMUC.Size = new System.Drawing.Size(778, 323);
-            this.dgvMUC.TabIndex = 5;
-            this.dgvMUC.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMUC_CellValueChanged);
-            this.dgvMUC.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvMUC_CurrentCellDirtyStateChanged);
+
         }
 
         #endregion

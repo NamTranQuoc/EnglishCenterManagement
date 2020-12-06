@@ -87,12 +87,6 @@
     </Compile>
     <Compile Include="DB_Layer\dbMain.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="Usercontrol\Account_UserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Usercontrol\Account_UserControl.Designer.cs">
-      <DependentUpon>Account_UserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Usercontrol\Attendance_UserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -134,12 +128,6 @@
     </Compile>
     <Compile Include="Usercontrol\MakeUpClass_UserControl.Designer.cs">
       <DependentUpon>MakeUpClass_UserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Usercontrol\Non_TeacherStaff_UserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Usercontrol\Non_TeacherStaff_UserControl.Designer.cs">
-      <DependentUpon>Non_TeacherStaff_UserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Usercontrol\Reports_UserControl.cs">
       <SubType>UserControl</SubType>
@@ -234,9 +222,6 @@
     <EmbeddedResource Include="Usercontrol\RDLC\SumOfCource.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usercontrol\Account_UserControl.resx">
-      <DependentUpon>Account_UserControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Usercontrol\Attendance_UserControl.resx">
       <DependentUpon>Attendance_UserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -257,9 +242,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Usercontrol\MakeUpClass_UserControl.resx">
       <DependentUpon>MakeUpClass_UserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Usercontrol\Non_TeacherStaff_UserControl.resx">
-      <DependentUpon>Non_TeacherStaff_UserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usercontrol\RDLC\TeacherOfCource.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

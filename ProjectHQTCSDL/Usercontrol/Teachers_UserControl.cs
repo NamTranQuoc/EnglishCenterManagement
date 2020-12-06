@@ -47,7 +47,7 @@ namespace ProjectHQTCSDL.Usercontrol
                 if (tsalary != false && tsalary != false)
                 {
                     string error = "";
-                    bool t = teacher.UpdateTeacher(int.Parse(txtID.Text), txtName.Text, txtPhone.Text, txtAddress.Text, salary, ref error);
+                    bool t = teacher.UpdateTeacher(int.Parse(txtID.Text), txtName.Text, txtPhone.Text, txtAddress.Text, salary, "0", ref error);
                     if (t == true)
                     {
                         this.dgvListTeachers.DataSource = teacher.GetListTeachers();
@@ -90,7 +90,7 @@ namespace ProjectHQTCSDL.Usercontrol
                         MessageBox.Show("Insert successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
-                        MessageBox.Show("Usename Existed", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                     MessageBox.Show("Please enter a number for Phone Number and Salary", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -103,6 +103,21 @@ namespace ProjectHQTCSDL.Usercontrol
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             this.dgvListTeachers.DataSource = teacher.GetListLikeTeacher(txtSearch.Text);
+        }
+
+        private void btnResetPass_Click(object sender, EventArgs e)
+        {
+            int salary;
+            bool tsalary = int.TryParse(txtSalary.Text, out salary);
+            string error = "";
+            bool t = teacher.UpdateTeacher(int.Parse(txtID.Text), txtName.Text, txtPhone.Text, txtAddress.Text, salary, "000000", ref error);
+            if (t == true)
+            {
+                this.dgvListTeachers.DataSource = teacher.GetListTeachers();
+                MessageBox.Show("Reset password success\nPassword: 000000", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

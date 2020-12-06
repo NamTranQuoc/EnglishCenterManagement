@@ -61,9 +61,10 @@ namespace ProjectHQTCSDL.Usercontrol
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
             this.tabEdit = new System.Windows.Forms.TabPage();
+            this.txtSalary = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.txtSalary = new System.Windows.Forms.TextBox();
+            this.btnResetPass = new System.Windows.Forms.Button();
             this.tabAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListTeachers)).BeginInit();
             this.tabEdit.SuspendLayout();
@@ -345,7 +346,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(126, 504);
+            this.btnSave.Location = new System.Drawing.Point(41, 513);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(150, 42);
             this.btnSave.TabIndex = 8;
@@ -355,6 +356,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // tabEdit
             // 
+            this.tabEdit.Controls.Add(this.btnResetPass);
             this.tabEdit.Controls.Add(this.txtSalary);
             this.tabEdit.Controls.Add(this.label12);
             this.tabEdit.Controls.Add(this.txtID);
@@ -373,6 +375,13 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabEdit.TabIndex = 0;
             this.tabEdit.Text = "Edit";
             this.tabEdit.UseVisualStyleBackColor = true;
+            // 
+            // txtSalary
+            // 
+            this.txtSalary.Location = new System.Drawing.Point(184, 351);
+            this.txtSalary.Name = "txtSalary";
+            this.txtSalary.Size = new System.Drawing.Size(200, 26);
+            this.txtSalary.TabIndex = 25;
             // 
             // label12
             // 
@@ -393,12 +402,15 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabControl.Size = new System.Drawing.Size(421, 668);
             this.tabControl.TabIndex = 16;
             // 
-            // txtSalary
+            // btnResetPass
             // 
-            this.txtSalary.Location = new System.Drawing.Point(184, 351);
-            this.txtSalary.Name = "txtSalary";
-            this.txtSalary.Size = new System.Drawing.Size(200, 26);
-            this.txtSalary.TabIndex = 25;
+            this.btnResetPass.Location = new System.Drawing.Point(234, 513);
+            this.btnResetPass.Name = "btnResetPass";
+            this.btnResetPass.Size = new System.Drawing.Size(150, 42);
+            this.btnResetPass.TabIndex = 26;
+            this.btnResetPass.Text = "Reset Pass";
+            this.btnResetPass.UseVisualStyleBackColor = true;
+            this.btnResetPass.Click += new System.EventHandler(this.btnResetPass_Click);
             // 
             // Teachers_UserControl
             // 
@@ -436,7 +448,6 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabAdd;
-        private System.Windows.Forms.TextBox txtIDNew;
         private System.Windows.Forms.TextBox txtNameNew;
         private System.Windows.Forms.TextBox txtAddressNew;
         private System.Windows.Forms.TextBox txtPhoneNew;
@@ -460,5 +471,7 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtSalary;
+        public System.Windows.Forms.TextBox txtIDNew;
+        private System.Windows.Forms.Button btnResetPass;
     }
 }

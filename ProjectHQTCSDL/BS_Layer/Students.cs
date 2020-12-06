@@ -10,6 +10,13 @@ namespace ProjectHQTCSDL.BS_Layer
 {
     public class Students
     {
+        private static Students instance = null;
+        public static Students Instance
+        {
+            get { if (instance == null) instance = new Students(); return Students.instance; }
+            private set => instance = value;
+        }
+
         public DataTable GetListStudents()
         {
             return dbMain.Instance.ExcuteQuery("EXEC dbo.GetListStudents");
@@ -17,6 +24,8 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public DataTable GetListLikeStudent(string likeName)
         {
+            if (likeName == null || likeName == "")
+                return GetListStudents();
             return dbMain.Instance.ExcuteQuery("EXEC dbo.GetListLikeStudent " + likeName);
         }
 
@@ -31,7 +40,7 @@ namespace ProjectHQTCSDL.BS_Layer
             {
                 int iD = (int)dbMain.Instance.ExcuteScalar("SELECT dbo.TaoMaTuDong('User')");
 
-                string query = "EXEC dbo.InsertStudent " + iD + ", " + userName + ", " + pass + ", " + name + ", " +  phoneNumber + ", " + address + ", " + email + ", " + birthday.ToString("yyyy-MM-dd");
+                string query = "EXEC dbo.InsertStudent " + iD + ", '" + userName + "', '" + pass + "', N'" + name + "', '" +  phoneNumber + "', N'" + address + "', '" + email + "', '" + birthday.ToString("yyyy-MM-dd") + "'";
 
                 int test = dbMain.Instance.ExcuteNonQuery(query, ref error);
                 if (test > 0)
@@ -54,9 +63,9 @@ namespace ProjectHQTCSDL.BS_Layer
             return true;
         }
 
-        public bool UpdateStudent(int id, string name, string phoneNumber, string address, string email, DateTime birthday, ref string error)
+        public bool UpdateStudent(int id, string name, string phoneNumber, string address, string email, DateTime birthday, string pass, ref string error)
         {
-            string query = "EXEC dbo.UpdateStudent " + id + ", " + name + ", " + phoneNumber + ", " + address + ", " + email + ", " + birthday.ToString("yyyy-MM-dd");
+            string query = "EXEC dbo.UpdateStudent " + id + ", N'" + name + "', '" + phoneNumber + "', N'" + address + "', '" + email + "', '" + birthday.ToString("yyyy-MM-dd") + "', '" + pass + "'";
             int test = dbMain.Instance.ExcuteNonQuery(query, ref error);
             if (test > 0)
                 return true;

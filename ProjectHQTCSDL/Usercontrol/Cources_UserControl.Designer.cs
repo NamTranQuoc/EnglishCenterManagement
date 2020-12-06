@@ -158,7 +158,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.btnHideOrAvailable.Location = new System.Drawing.Point(235, 538);
             this.btnHideOrAvailable.Name = "btnHideOrAvailable";
             this.btnHideOrAvailable.Size = new System.Drawing.Size(150, 42);
-            this.btnHideOrAvailable.TabIndex = 5;
+            this.btnHideOrAvailable.TabIndex = 4;
             this.btnHideOrAvailable.Text = "Hide";
             this.btnHideOrAvailable.UseVisualStyleBackColor = true;
             this.btnHideOrAvailable.Click += new System.EventHandler(this.btnHideOrAvailable_Click);
@@ -168,7 +168,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.btnSave.Location = new System.Drawing.Point(27, 538);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(150, 42);
-            this.btnSave.TabIndex = 4;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -186,21 +186,21 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtName.Location = new System.Drawing.Point(166, 177);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(219, 26);
-            this.txtName.TabIndex = 6;
+            this.txtName.TabIndex = 0;
             // 
             // txtTuitionFee
             // 
             this.txtTuitionFee.Location = new System.Drawing.Point(166, 377);
             this.txtTuitionFee.Name = "txtTuitionFee";
             this.txtTuitionFee.Size = new System.Drawing.Size(219, 26);
-            this.txtTuitionFee.TabIndex = 5;
+            this.txtTuitionFee.TabIndex = 2;
             // 
             // txtNo
             // 
             this.txtNo.Location = new System.Drawing.Point(166, 277);
             this.txtNo.Name = "txtNo";
             this.txtNo.Size = new System.Drawing.Size(219, 26);
-            this.txtNo.TabIndex = 4;
+            this.txtNo.TabIndex = 1;
             // 
             // label4
             // 
@@ -262,7 +262,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.btnAdd.Location = new System.Drawing.Point(141, 536);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(150, 42);
-            this.btnAdd.TabIndex = 5;
+            this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -280,21 +280,21 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtNameNew.Location = new System.Drawing.Point(166, 177);
             this.txtNameNew.Name = "txtNameNew";
             this.txtNameNew.Size = new System.Drawing.Size(219, 26);
-            this.txtNameNew.TabIndex = 16;
+            this.txtNameNew.TabIndex = 7;
             // 
             // txtTuitionFeeNew
             // 
             this.txtTuitionFeeNew.Location = new System.Drawing.Point(166, 377);
             this.txtTuitionFeeNew.Name = "txtTuitionFeeNew";
             this.txtTuitionFeeNew.Size = new System.Drawing.Size(219, 26);
-            this.txtTuitionFeeNew.TabIndex = 15;
+            this.txtTuitionFeeNew.TabIndex = 9;
             // 
             // txtNoNew
             // 
             this.txtNoNew.Location = new System.Drawing.Point(166, 277);
             this.txtNoNew.Name = "txtNoNew";
             this.txtNoNew.Size = new System.Drawing.Size(219, 26);
-            this.txtNoNew.TabIndex = 14;
+            this.txtNoNew.TabIndex = 8;
             // 
             // label5
             // 
