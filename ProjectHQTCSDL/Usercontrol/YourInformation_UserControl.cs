@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectHQTCSDL.BS_Layer;
 using System.Data.SqlClient;
+using ProjectHQTCSDL.DB_Layer;
 
 namespace ProjectHQTCSDL.Usercontrol
 {
@@ -16,7 +17,7 @@ namespace ProjectHQTCSDL.Usercontrol
     {
         public int IDTaiKhoan;
         public bool state = true; // true -- hiện Hoc Vien , false -- Giao vien
-
+        public dbMain connectData;
 
         private bool update = false;
         private YourInformation infor;
@@ -69,17 +70,25 @@ namespace ProjectHQTCSDL.Usercontrol
         {
             try
             {
-                table = infor.GetHocVien(IDTaiKhoan);
-                txtPass.Text = "000000";
-                txtHoTen.Text = table.Rows[0]["HoTen"].ToString();
-                txtSDT.Text = table.Rows[0]["SDT"].ToString();
-                txtDiaChi.Text = table.Rows[0]["DiaChi"].ToString();
-                txtEmail.Text = table.Rows[0]["Email"].ToString();
-                dtpNgaySinh.Value = (DateTime)table.Rows[0]["NgaySinh"];
+                string error = "";
+                table = infor.GetHocVien(IDTaiKhoan, ref error, connectData);
+                if (table != null)
+                {
+                    txtPass.Text = "000000";
+                    txtHoTen.Text = table.Rows[0]["HoTen"].ToString();
+                    txtSDT.Text = table.Rows[0]["SDT"].ToString();
+                    txtDiaChi.Text = table.Rows[0]["DiaChi"].ToString();
+                    txtEmail.Text = table.Rows[0]["Email"].ToString();
+                    dtpNgaySinh.Value = (DateTime)table.Rows[0]["NgaySinh"];
+                }
+                else
+                {
+                    MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch(SqlException e)
+            catch
             {
-                MessageBox.Show(e.Message, "Warning Load Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error", "Warning Load Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -87,16 +96,24 @@ namespace ProjectHQTCSDL.Usercontrol
         {
             try
             {
-                table = infor.GetGiaoVien(IDTaiKhoan);
-                txtPassGV.Text = "000000";
-                txtHoTenGV.Text = table.Rows[0]["HoTen"].ToString();
-                txtSdtGV.Text = table.Rows[0]["SDT"].ToString();
-                txtDiaChiGV.Text = table.Rows[0]["DiaChi"].ToString();
-                txtLuongGV.Text = table.Rows[0]["LuongCoBan"].ToString();
+                string error = "";
+                table = infor.GetGiaoVien(IDTaiKhoan, ref error, connectData);
+                if (table != null)
+                {
+                    txtPassGV.Text = "000000";
+                    txtHoTenGV.Text = table.Rows[0]["HoTen"].ToString();
+                    txtSdtGV.Text = table.Rows[0]["SDT"].ToString();
+                    txtDiaChiGV.Text = table.Rows[0]["DiaChi"].ToString();
+                    txtLuongGV.Text = table.Rows[0]["LuongCoBan"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch(SqlException e)
+            catch
             {
-                MessageBox.Show(e.Message, "Warning Load Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error", "Warning Load Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
         }
@@ -199,7 +216,7 @@ namespace ProjectHQTCSDL.Usercontrol
                 string email = txtEmail.Text.Trim();
                 DateTime birthdate = dtpNgaySinh.Value;
 
-                result = stu.UpdateStudent(id, name, phone, diachi, email, birthdate, txtPass.Text.Trim(), ref error);
+                result = stu.UpdateStudent(id, name, phone, diachi, email, birthdate, txtPass.Text.Trim(), ref error, connectData);
 
                 if (result)
                 {
@@ -231,7 +248,7 @@ namespace ProjectHQTCSDL.Usercontrol
 
                 int luong = Convert.ToInt32(txtLuongGV.Text.Trim());
 
-                result = teacher.UpdateTeacher(id, name, phone, diachi, luong, txtPassGV.Text.Trim(), ref error);
+                result = teacher.UpdateTeacher(id, name, phone, diachi, luong, txtPassGV.Text.Trim(), ref error, connectData);
 
                 if (result)
                 {

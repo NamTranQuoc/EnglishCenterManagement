@@ -16,56 +16,51 @@ namespace ProjectHQTCSDL.BS_Layer
             get { if (instance == null) instance = new Teachers(); return Teachers.instance; }
             private set => instance = value;
         }
-        public DataTable GetListTeachers()
+        public DataTable GetListTeachers(ref string error, dbMain connectData)
         {
-            return dbMain.Instance.ExcuteQuery("EXEC dbo.GetListTeachers");
+            return connectData.ExcuteQuery("EXEC dbo.GetListTeachers", ref error);
         }
 
-        public DataTable GetListLikeTeacher(string likeName)
+        public DataTable GetListLikeTeacher(string likeName, ref string error, dbMain connectData)
         {
             if (likeName == null || likeName == "")
-                return GetListTeachers();
-            return dbMain.Instance.ExcuteQuery("EXEC dbo.GetListLikeTeacher " + likeName);
+                return GetListTeachers(ref error, connectData);
+            return connectData.ExcuteQuery("EXEC dbo.GetListLikeTeacher " + likeName, ref error);
         }
 
-        public int CreateID()
+        public int CreateID(dbMain connectData)
         {
-            return (int)dbMain.Instance.ExcuteScalar("SELECT dbo.TaoMaTuDong('User')");
+            return (int)connectData.ExcuteScalar("SELECT dbo.TaoMaTuDong('User')");
         }
 
-        public bool InsertTeacher(string userName, string pass, string name, string phoneNumber, string address, int salary, ref string error)
+        public bool InsertTeacher(string userName, string pass, string name, string phoneNumber, string address, int salary, ref string error, dbMain connectData)
         {
             if (userName != null && userName != "")
             {
-                int iD = (int)dbMain.Instance.ExcuteScalar("SELECT dbo.TaoMaTuDong('User')");
+                int iD = (int)connectData.ExcuteScalar("SELECT dbo.TaoMaTuDong('User')");
 
                 string query = "EXEC dbo.InsertTeacher " + iD + ", '" + userName + "', '" + pass + "', N'" + name + "', '" + phoneNumber + "', N'" + address + "', "+ salary;
 
-                int test = dbMain.Instance.ExcuteNonQuery(query, ref error);
+                int test = connectData.ExcuteNonQuery(query, ref error);
                 if (test > 0)
                     return true;
                 return false;
-
-                //int test1 = dbMain.Instance.ExcuteNonQuery("INSERT dbo.Account VALUES  ( " + iD + ", '" + userName + "', '" + pass + "', 3)", ref error);
-                //int test2 = dbMain.Instance.ExcuteNonQuery("INSERT dbo.GiaoVien VALUES  ( " + iD + ", N'" + name + "', '" + phoneNumber + "', N'" + address + "', " + salary + ")", ref error);
-                //if (test1 > 0 && test2 > 0)
-                //    return true;
             }
             return false;
         }
 
-        public bool CheckUserName(string userName)
+        public bool CheckUserName(string userName, dbMain connectData)
         {
-            int t = (int)dbMain.Instance.ExcuteScalar("EXEC dbo.CheckUserName " + userName);
+            int t = (int)connectData.ExcuteScalar("EXEC dbo.CheckUserName " + userName);
             if (t > 0)
                 return false;
             return true;
         }
 
-        public bool UpdateTeacher(int id, string name, string phoneNumber, string address, int salary, string pass, ref string error)
+        public bool UpdateTeacher(int id, string name, string phoneNumber, string address, int salary, string pass, ref string error, dbMain connectData)
         {
             string query = "EXEC dbo.UpdateTeacher " + id + ", N'" + name + "', '" + phoneNumber + "', N'" + address + "', " + salary + ", '" + pass + "'";
-            int test = dbMain.Instance.ExcuteNonQuery(query, ref error);
+            int test = connectData.ExcuteNonQuery(query, ref error);
             if (test > 0)
                 return true;
             return false;

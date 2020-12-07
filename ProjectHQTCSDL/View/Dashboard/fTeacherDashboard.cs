@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectHQTCSDL.BS_Layer;
+using ProjectHQTCSDL.DB_Layer;
 using ProjectHQTCSDL.Usercontrol;
 
 namespace ProjectHQTCSDL.View.Dashboard
@@ -18,6 +19,9 @@ namespace ProjectHQTCSDL.View.Dashboard
         Schedule_UserControl sche;
         Attendance_UserControl att;
         YourInformation_UserControl infor;
+
+        public dbMain connectData;
+
         public fTeacherDashboard()
         {
             InitializeComponent();
@@ -38,9 +42,12 @@ namespace ProjectHQTCSDL.View.Dashboard
         private void fTeacherDashboard_Load(object sender, EventArgs e)
         {
             sche = new Schedule_UserControl();
+            sche.connectData = this.connectData;
             sche.IDUser = IDUser;
             pUserControl.Controls.Add(sche);
+
             att = new Attendance_UserControl();
+            att.connectData = this.connectData;
             att.IDTeacher = IDUser;
             pUserControl.Controls.Add(att);
         }
@@ -56,6 +63,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             att.Hide();
 
             infor = new YourInformation_UserControl();
+            infor.connectData = this.connectData;
             infor.IDTaiKhoan = IDUser;
             infor.state = false;
 

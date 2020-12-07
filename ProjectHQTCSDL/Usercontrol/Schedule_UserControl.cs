@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectHQTCSDL.BS_Layer;
+using ProjectHQTCSDL.DB_Layer;
 
 namespace ProjectHQTCSDL.Usercontrol
 {
@@ -15,6 +16,7 @@ namespace ProjectHQTCSDL.Usercontrol
     {
         Schedule sche;
         public int IDUser;
+        public dbMain connectData;
         public Schedule_UserControl()
         {
             InitializeComponent();
@@ -32,12 +34,17 @@ namespace ProjectHQTCSDL.Usercontrol
 
         public void LoadccbView()
         {
-            this.cbbWeek.DataSource = sche.GetListDateOfWeek(IDUser);
+            this.cbbWeek.DataSource = sche.GetListDateOfWeek(IDUser, connectData);
         }
 
         private void cbbWeek_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.dgvSchedule.DataSource = sche.GetScheduleOfWeek(IDUser, cbbWeek.Text.Trim());
+            string error = "";
+            DataTable dt = sche.GetScheduleOfWeek(IDUser, cbbWeek.Text.Trim(), ref error, connectData);
+            if (dt != null)
+                this.dgvSchedule.DataSource = dt;
+            else
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

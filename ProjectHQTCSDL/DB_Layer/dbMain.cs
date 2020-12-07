@@ -10,32 +10,43 @@ namespace ProjectHQTCSDL.DB_Layer
 {
     public class dbMain
     {
-        private static dbMain instance;
-        private string connectionString = "Data Source = (local);" + "Initial Catalog = TrungTamAnhNgu;" + "Integrated Security = True";
+        private string connectionString;
 
-        public static dbMain Instance
+        public dbMain() 
         {
-            get { if (instance == null) instance = new dbMain(); return dbMain.instance; }
-            private set => instance = value;
+            connectionString = "Data Source = (local); Initial Catalog = TrungTamAnhNgu; User ID = Khach; Password = 1@34a";
         }
-        private dbMain() { }
-        public DataTable ExcuteQuery(string query)
+
+        public dbMain(string userName, string password)
         {
-            DataTable data = new DataTable();
+            connectionString = "Data Source = (local); Initial Catalog = TrungTamAnhNgu; User ID = " + userName + "; Password = " + password;
+        }
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+        public DataTable ExcuteQuery(string query, ref string error)
+        {
+            try
             {
-                connection.Open();
+                DataTable data = new DataTable();
 
-                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
 
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    SqlCommand command = new SqlCommand(query, connection);
 
-                adapter.Fill(data);
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
 
-                connection.Close();
+                    adapter.Fill(data);
+
+                    connection.Close();
+                }
+                return data;
             }
-            return data;
+            catch (SqlException e)
+            {
+                error = e.Message;
+                return null;
+            }
         }
         public int ExcuteNonQuery(string query, ref string error)
         {
@@ -70,10 +81,18 @@ namespace ProjectHQTCSDL.DB_Layer
                 connection.Open();
 
                 SqlCommand command = new SqlCommand(query, connection);
-
-                data = command.ExecuteScalar();
-
-                connection.Close();
+                try
+                {
+                    data = command.ExecuteScalar();
+                }
+                catch (SqlException e)
+                {
+                    string s = e.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
             return data;
         }

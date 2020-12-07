@@ -1,4 +1,5 @@
 ﻿using ProjectHQTCSDL.BS_Layer;
+using ProjectHQTCSDL.DB_Layer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,9 @@ namespace ProjectHQTCSDL.Usercontrol
     {
         public bool f;
         Schedule sche;
+
+        public dbMain connectData;
+
         public DeleteSchedule_UserControl()
         {
             InitializeComponent();
@@ -36,34 +40,46 @@ namespace ProjectHQTCSDL.Usercontrol
         {
             if (cbAllDay.Checked != true)
             {
-                this.dgvSchedule.DataSource = sche.GetSchedule(cbbClass.Text, dtpDay.Value, cbbSession.Text, true);
+                this.dgvSchedule.DataSource = sche.GetSchedule(cbbClass.Text, dtpDay.Value, cbbSession.Text, connectData, true);
             }    
             else
             {
-                this.dgvSchedule.DataSource = sche.GetSchedule(cbbClass.Text, dtpDay.Value, cbbSession.Text);
+                this.dgvSchedule.DataSource = sche.GetSchedule(cbbClass.Text, dtpDay.Value, cbbSession.Text, connectData);
             }    
         }
 
         private void cbbClass_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string error = "Error";
             try
             {
-                this.cbbSession.DataSource = sche.GetListSession(cbbClass.Text);
+                this.cbbSession.DataSource = sche.GetListSession(cbbClass.Text, ref error, connectData);
                 this.cbbSession.DisplayMember = "Buoi";
                 this.cbbSession.Text = "All";
             }
-            catch{}
+            catch
+            {
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void DeleteSchedule_UserControl_Load(object sender, EventArgs e)
         {
-            this.cbbClass.DataSource = sche.GetListClass();
-            this.cbbClass.DisplayMember = "MaLop";
-            this.cbbClass.Text = "All";
-            this.cbbSession.DataSource = sche.GetListSession(cbbClass.Text);
-            this.cbbSession.DisplayMember = "Buoi";
-            this.cbbSession.Text = "All";
-            this.LoadSchedule();
+            string error = "Error";
+            try
+            {
+                this.cbbClass.DataSource = sche.GetListClass(ref error, connectData);
+                this.cbbClass.DisplayMember = "MaLop";
+                this.cbbClass.Text = "All";
+                this.cbbSession.DataSource = sche.GetListSession(cbbClass.Text, ref error, connectData);
+                this.cbbSession.DisplayMember = "Buoi";
+                this.cbbSession.Text = "All";
+                this.LoadSchedule();
+            }
+            catch
+            {
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dtpDay_ValueChanged(object sender, EventArgs e)
@@ -89,7 +105,7 @@ namespace ProjectHQTCSDL.Usercontrol
                 if ((bool)chk.Value == true)
                 {
                     sDel++;
-                    sche.DeleteSchedule((int)row.Cells[0].Value, (int)row.Cells[1].Value);
+                    sche.DeleteSchedule((int)row.Cells[0].Value, (int)row.Cells[1].Value, connectData);
                     f = true;
                 }
             }

@@ -10,45 +10,45 @@ namespace ProjectHQTCSDL.BS_Layer
 {
     public class Classes
     {
-        public DataTable GetListClasses(int type)//0 = lấy All, 1 = 2-4-6, 2 = 3-5-7
+        public DataTable GetListClasses(int type, ref string error, dbMain connectData)//0 = lấy All, 1 = 2-4-6, 2 = 3-5-7
         {
-            return dbMain.Instance.ExcuteQuery("EXEC GetListClasses " + type);
+            return connectData.ExcuteQuery("EXEC GetListClasses " + type, ref error);
         }
 
-        public DataTable GetListLikeClasses(int type, string likeName)
+        public DataTable GetListLikeClasses(int type, string likeName, ref string error, dbMain connectData)
         {
-            return dbMain.Instance.ExcuteQuery("EXEC GetListLikeClasses " + type + ", '" + likeName + "'");
+            return connectData.ExcuteQuery("EXEC GetListLikeClasses " + type + ", '" + likeName + "'", ref error);
         }
 
-        public bool UpdateClasses(int iD, int number, ref string error)
+        public bool UpdateClasses(int iD, int number, ref string error, dbMain connectData)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("EXEC UpdateClasses " + iD + ", " + number, ref error);
+            int test = connectData.ExcuteNonQuery("EXEC UpdateClasses " + iD + ", " + number, ref error);
             if (test > 0)
                 return true;
             return false;
         }
 
-        public bool InsertClass(int iD, int number, int shift, string DOW, int course, ref string error)
+        public bool InsertClass(int iD, int number, int shift, string DOW, int course, ref string error, dbMain connectData)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("EXEC InsertClass " + iD + ", " + number + ", " + shift + ", '" + DOW + "', " + course, ref error);
+            int test = connectData.ExcuteNonQuery("EXEC InsertClass " + iD + ", " + number + ", " + shift + ", '" + DOW + "', " + course, ref error);
             if (test > 0)
                 return true;
             return false;
         }
 
-        public int CreateID()
+        public int CreateID(dbMain connectData)
         {
-            return (int)dbMain.Instance.ExcuteScalar("SELECT dbo.TaoMaTuDong('LopHoc')");
+            return (int)connectData.ExcuteScalar("SELECT dbo.TaoMaTuDong('LopHoc')");
         }
 
-        public string GetNameCource(string ID)
+        public string GetNameCource(string ID, dbMain connectData)
         {
-            return (string)dbMain.Instance.ExcuteScalar("EXEC GetNameCource_ " + ID);
+            return (string)connectData.ExcuteScalar("EXEC GetNameCource_ " + ID);
         }
 
-        public DataTable GetListCource()
+        public DataTable GetListCource(ref string error, dbMain connectData)
         {
-            return dbMain.Instance.ExcuteQuery("EXEC GetListCource");
+            return connectData.ExcuteQuery("EXEC GetListCource", ref error);
         }
     }
 }

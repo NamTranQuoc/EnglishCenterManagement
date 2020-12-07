@@ -10,43 +10,43 @@ namespace ProjectHQTCSDL.BS_Layer
 {
     public class Cources
     {
-        public DataTable GetListCources (int type)//0 = lấy All, 1 = Lấy có sẳn, 2 = lấy đã ẩn
+        public DataTable GetListCources (int type, ref string error, dbMain connectData)//0 = lấy All, 1 = Lấy có sẳn, 2 = lấy đã ẩn
         {
-            return dbMain.Instance.ExcuteQuery("EXEC GetListCources " + type);
+            return connectData.ExcuteQuery("EXEC GetListCources " + type, ref error);
         }
 
-        public DataTable GetListLikeCource (int type, string likeName)
+        public DataTable GetListLikeCource (int type, string likeName, ref string error, dbMain connectData)
         {
-            return dbMain.Instance.ExcuteQuery("EXEC GetListLikeCource " + type + ", '" + likeName + "'");
+            return connectData.ExcuteQuery("EXEC GetListLikeCource " + type + ", '" + likeName + "'", ref error);
         }
 
-        public bool UpdateCource (int iD, string name, int tuition, int no, ref string error)
+        public bool UpdateCource (int iD, string name, int tuition, int no, ref string error, dbMain connectData)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("EXEC UpdateCource " + iD + ", N'" + name + "', " + tuition + ", " + no, ref error);
+            int test = connectData.ExcuteNonQuery("EXEC UpdateCource " + iD + ", N'" + name + "', " + tuition + ", " + no, ref error);
             if (test > 0)
                 return true;
             return false;
         }
 
-        public bool UpdateStatus (int iD, int status, ref string error)
+        public bool UpdateStatus (int iD, int status, ref string error, dbMain connectData)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("EXEC UpdateStatusCource " + iD + ", " + status, ref error);
+            int test = connectData.ExcuteNonQuery("EXEC UpdateStatusCource " + iD + ", " + status, ref error);
             if (test > 0)
                 return true;
             return false;
         }
 
-        public bool InsertCource (int iD, string name, int no, int tuition, ref string error)
+        public bool InsertCource (int iD, string name, int no, int tuition, ref string error, dbMain connectData)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("EXEC InsertCource " + iD + ", N'" + name + "', " + no + ", " + tuition, ref error);
+            int test = connectData.ExcuteNonQuery("EXEC InsertCource " + iD + ", N'" + name + "', " + no + ", " + tuition, ref error);
             if (test > 0)
                 return true;
             return false;
         }
 
-        public int CreateID()
+        public int CreateID(dbMain connectData)
         {
-            return (int)dbMain.Instance.ExcuteScalar("SELECT dbo.TaoMaTuDong('KhoaHoc')");
+            return (int)connectData.ExcuteScalar("SELECT dbo.TaoMaTuDong('KhoaHoc')");
         }
     }
 }

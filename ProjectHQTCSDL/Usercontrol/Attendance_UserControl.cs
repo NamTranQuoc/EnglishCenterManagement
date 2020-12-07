@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectHQTCSDL.BS_Layer;
+using ProjectHQTCSDL.DB_Layer;
 
 namespace ProjectHQTCSDL.Usercontrol
 {
@@ -15,6 +16,9 @@ namespace ProjectHQTCSDL.Usercontrol
     {
         Attendance att;
         public int IDTeacher;
+
+        public dbMain connectData;
+
         public Attendance_UserControl()
         {
             InitializeComponent();
@@ -28,13 +32,18 @@ namespace ProjectHQTCSDL.Usercontrol
 
         public void LoadData()
         {
-            string id = att.GetIDClass(IDTeacher, cbbShift.Text);
+            string id = att.GetIDClass(IDTeacher, cbbShift.Text, connectData);
             if (id != null)
             {
                 this.lbClass.Text = id;
-                this.lbSession.Text = att.GetSession(lbClass.Text);
-                this.lbCource.Text = att.GetNameCource(lbClass.Text);
-                this.dgvClassList.DataSource = att.GetClassList(lbClass.Text, lbSession.Text);
+                this.lbSession.Text = att.GetSession(lbClass.Text, connectData);
+                this.lbCource.Text = att.GetNameCource(lbClass.Text, connectData);
+                string error = "";
+                DataTable dt = att.GetClassList(lbClass.Text, lbSession.Text, ref error, connectData);
+                if (dt != null)
+                    this.dgvClassList.DataSource = dt;
+                else
+                    MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -62,7 +71,7 @@ namespace ProjectHQTCSDL.Usercontrol
                 }
             }
             if (listAbsent.Count > 0)
-                att.InsertAbsent(listAbsent, this.lbClass.Text, this.lbSession.Text);
+                att.InsertAbsent(listAbsent, this.lbClass.Text, this.lbSession.Text, connectData);
             MessageBox.Show("Attendance completed", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }

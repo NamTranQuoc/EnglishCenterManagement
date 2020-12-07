@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectHQTCSDL.BS_Layer;
+using ProjectHQTCSDL.DB_Layer;
 
 namespace ProjectHQTCSDL.Usercontrol
 {
@@ -21,6 +22,8 @@ namespace ProjectHQTCSDL.Usercontrol
         DataTable dtHocBu = null;
         MakeUpClass dbMUC = new MakeUpClass();
 
+        public dbMain connectData;
+
         public MakeUpClass_UserControl()
         {
             InitializeComponent();
@@ -31,7 +34,7 @@ namespace ProjectHQTCSDL.Usercontrol
             try
             {
                 cboLopHoc.Items.Clear();
-                List<int> dsLopHoc = dbMUC.LayLopHocHV(maHocVien);
+                List<int> dsLopHoc = dbMUC.LayLopHocHV(maHocVien, connectData);
                 for (int i = 0; i < dsLopHoc.Count; i++)
                     cboLopHoc.Items.Add(dsLopHoc[i]);
                 cboLopHoc.Text = dsLopHoc[0].ToString();
@@ -44,7 +47,7 @@ namespace ProjectHQTCSDL.Usercontrol
             try
             {
                 cboBuoiHoc.Items.Clear();
-                int soBuoi = dbMUC.SoBuoiHoc(Convert.ToInt32(cboLopHoc.Text));
+                int soBuoi = dbMUC.SoBuoiHoc(Convert.ToInt32(cboLopHoc.Text), connectData);
                 for (int i = 1; i < soBuoi + 1; i++)
                     cboBuoiHoc.Items.Add(i);
             }
@@ -53,7 +56,7 @@ namespace ProjectHQTCSDL.Usercontrol
 
         public void HienThiHocBuNeuCo()
         {
-            int check = dbMUC.KtraHocBuCoTonTai(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text));
+            int check = dbMUC.KtraHocBuCoTonTai(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text), connectData);
             if (check!=-1)
             {
                 foreach (DataGridViewRow row in dgvMUC.Rows)
@@ -74,14 +77,18 @@ namespace ProjectHQTCSDL.Usercontrol
                 {
                     dtHocBu = new DataTable();
                     dtHocBu.Clear();
-                    int theoKhoaHoc = dbMUC.LayKhoaLH(Convert.ToInt32(cboLopHoc.Text));
-                    dtHocBu = dbMUC.LayHocBu(theoKhoaHoc, Convert.ToInt32(cboLopHoc.Text.Trim()), Convert.ToInt32(cboBuoiHoc.Text.Trim()));
-                    dgvMUC.DataSource = dtHocBu;
-                    btnLuu.Enabled = false;
-                    btnHuyBo.Enabled = false;
-                    HienThiHocBuNeuCo();
-                    //     dgvMUC.AutoResizeColumns();
-                    //     dgvMUC.Rows[0].Cells[5].Value = true;
+                    int theoKhoaHoc = dbMUC.LayKhoaLH(Convert.ToInt32(cboLopHoc.Text), connectData);
+                    string error = "";
+                    dtHocBu = dbMUC.LayHocBu(theoKhoaHoc, Convert.ToInt32(cboLopHoc.Text.Trim()), Convert.ToInt32(cboBuoiHoc.Text.Trim()), ref error, connectData);
+                    if (dtHocBu != null)
+                    {
+                        dgvMUC.DataSource = dtHocBu;
+                        btnLuu.Enabled = false;
+                        btnHuyBo.Enabled = false;
+                        HienThiHocBuNeuCo();
+                    }
+                    else
+                        MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (SqlException)
                 {
@@ -130,14 +137,14 @@ namespace ProjectHQTCSDL.Usercontrol
         {
             try
             {
-                if (dbMUC.KtraHocBuCoTonTai(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text)) == -1)
+                if (dbMUC.KtraHocBuCoTonTai(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text), connectData) == -1)
                 {
-                    dbMUC.ThemVaCapNhatBuoiHocVang(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text), maLopHocBu);
+                    dbMUC.ThemVaCapNhatBuoiHocVang(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text), maLopHocBu, connectData);
                     MessageBox.Show("Đã thêm lớp học bù thành công!");
                 }
                 else
                 {
-                    dbMUC.ThemVaCapNhatBuoiHocVang(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text), maLopHocBu);
+                    dbMUC.ThemVaCapNhatBuoiHocVang(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text), maLopHocBu, connectData);
                     MessageBox.Show("Đã cập nhật lớp học bù thành công!");
                 }
             }
@@ -151,14 +158,14 @@ namespace ProjectHQTCSDL.Usercontrol
         {
             try
             {
-                int check = dbMUC.KtraHocBuCoTonTai(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text));
+                int check = dbMUC.KtraHocBuCoTonTai(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text), connectData);
                 if (check != -1)
                 {
                     foreach (DataGridViewRow row in dgvMUC.Rows)
                     {
                         if (Convert.ToInt32(row.Cells[1].Value) == check)
                         {
-                            dbMUC.HuyBoHocBu(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(row.Cells[2].Value));
+                            dbMUC.HuyBoHocBu(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(row.Cells[2].Value), connectData);
                             MessageBox.Show("Hủy bỏ thành công!!!");
                             break;
                         }

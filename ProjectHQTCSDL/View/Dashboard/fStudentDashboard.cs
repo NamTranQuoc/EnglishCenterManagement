@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectHQTCSDL.BS_Layer;
+using ProjectHQTCSDL.DB_Layer;
 using ProjectHQTCSDL.Usercontrol;
 
 namespace ProjectHQTCSDL.View.Dashboard
@@ -19,7 +20,7 @@ namespace ProjectHQTCSDL.View.Dashboard
         MakeUpClass_UserControl MUC_UC;
         YourInformation_UserControl infor;
         EnrollInClass_UserControl enr;
-
+        public dbMain connectData;
         public fStudentDashboard()
         {  
             InitializeComponent();           
@@ -29,8 +30,13 @@ namespace ProjectHQTCSDL.View.Dashboard
         {
             sche = new Schedule_UserControl();
             MUC_UC = new MakeUpClass_UserControl();
-            this.enr = new EnrollInClass_UserControl();
+            enr = new EnrollInClass_UserControl();
             infor = new YourInformation_UserControl();
+
+            sche.connectData = this.connectData;
+            MUC_UC.connectData = this.connectData;
+            enr.connectData = this.connectData;
+            infor.connectData = this.connectData;
 
             this.sche.IDUser = IDUser;
             this.infor.IDTaiKhoan = IDUser;

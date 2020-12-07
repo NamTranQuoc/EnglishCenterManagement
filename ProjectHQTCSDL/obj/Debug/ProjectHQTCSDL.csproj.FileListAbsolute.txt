@@ -63,7 +63,6 @@ D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\pt\Mi
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.csprojAssemblyReference.cache
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Properties.Resources.resources
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Attendance_UserControl.resources
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Classes_UserControl.resources
@@ -91,3 +90,4 @@ D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\Proje
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.csproj.CopyComplete
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.exe
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.pdb
+D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.csprojAssemblyReference.cache
