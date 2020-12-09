@@ -11,67 +11,47 @@ namespace ProjectHQTCSDL.BS_Layer
 {
     public class MakeUpClass
     {
-        public DataTable LayHocBu(int theoKhoaHoc, int maLop, int buoiHoc, ref string error, dbMain connectData)
+        public DataTable GetListClassAbsent (int IdStudent, dbMain connectData, ref string error)
         {
-            return connectData.ExcuteQuery("Select * From LayHocBu(" + theoKhoaHoc + ", " + maLop + ", " + buoiHoc + ")", ref error);
+            return connectData.ExcuteQuery("EXEC GetListClassAbsent " + IdStudent, ref error);
         }
 
-        public List<int> LayLopHocHV(int maHocVien, dbMain connectData)
+        public DataTable GetListSessionAbsent (int IdStudent, int iDClass, dbMain connectData, ref string error)
         {
-            List<int> dsLopHoc = new List<int>();
-            string sqlString = "EXEC LayLopHocHV " + maHocVien;
-            SqlDataReader reader = connectData.ExcuteReader(sqlString, CommandType.Text);
-            while (reader.Read())
-                dsLopHoc.Add(reader.GetInt32(0));
-            reader.Dispose();
-            return dsLopHoc;
+            return connectData.ExcuteQuery("EXEC GetListSessionAbsent " + IdStudent + ", " + iDClass, ref error);
         }
 
-        public int KtraHocBuCoTonTai(int maHocVien, int maLop, int buoi, dbMain connectData)
+        public DataTable GetClassAbsent(int iDStudent, int iDClass, int session, dbMain connectData, ref string error)
         {
-            int check = 0;
-            string sqlString = "Select dbo.KtraHocBuCoTonTai(" + maHocVien + ", " + maLop + ", " + buoi + ")";
-            SqlDataReader reader = connectData.ExcuteReader(sqlString, CommandType.Text);
-            while (reader.Read())
-                check  = reader.GetInt32(0);
-            reader.Dispose();
-            return check;
-        }        
-
-        public void ThemVaCapNhatBuoiHocVang(int maHocVien, int maLop, int buoi, int hocBu, dbMain connectData)
-        {
-            string error = "";
-            string sqlString = "Execute ThemVaCapNhatHocBu " + maHocVien + ", " + maLop + ", " + buoi + ", " + hocBu;
-            connectData.ExcuteNonQuery(sqlString, ref error);
+            DataTable dt = connectData.ExcuteQuery("EXEC GetClassAbsent " + iDClass + ", " + session, ref error);
+            if (dt != null)
+            {
+                dt.Columns.Add("Chon", typeof(bool));
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    if ((int)connectData.ExcuteScalar("EXEC CheckAbsent " + iDStudent + ", " + iDClass + ", " + session) == 0)
+                        dt.Rows[i]["Chon"] = false;
+                    else
+                        dt.Rows[i]["Chon"] = true;
+                }
+                return dt;
+            }
+            return null;
         }
 
-        public int LayKhoaLH(int maLopHoc, dbMain connectData)
+        public bool EnrollAbsent (int iDStudent, int iDClass, int session, int absent, dbMain connectData, ref string error)
         {
-            int maKhoaHoc = 0;
-            string sqlString = "Select dbo.LayKhoaLH(" + maLopHoc + ")";
-            SqlDataReader reader = connectData.ExcuteReader(sqlString, CommandType.Text);
-            while (reader.Read())
-                maKhoaHoc = reader.GetInt32(0);
-            reader.Dispose();
-            return maKhoaHoc;
+            int test = connectData.ExcuteNonQuery("EXEC EnrollAbsent " + iDStudent + ", " + iDClass + ", " + session + ", " + absent, ref error);
+            if (test > 0)
+                return true;
+            return false;
         }
-
-        public int SoBuoiHoc(int maLop, dbMain connectData)
+        public bool UnenrollAbsent(int iDStudent, int iDClass, int session, dbMain connectData, ref string error)
         {
-            int soBuoi = 0;
-            string sqlString = "Execute SoBuoiHoc "+ maLop;
-            SqlDataReader reader = connectData.ExcuteReader(sqlString, CommandType.Text);
-            while (reader.Read())
-                soBuoi = reader.GetInt32(0);
-            reader.Dispose();
-            return soBuoi;
-        }
-
-        public void HuyBoHocBu(int maHocVien, int maLop, int buoiHoc, dbMain connectData)
-        {
-            string error = "";
-            string sqlString = "Execute HuyBoHocBu " + maHocVien + ", " + maLop + ", " + buoiHoc;
-            connectData.ExcuteNonQuery(sqlString, ref error);
+            int test = connectData.ExcuteNonQuery("EXEC UnenrollAbsent " + iDStudent + ", " + iDClass + ", " + session, ref error);
+            if (test > 0)
+                return true;
+            return false;
         }
     }
 }

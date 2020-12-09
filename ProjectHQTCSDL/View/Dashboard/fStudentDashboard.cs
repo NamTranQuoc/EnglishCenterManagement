@@ -21,6 +21,8 @@ namespace ProjectHQTCSDL.View.Dashboard
         YourInformation_UserControl infor;
         EnrollInClass_UserControl enr;
         public dbMain connectData;
+        public string passOld;
+        public string TaiKhoan;
         public fStudentDashboard()
         {  
             InitializeComponent();           
@@ -37,6 +39,8 @@ namespace ProjectHQTCSDL.View.Dashboard
             MUC_UC.connectData = this.connectData;
             enr.connectData = this.connectData;
             infor.connectData = this.connectData;
+            infor.passOld = this.passOld;
+            infor.TaiKhoan = this.TaiKhoan;
 
             this.sche.IDUser = IDUser;
             this.infor.IDTaiKhoan = IDUser;
@@ -56,6 +60,8 @@ namespace ProjectHQTCSDL.View.Dashboard
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
+            if (infor.f == true)
+                this.Close();
             enr.Hide();
             if (enr.f == true)
                 sche.LoadccbView();
@@ -66,6 +72,8 @@ namespace ProjectHQTCSDL.View.Dashboard
 
         private void btnMakeUpClass_Click(object sender, EventArgs e)
         {
+            if (infor.f == true)
+                this.Close();
             enr.Hide();
             sche.Hide();
             infor.Hide();
@@ -79,6 +87,8 @@ namespace ProjectHQTCSDL.View.Dashboard
 
         private void btnInformation_Click(object sender, EventArgs e)
         {
+            if (infor.f == true)
+                this.Close();
             enr.Hide();
             sche.Hide();
             infor.Show();
@@ -87,6 +97,8 @@ namespace ProjectHQTCSDL.View.Dashboard
 
         private void btnEnroll_Click(object sender, EventArgs e)
         {
+            if (infor.f == true)
+                this.Close();
             enr.f = false;
             enr.Show();
             sche.Hide();

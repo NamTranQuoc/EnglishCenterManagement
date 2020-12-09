@@ -57,10 +57,10 @@ namespace ProjectHQTCSDL.BS_Layer
             return true;
         }
 
-        public bool UpdateTeacher(int id, string name, string phoneNumber, string address, int salary, string pass, ref string error, dbMain connectData)
+        public bool UpdateTeacher(int id, string name, string phoneNumber, string address, int salary, string pass, string passOld, ref string error)
         {
-            string query = "EXEC dbo.UpdateTeacher " + id + ", N'" + name + "', '" + phoneNumber + "', N'" + address + "', " + salary + ", '" + pass + "'";
-            int test = connectData.ExcuteNonQuery(query, ref error);
+            string query = "EXEC dbo.UpdateTeacher " + id + ", N'" + name + "', '" + phoneNumber + "', N'" + address + "', " + salary + ", '" + pass + "', '" + passOld + "'";
+            int test = dbMain.Instance.ExcuteNonQuery(query, ref error);
             if (test > 0)
                 return true;
             return false;

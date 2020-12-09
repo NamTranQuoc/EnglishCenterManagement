@@ -18,6 +18,9 @@ namespace ProjectHQTCSDL.Usercontrol
         public int IDTaiKhoan;
         public bool state = true; // true -- hiện Hoc Vien , false -- Giao vien
         public dbMain connectData;
+        public string passOld;
+        public string TaiKhoan;
+        public bool f = false;
 
         private bool update = false;
         private YourInformation infor;
@@ -134,7 +137,6 @@ namespace ProjectHQTCSDL.Usercontrol
                 txtHoTenGV.Enabled = true;
                 txtSdtGV.Enabled = true;
                 txtDiaChiGV.Enabled = true;
-                txtLuongGV.Enabled = true;
                 txtPassGV.Enabled = true;
             }
 
@@ -188,15 +190,16 @@ namespace ProjectHQTCSDL.Usercontrol
                 if( result == DialogResult.Yes)
                 {
                     Excute();
+                    MessageBox.Show("Sign in again to continue", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.f = true;
+
+                    btnCapNhat.Enabled = true;
+                    btnLuu.Enabled = false;
+                    btnHuy.Enabled = false;
+
+                    update = false;
                 }
-
-                btnCapNhat.Enabled = true;
-                btnLuu.Enabled = false;
-                btnHuy.Enabled = false;
-
-                update = false;
-            }
-            
+            }      
         }
 
 
@@ -208,6 +211,7 @@ namespace ProjectHQTCSDL.Usercontrol
             bool result;
             if (state == true)
             {
+                connectData = new dbMain(TaiKhoan, txtPass.Text);
                 Students stu = new Students();
                 
                 string name = txtHoTen.Text.Trim();
@@ -216,7 +220,7 @@ namespace ProjectHQTCSDL.Usercontrol
                 string email = txtEmail.Text.Trim();
                 DateTime birthdate = dtpNgaySinh.Value;
 
-                result = stu.UpdateStudent(id, name, phone, diachi, email, birthdate, txtPass.Text.Trim(), ref error, connectData);
+                result = stu.UpdateStudent(id, name, phone, diachi, email, birthdate, txtPass.Text.Trim(), passOld, ref error);
 
                 if (result)
                 {
@@ -240,6 +244,7 @@ namespace ProjectHQTCSDL.Usercontrol
             }
             else
             {
+                connectData = new dbMain(TaiKhoan, txtPassGV.Text);
                 Teachers teacher = new Teachers();
 
                 string name = txtHoTenGV.Text.Trim();
@@ -248,7 +253,7 @@ namespace ProjectHQTCSDL.Usercontrol
 
                 int luong = Convert.ToInt32(txtLuongGV.Text.Trim());
 
-                result = teacher.UpdateTeacher(id, name, phone, diachi, luong, txtPassGV.Text.Trim(), ref error, connectData);
+                result = teacher.UpdateTeacher(id, name, phone, diachi, luong, txtPassGV.Text.Trim(), passOld, ref error);
 
                 if (result)
                 {

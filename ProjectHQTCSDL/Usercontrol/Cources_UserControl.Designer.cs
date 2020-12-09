@@ -56,11 +56,9 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.rbtAll = new System.Windows.Forms.RadioButton();
             this.rbtHide = new System.Windows.Forms.RadioButton();
             this.rbtAvailable = new System.Windows.Forms.RadioButton();
-            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListCources)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabEdit.SuspendLayout();
@@ -332,14 +330,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label8.TabIndex = 10;
             this.label8.Text = "Cource\'ID:";
             // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(69, 3);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(354, 26);
-            this.txtSearch.TabIndex = 2;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
             // rbtAll
             // 
             this.rbtAll.AutoSize = true;
@@ -375,24 +365,13 @@ namespace ProjectHQTCSDL.Usercontrol
             this.rbtAvailable.UseVisualStyleBackColor = true;
             this.rbtAvailable.CheckedChanged += new System.EventHandler(this.rbtAvailable_CheckedChanged);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 6);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 20);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "Search";
-            // 
             // Cources_UserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.rbtAvailable);
             this.Controls.Add(this.rbtHide);
             this.Controls.Add(this.rbtAll);
-            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.dgvListCources);
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -440,10 +419,8 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.RadioButton rbtAll;
         private System.Windows.Forms.RadioButton rbtHide;
         private System.Windows.Forms.RadioButton rbtAvailable;
-        private System.Windows.Forms.Label label9;
     }
 }

@@ -41,8 +41,8 @@ namespace ProjectHQTCSDL.BS_Layer
                 int iD = (int)connectData.ExcuteScalar("SELECT dbo.TaoMaTuDong('User')");
 
                 string query = "EXEC dbo.InsertStudent " + iD + ", '" + userName + "', '" + pass + "', N'" + name + "', '" +  phoneNumber + "', N'" + address + "', '" + email + "', '" + birthday.ToString("yyyy-MM-dd") + "'";
-
-                int test = connectData.ExcuteNonQuery(query, ref error);
+                
+                int test = dbMain.Instance.ExcuteNonQuery(query, ref error);
                 if (test > 0)
                     return true;
                 return false;
@@ -58,10 +58,10 @@ namespace ProjectHQTCSDL.BS_Layer
             return true;
         }
 
-        public bool UpdateStudent(int id, string name, string phoneNumber, string address, string email, DateTime birthday, string pass, ref string error, dbMain connectData)
+        public bool UpdateStudent(int id, string name, string phoneNumber, string address, string email, DateTime birthday, string pass, string passOld, ref string error)
         {
-            string query = "EXEC dbo.UpdateStudent " + id + ", N'" + name + "', '" + phoneNumber + "', N'" + address + "', '" + email + "', '" + birthday.ToString("yyyy-MM-dd") + "', '" + pass + "'";
-            int test = connectData.ExcuteNonQuery(query, ref error);
+            string query = "EXEC dbo.UpdateStudent " + id + ", N'" + name + "', '" + phoneNumber + "', N'" + address + "', '" + email + "', '" + birthday.ToString("yyyy-MM-dd") + "', '" + pass + "', '" + passOld + "'";
+            int test = dbMain.Instance.ExcuteNonQuery(query, ref error);
             if (test > 0)
                 return true;
             return false;

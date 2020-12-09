@@ -11,6 +11,17 @@ namespace ProjectHQTCSDL.DB_Layer
     public class dbMain
     {
         private string connectionString;
+        private static dbMain instance;
+        public static dbMain Instance
+        {
+            get { if (instance == null) instance = new dbMain("Data Source=(local);Initial Catalog=TrungTamAnhNgu;Integrated Security=True"); return dbMain.instance; }
+            private set => instance = value;
+        }
+
+        public dbMain(string connect)
+        {
+            connectionString = connect;
+        }
 
         public dbMain() 
         {
@@ -24,29 +35,30 @@ namespace ProjectHQTCSDL.DB_Layer
 
         public DataTable ExcuteQuery(string query, ref string error)
         {
-            try
+            DataTable data = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                DataTable data = new DataTable();
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                connection.Open();
+                try
                 {
-                    connection.Open();
-
                     SqlCommand command = new SqlCommand(query, connection);
 
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
 
                     adapter.Fill(data);
-
-                    connection.Close();
                 }
-                return data;
+                catch (SqlException e)
+                {
+                    error = e.Message;
+                    data = null;
+                }
+                finally
+                {
+                    connection.Close();
+                }       
             }
-            catch (SqlException e)
-            {
-                error = e.Message;
-                return null;
-            }
+            return data;
         }
         public int ExcuteNonQuery(string query, ref string error)
         {
@@ -107,6 +119,7 @@ namespace ProjectHQTCSDL.DB_Layer
             connection.Open();
             comm.CommandText = strSql;
             comm.CommandType = ct;
+            connection.Close();
             return comm.ExecuteReader();
         }
     }

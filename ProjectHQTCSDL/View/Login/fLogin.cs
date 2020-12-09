@@ -37,6 +37,8 @@ namespace ProjectHQTCSDL.View.Login
                     break;
                 case 3:
                     fTeacherDashboard f3 = new fTeacherDashboard();
+                    f3.passOld = txtPassword.Text;
+                    f3.TaiKhoan = txtUserName.Text;
                     f3.IDUser = log.GetID(txtUserName.Text, connectData);
                     f3.connectData = new dbMain(txtUserName.Text, txtPassword.Text);
                     f3.ShowDialog();
@@ -44,6 +46,8 @@ namespace ProjectHQTCSDL.View.Login
                     break;
                 case 4:
                     fStudentDashboard f4 = new fStudentDashboard();
+                    f4.passOld = txtPassword.Text;
+                    f4.TaiKhoan = txtUserName.Text;
                     f4.IDUser = log.GetID(txtUserName.Text.Trim(), connectData);
                     f4.connectData = new dbMain(txtUserName.Text, txtPassword.Text);
                     f4.ShowDialog();

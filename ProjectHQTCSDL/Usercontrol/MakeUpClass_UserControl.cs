@@ -17,9 +17,8 @@ namespace ProjectHQTCSDL.Usercontrol
     {
         // Lấy maHocVien là tài khoản đăng nhập
         public int maHocVien;
-        private int maLopHocBu = 0;
 
-        DataTable dtHocBu = null;
+        int row;
         MakeUpClass dbMUC = new MakeUpClass();
 
         public dbMain connectData;
@@ -29,173 +28,119 @@ namespace ProjectHQTCSDL.Usercontrol
             InitializeComponent();
         }
 
-        public void LoadCboLopHoc()
+        private void btnSave_Click(object sender, EventArgs e)
         {
+            string error = "error";
             try
             {
-                cboLopHoc.Items.Clear();
-                List<int> dsLopHoc = dbMUC.LayLopHocHV(maHocVien, connectData);
-                for (int i = 0; i < dsLopHoc.Count; i++)
-                    cboLopHoc.Items.Add(dsLopHoc[i]);
-                cboLopHoc.Text = dsLopHoc[0].ToString();
-            }
-            catch { }
-        }
-
-        public void LoadSoBuoi()
-        {
-            try
-            {
-                cboBuoiHoc.Items.Clear();
-                int soBuoi = dbMUC.SoBuoiHoc(Convert.ToInt32(cboLopHoc.Text), connectData);
-                for (int i = 1; i < soBuoi + 1; i++)
-                    cboBuoiHoc.Items.Add(i);
-            }
-            catch { }
-        }
-
-        public void HienThiHocBuNeuCo()
-        {
-            int check = dbMUC.KtraHocBuCoTonTai(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text), connectData);
-            if (check!=-1)
-            {
-                foreach (DataGridViewRow row in dgvMUC.Rows)
+                if (btnSave.Text == "Enroll")
                 {
-                    if (Convert.ToInt32(row.Cells[1].Value) == check)
-                        row.Cells[5].Value = true;
-                }
-                btnLuu.Enabled = true;
-                btnHuyBo.Enabled = true;
-            }    
-        }
-
-        public void Load_Data()
-        {
-            if (cboLopHoc.Text != "")
-            {
-                try
-                {
-                    dtHocBu = new DataTable();
-                    dtHocBu.Clear();
-                    int theoKhoaHoc = dbMUC.LayKhoaLH(Convert.ToInt32(cboLopHoc.Text), connectData);
-                    string error = "";
-                    dtHocBu = dbMUC.LayHocBu(theoKhoaHoc, Convert.ToInt32(cboLopHoc.Text.Trim()), Convert.ToInt32(cboBuoiHoc.Text.Trim()), ref error, connectData);
-                    if (dtHocBu != null)
+                    if (dbMUC.EnrollAbsent(maHocVien, int.Parse(cboLopHoc.Text), int.Parse(cboBuoiHoc.Text), int.Parse(dgvMUC.Rows[row].Cells[1].Value.ToString()), connectData, ref error))
                     {
-                        dgvMUC.DataSource = dtHocBu;
-                        btnLuu.Enabled = false;
-                        btnHuyBo.Enabled = false;
-                        HienThiHocBuNeuCo();
+                        this.btnSave.Text = "Unenroll";
+                        this.GetClassAbsent();
+                        MessageBox.Show("Đăng ký học bù thành công", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                         MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Không lấy được nội dung trong bảng Học bù!");
-                }
-            }
-        }
-
-
-        private void dgvMUC_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                int columnIndex = 5;
-                if (e.ColumnIndex == columnIndex)
-                {
-                    bool isChecked = Convert.ToBoolean(dgvMUC.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
-                    if (isChecked)
-                    {
-                        foreach (DataGridViewRow row in dgvMUC.Rows)
-                        {
-                            if (row.Index != e.RowIndex)
-                                row.Cells[columnIndex].Value = false;
-                        }
-                    }
-                }
-            }
-            catch { }
-        }
-
-        private void dgvMUC_CurrentCellDirtyStateChanged(object sender, EventArgs e)
-        {
-            if (dgvMUC.IsCurrentCellDirty)
-                dgvMUC.CommitEdit(DataGridViewDataErrorContexts.Commit);
-
-            int columnIndex = 5;
-            foreach (DataGridViewRow row in dgvMUC.Rows)
-                if (Convert.ToBoolean(row.Cells[columnIndex].Value))
-                    maLopHocBu = Convert.ToInt32(row.Cells[1].Value);
-
-            btnLuu.Enabled = true;
-            btnHuyBo.Enabled = true;
-        }
-
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (dbMUC.KtraHocBuCoTonTai(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text), connectData) == -1)
-                {
-                    dbMUC.ThemVaCapNhatBuoiHocVang(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text), maLopHocBu, connectData);
-                    MessageBox.Show("Đã thêm lớp học bù thành công!");
-                }
                 else
                 {
-                    dbMUC.ThemVaCapNhatBuoiHocVang(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text), maLopHocBu, connectData);
-                    MessageBox.Show("Đã cập nhật lớp học bù thành công!");
-                }
-            }
-            catch(SqlException)
-            {
-                MessageBox.Show("Không thể Lưu! Lỗi rồi!!!");
-            }
-        }
-
-        private void btnHuyBo_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int check = dbMUC.KtraHocBuCoTonTai(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text), connectData);
-                if (check != -1)
-                {
-                    foreach (DataGridViewRow row in dgvMUC.Rows)
+                    if (dbMUC.UnenrollAbsent(maHocVien, int.Parse(cboLopHoc.Text), int.Parse(cboBuoiHoc.Text), connectData, ref error))
                     {
-                        if (Convert.ToInt32(row.Cells[1].Value) == check)
-                        {
-                            dbMUC.HuyBoHocBu(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(row.Cells[2].Value), connectData);
-                            MessageBox.Show("Hủy bỏ thành công!!!");
-                            break;
-                        }
+                        this.btnSave.Text = "Enroll";
+                        this.GetClassAbsent();
+                        MessageBox.Show("Hủy đăng ký học bù thành công", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+                    else
+                        MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error); 
                 }
-                Load_Data();
             }
-            catch(SqlException)
+            catch
             {
-                MessageBox.Show("Hủy bỏ thất bại!");
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void cboLopHoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadSoBuoi();
-            Load_Data();
-        }
-
-        private void cboBuoiHoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Load_Data();
         }
 
         private void MakeUpClass_UserControl_Load(object sender, EventArgs e)
         {
-            cboBuoiHoc.Text = "1";
-            LoadCboLopHoc();
-            LoadSoBuoi();
-            Load_Data();
+            this.GetListClass();
+        }
+
+        private void cboLopHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int test;
+                if (int.TryParse(cboLopHoc.Text, out test))
+                    this.GetListSession();   
+            }
+            catch { }
+        }
+
+        private void cboBuoiHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int test;
+                if (int.TryParse(cboBuoiHoc.Text, out test))
+                    this.GetClassAbsent();
+            }
+            catch { }
+        }
+
+        private void GetListClass()
+        {
+            string error = "error";
+            try
+            {
+                cboLopHoc.DataSource = dbMUC.GetListClassAbsent(maHocVien, connectData, ref error);
+                cboLopHoc.DisplayMember = "MaLop";
+            }
+            catch
+            {
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void GetListSession()
+        {
+            string error = "";
+            try
+            {
+                cboBuoiHoc.DataSource = dbMUC.GetListSessionAbsent(maHocVien, int.Parse(cboLopHoc.Text), connectData, ref error);
+                cboBuoiHoc.DisplayMember = "Buoi";
+            }
+            catch
+            {
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void GetClassAbsent()
+        {
+            string error = "";
+            try
+            {
+                dgvMUC.DataSource = dbMUC.GetClassAbsent(maHocVien, int.Parse(cboLopHoc.Text), int.Parse(cboBuoiHoc.Text), connectData, ref error);
+            }
+            catch
+            {
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvMUC_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if ((bool)dgvMUC.Rows[e.RowIndex].Cells[5].Value)
+            {
+                btnSave.Text = "Unenroll";
+            }
+            else
+            {
+                btnSave.Text = "Enroll";
+            }
+            row = e.RowIndex;
         }
     }
 }

@@ -56,7 +56,7 @@ namespace ProjectHQTCSDL.Usercontrol
                 if (tphone != false)
                 {
                     string error = "";
-                    bool t = student.UpdateStudent(int.Parse(txtID.Text), txtName.Text, txtPhone.Text, txtAddress.Text, txtEmail.Text, birthday, "0", ref error, connectData);
+                    bool t = student.UpdateStudent(int.Parse(txtID.Text), txtName.Text, txtPhone.Text, txtAddress.Text, txtEmail.Text, birthday, "0", "0", ref error);
                     if (t == true)
                     {
                         DataTable dt = student.GetListStudents(ref error, connectData);
@@ -90,7 +90,7 @@ namespace ProjectHQTCSDL.Usercontrol
                 if (tphone != false)
                 {
                     string error = "";
-                    bool t = student.InsertStudent(txtUsername.Text, pass, txtNameNew.Text, txtPhoneNew.Text, txtAddressNew.Text, txtEmailNew.Text, birthday, ref error, connectData);
+                    bool t = student.InsertStudent(txtUsername.Text, pass, txtNameNew.Text, txtPhoneNew.Text, txtAddressNew.Text, txtEmailNew.Text, birthday, ref error, dbMain.Instance);
                     if (t == true)
                     {
                         DataTable dt = student.GetListStudents(ref error, connectData);
@@ -134,7 +134,7 @@ namespace ProjectHQTCSDL.Usercontrol
         {
             DateTime birthday = (DateTime)dtpDOB.Value;
             string error = "";
-            bool t = student.UpdateStudent(int.Parse(txtID.Text), txtName.Text, txtPhone.Text, txtAddress.Text, txtEmail.Text, birthday, "000000", ref error, connectData);
+            bool t = student.UpdateStudent(int.Parse(txtID.Text), txtName.Text, txtPhone.Text, txtAddress.Text, txtEmail.Text, birthday, "000000", "0", ref error);
             if (t == true)
             {
                 DataTable dt = student.GetListStudents(ref error, connectData);

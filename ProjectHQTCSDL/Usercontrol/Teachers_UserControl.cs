@@ -56,7 +56,7 @@ namespace ProjectHQTCSDL.Usercontrol
                 if (tsalary != false && tsalary != false)
                 {
                     string error = "";
-                    bool t = teacher.UpdateTeacher(int.Parse(txtID.Text), txtName.Text, txtPhone.Text, txtAddress.Text, salary, "0", ref error, connectData);
+                    bool t = teacher.UpdateTeacher(int.Parse(txtID.Text), txtName.Text, txtPhone.Text, txtAddress.Text, salary, "0", "0", ref error);
                     if (t == true)
                     {
                         DataTable dtt = teacher.GetListTeachers(ref error, connectData);
@@ -91,7 +91,7 @@ namespace ProjectHQTCSDL.Usercontrol
                 if (tphone != false && tsalary != false)
                 {
                     string error = "";
-                    bool t = teacher.InsertTeacher(txtUsername.Text, pass, txtNameNew.Text, txtPhoneNew.Text, txtAddressNew.Text, salary, ref error, connectData);
+                    bool t = teacher.InsertTeacher(txtUsername.Text, pass, txtNameNew.Text, txtPhoneNew.Text, txtAddressNew.Text, salary, ref error, dbMain.Instance);
                     if (t == true)
                     {
                         DataTable dt = teacher.GetListTeachers(ref error, connectData);
@@ -138,7 +138,7 @@ namespace ProjectHQTCSDL.Usercontrol
             int salary;
             bool tsalary = int.TryParse(txtSalary.Text, out salary);
             string error = "";
-            bool t = teacher.UpdateTeacher(int.Parse(txtID.Text), txtName.Text, txtPhone.Text, txtAddress.Text, salary, "000000", ref error, connectData);
+            bool t = teacher.UpdateTeacher(int.Parse(txtID.Text), txtName.Text, txtPhone.Text, txtAddress.Text, salary, "000000", "0", ref error);
             if (t == true)
             {
                 DataTable dt = teacher.GetListTeachers(ref error, connectData);

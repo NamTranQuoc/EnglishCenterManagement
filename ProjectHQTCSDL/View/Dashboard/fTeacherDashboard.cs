@@ -19,6 +19,8 @@ namespace ProjectHQTCSDL.View.Dashboard
         Schedule_UserControl sche;
         Attendance_UserControl att;
         YourInformation_UserControl infor;
+        public string passOld;
+        public string TaiKhoan;
 
         public dbMain connectData;
 
@@ -29,18 +31,33 @@ namespace ProjectHQTCSDL.View.Dashboard
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
+            if (infor.f == true)
+                this.Close();
             sche.Show();
             att.Hide();
+            infor.Hide();
         }
 
         private void btnAttendance_Click(object sender, EventArgs e)
         {
+            if (infor.f == true)
+                this.Close();
             sche.Hide();
             att.Show();
+            infor.Hide();
         }
 
         private void fTeacherDashboard_Load(object sender, EventArgs e)
         {
+            infor = new YourInformation_UserControl();
+            infor.passOld = this.passOld;
+            infor.TaiKhoan = this.TaiKhoan;
+            infor.connectData = this.connectData;
+            infor.IDTaiKhoan = IDUser;
+            infor.state = false;
+            pUserControl.Controls.Add(infor);
+            infor.Hide();
+
             sche = new Schedule_UserControl();
             sche.connectData = this.connectData;
             sche.IDUser = IDUser;
@@ -50,6 +67,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             att.connectData = this.connectData;
             att.IDTeacher = IDUser;
             pUserControl.Controls.Add(att);
+            att.Hide();  
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -59,15 +77,11 @@ namespace ProjectHQTCSDL.View.Dashboard
 
         private void btnInformation_Click(object sender, EventArgs e)
         {
+            if (infor.f == true)
+                this.Close();
             sche.Hide();
             att.Hide();
-
-            infor = new YourInformation_UserControl();
-            infor.connectData = this.connectData;
-            infor.IDTaiKhoan = IDUser;
-            infor.state = false;
-
-            this.pUserControl.Controls.Add(infor);
+            infor.Show();
         }
     }
 }
