@@ -12,17 +12,17 @@ using ProjectHQTCSDL.DB_Layer;
 
 namespace ProjectHQTCSDL.Usercontrol
 {
-    public partial class Cources_UserControl : UserControl
+    public partial class Courses_UserControl : UserControl
     {
-        Cources cou;
+        Courses cou;
         public bool f;
 
         public dbMain connectData;
 
-        public Cources_UserControl()
+        public Courses_UserControl()
         {
             InitializeComponent();
-            cou = new Cources();
+            cou = new Courses();
             f = false;
         }
 

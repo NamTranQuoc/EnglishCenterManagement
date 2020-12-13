@@ -1,7 +1,7 @@
 ﻿
 namespace ProjectHQTCSDL.Usercontrol
 {
-    partial class Cources_UserControl
+    partial class Courses_UserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,10 +30,6 @@ namespace ProjectHQTCSDL.Usercontrol
         private void InitializeComponent()
         {
             this.dgvListCources = new System.Windows.Forms.DataGridView();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNoOfSessions = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTuitionFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabEdit = new System.Windows.Forms.TabPage();
             this.btnHideOrAvailable = new System.Windows.Forms.Button();
@@ -59,6 +55,10 @@ namespace ProjectHQTCSDL.Usercontrol
             this.rbtAll = new System.Windows.Forms.RadioButton();
             this.rbtHide = new System.Windows.Forms.RadioButton();
             this.rbtAvailable = new System.Windows.Forms.RadioButton();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNoOfSessions = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTuitionFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListCources)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabEdit.SuspendLayout();
@@ -84,42 +84,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.dgvListCources.Size = new System.Drawing.Size(804, 636);
             this.dgvListCources.TabIndex = 0;
             this.dgvListCources.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListCources_RowEnter);
-            // 
-            // colID
-            // 
-            this.colID.DataPropertyName = "MaKhoaHoc";
-            this.colID.HeaderText = "Cource\'s ID";
-            this.colID.MinimumWidth = 6;
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            this.colID.Width = 120;
-            // 
-            // colName
-            // 
-            this.colName.DataPropertyName = "TenKhoaHoc";
-            this.colName.HeaderText = "Name";
-            this.colName.MinimumWidth = 6;
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            this.colName.Width = 280;
-            // 
-            // colNoOfSessions
-            // 
-            this.colNoOfSessions.DataPropertyName = "SoBuoi";
-            this.colNoOfSessions.HeaderText = "Number of sessions";
-            this.colNoOfSessions.MinimumWidth = 6;
-            this.colNoOfSessions.Name = "colNoOfSessions";
-            this.colNoOfSessions.ReadOnly = true;
-            this.colNoOfSessions.Width = 200;
-            // 
-            // colTuitionFee
-            // 
-            this.colTuitionFee.DataPropertyName = "HocPhi";
-            this.colTuitionFee.HeaderText = "Tuition fee";
-            this.colTuitionFee.MinimumWidth = 6;
-            this.colTuitionFee.Name = "colTuitionFee";
-            this.colTuitionFee.ReadOnly = true;
-            this.colTuitionFee.Width = 200;
             // 
             // tabControl
             // 
@@ -365,6 +329,42 @@ namespace ProjectHQTCSDL.Usercontrol
             this.rbtAvailable.UseVisualStyleBackColor = true;
             this.rbtAvailable.CheckedChanged += new System.EventHandler(this.rbtAvailable_CheckedChanged);
             // 
+            // colID
+            // 
+            this.colID.DataPropertyName = "IdCourse";
+            this.colID.HeaderText = "Cource\'s ID";
+            this.colID.MinimumWidth = 6;
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            this.colID.Width = 120;
+            // 
+            // colName
+            // 
+            this.colName.DataPropertyName = "NameCourse";
+            this.colName.HeaderText = "Name";
+            this.colName.MinimumWidth = 6;
+            this.colName.Name = "colName";
+            this.colName.ReadOnly = true;
+            this.colName.Width = 280;
+            // 
+            // colNoOfSessions
+            // 
+            this.colNoOfSessions.DataPropertyName = "NOS";
+            this.colNoOfSessions.HeaderText = "Number of sessions";
+            this.colNoOfSessions.MinimumWidth = 6;
+            this.colNoOfSessions.Name = "colNoOfSessions";
+            this.colNoOfSessions.ReadOnly = true;
+            this.colNoOfSessions.Width = 200;
+            // 
+            // colTuitionFee
+            // 
+            this.colTuitionFee.DataPropertyName = "Tuition";
+            this.colTuitionFee.HeaderText = "Tuition fee";
+            this.colTuitionFee.MinimumWidth = 6;
+            this.colTuitionFee.Name = "colTuitionFee";
+            this.colTuitionFee.ReadOnly = true;
+            this.colTuitionFee.Width = 200;
+            // 
             // Cources_UserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -393,10 +393,6 @@ namespace ProjectHQTCSDL.Usercontrol
         #endregion
 
         private System.Windows.Forms.DataGridView dgvListCources;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNoOfSessions;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTuitionFee;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabEdit;
         private System.Windows.Forms.Button btnHideOrAvailable;
@@ -422,5 +418,9 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.RadioButton rbtAll;
         private System.Windows.Forms.RadioButton rbtHide;
         private System.Windows.Forms.RadioButton rbtAvailable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNoOfSessions;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTuitionFee;
     }
 }

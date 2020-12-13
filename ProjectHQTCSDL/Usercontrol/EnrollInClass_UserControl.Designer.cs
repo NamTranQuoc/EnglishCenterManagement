@@ -38,14 +38,14 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListClass)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -167,13 +167,51 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label1.TabIndex = 0;
             this.label1.Text = "Shift: ";
             // 
-            // Column7
+            // Column1
             // 
-            this.Column7.DataPropertyName = "ThuocKhoaHoc";
-            this.Column7.HeaderText = "ID Cource";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 120;
+            this.Column1.DataPropertyName = "IdClass";
+            this.Column1.HeaderText = "ID Class";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 130;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "NOSE";
+            this.Column2.HeaderText = "Expected";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 140;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "NOS";
+            this.Column3.HeaderText = "Registered";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 140;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Shift";
+            this.Column4.HeaderText = "Shift";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "DOW";
+            this.Column5.HeaderText = "DOW";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "NameCourse";
+            this.Column6.HeaderText = "Cource\'s Name";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 220;
             // 
             // Select
             // 
@@ -185,51 +223,13 @@ namespace ProjectHQTCSDL.Usercontrol
             this.Select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Select.Width = 80;
             // 
-            // Column6
+            // Column7
             // 
-            this.Column6.DataPropertyName = "TenKhoaHoc";
-            this.Column6.HeaderText = "Cource\'s Name";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 220;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "NgayHocTrongTuan";
-            this.Column5.HeaderText = "DOW";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "CaHoc";
-            this.Column4.HeaderText = "Shift";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "SL";
-            this.Column3.HeaderText = "Registered";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 140;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "SoHocVienDuKien";
-            this.Column2.HeaderText = "Expected";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 140;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MaLop";
-            this.Column1.HeaderText = "ID Class";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 130;
+            this.Column7.DataPropertyName = "IdCourse";
+            this.Column7.HeaderText = "ID Cource";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 120;
             // 
             // EnrollInClass_UserControl
             // 

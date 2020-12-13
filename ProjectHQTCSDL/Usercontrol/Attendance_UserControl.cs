@@ -50,10 +50,10 @@ namespace ProjectHQTCSDL.Usercontrol
         private void cbbShift_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataTable dtNull = new DataTable();
-            dtNull.Columns.Add("MaHocVien");
-            dtNull.Columns.Add("HoTen");
-            dtNull.Columns.Add("SDT");
-            dtNull.Columns.Add("NgaySinh");
+            dtNull.Columns.Add("IdStudent");
+            dtNull.Columns.Add("FullName");
+            dtNull.Columns.Add("PhoneNumber");
+            dtNull.Columns.Add("DOB");
             dtNull.Columns.Add("Absent");
             this.dgvClassList.DataSource = dtNull;
             this.LoadData();

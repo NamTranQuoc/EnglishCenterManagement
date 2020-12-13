@@ -12,17 +12,17 @@ namespace ProjectHQTCSDL.BS_Layer
     {
         public DataTable GetListClasses(int type, ref string error, dbMain connectData)//0 = lấy All, 1 = 2-4-6, 2 = 3-5-7
         {
-            return connectData.ExcuteQuery("EXEC GetListClasses " + type, ref error);
+            return connectData.ExcuteQuery("EXEC [GetListClasses] " + type, ref error);
         }
 
         public DataTable GetListLikeClasses(int type, string likeName, ref string error, dbMain connectData)
         {
-            return connectData.ExcuteQuery("EXEC GetListLikeClasses " + type + ", '" + likeName + "'", ref error);
+            return connectData.ExcuteQuery("EXEC [GetListLikeClasses] " + type + ", '" + likeName + "'", ref error);
         }
 
         public bool UpdateClasses(int iD, int number, ref string error, dbMain connectData)
         {
-            int test = connectData.ExcuteNonQuery("EXEC UpdateClasses " + iD + ", " + number, ref error);
+            int test = connectData.ExcuteNonQuery("EXEC [UpdateClasses] " + iD + ", " + number, ref error);
             if (test > 0)
                 return true;
             return false;
@@ -30,7 +30,7 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public bool InsertClass(int iD, int number, int shift, string DOW, int course, ref string error, dbMain connectData)
         {
-            int test = connectData.ExcuteNonQuery("EXEC InsertClass " + iD + ", " + number + ", " + shift + ", '" + DOW + "', " + course, ref error);
+            int test = connectData.ExcuteNonQuery("EXEC [InsertClass] " + iD + ", " + number + ", " + shift + ", '" + DOW + "', " + course, ref error);
             if (test > 0)
                 return true;
             return false;
@@ -38,17 +38,17 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public int CreateID(dbMain connectData)
         {
-            return (int)connectData.ExcuteScalar("SELECT dbo.TaoMaTuDong('LopHoc')");
+            return (int)connectData.ExcuteScalar("SELECT [dbo].[AutomaticCodeGeneration] ('Class')");
         }
 
         public string GetNameCource(string ID, dbMain connectData)
         {
-            return (string)connectData.ExcuteScalar("EXEC GetNameCource_ " + ID);
+            return (string)connectData.ExcuteScalar("EXEC [GetNameCource_] " + ID);
         }
 
         public DataTable GetListCource(ref string error, dbMain connectData)
         {
-            return connectData.ExcuteQuery("EXEC GetListCource", ref error);
+            return connectData.ExcuteQuery("EXEC [GetListCource]", ref error);
         }
     }
 }

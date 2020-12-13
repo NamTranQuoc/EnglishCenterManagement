@@ -16,7 +16,7 @@ namespace ProjectHQTCSDL.View.Dashboard
     public partial class fAdminDashboard : Form
     {
         Schedule_UserControl sche;
-        Cources_UserControl cou;
+        Courses_UserControl cou;
         Students_UserControl stu;
         Teachers_UserControl tea;
         Classes_UserControl cla;
@@ -37,7 +37,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             sche.connectData = this.connectData;
             this.pUserControl.Controls.Add(sche);
 
-            cou = new Cources_UserControl();
+            cou = new Courses_UserControl();
             cou.connectData = this.connectData;
             this.pUserControl.Controls.Add(cou);
             this.Hide();

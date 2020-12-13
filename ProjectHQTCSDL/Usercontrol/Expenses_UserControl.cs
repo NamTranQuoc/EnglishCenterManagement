@@ -14,7 +14,7 @@ namespace ProjectHQTCSDL.Usercontrol
 {
     public partial class Expenses_UserControl : UserControl
     {
-        Cources course;
+        Courses course;
         Expenses expenses;
 
         public dbMain connectData;
@@ -22,7 +22,7 @@ namespace ProjectHQTCSDL.Usercontrol
         public Expenses_UserControl()
         {
             InitializeComponent();
-            course = new Cources();
+            course = new Courses();
             expenses = new Expenses();
         }
 
@@ -39,7 +39,7 @@ namespace ProjectHQTCSDL.Usercontrol
             if (dt2 != null)
             {
                 cbNameCourse.DataSource = dt2;
-                cbNameCourse.DisplayMember = "TenKhoaHoc";
+                cbNameCourse.DisplayMember = "NameCourse";
             }
             else
                 MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -55,8 +55,8 @@ namespace ProjectHQTCSDL.View.Dashboard
                 for (int i = 0; i < lCource.Rows.Count; i++)
                 {
                     Button btn = new Button();
-                    btn.Name = "btn" + lCource.Rows[i]["MaKhoaHoc"].ToString();
-                    btn.Text = lCource.Rows[i]["TenKhoaHoc"].ToString();
+                    btn.Name = "btn" + lCource.Rows[i]["IdCourse"].ToString();
+                    btn.Text = lCource.Rows[i]["NameCourse"].ToString();
                     btn.Click += btn_Click;
                     btn.Width = 270;
                     btn.Height = 200;

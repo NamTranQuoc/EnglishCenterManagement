@@ -72,21 +72,21 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "MaLop";
+            this.Column1.DataPropertyName = "IdClass";
             this.Column1.HeaderText = "ID Class";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "CaHoc";
+            this.Column2.DataPropertyName = "Shift";
             this.Column2.HeaderText = "Shift";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
-            this.Column3.DataPropertyName = "NgayHocTrongTuan";
+            this.Column3.DataPropertyName = "DOW";
             this.Column3.HeaderText = "DOW";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -94,7 +94,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column4
             // 
-            this.Column4.DataPropertyName = "SoBuoi";
+            this.Column4.DataPropertyName = "NOS";
             this.Column4.HeaderText = "NOS";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -102,7 +102,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column5
             // 
-            this.Column5.DataPropertyName = "HocPhi";
+            this.Column5.DataPropertyName = "Tuition";
             this.Column5.HeaderText = "Tuition";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -110,7 +110,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column6
             // 
-            this.Column6.DataPropertyName = "NgayBatDau";
+            this.Column6.DataPropertyName = "StartDay";
             this.Column6.HeaderText = "Start Dates";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;

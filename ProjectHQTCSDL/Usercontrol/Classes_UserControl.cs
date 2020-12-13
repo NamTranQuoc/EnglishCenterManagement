@@ -36,7 +36,7 @@ namespace ProjectHQTCSDL.Usercontrol
             if (dt2 != null)
             {
                 this.cmbCourseIDNew.DataSource = dt2;
-                this.cmbCourseIDNew.DisplayMember = "MaKhoaHoc";
+                this.cmbCourseIDNew.DisplayMember = "IdCourse";
             }
             else
                 MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);

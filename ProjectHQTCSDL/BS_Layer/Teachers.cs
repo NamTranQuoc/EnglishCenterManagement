@@ -30,16 +30,16 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public int CreateID(dbMain connectData)
         {
-            return (int)connectData.ExcuteScalar("SELECT dbo.TaoMaTuDong('User')");
+            return (int)connectData.ExcuteScalar("SELECT [dbo].[AutomaticCodeGeneration]('User')");
         }
 
         public bool InsertTeacher(string userName, string pass, string name, string phoneNumber, string address, int salary, ref string error, dbMain connectData)
         {
             if (userName != null && userName != "")
             {
-                int iD = (int)connectData.ExcuteScalar("SELECT dbo.TaoMaTuDong('User')");
+                int iD = (int)connectData.ExcuteScalar("SELECT [dbo].[AutomaticCodeGeneration]('User')");
 
-                string query = "EXEC dbo.InsertTeacher " + iD + ", '" + userName + "', '" + pass + "', N'" + name + "', '" + phoneNumber + "', N'" + address + "', "+ salary;
+                string query = "EXEC [dbo].[InsertTeacher] " + iD + ", '" + userName + "', '" + pass + "', N'" + name + "', '" + phoneNumber + "', N'" + address + "', "+ salary;
 
                 int test = connectData.ExcuteNonQuery(query, ref error);
                 if (test > 0)
@@ -51,7 +51,7 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public bool CheckUserName(string userName, dbMain connectData)
         {
-            int t = (int)connectData.ExcuteScalar("EXEC dbo.CheckUserName " + userName);
+            int t = (int)connectData.ExcuteScalar("EXEC [dbo].[CheckUserName] " + userName);
             if (t > 0)
                 return false;
             return true;
@@ -59,7 +59,7 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public bool UpdateTeacher(int id, string name, string phoneNumber, string address, int salary, string pass, string passOld, ref string error)
         {
-            string query = "EXEC dbo.UpdateTeacher " + id + ", N'" + name + "', '" + phoneNumber + "', N'" + address + "', " + salary + ", '" + pass + "', '" + passOld + "'";
+            string query = "EXEC [dbo].[UpdateTeacher] " + id + ", N'" + name + "', '" + phoneNumber + "', N'" + address + "', " + salary + ", '" + pass + "', '" + passOld + "'";
             int test = dbMain.Instance.ExcuteNonQuery(query, ref error);
             if (test > 0)
                 return true;

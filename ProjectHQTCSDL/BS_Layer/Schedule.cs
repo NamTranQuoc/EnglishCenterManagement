@@ -15,7 +15,7 @@ namespace ProjectHQTCSDL.BS_Layer
         {
             List<string> weeks = new List<string>();
             DateTime date;
-            date = (DateTime)connectData.ExcuteScalar("SELECT dbo.NgayLonNhatCuaLichHoc(" + IDUser + ")");           
+            date = (DateTime)connectData.ExcuteScalar("SELECT [dbo].[GetDayMaxOfSchedule](" + IDUser + ")");           
             while (date > DateTime.Today)
             {
                 string d = date.AddDays(-5).ToString("dd/MM/yyyy") + " - " + date.AddDays(1).ToString("dd/MM/yyyy");
@@ -35,7 +35,7 @@ namespace ProjectHQTCSDL.BS_Layer
             dateEnd = DateTime.ParseExact(dates[1], "dd/MM/yyyy", null);
             DataTable sche = new DataTable();
 
-            string query = "EXEC dbo.GetScheduleOfWeek " + IDUser.ToString() + ", '" + dateStart.ToString("yyyy-MM-dd") + "', '" + dateEnd.ToString("yyyy-MM-dd") + "'";
+            string query = "EXEC [dbo].[GetScheduleOfWeek] " + IDUser.ToString() + ", '" + dateStart.ToString("yyyy-MM-dd") + "', '" + dateEnd.ToString("yyyy-MM-dd") + "'";
             sche = connectData.ExcuteQuery(query, ref error);
 
             DataTable scheView = new DataTable();
@@ -56,31 +56,31 @@ namespace ProjectHQTCSDL.BS_Layer
                     {
                         for (int j = 0; j < sche.Rows.Count; j++)
                         {
-                            if (int.Parse(sche.Rows[j]["CaHoc"].ToString()) == i)
+                            if (int.Parse(sche.Rows[j]["Shift"].ToString()) == i)
                             {
-                                DateTime d = (DateTime)sche.Rows[j]["NgayHoc"];
+                                DateTime d = (DateTime)sche.Rows[j]["Day"];
                                 switch (d.DayOfWeek)
                                 {
                                     case DayOfWeek.Monday:
-                                        subItem[1] += "Lớp: " + sche.Rows[j]["MaLop"] + "\nBuổi thứ: " + sche.Rows[j]["Buoi"] + "\nPhòng: " + sche.Rows[j]["TenPhong"] + "\n\n";
+                                        subItem[1] += "Lớp: " + sche.Rows[j]["IdClass"] + "\nBuổi thứ: " + sche.Rows[j]["Session"] + "\nPhòng: " + sche.Rows[j]["NameClassRoom"] + "\n\n";
                                         break;
                                     case DayOfWeek.Tuesday:
-                                        subItem[2] += "Lớp: " + sche.Rows[j]["MaLop"] + "\nBuổi thứ: " + sche.Rows[j]["Buoi"] + "\nPhòng: " + sche.Rows[j]["TenPhong"] + "\n\n";
+                                        subItem[2] += "Lớp: " + sche.Rows[j]["IdClass"] + "\nBuổi thứ: " + sche.Rows[j]["Session"] + "\nPhòng: " + sche.Rows[j]["NameClassRoom"] + "\n\n";
                                         break;
                                     case DayOfWeek.Wednesday:
-                                        subItem[3] += "Lớp: " + sche.Rows[j]["MaLop"] + "\nBuổi thứ: " + sche.Rows[j]["Buoi"] + "\nPhòng: " + sche.Rows[j]["TenPhong"] + "\n\n";
+                                        subItem[3] += "Lớp: " + sche.Rows[j]["IdClass"] + "\nBuổi thứ: " + sche.Rows[j]["Session"] + "\nPhòng: " + sche.Rows[j]["NameClassRoom"] + "\n\n";
                                         break;
                                     case DayOfWeek.Thursday:
-                                        subItem[4] += "Lớp: " + sche.Rows[j]["MaLop"] + "\nBuổi thứ: " + sche.Rows[j]["Buoi"] + "\nPhòng: " + sche.Rows[j]["TenPhong"] + "\n\n";
+                                        subItem[4] += "Lớp: " + sche.Rows[j]["IdClass"] + "\nBuổi thứ: " + sche.Rows[j]["Session"] + "\nPhòng: " + sche.Rows[j]["NameClassRoom"] + "\n\n";
                                         break;
                                     case DayOfWeek.Friday:
-                                        subItem[5] += "Lớp: " + sche.Rows[j]["MaLop"] + "\nBuổi thứ: " + sche.Rows[j]["Buoi"] + "\nPhòng: " + sche.Rows[j]["TenPhong"] + "\n\n";
+                                        subItem[5] += "Lớp: " + sche.Rows[j]["IdClass"] + "\nBuổi thứ: " + sche.Rows[j]["Session"] + "\nPhòng: " + sche.Rows[j]["NameClassRoom"] + "\n\n";
                                         break;
                                     case DayOfWeek.Saturday:
-                                        subItem[6] += "Lớp: " + sche.Rows[j]["MaLop"] + "\nBuổi thứ: " + sche.Rows[j]["Buoi"] + "\nPhòng: " + sche.Rows[j]["TenPhong"] + "\n\n";
+                                        subItem[6] += "Lớp: " + sche.Rows[j]["IdClass"] + "\nBuổi thứ: " + sche.Rows[j]["Session"] + "\nPhòng: " + sche.Rows[j]["NameClassRoom"] + "\n\n";
                                         break;
                                     case DayOfWeek.Sunday:
-                                        subItem[7] += "Lớp: " + sche.Rows[j]["MaLop"] + "\nBuổi thứ: " + sche.Rows[j]["Buoi"] + "\nPhòng: " + sche.Rows[j]["TenPhong"] + "\n\n";
+                                        subItem[7] += "Lớp: " + sche.Rows[j]["IdClass"] + "\nBuổi thứ: " + sche.Rows[j]["Session"] + "\nPhòng: " + sche.Rows[j]["NameClassRoom"] + "\n\n";
                                         break;
                                 }
                             }
@@ -90,31 +90,31 @@ namespace ProjectHQTCSDL.BS_Layer
                     {
                         for (int j = 0; j < sche.Rows.Count; j++)
                         {
-                            if (int.Parse(sche.Rows[j]["CaHoc"].ToString()) == i)
+                            if (int.Parse(sche.Rows[j]["Shift"].ToString()) == i)
                             {
-                                DateTime d = (DateTime)sche.Rows[j]["NgayHoc"];
+                                DateTime d = (DateTime)sche.Rows[j]["Day"];
                                 switch (d.DayOfWeek)
                                 {
                                     case DayOfWeek.Monday:
-                                        subItem[1] += "Lớp: " + sche.Rows[j]["MaLop"] + "\nBuổi thứ: " + sche.Rows[j]["Buoi"] + "\nPhòng: " + sche.Rows[j]["TenPhong"] + "\nGiáo viên: " + sche.Rows[j]["HoTen"] + "\n\n";
+                                        subItem[1] += "Lớp: " + sche.Rows[j]["IdClass"] + "\nBuổi thứ: " + sche.Rows[j]["Session"] + "\nPhòng: " + sche.Rows[j]["NameClassRoom"] + "\nGiáo viên: " + sche.Rows[j]["NameTeacher"] + "\n\n";
                                         break;
                                     case DayOfWeek.Tuesday:
-                                        subItem[2] += "Lớp: " + sche.Rows[j]["MaLop"] + "\nBuổi thứ: " + sche.Rows[j]["Buoi"] + "\nPhòng: " + sche.Rows[j]["TenPhong"] + "\nGiáo viên: " + sche.Rows[j]["HoTen"] + "\n\n";
+                                        subItem[2] += "Lớp: " + sche.Rows[j]["IdClass"] + "\nBuổi thứ: " + sche.Rows[j]["Session"] + "\nPhòng: " + sche.Rows[j]["NameClassRoom"] + "\nGiáo viên: " + sche.Rows[j]["NameTeacher"] + "\n\n";
                                         break;
                                     case DayOfWeek.Wednesday:
-                                        subItem[3] += "Lớp: " + sche.Rows[j]["MaLop"] + "\nBuổi thứ: " + sche.Rows[j]["Buoi"] + "\nPhòng: " + sche.Rows[j]["TenPhong"] + "\nGiáo viên: " + sche.Rows[j]["HoTen"] + "\n\n";
+                                        subItem[3] += "Lớp: " + sche.Rows[j]["IdClass"] + "\nBuổi thứ: " + sche.Rows[j]["Session"] + "\nPhòng: " + sche.Rows[j]["NameClassRoom"] + "\nGiáo viên: " + sche.Rows[j]["NameTeacher"] + "\n\n";
                                         break;
                                     case DayOfWeek.Thursday:
-                                        subItem[4] += "Lớp: " + sche.Rows[j]["MaLop"] + "\nBuổi thứ: " + sche.Rows[j]["Buoi"] + "\nPhòng: " + sche.Rows[j]["TenPhong"] + "\nGiáo viên: " + sche.Rows[j]["HoTen"] + "\n\n";
+                                        subItem[4] += "Lớp: " + sche.Rows[j]["IdClass"] + "\nBuổi thứ: " + sche.Rows[j]["Session"] + "\nPhòng: " + sche.Rows[j]["NameClassRoom"] + "\nGiáo viên: " + sche.Rows[j]["NameTeacher"] + "\n\n";
                                         break;
                                     case DayOfWeek.Friday:
-                                        subItem[5] += "Lớp: " + sche.Rows[j]["MaLop"] + "\nBuổi thứ: " + sche.Rows[j]["Buoi"] + "\nPhòng: " + sche.Rows[j]["TenPhong"] + "\nGiáo viên: " + sche.Rows[j]["HoTen"] + "\n\n";
+                                        subItem[5] += "Lớp: " + sche.Rows[j]["IdClass"] + "\nBuổi thứ: " + sche.Rows[j]["Session"] + "\nPhòng: " + sche.Rows[j]["NameClassRoom"] + "\nGiáo viên: " + sche.Rows[j]["NameTeacher"] + "\n\n";
                                         break;
                                     case DayOfWeek.Saturday:
-                                        subItem[6] += "Lớp: " + sche.Rows[j]["MaLop"] + "\nBuổi thứ: " + sche.Rows[j]["Buoi"] + "\nPhòng: " + sche.Rows[j]["TenPhong"] + "\nGiáo viên: " + sche.Rows[j]["HoTen"] + "\n\n";
+                                        subItem[6] += "Lớp: " + sche.Rows[j]["IdClass"] + "\nBuổi thứ: " + sche.Rows[j]["Session"] + "\nPhòng: " + sche.Rows[j]["NameClassRoom"] + "\nGiáo viên: " + sche.Rows[j]["NameTeacher"] + "\n\n";
                                         break;
                                     case DayOfWeek.Sunday:
-                                        subItem[7] += "Lớp: " + sche.Rows[j]["MaLop"] + "\nBuổi thứ: " + sche.Rows[j]["Buoi"] + "\nPhòng: " + sche.Rows[j]["TenPhong"] + "\nGiáo viên: " + sche.Rows[j]["HoTen"] + "\n\n";
+                                        subItem[7] += "Lớp: " + sche.Rows[j]["IdClass"] + "\nBuổi thứ: " + sche.Rows[j]["Session"] + "\nPhòng: " + sche.Rows[j]["NameClassRoom"] + "\nGiáo viên: " + sche.Rows[j]["NameTeacher"] + "\n\n";
                                         break;
                                 }
                             }
@@ -142,7 +142,7 @@ namespace ProjectHQTCSDL.BS_Layer
             DataTable sche = new DataTable();
             string error = "";
             string all = Convert.ToString(allDay);
-            string query = "EXEC dbo.GetSchedule '" + iDClass + "', '" + day.ToString("yyyy-MM-dd") + "', '" + session + "', " + all;
+            string query = "EXEC [dbo].[GetSchedule] '" + iDClass + "', '" + day.ToString("yyyy-MM-dd") + "', '" + session + "', " + all;
             sche = connectData.ExcuteQuery(query, ref error);
 
             if (sche != null)
@@ -155,12 +155,12 @@ namespace ProjectHQTCSDL.BS_Layer
             }
             else
             {
-                sche.Columns.Add("MaLop");
-                sche.Columns.Add("Buoi");
-                sche.Columns.Add("TenPhong");
-                sche.Columns.Add("NgayHoc");
-                sche.Columns.Add("HoTen");
-                sche.Columns.Add("CaHoc");
+                sche.Columns.Add("IdClass");
+                sche.Columns.Add("Session");
+                sche.Columns.Add("NameClassRoom");
+                sche.Columns.Add("Day");
+                sche.Columns.Add("NameTeacher");
+                sche.Columns.Add("Shift");
                 sche.Columns.Add("Select");
             }    
             return sche;
@@ -169,7 +169,7 @@ namespace ProjectHQTCSDL.BS_Layer
         public DataTable GetListClass(ref string error, dbMain connectData)
         {
             DataTable listClass = new DataTable();
-            listClass = connectData.ExcuteQuery("EXEC dbo.GetListClassSche", ref error);     
+            listClass = connectData.ExcuteQuery("EXEC [dbo].[GetListClassSche]", ref error);     
             listClass.Rows.Add("All");
             return listClass;
         }
@@ -182,8 +182,8 @@ namespace ProjectHQTCSDL.BS_Layer
                 if (iDClass == "All")
                 {
                     listClass = new DataTable();
-                    listClass.Columns.Add("Buoi");
-                    int s = (int)connectData.ExcuteScalar("EXEC dbo.GetListSession '" + iDClass + "'");
+                    listClass.Columns.Add("Session");
+                    int s = (int)connectData.ExcuteScalar("EXEC [dbo].[GetListSession] '" + iDClass + "'");
                     for (int i = 1; i <= s; i++)
                     {
                         listClass.Rows.Add(i.ToString());
@@ -195,7 +195,7 @@ namespace ProjectHQTCSDL.BS_Layer
                     listClass = new DataTable();
                     try
                     {
-                        listClass = connectData.ExcuteQuery("EXEC dbo.GetListSession '" + iDClass + "'", ref error);
+                        listClass = connectData.ExcuteQuery("EXEC [dbo].[GetListSession] '" + iDClass + "'", ref error);
                         listClass.Rows.Add("All");
                     }
                     catch
@@ -214,7 +214,7 @@ namespace ProjectHQTCSDL.BS_Layer
         public string DeleteSchedule(int iDClass, int session, dbMain connectData)
         {
             string err = null;
-            connectData.ExcuteNonQuery("EXEC dbo.DeleteSchedule " + iDClass + ", "+ session, ref err);
+            connectData.ExcuteNonQuery("EXEC [dbo].[DeleteSchedule] " + iDClass + ", "+ session, ref err);
             return err;
         }
     }

@@ -37,7 +37,7 @@ namespace ProjectHQTCSDL.Usercontrol
                 this.dgvListClass.DataSource = enr.GetListClass(iDStudent, "All", "All", 0, ref error, connectData);
                 ListCource = enr.GetListCourceName(ref error, connectData);
                 this.cbbCourceName.DataSource = ListCource;
-                this.cbbCourceName.DisplayMember = "TenKhoaHoc";
+                this.cbbCourceName.DisplayMember = "NameCourse";
                 this.cbbCourceName.Text = "All";
             }
             catch
@@ -67,7 +67,8 @@ namespace ProjectHQTCSDL.Usercontrol
             string error = "";
             try
             {
-                this.dgvListClass.DataSource = enr.GetListClass(iDStudent, cbbShift.Text, cbbDOW.Text, (int)ListCource.Rows[rowListCource]["MaKhoaHoc"], ref error, connectData);
+                DataTable dt = enr.GetListClass(iDStudent, cbbShift.Text, cbbDOW.Text, (int)ListCource.Rows[rowListCource]["IdCourse"], ref error, connectData);
+                this.dgvListClass.DataSource = dt;
             }
             catch
             {

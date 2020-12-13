@@ -14,7 +14,7 @@ namespace ProjectHQTCSDL.DB_Layer
         private static dbMain instance;
         public static dbMain Instance
         {
-            get { if (instance == null) instance = new dbMain("Data Source=(local);Initial Catalog=TrungTamAnhNgu;Integrated Security=True"); return dbMain.instance; }
+            get { if (instance == null) instance = new dbMain("Data Source=(local);Initial Catalog=EnglishCenterDB;Integrated Security=True"); return dbMain.instance; }
             private set => instance = value;
         }
 
@@ -25,12 +25,12 @@ namespace ProjectHQTCSDL.DB_Layer
 
         public dbMain() 
         {
-            connectionString = "Data Source = (local); Initial Catalog = TrungTamAnhNgu; User ID = Khach; Password = 1@34a";
+            connectionString = "Data Source = (local); Initial Catalog = EnglishCenterDB; User ID = login_guest; Password = 1@34a";
         }
 
         public dbMain(string userName, string password)
         {
-            connectionString = "Data Source = (local); Initial Catalog = TrungTamAnhNgu; User ID = " + userName + "; Password = " + password;
+            connectionString = "Data Source = (local); Initial Catalog = EnglishCenterDB; User ID = " + userName + "; Password = " + password;
         }
 
         public DataTable ExcuteQuery(string query, ref string error)

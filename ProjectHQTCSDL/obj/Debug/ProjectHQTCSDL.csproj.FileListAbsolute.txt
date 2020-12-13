@@ -2,10 +2,6 @@ D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\SqlSe
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\SqlServerTypes\x86\msvcr120.dll
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
-D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\Usercontrol\RDLC\ClassOfCource.rdlc
-D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\Usercontrol\RDLC\StudentOfClass.rdlc
-D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\Usercontrol\RDLC\SumOfCource.rdlc
-D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\Usercontrol\RDLC\TeacherOfCource.rdlc
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\ProjectHQTCSDL.exe.config
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\ProjectHQTCSDL.exe
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\bin\Debug\ProjectHQTCSDL.pdb
@@ -74,7 +70,6 @@ D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\Proje
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Reports_UserControl.resources
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Schedule_UserControl.resources
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Students_UserControl.resources
-D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Cources_UserControl.resources
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Teachers_UserControl.resources
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.YourInformation_UserControl.resources
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.View.Dashboard.fAdminDashboard.resources
@@ -91,3 +86,4 @@ D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\Proje
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.exe
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.pdb
 D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.csprojAssemblyReference.cache
+D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\obj\Debug\ProjectHQTCSDL.Usercontrol.Courses_UserControl.resources

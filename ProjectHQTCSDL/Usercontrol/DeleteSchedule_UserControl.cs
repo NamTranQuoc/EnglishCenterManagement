@@ -54,7 +54,7 @@ namespace ProjectHQTCSDL.Usercontrol
             try
             {
                 this.cbbSession.DataSource = sche.GetListSession(cbbClass.Text, ref error, connectData);
-                this.cbbSession.DisplayMember = "Buoi";
+                this.cbbSession.DisplayMember = "Session";
                 this.cbbSession.Text = "All";
             }
             catch
@@ -69,10 +69,10 @@ namespace ProjectHQTCSDL.Usercontrol
             try
             {
                 this.cbbClass.DataSource = sche.GetListClass(ref error, connectData);
-                this.cbbClass.DisplayMember = "MaLop";
+                this.cbbClass.DisplayMember = "IdClass";
                 this.cbbClass.Text = "All";
                 this.cbbSession.DataSource = sche.GetListSession(cbbClass.Text, ref error, connectData);
-                this.cbbSession.DisplayMember = "Buoi";
+                this.cbbSession.DisplayMember = "Session";
                 this.cbbSession.Text = "All";
                 this.LoadSchedule();
             }

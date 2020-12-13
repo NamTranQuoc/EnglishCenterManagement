@@ -16,7 +16,7 @@ namespace ProjectHQTCSDL.Usercontrol
     public partial class MakeUpClass_UserControl : UserControl
     {
         // Lấy maHocVien là tài khoản đăng nhập
-        public int maHocVien;
+        public int IdStudent;
 
         int row;
         MakeUpClass dbMUC = new MakeUpClass();
@@ -35,22 +35,22 @@ namespace ProjectHQTCSDL.Usercontrol
             {
                 if (btnSave.Text == "Enroll")
                 {
-                    if (dbMUC.EnrollAbsent(maHocVien, int.Parse(cboLopHoc.Text), int.Parse(cboBuoiHoc.Text), int.Parse(dgvMUC.Rows[row].Cells[1].Value.ToString()), connectData, ref error))
+                    if (dbMUC.EnrollAbsent(IdStudent, int.Parse(cboClass.Text), int.Parse(cboSession.Text), int.Parse(dgvMUC.Rows[row].Cells[1].Value.ToString()), connectData, ref error))
                     {
                         this.btnSave.Text = "Unenroll";
                         this.GetClassAbsent();
-                        MessageBox.Show("Đăng ký học bù thành công", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Registration successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                         MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    if (dbMUC.UnenrollAbsent(maHocVien, int.Parse(cboLopHoc.Text), int.Parse(cboBuoiHoc.Text), connectData, ref error))
+                    if (dbMUC.UnenrollAbsent(IdStudent, int.Parse(cboClass.Text), int.Parse(cboSession.Text), connectData, ref error))
                     {
                         this.btnSave.Text = "Enroll";
                         this.GetClassAbsent();
-                        MessageBox.Show("Hủy đăng ký học bù thành công", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Canceled successfully", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                         MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error); 
@@ -67,23 +67,23 @@ namespace ProjectHQTCSDL.Usercontrol
             this.GetListClass();
         }
 
-        private void cboLopHoc_SelectedIndexChanged(object sender, EventArgs e)
+        private void cboClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 int test;
-                if (int.TryParse(cboLopHoc.Text, out test))
+                if (int.TryParse(cboClass.Text, out test))
                     this.GetListSession();   
             }
             catch { }
         }
 
-        private void cboBuoiHoc_SelectedIndexChanged(object sender, EventArgs e)
+        private void cboSession_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 int test;
-                if (int.TryParse(cboBuoiHoc.Text, out test))
+                if (int.TryParse(cboSession.Text, out test))
                     this.GetClassAbsent();
             }
             catch { }
@@ -94,8 +94,8 @@ namespace ProjectHQTCSDL.Usercontrol
             string error = "error";
             try
             {
-                cboLopHoc.DataSource = dbMUC.GetListClassAbsent(maHocVien, connectData, ref error);
-                cboLopHoc.DisplayMember = "MaLop";
+                cboClass.DataSource = dbMUC.GetListClassAbsent(IdStudent, connectData, ref error);
+                cboClass.DisplayMember = "IdClass";
             }
             catch
             {
@@ -108,8 +108,8 @@ namespace ProjectHQTCSDL.Usercontrol
             string error = "";
             try
             {
-                cboBuoiHoc.DataSource = dbMUC.GetListSessionAbsent(maHocVien, int.Parse(cboLopHoc.Text), connectData, ref error);
-                cboBuoiHoc.DisplayMember = "Buoi";
+                cboSession.DataSource = dbMUC.GetListSessionAbsent(IdStudent, int.Parse(cboClass.Text), connectData, ref error);
+                cboSession.DisplayMember = "Session";
             }
             catch
             {
@@ -122,7 +122,7 @@ namespace ProjectHQTCSDL.Usercontrol
             string error = "";
             try
             {
-                dgvMUC.DataSource = dbMUC.GetClassAbsent(maHocVien, int.Parse(cboLopHoc.Text), int.Parse(cboBuoiHoc.Text), connectData, ref error);
+                dgvMUC.DataSource = dbMUC.GetClassAbsent(IdStudent, int.Parse(cboClass.Text), int.Parse(cboSession.Text), connectData, ref error);
             }
             catch
             {

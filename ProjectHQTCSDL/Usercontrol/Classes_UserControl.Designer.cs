@@ -78,6 +78,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // nmrShift
             // 
+            this.nmrShift.Enabled = false;
             this.nmrShift.Location = new System.Drawing.Point(188, 209);
             this.nmrShift.Name = "nmrShift";
             this.nmrShift.ReadOnly = true;
@@ -406,7 +407,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "MaLop";
+            this.Column1.DataPropertyName = "IdClass";
             this.Column1.HeaderText = "ID";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
@@ -415,7 +416,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "SoHocVienDuKien";
+            this.Column2.DataPropertyName = "NOSE";
             this.Column2.HeaderText = "Expected Students";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
@@ -424,7 +425,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column3
             // 
-            this.Column3.DataPropertyName = "CaHoc";
+            this.Column3.DataPropertyName = "Shift";
             this.Column3.HeaderText = "Shift";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
@@ -433,7 +434,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column4
             // 
-            this.Column4.DataPropertyName = "ThuocKhoaHoc";
+            this.Column4.DataPropertyName = "IdCourse";
             this.Column4.HeaderText = "Course\'s ID";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
@@ -442,7 +443,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column5
             // 
-            this.Column5.DataPropertyName = "NgayHocTrongTuan";
+            this.Column5.DataPropertyName = "DOW";
             this.Column5.HeaderText = "Day of week";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
@@ -521,15 +522,15 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RadioButton rbtAll;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.ComboBox cbbDayOfWeek;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbDOWNew;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtCourceID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

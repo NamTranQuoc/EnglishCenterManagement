@@ -2,14 +2,46 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
+      <Textbox Name="Textbox7">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Report Sum of cource</Value>
+                <Style>
+                  <FontFamily>Century Gothic</FontFamily>
+                  <FontSize>14pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox7</rd:DefaultName>
+        <Top>0.35404in</Top>
+        <Left>2.2475in</Left>
+        <Height>0.28125in</Height>
+        <Width>2.19792in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
       <Tablix Name="Tablix1">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.67708in</Width>
+              <Width>2.01042in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.75in</Width>
+              <Width>1.71875in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -18,21 +50,21 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox1">
+                    <Textbox Name="Textbox2">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ID Cource</Value>
+                              <Value>ID Course</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -48,7 +80,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox3">
+                    <Textbox Name="Textbox4">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -62,7 +94,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <rd:DefaultName>Textbox4</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -79,25 +111,25 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.35417in</Height>
+              <Height>0.25in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="TenKhoaHoc">
+                    <Textbox Name="NameCourse">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!TenKhoaHoc.Value</Value>
+                              <Value>=Fields!NameCourse.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>TenKhoaHoc</rd:DefaultName>
+                      <rd:DefaultName>NameCourse</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -113,21 +145,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="TongTien">
+                    <Textbox Name="Sum">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!TongTien.Value</Value>
+                              <Value>=Fields!Sum.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>TongTien</rd:DefaultName>
+                      <rd:DefaultName>Sum</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -161,50 +193,18 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>SumOfCource</DataSetName>
-        <Top>0.9675in</Top>
-        <Left>1.70708in</Left>
-        <Height>0.60417in</Height>
-        <Width>3.42708in</Width>
+        <DataSetName>SumOfCourse</DataSetName>
+        <Top>1.0925in</Top>
+        <Left>1.46625in</Left>
+        <Height>0.5in</Height>
+        <Width>3.72917in</Width>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox7">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Report Sum of cource</Value>
-                <Style>
-                  <FontFamily>Century Gothic</FontFamily>
-                  <FontSize>14pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>0.23833in</Top>
-        <Left>2.32167in</Left>
-        <Height>0.28125in</Height>
-        <Width>2.19792in</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
     <Height>5cm</Height>
     <Style />
@@ -224,29 +224,29 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>8621b605-cbab-46de-abd9-5d3cec761753</rd:DataSourceID>
+      <rd:DataSourceID>7dd1b671-ecf9-4b8a-be61-9f527dc9f8f5</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="SumOfCource">
+    <DataSet Name="SumOfCourse">
       <Query>
         <DataSourceName>dsMain</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="TenKhoaHoc">
-          <DataField>TenKhoaHoc</DataField>
+        <Field Name="NameCourse">
+          <DataField>NameCourse</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="TongTien">
-          <DataField>TongTien</DataField>
+        <Field Name="Sum">
+          <DataField>Sum</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dsMain</rd:DataSetName>
         <rd:SchemaPath>D:\HQTCSDL\ProjectHQTCSDL\EnglishCenterManagement\ProjectHQTCSDL\DataSet\dsMain.xsd</rd:SchemaPath>
-        <rd:TableName>SumOfCource</rd:TableName>
+        <rd:TableName>SumOfCourse</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
@@ -254,5 +254,5 @@
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>50aac8a8-92be-4e68-83f0-be78aa317e2a</rd:ReportID>
+  <rd:ReportID>bd51996c-e59c-4aef-8c24-ffc0b4ca2a4d</rd:ReportID>
 </Report>

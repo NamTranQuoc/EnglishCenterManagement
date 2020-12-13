@@ -173,7 +173,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column4
             // 
-            this.Column4.DataPropertyName = "MaHocVien";
+            this.Column4.DataPropertyName = "IdStudent";
             this.Column4.HeaderText = "ID";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -181,7 +181,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "HoTen";
+            this.Column1.DataPropertyName = "FullName";
             this.Column1.HeaderText = "Name";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -189,7 +189,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "SDT";
+            this.Column2.DataPropertyName = "PhoneNumber";
             this.Column2.HeaderText = "Phone";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -197,7 +197,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column5
             // 
-            this.Column5.DataPropertyName = "NgaySinh";
+            this.Column5.DataPropertyName = "DOB";
             this.Column5.HeaderText = "DOB";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;

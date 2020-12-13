@@ -40,13 +40,13 @@ namespace ProjectHQTCSDL.View.Dashboard
             enr.connectData = this.connectData;
             infor.connectData = this.connectData;
             infor.passOld = this.passOld;
-            infor.TaiKhoan = this.TaiKhoan;
+            infor.userName = this.TaiKhoan;
 
             this.sche.IDUser = IDUser;
-            this.infor.IDTaiKhoan = IDUser;
+            this.infor.IdAccount = IDUser;
             this.infor.state = true;
             this.enr.iDStudent = this.IDUser;
-            this.MUC_UC.maHocVien = this.IDUser;
+            this.MUC_UC.IdStudent = this.IDUser;
 
             this.pUserControl.Controls.Add(sche);
             this.pUserControl.Controls.Add(MUC_UC);

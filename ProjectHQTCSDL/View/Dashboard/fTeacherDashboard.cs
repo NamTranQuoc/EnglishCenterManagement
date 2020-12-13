@@ -51,9 +51,9 @@ namespace ProjectHQTCSDL.View.Dashboard
         {
             infor = new YourInformation_UserControl();
             infor.passOld = this.passOld;
-            infor.TaiKhoan = this.TaiKhoan;
+            infor.userName = this.TaiKhoan;
             infor.connectData = this.connectData;
-            infor.IDTaiKhoan = IDUser;
+            infor.IdAccount = IDUser;
             infor.state = false;
             pUserControl.Controls.Add(infor);
             infor.Hide();

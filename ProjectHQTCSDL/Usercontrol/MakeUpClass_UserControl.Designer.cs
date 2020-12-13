@@ -30,18 +30,18 @@ namespace ProjectHQTCSDL.Usercontrol
         private void InitializeComponent()
         {
             this.dgvMUC = new System.Windows.Forms.DataGridView();
+            this.cboClass = new System.Windows.Forms.ComboBox();
+            this.cboSession = new System.Windows.Forms.ComboBox();
+            this.lblLopHoc = new System.Windows.Forms.Label();
+            this.lblBuoiHoc = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.lblMakeUpClass = new System.Windows.Forms.Label();
             this.MaGiaoVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Buoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Phong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Chon = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.cboLopHoc = new System.Windows.Forms.ComboBox();
-            this.cboBuoiHoc = new System.Windows.Forms.ComboBox();
-            this.lblLopHoc = new System.Windows.Forms.Label();
-            this.lblBuoiHoc = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.lblMakeUpClass = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMUC)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,90 +65,41 @@ namespace ProjectHQTCSDL.Usercontrol
             this.dgvMUC.TabIndex = 13;
             this.dgvMUC.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMUC_CellEnter);
             // 
-            // MaGiaoVien
+            // cboClass
             // 
-            this.MaGiaoVien.DataPropertyName = "MaGiaoVien";
-            this.MaGiaoVien.HeaderText = "Mã giáo viên";
-            this.MaGiaoVien.Name = "MaGiaoVien";
-            this.MaGiaoVien.ReadOnly = true;
-            this.MaGiaoVien.Width = 140;
+            this.cboClass.FormattingEnabled = true;
+            this.cboClass.Location = new System.Drawing.Point(428, 140);
+            this.cboClass.Name = "cboClass";
+            this.cboClass.Size = new System.Drawing.Size(121, 28);
+            this.cboClass.TabIndex = 10;
+            this.cboClass.SelectedIndexChanged += new System.EventHandler(this.cboClass_SelectedIndexChanged);
             // 
-            // MaLop
+            // cboSession
             // 
-            this.MaLop.DataPropertyName = "MaLop";
-            this.MaLop.HeaderText = "Mã lớp";
-            this.MaLop.Name = "MaLop";
-            this.MaLop.ReadOnly = true;
-            this.MaLop.Width = 125;
-            // 
-            // Buoi
-            // 
-            this.Buoi.DataPropertyName = "Buoi";
-            this.Buoi.HeaderText = "Buổi";
-            this.Buoi.Name = "Buoi";
-            this.Buoi.ReadOnly = true;
-            this.Buoi.Width = 125;
-            // 
-            // Phong
-            // 
-            this.Phong.DataPropertyName = "TenPhong";
-            this.Phong.HeaderText = "Phòng";
-            this.Phong.Name = "Phong";
-            this.Phong.ReadOnly = true;
-            this.Phong.Width = 125;
-            // 
-            // NgayHoc
-            // 
-            this.NgayHoc.DataPropertyName = "NgayHoc";
-            this.NgayHoc.HeaderText = "Ngày học";
-            this.NgayHoc.Name = "NgayHoc";
-            this.NgayHoc.ReadOnly = true;
-            this.NgayHoc.Width = 125;
-            // 
-            // Chon
-            // 
-            this.Chon.DataPropertyName = "Chon";
-            this.Chon.HeaderText = "Chọn";
-            this.Chon.Name = "Chon";
-            this.Chon.ReadOnly = true;
-            this.Chon.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Chon.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // cboLopHoc
-            // 
-            this.cboLopHoc.FormattingEnabled = true;
-            this.cboLopHoc.Location = new System.Drawing.Point(428, 140);
-            this.cboLopHoc.Name = "cboLopHoc";
-            this.cboLopHoc.Size = new System.Drawing.Size(121, 28);
-            this.cboLopHoc.TabIndex = 10;
-            this.cboLopHoc.SelectedIndexChanged += new System.EventHandler(this.cboLopHoc_SelectedIndexChanged);
-            // 
-            // cboBuoiHoc
-            // 
-            this.cboBuoiHoc.FormattingEnabled = true;
-            this.cboBuoiHoc.Location = new System.Drawing.Point(696, 140);
-            this.cboBuoiHoc.Name = "cboBuoiHoc";
-            this.cboBuoiHoc.Size = new System.Drawing.Size(121, 28);
-            this.cboBuoiHoc.TabIndex = 11;
-            this.cboBuoiHoc.SelectedIndexChanged += new System.EventHandler(this.cboBuoiHoc_SelectedIndexChanged);
+            this.cboSession.FormattingEnabled = true;
+            this.cboSession.Location = new System.Drawing.Point(696, 140);
+            this.cboSession.Name = "cboSession";
+            this.cboSession.Size = new System.Drawing.Size(121, 28);
+            this.cboSession.TabIndex = 11;
+            this.cboSession.SelectedIndexChanged += new System.EventHandler(this.cboSession_SelectedIndexChanged);
             // 
             // lblLopHoc
             // 
             this.lblLopHoc.AutoSize = true;
             this.lblLopHoc.Location = new System.Drawing.Point(350, 143);
             this.lblLopHoc.Name = "lblLopHoc";
-            this.lblLopHoc.Size = new System.Drawing.Size(72, 20);
+            this.lblLopHoc.Size = new System.Drawing.Size(50, 20);
             this.lblLopHoc.TabIndex = 8;
-            this.lblLopHoc.Text = "Lớp Học:";
+            this.lblLopHoc.Text = "Class:";
             // 
             // lblBuoiHoc
             // 
             this.lblBuoiHoc.AutoSize = true;
             this.lblBuoiHoc.Location = new System.Drawing.Point(615, 143);
             this.lblBuoiHoc.Name = "lblBuoiHoc";
-            this.lblBuoiHoc.Size = new System.Drawing.Size(75, 20);
+            this.lblBuoiHoc.Size = new System.Drawing.Size(64, 20);
             this.lblBuoiHoc.TabIndex = 9;
-            this.lblBuoiHoc.Text = "Buổi học:";
+            this.lblBuoiHoc.Text = "Session:";
             // 
             // btnSave
             // 
@@ -170,14 +121,63 @@ namespace ProjectHQTCSDL.Usercontrol
             this.lblMakeUpClass.TabIndex = 12;
             this.lblMakeUpClass.Text = "MakeUpClass";
             // 
+            // MaGiaoVien
+            // 
+            this.MaGiaoVien.DataPropertyName = "IdTeacher";
+            this.MaGiaoVien.HeaderText = "ID Teacher";
+            this.MaGiaoVien.Name = "MaGiaoVien";
+            this.MaGiaoVien.ReadOnly = true;
+            this.MaGiaoVien.Width = 140;
+            // 
+            // MaLop
+            // 
+            this.MaLop.DataPropertyName = "IdClass";
+            this.MaLop.HeaderText = "ID Class";
+            this.MaLop.Name = "MaLop";
+            this.MaLop.ReadOnly = true;
+            this.MaLop.Width = 125;
+            // 
+            // Buoi
+            // 
+            this.Buoi.DataPropertyName = "Session";
+            this.Buoi.HeaderText = "Session";
+            this.Buoi.Name = "Buoi";
+            this.Buoi.ReadOnly = true;
+            this.Buoi.Width = 125;
+            // 
+            // Phong
+            // 
+            this.Phong.DataPropertyName = "NameClassroom";
+            this.Phong.HeaderText = "Classroom";
+            this.Phong.Name = "Phong";
+            this.Phong.ReadOnly = true;
+            this.Phong.Width = 125;
+            // 
+            // NgayHoc
+            // 
+            this.NgayHoc.DataPropertyName = "Day";
+            this.NgayHoc.HeaderText = "Day";
+            this.NgayHoc.Name = "NgayHoc";
+            this.NgayHoc.ReadOnly = true;
+            this.NgayHoc.Width = 125;
+            // 
+            // Chon
+            // 
+            this.Chon.DataPropertyName = "Select";
+            this.Chon.HeaderText = "Select";
+            this.Chon.Name = "Chon";
+            this.Chon.ReadOnly = true;
+            this.Chon.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Chon.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // MakeUpClass_UserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblMakeUpClass);
             this.Controls.Add(this.dgvMUC);
-            this.Controls.Add(this.cboLopHoc);
-            this.Controls.Add(this.cboBuoiHoc);
+            this.Controls.Add(this.cboClass);
+            this.Controls.Add(this.cboSession);
             this.Controls.Add(this.lblLopHoc);
             this.Controls.Add(this.lblBuoiHoc);
             this.Controls.Add(this.btnSave);
@@ -195,8 +195,8 @@ namespace ProjectHQTCSDL.Usercontrol
         #endregion
 
         private System.Windows.Forms.DataGridView dgvMUC;
-        private System.Windows.Forms.ComboBox cboLopHoc;
-        private System.Windows.Forms.ComboBox cboBuoiHoc;
+        private System.Windows.Forms.ComboBox cboClass;
+        private System.Windows.Forms.ComboBox cboSession;
         private System.Windows.Forms.Label lblLopHoc;
         private System.Windows.Forms.Label lblBuoiHoc;
         private System.Windows.Forms.Button btnSave;

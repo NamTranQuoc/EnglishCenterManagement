@@ -74,7 +74,7 @@
     <Compile Include="BS_Layer\Reports.cs" />
     <Compile Include="BS_Layer\Schedule.cs" />
     <Compile Include="BS_Layer\Students.cs" />
-    <Compile Include="BS_Layer\Cources.cs" />
+    <Compile Include="BS_Layer\Courses.cs" />
     <Compile Include="BS_Layer\Teachers.cs" />
     <Compile Include="BS_Layer\YourInformation.cs" />
     <Compile Include="DataSet\dsMain.cs">
@@ -147,11 +147,11 @@
     <Compile Include="Usercontrol\Students_UserControl.Designer.cs">
       <DependentUpon>Students_UserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usercontrol\Cources_UserControl.cs">
+    <Compile Include="Usercontrol\Courses_UserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Usercontrol\Cources_UserControl.Designer.cs">
-      <DependentUpon>Cources_UserControl.cs</DependentUpon>
+    <Compile Include="Usercontrol\Courses_UserControl.Designer.cs">
+      <DependentUpon>Courses_UserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Usercontrol\Teachers_UserControl.cs">
       <SubType>UserControl</SubType>
@@ -213,15 +213,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Usercontrol\RDLC\ClassOfCource.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Usercontrol\RDLC\StudentOfClass.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Usercontrol\RDLC\SumOfCource.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Usercontrol\RDLC\ClassOfCourse.rdlc" />
+    <EmbeddedResource Include="Usercontrol\RDLC\StudentOfClass.rdlc" />
     <EmbeddedResource Include="Usercontrol\Attendance_UserControl.resx">
       <DependentUpon>Attendance_UserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,9 +236,8 @@
     <EmbeddedResource Include="Usercontrol\MakeUpClass_UserControl.resx">
       <DependentUpon>MakeUpClass_UserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usercontrol\RDLC\TeacherOfCource.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Usercontrol\RDLC\SumOfCourse.rdlc" />
+    <EmbeddedResource Include="Usercontrol\RDLC\TeacherOfCourse.rdlc" />
     <EmbeddedResource Include="Usercontrol\Reports_UserControl.resx">
       <DependentUpon>Reports_UserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,8 +247,8 @@
     <EmbeddedResource Include="Usercontrol\Students_UserControl.resx">
       <DependentUpon>Students_UserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usercontrol\Cources_UserControl.resx">
-      <DependentUpon>Cources_UserControl.cs</DependentUpon>
+    <EmbeddedResource Include="Usercontrol\Courses_UserControl.resx">
+      <DependentUpon>Courses_UserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usercontrol\Teachers_UserControl.resx">
       <DependentUpon>Teachers_UserControl.cs</DependentUpon>

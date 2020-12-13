@@ -30,7 +30,7 @@ namespace ProjectHQTCSDL.Usercontrol
             if (dt != null)
             {
                 ReportDataSource rps = new ReportDataSource();
-                rps.Name = "StudentOfClass";
+                rps.Name = "StudentOfCourse";
                 rps.Value = dt;
                 this.rpv.LocalReport.DataSources.Clear();
                 this.rpv.LocalReport.DataSources.Add(rps);
@@ -43,14 +43,14 @@ namespace ProjectHQTCSDL.Usercontrol
         private void btnTeacherOfTheCourse_Click(object sender, EventArgs e)
         {
             rpv.ProcessingMode = ProcessingMode.Local;
-            rpv.LocalReport.ReportPath = "../../Usercontrol/RDLC/TeacherOfCource.rdlc";
+            rpv.LocalReport.ReportPath = "../../Usercontrol/RDLC/TeacherOfCourse.rdlc";
             Reports rp = new Reports();
             string error = "";
             DataTable dt = rp.ReportTeacherOfCource(ref error, connectData);
             if (dt != null)
             {
                 ReportDataSource rps = new ReportDataSource();
-                rps.Name = "TeacherOfCource";
+                rps.Name = "TeacherOfCourse";
                 rps.Value = dt;
                 this.rpv.LocalReport.DataSources.Clear();
                 this.rpv.LocalReport.DataSources.Add(rps);
@@ -63,14 +63,14 @@ namespace ProjectHQTCSDL.Usercontrol
         private void btnClassOfCourse_Click(object sender, EventArgs e)
         {
             rpv.ProcessingMode = ProcessingMode.Local;
-            rpv.LocalReport.ReportPath = "../../Usercontrol/RDLC/ClassOfCource.rdlc";
+            rpv.LocalReport.ReportPath = "../../Usercontrol/RDLC/ClassOfCourse.rdlc";
             Reports rp = new Reports();
             string error = "";
             DataTable dt = rp.ReportClassOfCourse(ref error, connectData);
             if (dt != null)
             {
                 ReportDataSource rps = new ReportDataSource();
-                rps.Name = "ClassOfCource";
+                rps.Name = "ClassOfCourse";
                 rps.Value = dt;
                 this.rpv.LocalReport.DataSources.Clear();
                 this.rpv.LocalReport.DataSources.Add(rps);
@@ -83,14 +83,14 @@ namespace ProjectHQTCSDL.Usercontrol
         private void btnRevenueCenter_Click(object sender, EventArgs e)
         {
             rpv.ProcessingMode = ProcessingMode.Local;
-            rpv.LocalReport.ReportPath = "../../Usercontrol/RDLC/SumOfCource.rdlc";
+            rpv.LocalReport.ReportPath = "../../Usercontrol/RDLC/SumOfCourse.rdlc";
             Reports rp = new Reports();
             string error = "";
             DataTable dt = rp.ReportSumOfCourse(ref error, connectData);
             if (dt != null)
             {
                 ReportDataSource rps = new ReportDataSource();
-                rps.Name = "SumOfCource";
+                rps.Name = "SumOfCourse";
                 rps.Value = dt;
                 this.rpv.LocalReport.DataSources.Clear();
                 this.rpv.LocalReport.DataSources.Add(rps);

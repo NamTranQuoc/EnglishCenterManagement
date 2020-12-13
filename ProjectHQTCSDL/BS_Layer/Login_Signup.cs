@@ -11,11 +11,11 @@ namespace ProjectHQTCSDL.BS_Layer
     {
         public int CheckLogin(string user, string pass, dbMain connectData)//kiểm tra đăng nhập
         {
-            return (int)connectData.ExcuteScalar("SELECT dbo.KienTraDangNhap('" + user + "', '" + pass + "')");
+            return (int)connectData.ExcuteScalar("SELECT [dbo].[CheckLogin]('" + user + "', '" + pass + "')");
         }
         public int GetID(string user, dbMain connectData)
         {
-            return (int)connectData.ExcuteScalar("EXEC LayID '" + user + "'");
+            return (int)connectData.ExcuteScalar("EXEC [GetIdUser] '" + user + "'");
         }
     }
 }

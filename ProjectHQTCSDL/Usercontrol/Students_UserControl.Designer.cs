@@ -49,6 +49,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.tabEdit = new System.Windows.Forms.TabPage();
+            this.btnResetPass = new System.Windows.Forms.Button();
             this.dtpDOB = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -62,14 +63,13 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvListStudents = new System.Windows.Forms.DataGridView();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabControl = new System.Windows.Forms.TabControl();
-            this.btnResetPass = new System.Windows.Forms.Button();
             this.tabAdd.SuspendLayout();
             this.tabEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListStudents)).BeginInit();
@@ -276,6 +276,16 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabEdit.Text = "Edit";
             this.tabEdit.UseVisualStyleBackColor = true;
             // 
+            // btnResetPass
+            // 
+            this.btnResetPass.Location = new System.Drawing.Point(230, 529);
+            this.btnResetPass.Name = "btnResetPass";
+            this.btnResetPass.Size = new System.Drawing.Size(150, 42);
+            this.btnResetPass.TabIndex = 27;
+            this.btnResetPass.Text = "Reset Pass";
+            this.btnResetPass.UseVisualStyleBackColor = true;
+            this.btnResetPass.Click += new System.EventHandler(this.btnResetPass_Click);
+            // 
             // dtpDOB
             // 
             this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -396,9 +406,19 @@ namespace ProjectHQTCSDL.Usercontrol
             this.dgvListStudents.TabIndex = 8;
             this.dgvListStudents.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListStudents_RowEnter_1);
             // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.tabEdit);
+            this.tabControl.Controls.Add(this.tabAdd);
+            this.tabControl.Location = new System.Drawing.Point(809, 3);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(421, 668);
+            this.tabControl.TabIndex = 9;
+            // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "MaHocVien";
+            this.Column1.DataPropertyName = "IdStudent";
             this.Column1.HeaderText = "ID";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -406,7 +426,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "HoTen";
+            this.Column2.DataPropertyName = "FullName";
             this.Column2.HeaderText = "Name";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -414,14 +434,14 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column3
             // 
-            this.Column3.DataPropertyName = "SDT";
+            this.Column3.DataPropertyName = "PhoneNumber";
             this.Column3.HeaderText = "Phone";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
-            this.Column4.DataPropertyName = "DiaChi";
+            this.Column4.DataPropertyName = "Address";
             this.Column4.HeaderText = "Address";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -437,31 +457,11 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column6
             // 
-            this.Column6.DataPropertyName = "NgaySinh";
+            this.Column6.DataPropertyName = "DOB";
             this.Column6.HeaderText = "DOB";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             this.Column6.Width = 110;
-            // 
-            // tabControl
-            // 
-            this.tabControl.Controls.Add(this.tabEdit);
-            this.tabControl.Controls.Add(this.tabAdd);
-            this.tabControl.Location = new System.Drawing.Point(809, 3);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(421, 668);
-            this.tabControl.TabIndex = 9;
-            // 
-            // btnResetPass
-            // 
-            this.btnResetPass.Location = new System.Drawing.Point(230, 529);
-            this.btnResetPass.Name = "btnResetPass";
-            this.btnResetPass.Size = new System.Drawing.Size(150, 42);
-            this.btnResetPass.TabIndex = 27;
-            this.btnResetPass.Text = "Reset Pass";
-            this.btnResetPass.UseVisualStyleBackColor = true;
-            this.btnResetPass.Click += new System.EventHandler(this.btnResetPass_Click);
             // 
             // Students_UserControl
             // 
@@ -517,17 +517,17 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DateTimePicker dtpDOB;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DateTimePicker dtpDOBNew;
         public System.Windows.Forms.TextBox txtIDNew;
         private System.Windows.Forms.Button btnResetPass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

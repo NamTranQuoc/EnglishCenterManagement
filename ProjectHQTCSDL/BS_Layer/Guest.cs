@@ -12,12 +12,12 @@ namespace ProjectHQTCSDL.BS_Layer
     {
         public DataTable GetListNameCource(ref string error, dbMain connectData)
         {
-            return connectData.ExcuteQuery("EXEC GetListNameCource", ref error); 
+            return connectData.ExcuteQuery("EXEC [GetListNameCourse]", ref error); 
         }
 
         public DataTable GetListClassOfCource(int id, ref string error, dbMain connectData)
         {
-            return connectData.ExcuteQuery("EXEC dbo.LopTheoKhoaHoc " + id, ref error);
+            return connectData.ExcuteQuery("EXEC [dbo].[GetClassOfCourse] " + id, ref error);
         }
     }
 }

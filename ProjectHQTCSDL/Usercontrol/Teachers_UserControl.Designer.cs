@@ -54,17 +54,17 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label11 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvListTeachers = new System.Windows.Forms.DataGridView();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
             this.tabEdit = new System.Windows.Forms.TabPage();
             this.btnResetPass = new System.Windows.Forms.Button();
             this.txtSalary = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListTeachers)).BeginInit();
             this.tabEdit.SuspendLayout();
@@ -304,46 +304,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.dgvListTeachers.TabIndex = 15;
             this.dgvListTeachers.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListTeachers_RowEnter);
             // 
-            // colID
-            // 
-            this.colID.DataPropertyName = "MaGiaoVien";
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            this.colID.Width = 60;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "HoTen";
-            this.Column1.HeaderText = "Full name";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 210;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "SDT";
-            this.Column2.HeaderText = "Phone Number";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 160;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "DiaChi";
-            this.Column3.HeaderText = "Address";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 210;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "LuongCoBan";
-            this.Column4.HeaderText = "Salary";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 160;
-            // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(41, 513);
@@ -412,6 +372,46 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabControl.Size = new System.Drawing.Size(421, 668);
             this.tabControl.TabIndex = 16;
             // 
+            // colID
+            // 
+            this.colID.DataPropertyName = "IdTeacher";
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            this.colID.Width = 60;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "NameTeacher";
+            this.Column1.HeaderText = "Full name";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 210;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "PhoneNumber";
+            this.Column2.HeaderText = "Phone Number";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 160;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Address";
+            this.Column3.HeaderText = "Address";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 210;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Salary";
+            this.Column4.HeaderText = "Salary";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 160;
+            // 
             // Teachers_UserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -461,11 +461,6 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.TabPage tabEdit;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.TextBox txtSalaryNew;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtUsername;
@@ -473,5 +468,10 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.TextBox txtSalary;
         public System.Windows.Forms.TextBox txtIDNew;
         private System.Windows.Forms.Button btnResetPass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

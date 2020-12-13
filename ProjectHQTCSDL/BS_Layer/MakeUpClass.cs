@@ -13,26 +13,26 @@ namespace ProjectHQTCSDL.BS_Layer
     {
         public DataTable GetListClassAbsent (int IdStudent, dbMain connectData, ref string error)
         {
-            return connectData.ExcuteQuery("EXEC GetListClassAbsent " + IdStudent, ref error);
+            return connectData.ExcuteQuery("EXEC [GetListClassAbsent] " + IdStudent, ref error);
         }
 
         public DataTable GetListSessionAbsent (int IdStudent, int iDClass, dbMain connectData, ref string error)
         {
-            return connectData.ExcuteQuery("EXEC GetListSessionAbsent " + IdStudent + ", " + iDClass, ref error);
+            return connectData.ExcuteQuery("EXEC [GetListSessionAbsent] " + IdStudent + ", " + iDClass, ref error);
         }
 
         public DataTable GetClassAbsent(int iDStudent, int iDClass, int session, dbMain connectData, ref string error)
         {
-            DataTable dt = connectData.ExcuteQuery("EXEC GetClassAbsent " + iDClass + ", " + session, ref error);
+            DataTable dt = connectData.ExcuteQuery("EXEC [GetClassAbsent] " + iDClass + ", " + session, ref error);
             if (dt != null)
             {
-                dt.Columns.Add("Chon", typeof(bool));
+                dt.Columns.Add("Select", typeof(bool));
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    if ((int)connectData.ExcuteScalar("EXEC CheckAbsent " + iDStudent + ", " + iDClass + ", " + session) == 0)
-                        dt.Rows[i]["Chon"] = false;
+                    if ((int)connectData.ExcuteScalar("EXEC [CheckAbsent] " + iDStudent + ", " + iDClass + ", " + session) == 0)
+                        dt.Rows[i]["Select"] = false;
                     else
-                        dt.Rows[i]["Chon"] = true;
+                        dt.Rows[i]["Select"] = true;
                 }
                 return dt;
             }
@@ -41,14 +41,14 @@ namespace ProjectHQTCSDL.BS_Layer
 
         public bool EnrollAbsent (int iDStudent, int iDClass, int session, int absent, dbMain connectData, ref string error)
         {
-            int test = connectData.ExcuteNonQuery("EXEC EnrollAbsent " + iDStudent + ", " + iDClass + ", " + session + ", " + absent, ref error);
+            int test = connectData.ExcuteNonQuery("EXEC [EnrollAbsent] " + iDStudent + ", " + iDClass + ", " + session + ", " + absent, ref error);
             if (test > 0)
                 return true;
             return false;
         }
         public bool UnenrollAbsent(int iDStudent, int iDClass, int session, dbMain connectData, ref string error)
         {
-            int test = connectData.ExcuteNonQuery("EXEC UnenrollAbsent " + iDStudent + ", " + iDClass + ", " + session, ref error);
+            int test = connectData.ExcuteNonQuery("EXEC [UnenrollAbsent] " + iDStudent + ", " + iDClass + ", " + session, ref error);
             if (test > 0)
                 return true;
             return false;
