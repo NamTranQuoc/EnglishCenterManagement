@@ -37,7 +37,7 @@ namespace ProjectHQTCSDL.Usercontrol
                 this.pnlStudent.Show();
                 this.pnlTeacher.Hide();
 
-                this.pnlStudent.Location = new Point(390, 211);
+                this.pnlStudent.Location = new Point(390, 150);
 
                 GetInfoStudent();
 
@@ -52,7 +52,7 @@ namespace ProjectHQTCSDL.Usercontrol
             {
                 this.pnlTeacher.Show();
                 this.pnlStudent.Hide();
-                this.pnlTeacher.Location = new Point(390, 211);
+                this.pnlTeacher.Location = new Point(390, 150);
 
                 GetInfoTeacher();
 
