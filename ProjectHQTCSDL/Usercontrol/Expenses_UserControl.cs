@@ -8,33 +8,52 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectHQTCSDL.BS_Layer;
+using ProjectHQTCSDL.DB_Layer;
 
 namespace ProjectHQTCSDL.Usercontrol
 {
     public partial class Expenses_UserControl : UserControl
     {
-        Cources course;
+        Courses course;
         Expenses expenses;
+
+        public dbMain connectData;
+
         public Expenses_UserControl()
         {
             InitializeComponent();
-            course = new Cources();
+            course = new Courses();
             expenses = new Expenses();
         }
 
         private void Expenses_UserControl_Load(object sender, EventArgs e)
         {
-            dgvExpense.DataSource = expenses.GetExpense();
+            string error = "";
+            DataTable dt1 = expenses.GetExpense(ref error, connectData);
+            if (dt1 != null)
+                dgvExpense.DataSource = dt1;
+            else
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            cbNameCourse.DataSource = course.GetListCources(0);
-            cbNameCourse.DisplayMember = "TenKhoaHoc";
+            DataTable dt2 = course.GetListCources(0, ref error, connectData);
+            if (dt2 != null)
+            {
+                cbNameCourse.DataSource = dt2;
+                cbNameCourse.DisplayMember = "NameCourse";
+            }
+            else
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
             string name = cbNameCourse.Text;
-
-            dgvExpense.DataSource = expenses.GetExpenseByCourse(name);
+            string error = "";
+            DataTable dt = expenses.GetExpenseByCourse(name, ref error, connectData);
+            if (dt != null)
+                dgvExpense.DataSource = dt;
+            else
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -49,7 +68,7 @@ namespace ProjectHQTCSDL.Usercontrol
 
             string error = null;
 
-            bool result = expenses.UpdateExpense(MaLop, MaHV, pay.ToString(), ref error);
+            bool result = expenses.UpdateExpense(MaLop, MaHV, pay.ToString(), ref error, connectData);
 
             if (result)
                 MessageBox.Show("The student has paid successfully", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);

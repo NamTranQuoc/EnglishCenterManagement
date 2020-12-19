@@ -67,12 +67,14 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // btnSubmit
             // 
+            this.btnSubmit.BackColor = System.Drawing.Color.Green;
+            this.btnSubmit.ForeColor = System.Drawing.Color.White;
             this.btnSubmit.Location = new System.Drawing.Point(71, 527);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(142, 48);
             this.btnSubmit.TabIndex = 8;
             this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // cbbShift
@@ -173,7 +175,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column4
             // 
-            this.Column4.DataPropertyName = "MaHocVien";
+            this.Column4.DataPropertyName = "IdStudent";
             this.Column4.HeaderText = "ID";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -181,7 +183,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "HoTen";
+            this.Column1.DataPropertyName = "FullName";
             this.Column1.HeaderText = "Name";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -189,7 +191,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "SDT";
+            this.Column2.DataPropertyName = "PhoneNumber";
             this.Column2.HeaderText = "Phone";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -197,7 +199,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column5
             // 
-            this.Column5.DataPropertyName = "NgaySinh";
+            this.Column5.DataPropertyName = "DOB";
             this.Column5.HeaderText = "DOB";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -210,11 +212,13 @@ namespace ProjectHQTCSDL.Usercontrol
             this.colAbsent.Name = "colAbsent";
             this.colAbsent.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colAbsent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colAbsent.Width = 150;
             // 
             // Attendance_UserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.dgvClassList);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

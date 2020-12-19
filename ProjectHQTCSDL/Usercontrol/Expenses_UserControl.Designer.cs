@@ -30,6 +30,13 @@ namespace ProjectHQTCSDL.Usercontrol
         private void InitializeComponent()
         {
             this.dgvExpense = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnLoad = new System.Windows.Forms.Button();
             this.cbNameCourse = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -39,20 +46,89 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // dgvExpense
             // 
+            this.dgvExpense.AllowUserToAddRows = false;
+            this.dgvExpense.AllowUserToDeleteRows = false;
             this.dgvExpense.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvExpense.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7});
             this.dgvExpense.Location = new System.Drawing.Point(108, 125);
             this.dgvExpense.Name = "dgvExpense";
+            this.dgvExpense.RowHeadersVisible = false;
+            this.dgvExpense.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvExpense.Size = new System.Drawing.Size(1020, 428);
             this.dgvExpense.TabIndex = 9;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Mã Lớp Học";
+            this.Column1.HeaderText = "ID Class";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Mã Học Viên";
+            this.Column2.HeaderText = "ID Student";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 120;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Họ và Tên";
+            this.Column3.HeaderText = "Name\'s Student";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 250;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Số Điện Thoại";
+            this.Column4.HeaderText = "Phone number";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 170;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Tên Khóa Học";
+            this.Column5.HeaderText = "Name\'s Cource";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 200;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "Ngày Học";
+            this.Column6.HeaderText = "DOW";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "Thanh Toán";
+            this.Column7.HeaderText = "Status";
+            this.Column7.Name = "Column7";
+            this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column7.Width = 80;
+            // 
             // btnLoad
             // 
+            this.btnLoad.BackColor = System.Drawing.Color.Brown;
+            this.btnLoad.ForeColor = System.Drawing.Color.White;
             this.btnLoad.Location = new System.Drawing.Point(578, 68);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(93, 28);
             this.btnLoad.TabIndex = 8;
             this.btnLoad.Text = "Load";
-            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.UseVisualStyleBackColor = false;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // cbNameCourse
@@ -66,12 +142,14 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.Color.Green;
+            this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(987, 576);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(141, 31);
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label1
@@ -87,6 +165,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.dgvExpense);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.cbNameCourse);
@@ -110,5 +189,12 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.ComboBox cbNameCourse;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column7;
     }
 }

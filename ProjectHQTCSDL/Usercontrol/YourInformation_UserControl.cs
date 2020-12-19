@@ -9,14 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectHQTCSDL.BS_Layer;
 using System.Data.SqlClient;
+using ProjectHQTCSDL.DB_Layer;
 
 namespace ProjectHQTCSDL.Usercontrol
 {
     public partial class YourInformation_UserControl : UserControl
     {
-        public int IDTaiKhoan;
+        public int IdAccount;
         public bool state = true; // true -- hiện Hoc Vien , false -- Giao vien
-
+        public dbMain connectData;
+        public string passOld;
+        public string userName;
+        public bool f = false;
 
         private bool update = false;
         private YourInformation infor;
@@ -30,131 +34,153 @@ namespace ProjectHQTCSDL.Usercontrol
         {
             if( state == true)
             {
-                this.pnlHocVien.Show();
-                this.pnlGiaoVien.Hide();
+                this.pnlStudent.Show();
+                this.pnlTeacher.Hide();
 
-                this.pnlHocVien.Location = new Point(390, 211);
+                this.pnlStudent.Location = new Point(390, 150);
 
-                GetInfoHocVien();
+                GetInfoStudent();
 
-                txtHoTen.Enabled = false;
-                txtSDT.Enabled = false;
-                txtDiaChi.Enabled = false;
+                txtName.Enabled = false;
+                txtPhoneNumber.Enabled = false;
+                txtAddress.Enabled = false;
                 txtEmail.Enabled = false;
-                dtpNgaySinh.Enabled = false;
+                dtpDOB.Enabled = false;
+                txtPass.Enabled = false;
             }
             else
             {
-                this.pnlGiaoVien.Show();
-                this.pnlHocVien.Hide();
-                this.pnlGiaoVien.Location = new Point(390, 211);
+                this.pnlTeacher.Show();
+                this.pnlStudent.Hide();
+                this.pnlTeacher.Location = new Point(390, 150);
 
-                GetInfoGiaoVien();
+                GetInfoTeacher();
 
-                txtHoTenGV.Enabled = false;
-                txtSdtGV.Enabled = false;
-                txtDiaChiGV.Enabled = false;
-                txtLuongGV.Enabled = false;
+                txtNameTea.Enabled = false;
+                txtPhoneNumberTea.Enabled = false;
+                txtAddressTea.Enabled = false;
+                txtSalaryTea.Enabled = false;
+                txtPassTea.Enabled = false;
             }
 
-            btnCapNhat.Enabled = true;
-            btnLuu.Enabled = false;
-            btnHuy.Enabled = false;
+            btnUpdate.Enabled = true;
+            btnSave.Enabled = false;
+            btnCancel.Enabled = false;
         }
 
         private DataTable table;
-        private void GetInfoHocVien()
+        private void GetInfoStudent()
         {
             try
             {
-                table = infor.GetHocVien(IDTaiKhoan);
-
-                txtHoTen.Text = table.Rows[0]["HoTen"].ToString();
-                txtSDT.Text = table.Rows[0]["SDT"].ToString();
-                txtDiaChi.Text = table.Rows[0]["DiaChi"].ToString();
-                txtEmail.Text = table.Rows[0]["Email"].ToString();
-                dtpNgaySinh.Value = (DateTime)table.Rows[0]["NgaySinh"];
+                string error = "";
+                table = infor.GetStudent(IdAccount, ref error, connectData);
+                if (table != null)
+                {
+                    txtPass.Text = "000000";
+                    txtName.Text = table.Rows[0]["FullName"].ToString();
+                    txtPhoneNumber.Text = table.Rows[0]["PhoneNumber"].ToString();
+                    txtAddress.Text = table.Rows[0]["Address"].ToString();
+                    txtEmail.Text = table.Rows[0]["Email"].ToString();
+                    dtpDOB.Value = (DateTime)table.Rows[0]["DOB"];
+                }
+                else
+                {
+                    MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch(SqlException e)
+            catch
             {
-                MessageBox.Show(e.Message, "Warning Load Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error", "Warning Load Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        private void GetInfoGiaoVien()
+        private void GetInfoTeacher()
         {
             try
             {
-                table = infor.GetGiaoVien(IDTaiKhoan);
-
-                txtHoTenGV.Text = table.Rows[0]["HoTen"].ToString();
-                txtSdtGV.Text = table.Rows[0]["SDT"].ToString();
-                txtDiaChiGV.Text = table.Rows[0]["DiaChi"].ToString();
-                txtLuongGV.Text = table.Rows[0]["LuongCoBan"].ToString();
+                string error = "";
+                table = infor.GetTeacher(IdAccount, ref error, connectData);
+                if (table != null)
+                {
+                    txtPassTea.Text = "000000";
+                    txtNameTea.Text = table.Rows[0]["NameTeacher"].ToString();
+                    txtPhoneNumberTea.Text = table.Rows[0]["PhoneNumber"].ToString();
+                    txtAddressTea.Text = table.Rows[0]["Address"].ToString();
+                    txtSalaryTea.Text = table.Rows[0]["Salary"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch(SqlException e)
+            catch
             {
-                MessageBox.Show(e.Message, "Warning Load Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error", "Warning Load Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
         }
 
-        private void btnCapNhat_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (state == true)
             {
-                txtHoTen.Enabled = true;
-                txtSDT.Enabled = true;
-                txtDiaChi.Enabled = true;
+                txtName.Enabled = true;
+                txtPhoneNumber.Enabled = true;
+                txtAddress.Enabled = true;
                 txtEmail.Enabled = true;
-                dtpNgaySinh.Enabled = true;
+                dtpDOB.Enabled = true;
+                txtPass.Enabled = true;
             }
             else
             {
-                txtHoTenGV.Enabled = true;
-                txtSdtGV.Enabled = true;
-                txtDiaChiGV.Enabled = true;
-                txtLuongGV.Enabled = true;
+                txtNameTea.Enabled = true;
+                txtPhoneNumberTea.Enabled = true;
+                txtAddressTea.Enabled = true;
+                txtPassTea.Enabled = true;
             }
 
-            btnCapNhat.Enabled = false;
-            btnLuu.Enabled = true;
-            btnHuy.Enabled = true;
+            btnUpdate.Enabled = false;
+            btnSave.Enabled = true;
+            btnCancel.Enabled = true;
 
             update = true;
 
         }
 
-        private void btnHuy_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             if(state == true)
             {
-                txtHoTen.Enabled = false;
-                txtSDT.Enabled = false;
-                txtDiaChi.Enabled = false;
+                txtName.Enabled = false;
+                txtPhoneNumber.Enabled = false;
+                txtAddress.Enabled = false;
                 txtEmail.Enabled = false;
-                dtpNgaySinh.Enabled = false;
-
-                GetInfoHocVien();
+                dtpDOB.Enabled = false;
+                txtPass.Enabled = false;
+                txtPass.UseSystemPasswordChar = true;
+                GetInfoStudent();
             }
             else
             {
-                txtHoTenGV.Enabled = false;
-                txtSdtGV.Enabled = false;
-                txtDiaChiGV.Enabled = false;
-                txtLuongGV.Enabled = false;
+                txtNameTea.Enabled = false;
+                txtPhoneNumberTea.Enabled = false;
+                txtAddressTea.Enabled = false;
+                txtSalaryTea.Enabled = false;
+                txtPassTea.Enabled = false;
+                txtPassTea.UseSystemPasswordChar = true;
 
-                GetInfoGiaoVien();
+                GetInfoTeacher();
             }
 
-            btnCapNhat.Enabled = true;
-            btnLuu.Enabled = false;
-            btnHuy.Enabled = false;
+            btnUpdate.Enabled = true;
+            btnSave.Enabled = false;
+            btnCancel.Enabled = false;
 
             update = false;
         }
 
-        private void btnLuu_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
             if(update == true)
             {
@@ -164,35 +190,37 @@ namespace ProjectHQTCSDL.Usercontrol
                 if( result == DialogResult.Yes)
                 {
                     Excute();
+                    MessageBox.Show("Sign in again to continue", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.f = true;
+
+                    btnUpdate.Enabled = true;
+                    btnSave.Enabled = false;
+                    btnCancel.Enabled = false;
+
+                    update = false;
                 }
-
-                btnCapNhat.Enabled = true;
-                btnLuu.Enabled = false;
-                btnHuy.Enabled = false;
-
-                update = false;
-            }
-            
+            }      
         }
 
 
         private void Excute()
         {
-            int id = IDTaiKhoan;
+            int id = IdAccount;
 
             string error = "Not excute";
             bool result;
             if (state == true)
             {
+                connectData = new dbMain(userName, txtPass.Text);
                 Students stu = new Students();
                 
-                string name = txtHoTen.Text.Trim();
-                string phone = txtSDT.Text.Trim();
-                string diachi = txtDiaChi.Text.Trim();
+                string name = txtName.Text.Trim();
+                string phone = txtPhoneNumber.Text.Trim();
+                string address = txtAddress.Text.Trim();
                 string email = txtEmail.Text.Trim();
-                DateTime birthdate = dtpNgaySinh.Value;
+                DateTime birthdate = dtpDOB.Value;
 
-                result = stu.UpdateStudent(id, name, phone, diachi, email, birthdate, ref error);
+                result = stu.UpdateStudent(id, name, phone, address, email, birthdate, txtPass.Text.Trim(), passOld, ref error);
 
                 if (result)
                 {
@@ -204,25 +232,28 @@ namespace ProjectHQTCSDL.Usercontrol
                 }
 
 
-                txtHoTen.Enabled = false;
-                txtSDT.Enabled = false;
-                txtDiaChi.Enabled = false;
+                txtName.Enabled = false;
+                txtPhoneNumber.Enabled = false;
+                txtAddress.Enabled = false;
                 txtEmail.Enabled = false;
-                dtpNgaySinh.Enabled = false;
+                dtpDOB.Enabled = false;
+                txtPass.Enabled = false;
+                txtPass.UseSystemPasswordChar = true;
 
-                GetInfoHocVien();
+                GetInfoStudent();
             }
             else
             {
+                connectData = new dbMain(userName, txtPassTea.Text);
                 Teachers teacher = new Teachers();
 
-                string name = txtHoTenGV.Text.Trim();
-                string phone = txtSdtGV.Text.Trim();
-                string diachi = txtDiaChiGV.Text.Trim();
+                string name = txtNameTea.Text.Trim();
+                string phone = txtPhoneNumberTea.Text.Trim();
+                string address = txtAddressTea.Text.Trim();
 
-                int luong = Convert.ToInt32(txtLuongGV.Text.Trim());
+                int luong = Convert.ToInt32(txtSalaryTea.Text.Trim());
 
-                result = teacher.UpdateTeacher(id, name, phone, diachi, luong, ref error);
+                result = teacher.UpdateTeacher(id, name, phone, address, luong, txtPassTea.Text.Trim(), passOld, ref error);
 
                 if (result)
                 {
@@ -233,14 +264,34 @@ namespace ProjectHQTCSDL.Usercontrol
                     MessageBox.Show("Update unsuccessfully", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                txtHoTenGV.Enabled = false;
-                txtSdtGV.Enabled = false;
-                txtDiaChiGV.Enabled = false;
-                txtLuongGV.Enabled = false;
+                txtNameTea.Enabled = false;
+                txtPhoneNumberTea.Enabled = false;
+                txtAddressTea.Enabled = false;
+                txtSalaryTea.Enabled = false;
+                txtPassTea.Enabled = false;
+                txtPassTea.UseSystemPasswordChar = true;
 
-                GetInfoGiaoVien();
+                GetInfoTeacher();
             }
             
+        }
+
+        private void txtPass_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPass.UseSystemPasswordChar)
+            {
+                txtPass.ResetText();
+                txtPass.UseSystemPasswordChar = false;
+            }    
+        }
+
+        private void txtPassGV_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPassTea.UseSystemPasswordChar)
+            {
+                txtPassTea.ResetText();
+                txtPassTea.UseSystemPasswordChar = false;
+            }
         }
     }
 }

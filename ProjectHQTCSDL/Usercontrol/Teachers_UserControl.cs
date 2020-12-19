@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectHQTCSDL.BS_Layer;
+using ProjectHQTCSDL.DB_Layer;
 
 namespace ProjectHQTCSDL.Usercontrol
 {
     public partial class Teachers_UserControl : UserControl
     {
         Teachers teacher;
+        public dbMain connectData;
         public Teachers_UserControl()
         {
             InitializeComponent();
@@ -22,8 +24,15 @@ namespace ProjectHQTCSDL.Usercontrol
 
         private void Teachers_UserControl_Load(object sender, EventArgs e)
         {
-            this.dgvListTeachers.DataSource = teacher.GetListTeachers();
-            this.txtIDNew.Text = teacher.CreateID().ToString();
+            string error = "";
+            DataTable dt = teacher.GetListTeachers(ref error, connectData);
+            if (dt != null)
+            {
+                this.dgvListTeachers.DataSource = dt;
+                this.txtIDNew.Text = teacher.CreateID(connectData).ToString();
+            }
+            else
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void dgvListTeachers_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -47,11 +56,17 @@ namespace ProjectHQTCSDL.Usercontrol
                 if (tsalary != false && tsalary != false)
                 {
                     string error = "";
-                    bool t = teacher.UpdateTeacher(int.Parse(txtID.Text), txtName.Text, txtPhone.Text, txtAddress.Text, salary, ref error);
+                    bool t = teacher.UpdateTeacher(int.Parse(txtID.Text), txtName.Text, txtPhone.Text, txtAddress.Text, salary, "0", "0", ref error);
                     if (t == true)
                     {
-                        this.dgvListTeachers.DataSource = teacher.GetListTeachers();
-                        MessageBox.Show("Update successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DataTable dtt = teacher.GetListTeachers(ref error, connectData);
+                        if (dtt != null)
+                        {
+                            this.dgvListTeachers.DataSource = dtt;
+                            MessageBox.Show("Update successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                            MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                         MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -76,21 +91,27 @@ namespace ProjectHQTCSDL.Usercontrol
                 if (tphone != false && tsalary != false)
                 {
                     string error = "";
-                    bool t = teacher.InsertTeacher(txtUsername.Text, pass, txtNameNew.Text, txtPhoneNew.Text, txtAddressNew.Text, salary, ref error);
+                    bool t = teacher.InsertTeacher(txtUsername.Text, pass, txtNameNew.Text, txtPhoneNew.Text, txtAddressNew.Text, salary, ref error, dbMain.Instance);
                     if (t == true)
                     {
-                        this.dgvListTeachers.DataSource = teacher.GetListTeachers();
-                        txtIDNew.Text = teacher.CreateID().ToString();
-                        txtNameNew.ResetText();
-                        txtUsername.ResetText();
-                        txtPhoneNew.ResetText();
-                        txtNameNew.ResetText();
-                        txtAddressNew.ResetText();
-                        txtSalaryNew.ResetText();
-                        MessageBox.Show("Insert successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DataTable dt = teacher.GetListTeachers(ref error, connectData);
+                        if (dt != null)
+                        {
+                            this.dgvListTeachers.DataSource = dt;
+                            txtIDNew.Text = teacher.CreateID(connectData).ToString();
+                            txtNameNew.ResetText();
+                            txtUsername.ResetText();
+                            txtPhoneNew.ResetText();
+                            txtNameNew.ResetText();
+                            txtAddressNew.ResetText();
+                            txtSalaryNew.ResetText();
+                            MessageBox.Show("Insert successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                            MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
-                        MessageBox.Show("Usename Existed", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                     MessageBox.Show("Please enter a number for Phone Number and Salary", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -102,7 +123,35 @@ namespace ProjectHQTCSDL.Usercontrol
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            this.dgvListTeachers.DataSource = teacher.GetListLikeTeacher(txtSearch.Text);
+            string error = "";
+            DataTable dt = teacher.GetListLikeTeacher(txtSearch.Text, ref error, connectData);
+            if (dt != null)
+            {
+                this.dgvListTeachers.DataSource = dt;
+            }
+            else
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void btnResetPass_Click(object sender, EventArgs e)
+        {
+            int salary;
+            bool tsalary = int.TryParse(txtSalary.Text, out salary);
+            string error = "";
+            bool t = teacher.UpdateTeacher(int.Parse(txtID.Text), txtName.Text, txtPhone.Text, txtAddress.Text, salary, "000000", "0", ref error);
+            if (t == true)
+            {
+                DataTable dt = teacher.GetListTeachers(ref error, connectData);
+                if (dt != null)
+                {
+                    this.dgvListTeachers.DataSource = dt;
+                    MessageBox.Show("Reset password success\nPassword: 000000", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                    MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

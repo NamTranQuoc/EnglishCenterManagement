@@ -10,45 +10,58 @@ namespace ProjectHQTCSDL.BS_Layer
 {
     public class Students
     {
-        public DataTable GetListStudents()
+        private static Students instance = null;
+        public static Students Instance
         {
-            return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.HocVien");
+            get { if (instance == null) instance = new Students(); return Students.instance; }
+            private set => instance = value;
         }
 
-        public DataTable GetListLikeStudent(string likeName)
+        public DataTable GetListStudents(ref string error, dbMain connectData)
         {
-            return dbMain.Instance.ExcuteQuery("SELECT * FROM dbo.HocVien WHERE HoTen LIKE '%" + likeName + "%'");
+            return connectData.ExcuteQuery("EXEC [dbo].[GetListStudents]", ref error);
         }
 
-        public int CreateID()
+        public DataTable GetListLikeStudent(string likeName, ref string error, dbMain connectData)
         {
-            return (int)dbMain.Instance.ExcuteScalar("SELECT dbo.TaoMaTuDong('User')");
+            if (likeName == null || likeName == "")
+                return GetListStudents(ref error, connectData);
+            return connectData.ExcuteQuery("EXEC [dbo].[GetListLikeStudent] " + likeName, ref error);
         }
 
-        public bool InsertStudent (string userName, string pass, string name, string phoneNumber, string address, string email, DateTime birthday, ref string error)
+        public int CreateID(dbMain connectData)
+        {
+            return (int)connectData.ExcuteScalar("SELECT [dbo].[AutomaticCodeGeneration]('User')");
+        }
+
+        public bool InsertStudent (string userName, string pass, string name, string phoneNumber, string address, string email, DateTime birthday, ref string error, dbMain connectData)
         {
             if (userName != null && userName != "")
             {
-                int iD = (int)dbMain.Instance.ExcuteScalar("SELECT dbo.TaoMaTuDong('User')");
-                int test1 = dbMain.Instance.ExcuteNonQuery("INSERT dbo.Account VALUES  ( " + iD + ", '" + userName + "', '" + pass + "', 4)", ref error);
-                int test2 = dbMain.Instance.ExcuteNonQuery("INSERT dbo.HocVien VALUES  ( " + iD + ", N'" + name + "', '" + phoneNumber + "', N'" + address + "', '" + email + "', '" + birthday.ToString("yyyy-MM-dd") + "')", ref error);
-                if (test1 > 0 && test2 > 0)
+                int iD = (int)connectData.ExcuteScalar("SELECT [dbo].[AutomaticCodeGeneration]('User')");
+
+                string query = "EXEC [dbo].[InsertStudent] " + iD + ", '" + userName + "', '" + pass + "', N'" + name + "', '" +  phoneNumber + "', N'" + address + "', '" + email + "', '" + birthday.ToString("yyyy-MM-dd") + "'";
+                
+                int test = dbMain.Instance.ExcuteNonQuery(query, ref error);
+                if (test > 0)
                     return true;
+                return false;
             }
             return false;
         }
     
-        public bool CheckUserName (string userName)
+        public bool CheckUserName (string userName, dbMain connectData)
         {
-            int t = (int)dbMain.Instance.ExcuteScalar("SELECT COUNT(*) FROM dbo.Account WHERE TaiKhoan = '" + userName + "'");
+            int t = (int)connectData.ExcuteScalar("EXEC [dbo].[CheckUserName] "+ userName);
             if (t > 0)
                 return false;
             return true;
         }
 
-        public bool UpdateStudent(int id, string name, string phoneNumber, string address, string email, DateTime birthday, ref string error)
+        public bool UpdateStudent(int id, string name, string phoneNumber, string address, string email, DateTime birthday, string pass, string passOld, ref string error)
         {
-            int test = dbMain.Instance.ExcuteNonQuery("UPDATE dbo.HocVien SET HoTen=N'" + name + "', SDT= '" + phoneNumber + "' , DiaChi=N'" + address + "',Email= '" + email + "' , NgaySinh='" + birthday.ToString("yyyy-MM-dd") + "' WHERE MaHocVien= " + id + "", ref error);
+            string query = "EXEC [dbo].[UpdateStudent] " + id + ", N'" + name + "', '" + phoneNumber + "', N'" + address + "', '" + email + "', '" + birthday.ToString("yyyy-MM-dd") + "', '" + pass + "', '" + passOld + "'";
+            int test = dbMain.Instance.ExcuteNonQuery(query, ref error);
             if (test > 0)
                 return true;
             return false;

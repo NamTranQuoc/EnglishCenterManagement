@@ -1,7 +1,7 @@
 ﻿
 namespace ProjectHQTCSDL.Usercontrol
 {
-    partial class Cources_UserControl
+    partial class Courses_UserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -56,11 +56,9 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.rbtAll = new System.Windows.Forms.RadioButton();
             this.rbtHide = new System.Windows.Forms.RadioButton();
             this.rbtAvailable = new System.Windows.Forms.RadioButton();
-            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListCources)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabEdit.SuspendLayout();
@@ -89,7 +87,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // colID
             // 
-            this.colID.DataPropertyName = "MaKhoaHoc";
+            this.colID.DataPropertyName = "IdCourse";
             this.colID.HeaderText = "Cource\'s ID";
             this.colID.MinimumWidth = 6;
             this.colID.Name = "colID";
@@ -98,7 +96,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // colName
             // 
-            this.colName.DataPropertyName = "TenKhoaHoc";
+            this.colName.DataPropertyName = "NameCourse";
             this.colName.HeaderText = "Name";
             this.colName.MinimumWidth = 6;
             this.colName.Name = "colName";
@@ -107,7 +105,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // colNoOfSessions
             // 
-            this.colNoOfSessions.DataPropertyName = "SoBuoi";
+            this.colNoOfSessions.DataPropertyName = "NOS";
             this.colNoOfSessions.HeaderText = "Number of sessions";
             this.colNoOfSessions.MinimumWidth = 6;
             this.colNoOfSessions.Name = "colNoOfSessions";
@@ -116,7 +114,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // colTuitionFee
             // 
-            this.colTuitionFee.DataPropertyName = "HocPhi";
+            this.colTuitionFee.DataPropertyName = "Tuition";
             this.colTuitionFee.HeaderText = "Tuition fee";
             this.colTuitionFee.MinimumWidth = 6;
             this.colTuitionFee.Name = "colTuitionFee";
@@ -155,22 +153,26 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // btnHideOrAvailable
             // 
+            this.btnHideOrAvailable.BackColor = System.Drawing.Color.Brown;
+            this.btnHideOrAvailable.ForeColor = System.Drawing.Color.White;
             this.btnHideOrAvailable.Location = new System.Drawing.Point(235, 538);
             this.btnHideOrAvailable.Name = "btnHideOrAvailable";
             this.btnHideOrAvailable.Size = new System.Drawing.Size(150, 42);
-            this.btnHideOrAvailable.TabIndex = 5;
+            this.btnHideOrAvailable.TabIndex = 4;
             this.btnHideOrAvailable.Text = "Hide";
-            this.btnHideOrAvailable.UseVisualStyleBackColor = true;
+            this.btnHideOrAvailable.UseVisualStyleBackColor = false;
             this.btnHideOrAvailable.Click += new System.EventHandler(this.btnHideOrAvailable_Click);
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.Color.Green;
+            this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(27, 538);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(150, 42);
-            this.btnSave.TabIndex = 4;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtID
@@ -186,21 +188,21 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtName.Location = new System.Drawing.Point(166, 177);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(219, 26);
-            this.txtName.TabIndex = 6;
+            this.txtName.TabIndex = 0;
             // 
             // txtTuitionFee
             // 
             this.txtTuitionFee.Location = new System.Drawing.Point(166, 377);
             this.txtTuitionFee.Name = "txtTuitionFee";
             this.txtTuitionFee.Size = new System.Drawing.Size(219, 26);
-            this.txtTuitionFee.TabIndex = 5;
+            this.txtTuitionFee.TabIndex = 2;
             // 
             // txtNo
             // 
             this.txtNo.Location = new System.Drawing.Point(166, 277);
             this.txtNo.Name = "txtNo";
             this.txtNo.Size = new System.Drawing.Size(219, 26);
-            this.txtNo.TabIndex = 4;
+            this.txtNo.TabIndex = 1;
             // 
             // label4
             // 
@@ -259,12 +261,14 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.Green;
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(141, 536);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(150, 42);
-            this.btnAdd.TabIndex = 5;
+            this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtIDNew
@@ -280,21 +284,21 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtNameNew.Location = new System.Drawing.Point(166, 177);
             this.txtNameNew.Name = "txtNameNew";
             this.txtNameNew.Size = new System.Drawing.Size(219, 26);
-            this.txtNameNew.TabIndex = 16;
+            this.txtNameNew.TabIndex = 7;
             // 
             // txtTuitionFeeNew
             // 
             this.txtTuitionFeeNew.Location = new System.Drawing.Point(166, 377);
             this.txtTuitionFeeNew.Name = "txtTuitionFeeNew";
             this.txtTuitionFeeNew.Size = new System.Drawing.Size(219, 26);
-            this.txtTuitionFeeNew.TabIndex = 15;
+            this.txtTuitionFeeNew.TabIndex = 9;
             // 
             // txtNoNew
             // 
             this.txtNoNew.Location = new System.Drawing.Point(166, 277);
             this.txtNoNew.Name = "txtNoNew";
             this.txtNoNew.Size = new System.Drawing.Size(219, 26);
-            this.txtNoNew.TabIndex = 14;
+            this.txtNoNew.TabIndex = 8;
             // 
             // label5
             // 
@@ -332,14 +336,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label8.TabIndex = 10;
             this.label8.Text = "Cource\'ID:";
             // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(69, 3);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(354, 26);
-            this.txtSearch.TabIndex = 2;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
             // rbtAll
             // 
             this.rbtAll.AutoSize = true;
@@ -375,29 +371,19 @@ namespace ProjectHQTCSDL.Usercontrol
             this.rbtAvailable.UseVisualStyleBackColor = true;
             this.rbtAvailable.CheckedChanged += new System.EventHandler(this.rbtAvailable_CheckedChanged);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 6);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 20);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "Search";
-            // 
-            // Cources_UserControl
+            // Courses_UserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label9);
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.rbtAvailable);
             this.Controls.Add(this.rbtHide);
             this.Controls.Add(this.rbtAll);
-            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.dgvListCources);
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Cources_UserControl";
+            this.Name = "Courses_UserControl";
             this.Size = new System.Drawing.Size(1233, 674);
             this.Load += new System.EventHandler(this.Cources_UserControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListCources)).EndInit();
@@ -414,10 +400,6 @@ namespace ProjectHQTCSDL.Usercontrol
         #endregion
 
         private System.Windows.Forms.DataGridView dgvListCources;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNoOfSessions;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTuitionFee;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabEdit;
         private System.Windows.Forms.Button btnHideOrAvailable;
@@ -440,10 +422,12 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.RadioButton rbtAll;
         private System.Windows.Forms.RadioButton rbtHide;
         private System.Windows.Forms.RadioButton rbtAvailable;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNoOfSessions;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTuitionFee;
     }
 }

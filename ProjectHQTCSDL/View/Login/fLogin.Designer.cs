@@ -29,6 +29,7 @@ namespace ProjectHQTCSDL.View.Login
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fLogin));
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -217,6 +218,7 @@ namespace ProjectHQTCSDL.View.Login
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.panel7);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

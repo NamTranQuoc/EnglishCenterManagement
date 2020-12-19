@@ -10,24 +10,24 @@ namespace ProjectHQTCSDL.BS_Layer
 {
     public class Reports
     {
-        public DataTable ReportSumOfCourse()
+        public DataTable ReportSumOfCourse(ref string error, dbMain connectData)
         {
-            return dbMain.Instance.ExcuteQuery("EXECUTE dbo.BaoCaoDoanhThuTheoKhoa");
+            return connectData.ExcuteQuery("EXECUTE [dbo].[ReportFlollowCourse]", ref error);
         }
 
-        public DataTable ReportTeacherOfCource()
+        public DataTable ReportTeacherOfCource(ref string error, dbMain connectData)
         {
-            return dbMain.Instance.ExcuteQuery("EXECUTE dbo.BaoCaoGiaoVienThuocKhoaHoc");
+            return connectData.ExcuteQuery("EXECUTE [dbo].[ReportTeacherOfCourse]", ref error);
         }
 
-        public DataTable ReportClassOfCourse()
+        public DataTable ReportClassOfCourse(ref string error, dbMain connectData)
         {
-            return dbMain.Instance.ExcuteQuery("EXECUTE dbo.BaoCaoLopThuocKhoa");
+            return connectData.ExcuteQuery("EXECUTE [dbo].[ReportClassOfCourse]", ref error);
         }
 
-        public DataTable ReportStudentOfClass()
+        public DataTable ReportStudentOfClass(ref string error, dbMain connectData)
         {
-            return dbMain.Instance.ExcuteQuery("EXECUTE dbo.BaoCaoHocVienThuocLop");
+            return connectData.ExcuteQuery("EXECUTE [dbo].[ReportStudentOfClass]", ref error);
         }
     }
 }

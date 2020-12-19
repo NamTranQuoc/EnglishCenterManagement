@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectHQTCSDL.BS_Layer;
+using ProjectHQTCSDL.DB_Layer;
 using ProjectHQTCSDL.View.Dashboard;
 
 namespace ProjectHQTCSDL.View.Login
@@ -15,6 +16,8 @@ namespace ProjectHQTCSDL.View.Login
     public partial class fLogin : Form
     {
         Login_Signup log;
+
+        public dbMain connectData;
         public fLogin()
         {
             InitializeComponent();
@@ -23,23 +26,30 @@ namespace ProjectHQTCSDL.View.Login
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            int TypeUser = log.CheckLogin(txtUserName.Text, txtPassword.Text);
+            int TypeUser = log.CheckLogin(txtUserName.Text, txtPassword.Text, connectData);
             switch (TypeUser)
             {
                 case 1:
                     fAdminDashboard f1 = new fAdminDashboard();
+                    f1.connectData = new dbMain(txtUserName.Text, txtPassword.Text);
                     f1.ShowDialog();
                     this.Close();
                     break;
                 case 3:
                     fTeacherDashboard f3 = new fTeacherDashboard();
-                    f3.IDUser = log.GetID(txtUserName.Text);
+                    f3.passOld = txtPassword.Text;
+                    f3.TaiKhoan = txtUserName.Text;
+                    f3.IDUser = log.GetID(txtUserName.Text, connectData);
+                    f3.connectData = new dbMain(txtUserName.Text, txtPassword.Text);
                     f3.ShowDialog();
                     this.Close();
                     break;
                 case 4:
                     fStudentDashboard f4 = new fStudentDashboard();
-                    f4.IDUser = log.GetID(txtUserName.Text.Trim());
+                    f4.passOld = txtPassword.Text;
+                    f4.TaiKhoan = txtUserName.Text;
+                    f4.IDUser = log.GetID(txtUserName.Text.Trim(), connectData);
+                    f4.connectData = new dbMain(txtUserName.Text, txtPassword.Text);
                     f4.ShowDialog();
                     this.Close();
                     break;
@@ -72,6 +82,7 @@ namespace ProjectHQTCSDL.View.Login
         private void llbRegisterForStudent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             fSignUp sign = new fSignUp();
+            sign.connectData = this.connectData;
             sign.ShowDialog();
             txtUserName.Text = sign.UserName;
             txtPassword.Text = sign.Password;

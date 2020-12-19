@@ -45,6 +45,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             // 
             // pUserControl
             // 
+            this.pUserControl.BackColor = System.Drawing.Color.White;
             this.pUserControl.Location = new System.Drawing.Point(227, 83);
             this.pUserControl.Name = "pUserControl";
             this.pUserControl.Size = new System.Drawing.Size(1233, 674);
@@ -168,6 +169,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "fStudentDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

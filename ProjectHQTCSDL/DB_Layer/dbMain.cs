@@ -10,30 +10,53 @@ namespace ProjectHQTCSDL.DB_Layer
 {
     public class dbMain
     {
+        private string connectionString;
         private static dbMain instance;
-        private string connectionString = "Data Source = (local);" + "Initial Catalog = TrungTamAnhNgu;" + "Integrated Security = True";
-
         public static dbMain Instance
         {
-            get { if (instance == null) instance = new dbMain(); return dbMain.instance; }
+            get { if (instance == null) instance = new dbMain("Data Source=(local);Initial Catalog=EnglishCenterDB;Integrated Security=True"); return dbMain.instance; }
             private set => instance = value;
         }
-        private dbMain() { }
-        public DataTable ExcuteQuery(string query)
+
+        public dbMain(string connect)
+        {
+            connectionString = connect;
+        }
+
+        public dbMain() 
+        {
+            connectionString = "Data Source = (local); Initial Catalog = EnglishCenterDB; User ID = login_guest; Password = 1@34a";
+        }
+
+        public dbMain(string userName, string password)
+        {
+            connectionString = "Data Source = (local); Initial Catalog = EnglishCenterDB; User ID = " + userName + "; Password = " + password;
+        }
+
+        public DataTable ExcuteQuery(string query, ref string error)
         {
             DataTable data = new DataTable();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
+                try
+                {
+                    SqlCommand command = new SqlCommand(query, connection);
 
-                SqlCommand command = new SqlCommand(query, connection);
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
 
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-
-                adapter.Fill(data);
-
-                connection.Close();
+                    adapter.Fill(data);
+                }
+                catch (SqlException e)
+                {
+                    error = e.Message;
+                    data = null;
+                }
+                finally
+                {
+                    connection.Close();
+                }       
             }
             return data;
         }
@@ -70,10 +93,18 @@ namespace ProjectHQTCSDL.DB_Layer
                 connection.Open();
 
                 SqlCommand command = new SqlCommand(query, connection);
-
-                data = command.ExecuteScalar();
-
-                connection.Close();
+                try
+                {
+                    data = command.ExecuteScalar();
+                }
+                catch (SqlException e)
+                {
+                    string s = e.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
             return data;
         }
@@ -88,6 +119,7 @@ namespace ProjectHQTCSDL.DB_Layer
             connection.Open();
             comm.CommandText = strSql;
             comm.CommandType = ct;
+            connection.Close();
             return comm.ExecuteReader();
         }
     }

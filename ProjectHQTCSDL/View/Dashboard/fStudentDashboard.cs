@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectHQTCSDL.BS_Layer;
+using ProjectHQTCSDL.DB_Layer;
 using ProjectHQTCSDL.Usercontrol;
 
 namespace ProjectHQTCSDL.View.Dashboard
@@ -19,7 +20,9 @@ namespace ProjectHQTCSDL.View.Dashboard
         MakeUpClass_UserControl MUC_UC;
         YourInformation_UserControl infor;
         EnrollInClass_UserControl enr;
-
+        public dbMain connectData;
+        public string passOld;
+        public string TaiKhoan;
         public fStudentDashboard()
         {  
             InitializeComponent();           
@@ -29,14 +32,21 @@ namespace ProjectHQTCSDL.View.Dashboard
         {
             sche = new Schedule_UserControl();
             MUC_UC = new MakeUpClass_UserControl();
-            this.enr = new EnrollInClass_UserControl();
+            enr = new EnrollInClass_UserControl();
             infor = new YourInformation_UserControl();
 
+            sche.connectData = this.connectData;
+            MUC_UC.connectData = this.connectData;
+            enr.connectData = this.connectData;
+            infor.connectData = this.connectData;
+            infor.passOld = this.passOld;
+            infor.userName = this.TaiKhoan;
+
             this.sche.IDUser = IDUser;
-            this.infor.IDTaiKhoan = IDUser;
+            this.infor.IdAccount = IDUser;
             this.infor.state = true;
             this.enr.iDStudent = this.IDUser;
-            this.MUC_UC.maHocVien = this.IDUser;
+            this.MUC_UC.IdStudent = this.IDUser;
 
             this.pUserControl.Controls.Add(sche);
             this.pUserControl.Controls.Add(MUC_UC);
@@ -50,6 +60,8 @@ namespace ProjectHQTCSDL.View.Dashboard
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
+            if (infor.f == true)
+                this.Close();
             enr.Hide();
             if (enr.f == true)
                 sche.LoadccbView();
@@ -60,6 +72,8 @@ namespace ProjectHQTCSDL.View.Dashboard
 
         private void btnMakeUpClass_Click(object sender, EventArgs e)
         {
+            if (infor.f == true)
+                this.Close();
             enr.Hide();
             sche.Hide();
             infor.Hide();
@@ -73,6 +87,8 @@ namespace ProjectHQTCSDL.View.Dashboard
 
         private void btnInformation_Click(object sender, EventArgs e)
         {
+            if (infor.f == true)
+                this.Close();
             enr.Hide();
             sche.Hide();
             infor.Show();
@@ -81,6 +97,8 @@ namespace ProjectHQTCSDL.View.Dashboard
 
         private void btnEnroll_Click(object sender, EventArgs e)
         {
+            if (infor.f == true)
+                this.Close();
             enr.f = false;
             enr.Show();
             sche.Hide();

@@ -10,23 +10,23 @@ namespace ProjectHQTCSDL.BS_Layer
 {
     public class Expenses
     {
-        public DataTable GetExpense()
+        public DataTable GetExpense(ref string error, dbMain connectData)
         {
-            string query = "Exec HocVienExpense ";
-            return dbMain.Instance.ExcuteQuery(query);
+            string query = "Exec [StudentExpense] ";
+            return connectData.ExcuteQuery(query, ref error);
         }
 
-        public DataTable GetExpenseByCourse(string nameCourse)
+        public DataTable GetExpenseByCourse(string nameCourse, ref string error, dbMain connectData)
         {
-            string query = "Exec HocVienExpenseByCourse @tenkhoahoc = '" + nameCourse + "'";
-            return dbMain.Instance.ExcuteQuery(query);
+            string query = "Exec [StudentExpenseByCourse] '" + nameCourse + "'";
+            return connectData.ExcuteQuery(query, ref error);
         }
 
-        public bool UpdateExpense(int MaLop, int MaHocVien, string bit, ref string error)
+        public bool UpdateExpense(int idClass, int idStudent, string bit, ref string error, dbMain connectData)
         {
-            string query = "Exec UpdateExpense @mahocvien = " + MaHocVien + ", @malop = " + MaLop + ", @trangthai = '" + bit + "'";
+            string query = "Exec [UpdateExpense] " + idStudent + ", " + idClass + ", '" + bit + "'";
 
-            int result = dbMain.Instance.ExcuteNonQuery(query, ref error);
+            int result = connectData.ExcuteNonQuery(query, ref error);
 
             if (result > 0)
                 return true;

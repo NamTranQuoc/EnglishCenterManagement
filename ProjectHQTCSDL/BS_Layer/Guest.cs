@@ -10,14 +10,14 @@ namespace ProjectHQTCSDL.BS_Layer
 {
     public class Guest
     {
-        public DataTable GetListNameCource()
+        public DataTable GetListNameCource(ref string error, dbMain connectData)
         {
-            return dbMain.Instance.ExcuteQuery("SELECT TenKhoaHoc, MaKhoaHoc FROM dbo.KhoaHoc"); 
+            return connectData.ExcuteQuery("EXEC [GetListNameCourse]", ref error); 
         }
 
-        public DataTable GetListClassOfCource(int id)
+        public DataTable GetListClassOfCource(int id, ref string error, dbMain connectData)
         {
-            return dbMain.Instance.ExcuteQuery("EXEC dbo.LopTheoKhoaHoc " + id);
+            return connectData.ExcuteQuery("EXEC [dbo].[GetClassOfCourse] " + id, ref error);
         }
     }
 }

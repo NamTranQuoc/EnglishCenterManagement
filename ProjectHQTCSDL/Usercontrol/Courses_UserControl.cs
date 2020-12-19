@@ -8,39 +8,65 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectHQTCSDL.BS_Layer;
+using ProjectHQTCSDL.DB_Layer;
 
 namespace ProjectHQTCSDL.Usercontrol
 {
-    public partial class Cources_UserControl : UserControl
+    public partial class Courses_UserControl : UserControl
     {
-        Cources cou;
+        Courses cou;
         public bool f;
-        public Cources_UserControl()
+
+        public dbMain connectData;
+
+        public Courses_UserControl()
         {
             InitializeComponent();
-            cou = new Cources();
+            cou = new Courses();
             f = false;
         }
 
         private void Cources_UserControl_Load(object sender, EventArgs e)
         {
-            this.dgvListCources.DataSource = cou.GetListCources(1);
-            this.txtIDNew.Text = cou.CreateID().ToString();
+            string error = "";
+            DataTable dt = cou.GetListCources(1, ref error, connectData);
+            if (dt != null)
+            {
+                this.dgvListCources.DataSource = dt;
+                this.txtIDNew.Text = cou.CreateID(connectData).ToString();
+            }
+            else
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void rbtAvailable_CheckedChanged(object sender, EventArgs e)
         {
-            this.dgvListCources.DataSource = cou.GetListCources(1);
+            string error = "";
+            DataTable dt = cou.GetListCources(1, ref error, connectData);
+            if (dt != null)
+                this.dgvListCources.DataSource = dt;
+            else
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void rbtHide_CheckedChanged(object sender, EventArgs e)
         {
-            this.dgvListCources.DataSource = cou.GetListCources(2);
+            string error = "";
+            DataTable dt = cou.GetListCources(2, ref error, connectData);
+            if (dt != null)
+                this.dgvListCources.DataSource = dt;
+            else
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void rbtAll_CheckedChanged(object sender, EventArgs e)
         {
-            this.dgvListCources.DataSource = cou.GetListCources(0);
+            string error = "";
+            DataTable dt = cou.GetListCources(0, ref error, connectData);
+            if (dt != null)
+                this.dgvListCources.DataSource = dt;
+            else
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void dgvListCources_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -56,6 +82,22 @@ namespace ProjectHQTCSDL.Usercontrol
                 btnHideOrAvailable.Text = "Show";
         }
 
+        public void GetListCources ()
+        {
+            string error = "";
+            DataTable dt;
+            if (rbtAll.Checked == true)
+                dt = cou.GetListCources(0, ref error, connectData);
+            else if (rbtAvailable.Checked == true)
+                dt= cou.GetListCources(1, ref error, connectData);
+            else
+                dt = cou.GetListCources(2, ref error, connectData);
+            if (dt != null)
+                this.dgvListCources.DataSource = dt;
+            else
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (txtName.Text != null && txtName.Text != "" && txtNo.Text != null && txtNo.Text != "" && txtTuitionFee.Text != null && txtTuitionFee.Text != "")
@@ -66,15 +108,10 @@ namespace ProjectHQTCSDL.Usercontrol
                 if (tNo != false && tTuition != false)
                 {
                     string error = "";
-                    bool t = cou.UpdateCource(int.Parse(txtID.Text), txtName.Text, tuition, no, ref error);
+                    bool t = cou.UpdateCource(int.Parse(txtID.Text), txtName.Text, tuition, no, ref error, connectData);
                     if (t == true)
                     {
-                        if (rbtAll.Checked == true)
-                            this.dgvListCources.DataSource = cou.GetListCources(0);
-                        else if (rbtAvailable.Checked == true)
-                            this.dgvListCources.DataSource = cou.GetListCources(1);
-                        else
-                            this.dgvListCources.DataSource = cou.GetListCources(2);
+                        this.GetListCources();
                         MessageBox.Show("Update successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         f = true; // set biến cờ để load lại lịch nếu có thay đổi
                     }
@@ -94,17 +131,12 @@ namespace ProjectHQTCSDL.Usercontrol
             bool t;
             string error = "";
             if (btnHideOrAvailable.Text == "Hide")
-                t = cou.UpdateStatus(int.Parse(txtID.Text), 0, ref error);
+                t = cou.UpdateStatus(int.Parse(txtID.Text), 0, ref error, connectData);
             else
-                t = cou.UpdateStatus(int.Parse(txtID.Text), 1, ref error);
+                t = cou.UpdateStatus(int.Parse(txtID.Text), 1, ref error, connectData);
             if (t == true)
             {
-                if (rbtAll.Checked == true)
-                    this.dgvListCources.DataSource = cou.GetListCources(0);
-                else if (rbtAvailable.Checked == true)
-                    this.dgvListCources.DataSource = cou.GetListCources(1);
-                else
-                    this.dgvListCources.DataSource = cou.GetListCources(2);
+                this.GetListCources();
                 MessageBox.Show("Update successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -120,24 +152,19 @@ namespace ProjectHQTCSDL.Usercontrol
                 bool tTuition = int.TryParse(txtTuitionFeeNew.Text, out tuition);
                 if (tNo != false && tTuition != false)
                 {
-                    string error = "";
-                    bool t = cou.InsertCource(int.Parse(txtIDNew.Text), txtNameNew.Text, no, tuition, ref error);
+                    string error = "Error";
+                    bool t = cou.InsertCource(int.Parse(txtIDNew.Text), txtNameNew.Text, no, tuition, ref error, connectData);
                     if (t == true)
                     {
-                        if (rbtAll.Checked == true)
-                            this.dgvListCources.DataSource = cou.GetListCources(0);
-                        else if (rbtAvailable.Checked == true)
-                            this.dgvListCources.DataSource = cou.GetListCources(1);
-                        else
-                            this.dgvListCources.DataSource = cou.GetListCources(2);
-                        txtIDNew.Text = cou.CreateID().ToString();
+                        this.GetListCources();
+                        txtIDNew.Text = cou.CreateID(connectData).ToString();
                         txtNameNew.ResetText();
                         txtNoNew.ResetText();
                         txtTuitionFeeNew.ResetText();
                         MessageBox.Show("Insert successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
-                        MessageBox.Show("Error", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                     MessageBox.Show("Please enter a number for Number of session and Tuition fee", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -148,12 +175,7 @@ namespace ProjectHQTCSDL.Usercontrol
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            if (rbtAll.Checked == true)
-                this.dgvListCources.DataSource = cou.GetListLikeCource(0, txtSearch.Text);
-            else if (rbtAvailable.Checked == true)
-                this.dgvListCources.DataSource = cou.GetListLikeCource(1, txtSearch.Text);
-            else
-                this.dgvListCources.DataSource = cou.GetListLikeCource(2, txtSearch.Text);
+            this.GetListCources();
         }
     }
 }

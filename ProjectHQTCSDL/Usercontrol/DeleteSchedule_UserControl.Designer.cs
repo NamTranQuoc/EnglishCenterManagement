@@ -30,15 +30,15 @@ namespace ProjectHQTCSDL.Usercontrol
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgvSchedule = new System.Windows.Forms.DataGridView();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtpDay = new System.Windows.Forms.DateTimePicker();
-            this.cbbSession = new System.Windows.Forms.ComboBox();
-            this.cbbClass = new System.Windows.Forms.ComboBox();
             this.cbAllDay = new System.Windows.Forms.CheckBox();
+            this.cbbClass = new System.Windows.Forms.ComboBox();
+            this.cbbSession = new System.Windows.Forms.ComboBox();
+            this.dtpDay = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.dgvSchedule = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +65,86 @@ namespace ProjectHQTCSDL.Usercontrol
             this.panel1.Size = new System.Drawing.Size(297, 668);
             this.panel1.TabIndex = 0;
             // 
+            // cbAllDay
+            // 
+            this.cbAllDay.AutoSize = true;
+            this.cbAllDay.Checked = true;
+            this.cbAllDay.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbAllDay.Location = new System.Drawing.Point(232, 122);
+            this.cbAllDay.Name = "cbAllDay";
+            this.cbAllDay.Size = new System.Drawing.Size(45, 24);
+            this.cbAllDay.TabIndex = 8;
+            this.cbAllDay.Text = "All";
+            this.cbAllDay.UseVisualStyleBackColor = true;
+            this.cbAllDay.CheckedChanged += new System.EventHandler(this.cbAllDay_CheckedChanged);
+            // 
+            // cbbClass
+            // 
+            this.cbbClass.FormattingEnabled = true;
+            this.cbbClass.Location = new System.Drawing.Point(77, 231);
+            this.cbbClass.Name = "cbbClass";
+            this.cbbClass.Size = new System.Drawing.Size(200, 28);
+            this.cbbClass.TabIndex = 7;
+            this.cbbClass.SelectedIndexChanged += new System.EventHandler(this.cbbClass_SelectedIndexChanged);
+            // 
+            // cbbSession
+            // 
+            this.cbbSession.FormattingEnabled = true;
+            this.cbbSession.Location = new System.Drawing.Point(77, 341);
+            this.cbbSession.Name = "cbbSession";
+            this.cbbSession.Size = new System.Drawing.Size(200, 28);
+            this.cbbSession.TabIndex = 6;
+            this.cbbSession.SelectedIndexChanged += new System.EventHandler(this.cbbSession_SelectedIndexChanged);
+            // 
+            // dtpDay
+            // 
+            this.dtpDay.Enabled = false;
+            this.dtpDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDay.Location = new System.Drawing.Point(77, 122);
+            this.dtpDay.Name = "dtpDay";
+            this.dtpDay.Size = new System.Drawing.Size(149, 26);
+            this.dtpDay.TabIndex = 5;
+            this.dtpDay.ValueChanged += new System.EventHandler(this.dtpDay_ValueChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 234);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Class: ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 344);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Session: ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(25, 126);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Day: ";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Brown;
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(85, 561);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(136, 47);
+            this.btnDelete.TabIndex = 0;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // dgvSchedule
             // 
             this.dgvSchedule.AllowUserToAddRows = false;
@@ -84,87 +164,9 @@ namespace ProjectHQTCSDL.Usercontrol
             this.dgvSchedule.Size = new System.Drawing.Size(924, 668);
             this.dgvSchedule.TabIndex = 1;
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(85, 561);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(136, 47);
-            this.btnDelete.TabIndex = 0;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 126);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Day: ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 344);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Session: ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 234);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Class: ";
-            // 
-            // dtpDay
-            // 
-            this.dtpDay.Enabled = false;
-            this.dtpDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDay.Location = new System.Drawing.Point(77, 122);
-            this.dtpDay.Name = "dtpDay";
-            this.dtpDay.Size = new System.Drawing.Size(149, 26);
-            this.dtpDay.TabIndex = 5;
-            this.dtpDay.ValueChanged += new System.EventHandler(this.dtpDay_ValueChanged);
-            // 
-            // cbbSession
-            // 
-            this.cbbSession.FormattingEnabled = true;
-            this.cbbSession.Location = new System.Drawing.Point(77, 341);
-            this.cbbSession.Name = "cbbSession";
-            this.cbbSession.Size = new System.Drawing.Size(200, 28);
-            this.cbbSession.TabIndex = 6;
-            this.cbbSession.SelectedIndexChanged += new System.EventHandler(this.cbbSession_SelectedIndexChanged);
-            // 
-            // cbbClass
-            // 
-            this.cbbClass.FormattingEnabled = true;
-            this.cbbClass.Location = new System.Drawing.Point(77, 231);
-            this.cbbClass.Name = "cbbClass";
-            this.cbbClass.Size = new System.Drawing.Size(200, 28);
-            this.cbbClass.TabIndex = 7;
-            this.cbbClass.SelectedIndexChanged += new System.EventHandler(this.cbbClass_SelectedIndexChanged);
-            // 
-            // cbAllDay
-            // 
-            this.cbAllDay.AutoSize = true;
-            this.cbAllDay.Checked = true;
-            this.cbAllDay.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbAllDay.Location = new System.Drawing.Point(232, 122);
-            this.cbAllDay.Name = "cbAllDay";
-            this.cbAllDay.Size = new System.Drawing.Size(45, 24);
-            this.cbAllDay.TabIndex = 8;
-            this.cbAllDay.Text = "All";
-            this.cbAllDay.UseVisualStyleBackColor = true;
-            this.cbAllDay.CheckedChanged += new System.EventHandler(this.cbAllDay_CheckedChanged);
-            // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "MaLop";
+            this.Column1.DataPropertyName = "IdClass";
             this.Column1.HeaderText = "ID Class";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -172,7 +174,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "Buoi";
+            this.Column2.DataPropertyName = "Session";
             this.Column2.HeaderText = "Session";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -180,7 +182,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column3
             // 
-            this.Column3.DataPropertyName = "TenPhong";
+            this.Column3.DataPropertyName = "NameClassroom";
             this.Column3.HeaderText = "Class room";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -188,7 +190,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column4
             // 
-            this.Column4.DataPropertyName = "NgayHoc";
+            this.Column4.DataPropertyName = "Day";
             this.Column4.HeaderText = "Day";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -196,7 +198,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column5
             // 
-            this.Column5.DataPropertyName = "HoTen";
+            this.Column5.DataPropertyName = "NameTeacher";
             this.Column5.HeaderText = "Teacher";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -204,10 +206,11 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column6
             // 
-            this.Column6.DataPropertyName = "CaHoc";
+            this.Column6.DataPropertyName = "Shift";
             this.Column6.HeaderText = "Shift";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            this.Column6.Width = 130;
             // 
             // Select
             // 
@@ -222,6 +225,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.dgvSchedule);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -29,13 +29,14 @@ namespace ProjectHQTCSDL.View.Dashboard
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fGuestDashboard));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnHome = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pUserControl = new System.Windows.Forms.Panel();
             this.flpCource = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnHome = new System.Windows.Forms.Button();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pUserControl.SuspendLayout();
@@ -51,42 +52,6 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(225, 756);
             this.panel1.TabIndex = 3;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.SeaGreen;
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.ForeColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(227, 1);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1233, 81);
-            this.panel2.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(245, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Guest Dashboard";
-            // 
-            // pUserControl
-            // 
-            this.pUserControl.Controls.Add(this.flpCource);
-            this.pUserControl.Location = new System.Drawing.Point(227, 83);
-            this.pUserControl.Name = "pUserControl";
-            this.pUserControl.Size = new System.Drawing.Size(1233, 674);
-            this.pUserControl.TabIndex = 5;
-            // 
-            // flpCource
-            // 
-            this.flpCource.AutoScroll = true;
-            this.flpCource.Location = new System.Drawing.Point(55, 53);
-            this.flpCource.Name = "flpCource";
-            this.flpCource.Size = new System.Drawing.Size(1135, 580);
-            this.flpCource.TabIndex = 0;
             // 
             // btnHome
             // 
@@ -118,6 +83,43 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.SeaGreen;
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.ForeColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(227, 1);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1233, 81);
+            this.panel2.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(200, 33);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "English Center";
+            // 
+            // pUserControl
+            // 
+            this.pUserControl.BackColor = System.Drawing.Color.White;
+            this.pUserControl.Controls.Add(this.flpCource);
+            this.pUserControl.Location = new System.Drawing.Point(227, 83);
+            this.pUserControl.Name = "pUserControl";
+            this.pUserControl.Size = new System.Drawing.Size(1233, 674);
+            this.pUserControl.TabIndex = 5;
+            // 
+            // flpCource
+            // 
+            this.flpCource.AutoScroll = true;
+            this.flpCource.Location = new System.Drawing.Point(55, 53);
+            this.flpCource.Name = "flpCource";
+            this.flpCource.Size = new System.Drawing.Size(1135, 580);
+            this.flpCource.TabIndex = 0;
+            // 
             // fGuestDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -127,6 +129,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pUserControl);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fGuestDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

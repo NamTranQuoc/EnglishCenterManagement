@@ -61,9 +61,10 @@ namespace ProjectHQTCSDL.Usercontrol
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
             this.tabEdit = new System.Windows.Forms.TabPage();
+            this.btnResetPass = new System.Windows.Forms.Button();
+            this.txtSalary = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.txtSalary = new System.Windows.Forms.TextBox();
             this.tabAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListTeachers)).BeginInit();
             this.tabEdit.SuspendLayout();
@@ -91,14 +92,14 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtName.Location = new System.Drawing.Point(184, 127);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 26);
-            this.txtName.TabIndex = 20;
+            this.txtName.TabIndex = 8;
             // 
             // txtAddress
             // 
             this.txtAddress.Location = new System.Drawing.Point(184, 281);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(200, 26);
-            this.txtAddress.TabIndex = 19;
+            this.txtAddress.TabIndex = 10;
             // 
             // label9
             // 
@@ -114,7 +115,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtPhone.Location = new System.Drawing.Point(184, 203);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(200, 26);
-            this.txtPhone.TabIndex = 18;
+            this.txtPhone.TabIndex = 9;
             // 
             // label4
             // 
@@ -180,7 +181,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtUsername.Location = new System.Drawing.Point(179, 105);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(200, 26);
-            this.txtUsername.TabIndex = 35;
+            this.txtUsername.TabIndex = 0;
             // 
             // label10
             // 
@@ -196,7 +197,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtSalaryNew.Location = new System.Drawing.Point(179, 396);
             this.txtSalaryNew.Name = "txtSalaryNew";
             this.txtSalaryNew.Size = new System.Drawing.Size(200, 26);
-            this.txtSalaryNew.TabIndex = 33;
+            this.txtSalaryNew.TabIndex = 5;
             // 
             // label5
             // 
@@ -220,21 +221,21 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtNameNew.Location = new System.Drawing.Point(179, 174);
             this.txtNameNew.Name = "txtNameNew";
             this.txtNameNew.Size = new System.Drawing.Size(200, 26);
-            this.txtNameNew.TabIndex = 30;
+            this.txtNameNew.TabIndex = 1;
             // 
             // txtAddressNew
             // 
             this.txtAddressNew.Location = new System.Drawing.Point(179, 328);
             this.txtAddressNew.Name = "txtAddressNew";
             this.txtAddressNew.Size = new System.Drawing.Size(200, 26);
-            this.txtAddressNew.TabIndex = 29;
+            this.txtAddressNew.TabIndex = 4;
             // 
             // txtPhoneNew
             // 
             this.txtPhoneNew.Location = new System.Drawing.Point(179, 250);
             this.txtPhoneNew.Name = "txtPhoneNew";
             this.txtPhoneNew.Size = new System.Drawing.Size(200, 26);
-            this.txtPhoneNew.TabIndex = 28;
+            this.txtPhoneNew.TabIndex = 3;
             // 
             // label6
             // 
@@ -274,12 +275,14 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.Green;
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(141, 536);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(150, 42);
-            this.btnAdd.TabIndex = 18;
+            this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dgvListTeachers
@@ -305,7 +308,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // colID
             // 
-            this.colID.DataPropertyName = "MaGiaoVien";
+            this.colID.DataPropertyName = "IdTeacher";
             this.colID.HeaderText = "ID";
             this.colID.Name = "colID";
             this.colID.ReadOnly = true;
@@ -313,7 +316,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "HoTen";
+            this.Column1.DataPropertyName = "NameTeacher";
             this.Column1.HeaderText = "Full name";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -321,7 +324,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "SDT";
+            this.Column2.DataPropertyName = "PhoneNumber";
             this.Column2.HeaderText = "Phone Number";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -329,7 +332,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column3
             // 
-            this.Column3.DataPropertyName = "DiaChi";
+            this.Column3.DataPropertyName = "Address";
             this.Column3.HeaderText = "Address";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -337,7 +340,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column4
             // 
-            this.Column4.DataPropertyName = "LuongCoBan";
+            this.Column4.DataPropertyName = "Salary";
             this.Column4.HeaderText = "Salary";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -345,16 +348,19 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(126, 504);
+            this.btnSave.BackColor = System.Drawing.Color.Green;
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(41, 513);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(150, 42);
-            this.btnSave.TabIndex = 8;
+            this.btnSave.TabIndex = 12;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // tabEdit
             // 
+            this.tabEdit.Controls.Add(this.btnResetPass);
             this.tabEdit.Controls.Add(this.txtSalary);
             this.tabEdit.Controls.Add(this.label12);
             this.tabEdit.Controls.Add(this.txtID);
@@ -373,6 +379,25 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabEdit.TabIndex = 0;
             this.tabEdit.Text = "Edit";
             this.tabEdit.UseVisualStyleBackColor = true;
+            // 
+            // btnResetPass
+            // 
+            this.btnResetPass.BackColor = System.Drawing.Color.Brown;
+            this.btnResetPass.ForeColor = System.Drawing.Color.White;
+            this.btnResetPass.Location = new System.Drawing.Point(234, 513);
+            this.btnResetPass.Name = "btnResetPass";
+            this.btnResetPass.Size = new System.Drawing.Size(150, 42);
+            this.btnResetPass.TabIndex = 13;
+            this.btnResetPass.Text = "Reset Pass";
+            this.btnResetPass.UseVisualStyleBackColor = false;
+            this.btnResetPass.Click += new System.EventHandler(this.btnResetPass_Click);
+            // 
+            // txtSalary
+            // 
+            this.txtSalary.Location = new System.Drawing.Point(184, 351);
+            this.txtSalary.Name = "txtSalary";
+            this.txtSalary.Size = new System.Drawing.Size(200, 26);
+            this.txtSalary.TabIndex = 11;
             // 
             // label12
             // 
@@ -393,17 +418,11 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabControl.Size = new System.Drawing.Size(421, 668);
             this.tabControl.TabIndex = 16;
             // 
-            // txtSalary
-            // 
-            this.txtSalary.Location = new System.Drawing.Point(184, 351);
-            this.txtSalary.Name = "txtSalary";
-            this.txtSalary.Size = new System.Drawing.Size(200, 26);
-            this.txtSalary.TabIndex = 25;
-            // 
             // Teachers_UserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dgvListTeachers);
@@ -436,7 +455,6 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabAdd;
-        private System.Windows.Forms.TextBox txtIDNew;
         private System.Windows.Forms.TextBox txtNameNew;
         private System.Windows.Forms.TextBox txtAddressNew;
         private System.Windows.Forms.TextBox txtPhoneNew;
@@ -450,15 +468,17 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.TabPage tabEdit;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.TextBox txtSalaryNew;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtSalary;
+        public System.Windows.Forms.TextBox txtIDNew;
+        private System.Windows.Forms.Button btnResetPass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

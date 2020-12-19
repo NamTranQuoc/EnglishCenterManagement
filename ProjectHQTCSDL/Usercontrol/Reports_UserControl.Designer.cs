@@ -40,42 +40,50 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // btnStudentsInClass
             // 
+            this.btnStudentsInClass.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnStudentsInClass.ForeColor = System.Drawing.Color.White;
             this.btnStudentsInClass.Location = new System.Drawing.Point(185, 27);
             this.btnStudentsInClass.Name = "btnStudentsInClass";
             this.btnStudentsInClass.Size = new System.Drawing.Size(204, 38);
             this.btnStudentsInClass.TabIndex = 1;
             this.btnStudentsInClass.Text = "Students In Class";
-            this.btnStudentsInClass.UseVisualStyleBackColor = true;
+            this.btnStudentsInClass.UseVisualStyleBackColor = false;
             this.btnStudentsInClass.Click += new System.EventHandler(this.btnStudentsInClass_Click);
             // 
             // btnTeacherOfTheCourse
             // 
+            this.btnTeacherOfTheCourse.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnTeacherOfTheCourse.ForeColor = System.Drawing.Color.White;
             this.btnTeacherOfTheCourse.Location = new System.Drawing.Point(391, 27);
             this.btnTeacherOfTheCourse.Name = "btnTeacherOfTheCourse";
             this.btnTeacherOfTheCourse.Size = new System.Drawing.Size(204, 38);
             this.btnTeacherOfTheCourse.TabIndex = 1;
             this.btnTeacherOfTheCourse.Text = "Teacher Of The Course";
-            this.btnTeacherOfTheCourse.UseVisualStyleBackColor = true;
+            this.btnTeacherOfTheCourse.UseVisualStyleBackColor = false;
             this.btnTeacherOfTheCourse.Click += new System.EventHandler(this.btnTeacherOfTheCourse_Click);
             // 
             // btnClassOfCourse
             // 
+            this.btnClassOfCourse.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnClassOfCourse.ForeColor = System.Drawing.Color.White;
             this.btnClassOfCourse.Location = new System.Drawing.Point(597, 27);
             this.btnClassOfCourse.Name = "btnClassOfCourse";
             this.btnClassOfCourse.Size = new System.Drawing.Size(204, 38);
             this.btnClassOfCourse.TabIndex = 1;
             this.btnClassOfCourse.Text = "Class Of Course";
-            this.btnClassOfCourse.UseVisualStyleBackColor = true;
+            this.btnClassOfCourse.UseVisualStyleBackColor = false;
             this.btnClassOfCourse.Click += new System.EventHandler(this.btnClassOfCourse_Click);
             // 
             // btnRevenueCenter
             // 
+            this.btnRevenueCenter.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnRevenueCenter.ForeColor = System.Drawing.Color.White;
             this.btnRevenueCenter.Location = new System.Drawing.Point(803, 27);
             this.btnRevenueCenter.Name = "btnRevenueCenter";
             this.btnRevenueCenter.Size = new System.Drawing.Size(204, 38);
             this.btnRevenueCenter.TabIndex = 1;
             this.btnRevenueCenter.Text = "Revenue Center";
-            this.btnRevenueCenter.UseVisualStyleBackColor = true;
+            this.btnRevenueCenter.UseVisualStyleBackColor = false;
             this.btnRevenueCenter.Click += new System.EventHandler(this.btnRevenueCenter_Click);
             // 
             // panel1
@@ -102,6 +110,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.rpv);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

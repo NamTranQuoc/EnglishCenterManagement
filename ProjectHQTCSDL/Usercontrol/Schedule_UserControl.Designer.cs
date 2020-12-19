@@ -75,11 +75,11 @@ namespace ProjectHQTCSDL.Usercontrol
             this.colFriday,
             this.colSaturday,
             this.colSunday});
-            this.dgvSchedule.Location = new System.Drawing.Point(37, 94);
+            this.dgvSchedule.Location = new System.Drawing.Point(45, 94);
             this.dgvSchedule.Name = "dgvSchedule";
             this.dgvSchedule.ReadOnly = true;
             this.dgvSchedule.RowHeadersVisible = false;
-            this.dgvSchedule.Size = new System.Drawing.Size(1160, 550);
+            this.dgvSchedule.Size = new System.Drawing.Size(1142, 550);
             this.dgvSchedule.TabIndex = 2;
             // 
             // colShift
@@ -150,6 +150,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.dgvSchedule);
             this.Controls.Add(this.cbbWeek);
             this.Controls.Add(this.Week);

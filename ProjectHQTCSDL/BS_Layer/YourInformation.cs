@@ -11,15 +11,15 @@ namespace ProjectHQTCSDL.BS_Layer
     public class YourInformation
     {
 
-        public DataTable GetHocVien(int MaHocVien)
+        public DataTable GetStudent(int idStudent, ref string error, dbMain connectData)
         {
-            return dbMain.Instance.ExcuteQuery("Select * from HocVien where MaHocVien = " + MaHocVien);
+            return connectData.ExcuteQuery("EXEC [dbo].[GetStudent] " + idStudent, ref error);
         }
 
 
-        public DataTable GetGiaoVien(int MaGiaoVien)
+        public DataTable GetTeacher(int idTeacher, ref string error, dbMain connectData)
         {
-            return dbMain.Instance.ExcuteQuery("Select * from GiaoVien where MaGiaoVien = " + MaGiaoVien);
+            return connectData.ExcuteQuery("EXEC [dbo].[GetTeacher] " + idTeacher, ref error);
         }
     }
 }

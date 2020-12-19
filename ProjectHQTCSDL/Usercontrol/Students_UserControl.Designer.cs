@@ -34,7 +34,9 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label9 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tabAdd = new System.Windows.Forms.TabPage();
-            this.txtDOBNew = new System.Windows.Forms.TextBox();
+            this.dtpDOBNew = new System.Windows.Forms.DateTimePicker();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtEmailNew = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,6 +49,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.tabEdit = new System.Windows.Forms.TabPage();
+            this.btnResetPass = new System.Windows.Forms.Button();
             this.dtpDOB = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -67,8 +70,6 @@ namespace ProjectHQTCSDL.Usercontrol
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.tabAdd.SuspendLayout();
             this.tabEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListStudents)).BeginInit();
@@ -77,12 +78,15 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(137, 524);
+            this.btnSave.BackColor = System.Drawing.Color.Green;
+            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(40, 529);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(150, 42);
-            this.btnSave.TabIndex = 8;
+            this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtSearch
@@ -104,19 +108,21 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.Green;
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(141, 536);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(150, 42);
-            this.btnAdd.TabIndex = 18;
+            this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // tabAdd
             // 
+            this.tabAdd.Controls.Add(this.dtpDOBNew);
             this.tabAdd.Controls.Add(this.txtUsername);
             this.tabAdd.Controls.Add(this.label14);
-            this.tabAdd.Controls.Add(this.txtDOBNew);
             this.tabAdd.Controls.Add(this.label5);
             this.tabAdd.Controls.Add(this.txtEmailNew);
             this.tabAdd.Controls.Add(this.label6);
@@ -137,12 +143,29 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabAdd.Text = "Add";
             this.tabAdd.UseVisualStyleBackColor = true;
             // 
-            // txtDOBNew
+            // dtpDOBNew
             // 
-            this.txtDOBNew.Location = new System.Drawing.Point(174, 384);
-            this.txtDOBNew.Name = "txtDOBNew";
-            this.txtDOBNew.Size = new System.Drawing.Size(200, 26);
-            this.txtDOBNew.TabIndex = 37;
+            this.dtpDOBNew.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDOBNew.Location = new System.Drawing.Point(174, 382);
+            this.dtpDOBNew.Name = "dtpDOBNew";
+            this.dtpDOBNew.Size = new System.Drawing.Size(200, 26);
+            this.dtpDOBNew.TabIndex = 5;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(174, 95);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(200, 26);
+            this.txtUsername.TabIndex = 0;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(62, 98);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(87, 20);
+            this.label14.TabIndex = 38;
+            this.label14.Text = "Username:";
             // 
             // label5
             // 
@@ -158,7 +181,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtEmailNew.Location = new System.Drawing.Point(174, 326);
             this.txtEmailNew.Name = "txtEmailNew";
             this.txtEmailNew.Size = new System.Drawing.Size(200, 26);
-            this.txtEmailNew.TabIndex = 35;
+            this.txtEmailNew.TabIndex = 4;
             // 
             // label6
             // 
@@ -175,28 +198,28 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtIDNew.Name = "txtIDNew";
             this.txtIDNew.ReadOnly = true;
             this.txtIDNew.Size = new System.Drawing.Size(200, 26);
-            this.txtIDNew.TabIndex = 33;
+            this.txtIDNew.TabIndex = 10;
             // 
             // txtNameNew
             // 
             this.txtNameNew.Location = new System.Drawing.Point(174, 154);
             this.txtNameNew.Name = "txtNameNew";
             this.txtNameNew.Size = new System.Drawing.Size(200, 26);
-            this.txtNameNew.TabIndex = 32;
+            this.txtNameNew.TabIndex = 1;
             // 
             // txtAddressNew
             // 
             this.txtAddressNew.Location = new System.Drawing.Point(174, 269);
             this.txtAddressNew.Name = "txtAddressNew";
             this.txtAddressNew.Size = new System.Drawing.Size(200, 26);
-            this.txtAddressNew.TabIndex = 31;
+            this.txtAddressNew.TabIndex = 3;
             // 
             // txtPhoneNew
             // 
             this.txtPhoneNew.Location = new System.Drawing.Point(174, 210);
             this.txtPhoneNew.Name = "txtPhoneNew";
             this.txtPhoneNew.Size = new System.Drawing.Size(200, 26);
-            this.txtPhoneNew.TabIndex = 30;
+            this.txtPhoneNew.TabIndex = 2;
             // 
             // label7
             // 
@@ -236,6 +259,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // tabEdit
             // 
+            this.tabEdit.Controls.Add(this.btnResetPass);
             this.tabEdit.Controls.Add(this.dtpDOB);
             this.tabEdit.Controls.Add(this.label11);
             this.tabEdit.Controls.Add(this.txtEmail);
@@ -257,13 +281,25 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabEdit.Text = "Edit";
             this.tabEdit.UseVisualStyleBackColor = true;
             // 
+            // btnResetPass
+            // 
+            this.btnResetPass.BackColor = System.Drawing.Color.Brown;
+            this.btnResetPass.ForeColor = System.Drawing.Color.White;
+            this.btnResetPass.Location = new System.Drawing.Point(230, 529);
+            this.btnResetPass.Name = "btnResetPass";
+            this.btnResetPass.Size = new System.Drawing.Size(150, 42);
+            this.btnResetPass.TabIndex = 27;
+            this.btnResetPass.Text = "Reset Pass";
+            this.btnResetPass.UseVisualStyleBackColor = false;
+            this.btnResetPass.Click += new System.EventHandler(this.btnResetPass_Click);
+            // 
             // dtpDOB
             // 
             this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDOB.Location = new System.Drawing.Point(180, 341);
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(200, 26);
-            this.dtpDOB.TabIndex = 25;
+            this.dtpDOB.TabIndex = 12;
             // 
             // label11
             // 
@@ -279,7 +315,7 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtEmail.Location = new System.Drawing.Point(180, 285);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 26);
-            this.txtEmail.TabIndex = 23;
+            this.txtEmail.TabIndex = 11;
             // 
             // label10
             // 
@@ -296,28 +332,28 @@ namespace ProjectHQTCSDL.Usercontrol
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(200, 26);
-            this.txtID.TabIndex = 21;
+            this.txtID.TabIndex = 7;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(180, 113);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 26);
-            this.txtName.TabIndex = 20;
+            this.txtName.TabIndex = 8;
             // 
             // txtAddress
             // 
             this.txtAddress.Location = new System.Drawing.Point(180, 228);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(200, 26);
-            this.txtAddress.TabIndex = 19;
+            this.txtAddress.TabIndex = 10;
             // 
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(180, 169);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(200, 26);
-            this.txtPhone.TabIndex = 18;
+            this.txtPhone.TabIndex = 9;
             // 
             // label4
             // 
@@ -379,7 +415,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "MaHocVien";
+            this.Column1.DataPropertyName = "IdStudent";
             this.Column1.HeaderText = "ID";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -387,7 +423,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "HoTen";
+            this.Column2.DataPropertyName = "FullName";
             this.Column2.HeaderText = "Name";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -395,14 +431,14 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column3
             // 
-            this.Column3.DataPropertyName = "SDT";
+            this.Column3.DataPropertyName = "PhoneNumber";
             this.Column3.HeaderText = "Phone";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
-            this.Column4.DataPropertyName = "DiaChi";
+            this.Column4.DataPropertyName = "Address";
             this.Column4.HeaderText = "Address";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -418,7 +454,7 @@ namespace ProjectHQTCSDL.Usercontrol
             // 
             // Column6
             // 
-            this.Column6.DataPropertyName = "NgaySinh";
+            this.Column6.DataPropertyName = "DOB";
             this.Column6.HeaderText = "DOB";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -434,26 +470,11 @@ namespace ProjectHQTCSDL.Usercontrol
             this.tabControl.Size = new System.Drawing.Size(421, 668);
             this.tabControl.TabIndex = 9;
             // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(174, 95);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(200, 26);
-            this.txtUsername.TabIndex = 39;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(62, 98);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(87, 20);
-            this.label14.TabIndex = 38;
-            this.label14.Text = "Username:";
-            // 
             // Students_UserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dgvListStudents);
@@ -494,11 +515,9 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvListStudents;
         private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TextBox txtDOBNew;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtEmailNew;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtIDNew;
         private System.Windows.Forms.TextBox txtNameNew;
         private System.Windows.Forms.TextBox txtAddressNew;
         private System.Windows.Forms.TextBox txtPhoneNew;
@@ -506,14 +525,17 @@ namespace ProjectHQTCSDL.Usercontrol
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DateTimePicker dtpDOB;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DateTimePicker dtpDOBNew;
+        public System.Windows.Forms.TextBox txtIDNew;
+        private System.Windows.Forms.Button btnResetPass;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DateTimePicker dtpDOB;
-        private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.Label label14;
     }
 }

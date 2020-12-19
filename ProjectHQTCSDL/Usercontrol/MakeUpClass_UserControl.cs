@@ -9,182 +9,138 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectHQTCSDL.BS_Layer;
+using ProjectHQTCSDL.DB_Layer;
 
 namespace ProjectHQTCSDL.Usercontrol
 {
     public partial class MakeUpClass_UserControl : UserControl
     {
         // Lấy maHocVien là tài khoản đăng nhập
-        public int maHocVien;
-        private int maLopHocBu = 0;
+        public int IdStudent;
 
-        DataTable dtHocBu = null;
+        int row;
         MakeUpClass dbMUC = new MakeUpClass();
+
+        public dbMain connectData;
 
         public MakeUpClass_UserControl()
         {
             InitializeComponent();
         }
 
-        public void LoadCboLopHoc()
+        private void btnSave_Click(object sender, EventArgs e)
         {
+            string error = "error";
             try
             {
-                cboLopHoc.Items.Clear();
-                List<int> dsLopHoc = dbMUC.LayLopHocHV(maHocVien);
-                for (int i = 0; i < dsLopHoc.Count; i++)
-                    cboLopHoc.Items.Add(dsLopHoc[i]);
-                cboLopHoc.Text = dsLopHoc[0].ToString();
-            }
-            catch { }
-        }
-
-        public void LoadSoBuoi()
-        {
-            try
-            {
-                cboBuoiHoc.Items.Clear();
-                int soBuoi = dbMUC.SoBuoiHoc(Convert.ToInt32(cboLopHoc.Text));
-                for (int i = 1; i < soBuoi + 1; i++)
-                    cboBuoiHoc.Items.Add(i);
-            }
-            catch { }
-        }
-
-        public void HienThiHocBuNeuCo()
-        {
-            int check = dbMUC.KtraHocBuCoTonTai(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text));
-            if (check!=-1)
-            {
-                foreach (DataGridViewRow row in dgvMUC.Rows)
+                if (btnSave.Text == "Enroll")
                 {
-                    if (Convert.ToInt32(row.Cells[1].Value) == check)
-                        row.Cells[5].Value = true;
-                }
-                btnLuu.Enabled = true;
-                btnHuyBo.Enabled = true;
-            }    
-        }
-
-        public void Load_Data()
-        {
-            if (cboLopHoc.Text != "")
-            {
-                try
-                {
-                    dtHocBu = new DataTable();
-                    dtHocBu.Clear();
-                    int theoKhoaHoc = dbMUC.LayKhoaLH(Convert.ToInt32(cboLopHoc.Text));
-                    dtHocBu = dbMUC.LayHocBu(theoKhoaHoc, Convert.ToInt32(cboLopHoc.Text.Trim()), Convert.ToInt32(cboBuoiHoc.Text.Trim()));
-                    dgvMUC.DataSource = dtHocBu;
-                    btnLuu.Enabled = false;
-                    btnHuyBo.Enabled = false;
-                    HienThiHocBuNeuCo();
-                    //     dgvMUC.AutoResizeColumns();
-                    //     dgvMUC.Rows[0].Cells[5].Value = true;
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Không lấy được nội dung trong bảng Học bù!");
-                }
-            }
-        }
-
-
-        private void dgvMUC_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            int columnIndex = 5;
-            if (e.ColumnIndex == columnIndex)
-            {
-                bool isChecked = Convert.ToBoolean(dgvMUC.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
-                if (isChecked)
-                {
-                    foreach (DataGridViewRow row in dgvMUC.Rows)
+                    if (dbMUC.EnrollAbsent(IdStudent, int.Parse(cboClass.Text), int.Parse(cboSession.Text), int.Parse(dgvMUC.Rows[row].Cells[1].Value.ToString()), connectData, ref error))
                     {
-                        if (row.Index != e.RowIndex)
-                            row.Cells[columnIndex].Value = false;
+                        this.btnSave.Text = "Unenroll";
+                        this.GetClassAbsent();
+                        MessageBox.Show("Registration successful", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                }
-            }
-        }
-
-        private void dgvMUC_CurrentCellDirtyStateChanged(object sender, EventArgs e)
-        {
-            if (dgvMUC.IsCurrentCellDirty)
-                dgvMUC.CommitEdit(DataGridViewDataErrorContexts.Commit);
-
-            int columnIndex = 5;
-            foreach (DataGridViewRow row in dgvMUC.Rows)
-                if (Convert.ToBoolean(row.Cells[columnIndex].Value))
-                    maLopHocBu = Convert.ToInt32(row.Cells[1].Value);
-
-            btnLuu.Enabled = true;
-            btnHuyBo.Enabled = true;
-        }
-
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (dbMUC.KtraHocBuCoTonTai(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text)) == -1)
-                {
-                    dbMUC.ThemVaCapNhatBuoiHocVang(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text), maLopHocBu);
-                    MessageBox.Show("Đã thêm lớp học bù thành công!");
+                    else
+                        MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    dbMUC.ThemVaCapNhatBuoiHocVang(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text), maLopHocBu);
-                    MessageBox.Show("Đã cập nhật lớp học bù thành công!");
-                }
-            }
-            catch(SqlException)
-            {
-                MessageBox.Show("Không thể Lưu! Lỗi rồi!!!");
-            }
-        }
-
-        private void btnHuyBo_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int check = dbMUC.KtraHocBuCoTonTai(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(cboBuoiHoc.Text));
-                if (check != -1)
-                {
-                    foreach (DataGridViewRow row in dgvMUC.Rows)
+                    if (dbMUC.UnenrollAbsent(IdStudent, int.Parse(cboClass.Text), int.Parse(cboSession.Text), connectData, ref error))
                     {
-                        if (Convert.ToInt32(row.Cells[1].Value) == check)
-                        {
-                            dbMUC.HuyBoHocBu(maHocVien, Convert.ToInt32(cboLopHoc.Text), Convert.ToInt32(row.Cells[2].Value));
-                            MessageBox.Show("Hủy bỏ thành công!!!");
-                            break;
-                        }
+                        this.btnSave.Text = "Enroll";
+                        this.GetClassAbsent();
+                        MessageBox.Show("Canceled successfully", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+                    else
+                        MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error); 
                 }
-                Load_Data();
             }
-            catch(SqlException)
+            catch
             {
-                MessageBox.Show("Hủy bỏ thất bại!");
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void cboLopHoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadSoBuoi();
-            Load_Data();
-        }
-
-        private void cboBuoiHoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Load_Data();
         }
 
         private void MakeUpClass_UserControl_Load(object sender, EventArgs e)
         {
-            cboBuoiHoc.Text = "1";
-            LoadCboLopHoc();
-            LoadSoBuoi();
-            Load_Data();
+            this.GetListClass();
+        }
+
+        private void cboClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int test;
+                if (int.TryParse(cboClass.Text, out test))
+                    this.GetListSession();   
+            }
+            catch { }
+        }
+
+        private void cboSession_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int test;
+                if (int.TryParse(cboSession.Text, out test))
+                    this.GetClassAbsent();
+            }
+            catch { }
+        }
+
+        private void GetListClass()
+        {
+            string error = "error";
+            try
+            {
+                cboClass.DataSource = dbMUC.GetListClassAbsent(IdStudent, connectData, ref error);
+                cboClass.DisplayMember = "IdClass";
+            }
+            catch
+            {
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void GetListSession()
+        {
+            string error = "";
+            try
+            {
+                cboSession.DataSource = dbMUC.GetListSessionAbsent(IdStudent, int.Parse(cboClass.Text), connectData, ref error);
+                cboSession.DisplayMember = "Session";
+            }
+            catch
+            {
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void GetClassAbsent()
+        {
+            string error = "";
+            try
+            {
+                dgvMUC.DataSource = dbMUC.GetClassAbsent(IdStudent, int.Parse(cboClass.Text), int.Parse(cboSession.Text), connectData, ref error);
+            }
+            catch
+            {
+                MessageBox.Show(error, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvMUC_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if ((bool)dgvMUC.Rows[e.RowIndex].Cells[5].Value)
+            {
+                btnSave.Text = "Unenroll";
+            }
+            else
+            {
+                btnSave.Text = "Enroll";
+            }
+            row = e.RowIndex;
         }
     }
 }

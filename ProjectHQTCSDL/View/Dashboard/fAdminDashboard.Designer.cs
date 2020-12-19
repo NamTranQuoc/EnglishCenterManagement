@@ -29,6 +29,7 @@ namespace ProjectHQTCSDL.View.Dashboard
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAdminDashboard));
             this.pUserControl = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,6 +49,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             // 
             // pUserControl
             // 
+            this.pUserControl.BackColor = System.Drawing.Color.White;
             this.pUserControl.Location = new System.Drawing.Point(227, 83);
             this.pUserControl.Name = "pUserControl";
             this.pUserControl.Size = new System.Drawing.Size(1233, 674);
@@ -62,6 +64,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1233, 81);
             this.panel2.TabIndex = 10;
+            this.panel2.TabStop = true;
             // 
             // label1
             // 
@@ -90,6 +93,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(225, 756);
             this.panel1.TabIndex = 9;
+            this.panel1.TabStop = true;
             // 
             // btnExpenses
             // 
@@ -235,6 +239,7 @@ namespace ProjectHQTCSDL.View.Dashboard
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "fAdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
